@@ -1,10 +1,12 @@
 import { ArrowRight, Droplets, Leaf, Sprout, ShieldCheck, Microscope, Search, CheckCircle2 } from "lucide-react";
 import { FadeIn } from "@/components/ui/fade-in";
 
-// Assets
 import heroBanner from '@assets/zrp_aff-01_1772017659058.png';
 import logoZrp from '@assets/Asset_3@2x_1772017659058.png';
 import logoZrpAlt from '@assets/zrp_1772017659059.png';
+import imgTC from '@assets/ZRP_TC_1772025754847.png';
+import imgTPC from '@assets/TPC_ZRP_1772025754847.png';
+import imgTPE from '@assets/TPE_ZRP_1772025754847.png';
 
 export default function ZRP() {
   return (
@@ -75,31 +77,21 @@ export default function ZRP() {
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { name: "Double Concentré de Tomates", color: "bg-red-500" },
-              { name: "Tomates Pelées", color: "bg-red-600" },
-              { name: "Tomates en Cubes", color: "bg-red-700" },
-              { name: "Pulpe de Tomates", color: "bg-red-800" },
+              { name: "Tomates Pelées Concassées", img: imgTC },
+              { name: "Tomates Pelées en Cubes", img: imgTPC },
+              { name: "Tomates Entières Pelées", img: imgTPE },
             ].map((product, i) => (
               <FadeIn key={i} delay={i * 0.1} direction="up">
                 <div className="bg-white rounded-3xl p-6 shadow-lg border border-slate-100 relative group hover:-translate-y-2 transition-transform duration-300">
-                  {/* ZRP Badge Absolute */}
-                  <div className="absolute -top-4 -right-4 w-20 h-20 bg-white rounded-full p-2 shadow-lg z-10 transform group-hover:scale-110 transition-transform">
-                    <img src={logoZrp} alt="Badge ZRP" className="w-full h-full object-contain" />
+                  <div className="w-full aspect-square rounded-2xl bg-slate-50 mb-6 flex items-center justify-center p-4">
+                    <img src={product.img} alt={product.name} className="w-full h-full object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-300" />
                   </div>
-                  
-                  {/* Product visual placeholder */}
-                  <div className={`w-full aspect-square rounded-2xl ${product.color} mb-6 flex items-center justify-center text-white/50 overflow-hidden relative`}>
-                     {/* abstract pattern for product */}
-                     <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent mix-blend-overlay"></div>
-                     <span className="font-display font-bold text-white/90 text-center px-4 z-10">{product.name}</span>
-                  </div>
-                  
                   <h4 className="text-xl font-bold text-slate-800 text-center">{product.name}</h4>
                   <div className="mt-4 flex justify-center">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-semibold">
-                      <CheckCircle2 size={14} /> 100% Tomates fraîches
+                      <CheckCircle2 size={14} /> Certifié ZRP
                     </span>
                   </div>
                 </div>
