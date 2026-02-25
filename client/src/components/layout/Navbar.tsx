@@ -4,17 +4,11 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-// Using the provided static assets
 import logoSicam from '@assets/Asset_2@2x_1772017659057.png';
 
 const navLinks = [
   { href: "/", label: "Accueil" },
-  { href: "/#histoire", label: "Notre histoire" },
   { href: "/zrp", label: "Programme ZRP" },
-  { href: "/#produits", label: "Nos produits" },
-  { href: "/#valeurs", label: "Nos valeurs" },
-  { href: "/#certifications", label: "Nos certifications" },
-  { href: "#contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -30,40 +24,37 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
 
   return (
-    <header 
+    <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled ? "glass-nav py-3" : "bg-transparent py-5"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        {/* Logo */}
         <Link href="/" className="flex-shrink-0 z-50">
-          <img 
-            src={logoSicam} 
-            alt="SICAM Logo" 
+          <img
+            src={logoSicam}
+            alt="SICAM Logo"
             className="h-10 md:h-14 w-auto object-contain transition-transform hover:scale-105"
           />
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
           <ul className="flex items-center gap-6">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link 
+                <Link
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-primary relative group",
-                    (location === link.href && link.href !== "/") || (location === "/" && link.href === "/") 
-                      ? "text-primary" 
-                      : (isScrolled ? "text-foreground" : "text-white/90 hover:text-white")
+                    "text-sm font-medium transition-colors relative group",
+                    location === link.href
+                      ? "text-primary"
+                      : (isScrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white")
                   )}
                 >
                   {link.label}
@@ -72,16 +63,15 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          
+
           <Link href="/zrp">
-            <Button variant={isScrolled ? "default" : "white"} className="font-bold">
+            <Button className="font-bold">
               Découvrir le programme ZRP
             </Button>
           </Link>
         </nav>
 
-        {/* Mobile Menu Toggle */}
-        <button 
+        <button
           className="lg:hidden z-50 p-2 text-foreground bg-white/50 rounded-full backdrop-blur-sm"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
@@ -89,17 +79,16 @@ export function Navbar() {
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
 
-        {/* Mobile Navigation */}
-        <div 
+        <div
           className={cn(
             "fixed inset-0 bg-background/95 backdrop-blur-xl z-40 lg:hidden flex flex-col pt-24 px-6 pb-8 transition-transform duration-300 ease-in-out",
             mobileMenuOpen ? "translate-x-0" : "translate-x-full"
           )}
         >
-          <ul className="flex flex-col gap-6 text-xl font-display font-semibold mt-8">
+          <ul className="flex flex-col gap-6 text-xl font-semibold mt-8">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link 
+                <Link
                   href={link.href}
                   className="block w-full text-foreground hover:text-primary transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
