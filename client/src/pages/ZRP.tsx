@@ -84,9 +84,9 @@ export default function ZRP() {
               { name: "Tomates Entières Pelées", img: imgTPE },
             ].map((product, i) => (
               <FadeIn key={i} delay={i * 0.1} direction="up">
-                <div className="bg-white rounded-3xl p-6 shadow-lg border border-slate-100 relative group hover:-translate-y-2 transition-transform duration-300">
-                  <div className="w-full aspect-square rounded-2xl bg-slate-50 mb-6 flex items-center justify-center p-4">
-                    <img src={product.img} alt={product.name} className="w-full h-full object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-300" />
+                <div className="bg-white rounded-3xl p-6 shadow-lg border border-slate-100 relative group hover:-translate-y-2 transition-transform duration-300 h-full flex flex-col">
+                  <div className="w-full aspect-square rounded-2xl bg-slate-50 mb-6 flex items-center justify-center p-4 overflow-hidden">
+                    <img src={product.img} alt={product.name} className="max-w-full max-h-full object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-300" />
                   </div>
                   <h4 className="text-xl font-bold text-slate-800 text-center">{product.name}</h4>
                   <div className="mt-4 flex justify-center">
