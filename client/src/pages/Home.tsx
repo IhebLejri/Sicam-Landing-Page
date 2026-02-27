@@ -1,68 +1,214 @@
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "wouter";
-import { ArrowRight, CheckCircle2, Leaf, ShieldCheck, Globe2, Award, TestTube } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, Leaf, ShieldCheck, Globe2, Award, TestTube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/fade-in";
+import { cn } from "@/lib/utils";
 
-// Assets
 import heroBanner from '@assets/zrp_aff-01_1772017659058.png';
 import logoZrp from '@assets/Asset_3@2x_1772017659058.png';
+import imgTC from '@assets/ZRP_TC_1772025754847.png';
+import imgTPC from '@assets/TPC_ZRP_1772025754847.png';
+import imgTPE from '@assets/TPE_ZRP_1772025754847.png';
+
+const slides = [
+  {
+    id: 0,
+    tab: "ZERO RESIDUS DE PESTICIDES",
+    title: "Des produits garantis zéro* résidu de pesticides",
+    subtitle: "Notre priorité. Votre santé.",
+    cta: { label: "Découvrir le programme ZRP", href: "/zrp" },
+    bg: heroBanner,
+    overlay: "from-[#8B1A2B]/90 via-[#8B1A2B]/60 to-transparent",
+    product: null,
+  },
+  {
+    id: 1,
+    tab: "TOMATES PELEES CONCASSEES",
+    title: "Tomates Pelées Concassées",
+    subtitle: "Certifiées Zéro Résidu de Pesticides. 100% tomates tunisiennes.",
+    cta: { label: "En savoir plus", href: "/zrp" },
+    bg: null,
+    overlay: "",
+    bgColor: "bg-gradient-to-br from-sky-100 via-sky-50 to-white",
+    product: imgTC,
+  },
+  {
+    id: 2,
+    tab: "TOMATES EN CUBES",
+    title: "Tomates Pelées en Cubes",
+    subtitle: "Au jus naturel. Certifiées ZRP. Idéales pour vos sauces et mijotés.",
+    cta: { label: "En savoir plus", href: "/zrp" },
+    bg: null,
+    overlay: "",
+    bgColor: "bg-gradient-to-br from-blue-100 via-blue-50 to-white",
+    product: imgTPC,
+  },
+  {
+    id: 3,
+    tab: "TOMATES ENTIERES PELEES",
+    title: "Tomates Entières Pelées",
+    subtitle: "Au jus naturel. Certifiées ZRP. La qualité SICAM depuis 1969.",
+    cta: { label: "En savoir plus", href: "/zrp" },
+    bg: null,
+    overlay: "",
+    bgColor: "bg-gradient-to-br from-cyan-100 via-cyan-50 to-white",
+    product: imgTPE,
+  },
+];
+
+function HeroCarousel() {
+  const [current, setCurrent] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const goTo = useCallback((index: number) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrent(index);
+    setTimeout(() => setIsTransitioning(false), 600);
+  }, [isTransitioning]);
+
+  const prev = useCallback(() => {
+    goTo(current === 0 ? slides.length - 1 : current - 1);
+  }, [current, goTo]);
+
+  const next = useCallback(() => {
+    goTo(current === slides.length - 1 ? 0 : current + 1);
+  }, [current, goTo]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      next();
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  const slide = slides[current];
+
+  return (
+    <section className="relative min-h-[90vh] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
+      {slide.bg ? (
+        <div className="absolute inset-0 z-0">
+          <img
+            src={slide.bg}
+            alt=""
+            className="w-full h-full object-cover object-center transition-opacity duration-700"
+          />
+          <div className={cn("absolute inset-0 bg-gradient-to-r", slide.overlay)}></div>
+        </div>
+      ) : (
+        <div className={cn("absolute inset-0 z-0 transition-colors duration-700", slide.bgColor)}></div>
+      )}
+
+      <div className="container relative z-10 mx-auto px-4 md:px-6 flex-1 flex items-center">
+        <div className="grid lg:grid-cols-2 gap-8 items-center w-full">
+          <div className="space-y-6">
+            <div
+              key={`title-${current}`}
+              className="animate-fade-in-up"
+            >
+              <h1 className={cn(
+                "text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-4",
+                slide.bg ? "text-white" : "text-slate-900"
+              )}>
+                {slide.title}
+              </h1>
+              <p className={cn(
+                "text-xl md:text-2xl mb-8",
+                slide.bg ? "text-white/90" : "text-slate-600"
+              )}>
+                {slide.subtitle}
+              </p>
+            </div>
+            <Link href={slide.cta.href}>
+              <Button
+                size="lg"
+                className={cn(
+                  "text-lg gap-2 h-14 px-8",
+                  !slide.bg && "bg-primary text-white"
+                )}
+                data-testid="hero-cta"
+              >
+                {slide.cta.label}
+                <ArrowRight size={20} />
+              </Button>
+            </Link>
+          </div>
+
+          {slide.product && (
+            <div className="flex justify-center lg:justify-end">
+              <div
+                key={`product-${current}`}
+                className="animate-fade-in-up"
+              >
+                <img
+                  src={slide.product}
+                  alt={slide.title}
+                  className="h-[350px] md:h-[450px] lg:h-[500px] object-contain drop-shadow-2xl"
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <button
+        onClick={prev}
+        className={cn(
+          "absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all",
+          slide.bg
+            ? "bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
+            : "bg-white text-slate-700 shadow-lg border border-slate-200 hover:bg-slate-50"
+        )}
+        data-testid="carousel-prev"
+      >
+        <ArrowLeft size={20} />
+      </button>
+      <button
+        onClick={next}
+        className={cn(
+          "absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all",
+          slide.bg
+            ? "bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
+            : "bg-white text-slate-700 shadow-lg border border-slate-200 hover:bg-slate-50"
+        )}
+        data-testid="carousel-next"
+      >
+        <ArrowRight size={20} />
+      </button>
+
+      <div className="relative z-20 w-full">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex justify-center">
+            <div className="flex bg-black/30 backdrop-blur-md rounded-t-xl overflow-hidden">
+              {slides.map((s, i) => (
+                <button
+                  key={s.id}
+                  onClick={() => goTo(i)}
+                  className={cn(
+                    "px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm font-bold uppercase tracking-wider transition-all whitespace-nowrap",
+                    current === i
+                      ? "bg-primary text-white"
+                      : "text-white/70 hover:text-white hover:bg-white/10"
+                  )}
+                  data-testid={`carousel-tab-${i}`}
+                >
+                  {s.tab}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
-      {/* Section 1: Hero */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={heroBanner} 
-            alt="Champs de tomates SICAM" 
-            className="w-full h-full object-cover object-center"
-          />
-          {/* Deep gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
-          <div className="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
-        </div>
+      <HeroCarousel />
 
-        <div className="container relative z-10 mx-auto px-4 md:px-6">
-          <div className="max-w-3xl">
-            <FadeIn delay={0.1}>
-              <span className="inline-block py-1 px-3 rounded-full bg-primary/20 text-white backdrop-blur-md border border-white/10 text-sm font-semibold tracking-wider mb-6 uppercase">
-                Depuis 1969, l'excellence tunisienne à votre table
-              </span>
-            </FadeIn>
-            
-            <FadeIn delay={0.2}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-black text-white leading-[1.1] mb-6 text-balance">
-                La tomate tunisienne, cultivée <span className="text-secondary">proprement.</span>
-              </h1>
-            </FadeIn>
-            
-            <FadeIn delay={0.3}>
-              <p className="text-xl md:text-2xl text-white/90 mb-2 font-medium">
-                Nous avons fait le choix de la transparence.
-              </p>
-              <p className="text-xl text-white/80 mb-10">
-                Notre priorité. Votre santé.
-              </p>
-            </FadeIn>
-            
-            <FadeIn delay={0.4} className="flex flex-col sm:flex-row gap-4">
-              <Link href="/zrp">
-                <Button size="lg" className="w-full sm:w-auto text-lg gap-2">
-                  Découvrir notre engagement ZRP
-                  <ArrowRight size={20} />
-                </Button>
-              </Link>
-              <Button size="lg" variant="white" className="w-full sm:w-auto text-lg bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border-white/20 border">
-                En savoir plus sur SICAM
-              </Button>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2: Stats */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
@@ -71,14 +217,14 @@ export default function Home() {
               { value: "+60%", label: "Part de marché", sub: "Leader en Tunisie", icon: Globe2 },
               { value: "1ère", label: "Entreprise", sub: "Certifiée ZRP", icon: ShieldCheck },
               { value: "+30", label: "Pays", sub: "D'exportation", icon: Globe2 },
-              { value: "100%", label: "Origine", sub: "Tomates fraîches", icon: Leaf },
+              { value: "100%", label: "Origine", sub: "Tomates tunisiennes", icon: Leaf },
               { value: "615", label: "Molécules", sub: "Analysées", icon: TestTube },
             ].map((stat, i) => (
               <FadeIn key={i} delay={i * 0.1} direction="up" className="flex flex-col items-center">
                 <div className="w-16 h-16 rounded-2xl bg-background flex items-center justify-center text-primary mb-4 shadow-sm">
                   <stat.icon size={32} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-4xl font-display font-black text-foreground mb-1">{stat.value}</h3>
+                <h3 className="text-4xl font-black text-foreground mb-1">{stat.value}</h3>
                 <p className="text-sm font-bold text-slate-800">{stat.label}</p>
                 <p className="text-xs text-muted-foreground mt-1">{stat.sub}</p>
               </FadeIn>
@@ -87,29 +233,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 3: About */}
       <section id="histoire" className="py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <FadeIn direction="right">
-              {/* Using a structural abstract layout since no specific about image was provided, but making it look beautiful */}
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-[3rem] blur-2xl opacity-50"></div>
                 <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl">
-                  <img 
-                    src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?q=80&w=2070&auto=format&fit=crop" 
-                    alt="Tomates fraîches" 
+                  <img
+                    src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?q=80&w=2070&auto=format&fit=crop"
+                    alt="Tomates fraîches"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 border-4 border-white/20 rounded-[2rem]"></div>
                 </div>
-                {/* Floating badge */}
                 <div className="absolute -bottom-8 -right-8 bg-white p-6 rounded-3xl shadow-xl max-w-xs hidden md:block">
                   <div className="flex items-center gap-4 mb-2">
                     <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
                       <CheckCircle2 size={24} />
                     </div>
-                    <span className="font-display font-bold text-lg">Qualité Garantie</span>
+                    <span className="font-bold text-lg">Qualité Garantie</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Une sélection rigoureuse des meilleures graines pour une saveur authentique.</p>
                 </div>
@@ -118,7 +261,7 @@ export default function Home() {
 
             <FadeIn direction="left" className="space-y-6">
               <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Notre Histoire</h2>
-              <h3 className="text-4xl md:text-5xl font-display font-black text-foreground leading-tight">
+              <h3 className="text-4xl md:text-5xl font-black text-foreground leading-tight">
                 SICAM, nés de la terre pour <span className="text-primary">nourrir le monde</span>
               </h3>
               <div className="space-y-4 text-lg text-slate-600 leading-relaxed">
@@ -142,22 +285,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 4: ZRP Focus */}
       <section className="py-12 pb-24">
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn>
             <div className="bg-secondary rounded-[3rem] p-8 md:p-16 relative overflow-hidden shadow-2xl shadow-secondary/20">
-              {/* Decorative background elements */}
               <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl"></div>
-              
+
               <div className="relative z-10 grid lg:grid-cols-12 gap-12 items-center">
                 <div className="lg:col-span-8 space-y-6">
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 text-white text-sm font-medium">
                     <ShieldCheck size={18} />
                     Innovation 2024
                   </div>
-                  <h2 className="text-4xl md:text-6xl font-display font-black text-white leading-tight">
+                  <h2 className="text-4xl md:text-6xl font-black text-white leading-tight">
                     Zéro Résidu de Pesticides <span className="text-accent">— ZRP</span>
                   </h2>
                   <p className="text-xl text-white/90 max-w-2xl leading-relaxed">
@@ -165,14 +306,14 @@ export default function Home() {
                   </p>
                   <div className="pt-4">
                     <Link href="/zrp">
-                      <Button variant="white" size="lg" className="text-secondary hover:bg-accent hover:text-secondary-foreground text-lg h-14 px-8">
+                      <Button variant="outline" size="lg" className="bg-white text-secondary border-white text-lg h-14 px-8">
                         Tout savoir sur le programme ZRP
                         <ArrowRight className="ml-2" size={20} />
                       </Button>
                     </Link>
                   </div>
                 </div>
-                
+
                 <div className="lg:col-span-4 flex justify-center lg:justify-end">
                   <div className="bg-white p-8 rounded-full shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                     <img src={logoZrp} alt="Logo ZRP" className="w-48 h-48 object-contain" />
