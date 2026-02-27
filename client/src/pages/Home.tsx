@@ -28,9 +28,8 @@ const slides = [
     title: "Tomates Pelées Concassées",
     subtitle: "Certifiées Zéro Résidu de Pesticides. 100% tomates tunisiennes.",
     cta: { label: "En savoir plus", href: "/zrp" },
-    bg: null,
-    overlay: "",
-    bgColor: "bg-gradient-to-br from-sky-100 via-sky-50 to-white",
+    bg: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=2070&auto=format&fit=crop",
+    overlay: "from-[#1a3c17]/85 via-[#1a3c17]/50 to-transparent",
     product: imgTC,
   },
   {
@@ -39,9 +38,8 @@ const slides = [
     title: "Tomates Pelées en Cubes",
     subtitle: "Au jus naturel. Certifiées ZRP. Idéales pour vos sauces et mijotés.",
     cta: { label: "En savoir plus", href: "/zrp" },
-    bg: null,
-    overlay: "",
-    bgColor: "bg-gradient-to-br from-blue-100 via-blue-50 to-white",
+    bg: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?q=80&w=2070&auto=format&fit=crop",
+    overlay: "from-[#8B1A2B]/85 via-[#8B1A2B]/50 to-transparent",
     product: imgTPC,
   },
   {
@@ -50,9 +48,8 @@ const slides = [
     title: "Tomates Entières Pelées",
     subtitle: "Au jus naturel. Certifiées ZRP. La qualité SICAM depuis 1969.",
     cta: { label: "En savoir plus", href: "/zrp" },
-    bg: null,
-    overlay: "",
-    bgColor: "bg-gradient-to-br from-cyan-100 via-cyan-50 to-white",
+    bg: "https://images.unsplash.com/photo-1595855759920-86582396756a?q=80&w=2070&auto=format&fit=crop",
+    overlay: "from-[#1a3c17]/85 via-[#1a3c17]/50 to-transparent",
     product: imgTPE,
   },
 ];
@@ -87,18 +84,14 @@ function HeroCarousel() {
 
   return (
     <section className="relative min-h-[90vh] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
-      {slide.bg ? (
-        <div className="absolute inset-0 z-0">
-          <img
-            src={slide.bg}
-            alt=""
-            className="w-full h-full object-cover object-center transition-opacity duration-700"
-          />
-          <div className={cn("absolute inset-0 bg-gradient-to-r", slide.overlay)}></div>
-        </div>
-      ) : (
-        <div className={cn("absolute inset-0 z-0 transition-colors duration-700", slide.bgColor)}></div>
-      )}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={slide.bg}
+          alt=""
+          className="w-full h-full object-cover object-center transition-opacity duration-700"
+        />
+        <div className={cn("absolute inset-0 bg-gradient-to-r", slide.overlay)}></div>
+      </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-6 flex-1 flex items-center">
         <div className="grid lg:grid-cols-2 gap-8 items-center w-full">
@@ -107,26 +100,17 @@ function HeroCarousel() {
               key={`title-${current}`}
               className="animate-fade-in-up"
             >
-              <h1 className={cn(
-                "text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-4",
-                slide.bg ? "text-white" : "text-slate-900"
-              )}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-4 text-white">
                 {slide.title}
               </h1>
-              <p className={cn(
-                "text-xl md:text-2xl mb-8",
-                slide.bg ? "text-white/90" : "text-slate-600"
-              )}>
+              <p className="text-xl md:text-2xl mb-8 text-white/90">
                 {slide.subtitle}
               </p>
             </div>
             <Link href={slide.cta.href}>
               <Button
                 size="lg"
-                className={cn(
-                  "text-lg gap-2 h-14 px-8",
-                  !slide.bg && "bg-primary text-white"
-                )}
+                className="text-lg gap-2 h-14 px-8"
                 data-testid="hero-cta"
               >
                 {slide.cta.label}
@@ -154,24 +138,14 @@ function HeroCarousel() {
 
       <button
         onClick={prev}
-        className={cn(
-          "absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all",
-          slide.bg
-            ? "bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
-            : "bg-white text-slate-700 shadow-lg border border-slate-200 hover:bg-slate-50"
-        )}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
         data-testid="carousel-prev"
       >
         <ArrowLeft size={20} />
       </button>
       <button
         onClick={next}
-        className={cn(
-          "absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all",
-          slide.bg
-            ? "bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
-            : "bg-white text-slate-700 shadow-lg border border-slate-200 hover:bg-slate-50"
-        )}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
         data-testid="carousel-next"
       >
         <ArrowRight size={20} />
