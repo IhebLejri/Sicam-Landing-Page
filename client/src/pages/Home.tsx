@@ -270,14 +270,25 @@ export default function Home() {
                 <div className="lg:col-span-8 space-y-6">
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 text-white text-sm font-medium">
                     <ShieldCheck size={18} />
-                    Innovation 2024
+                    Notre programme phare
                   </div>
                   <h2 className="text-4xl md:text-6xl font-black text-white leading-tight">
                     Zéro Résidu de Pesticides <span className="text-accent">— ZRP</span>
                   </h2>
-                  <p className="text-xl text-white/90 max-w-2xl leading-relaxed">
-                    SICAM est fière d'être la première entreprise de conserve en Tunisie à proposer une gamme de produits certifiés "Zéro Résidu de Pesticides". Une garantie absolue pour votre santé.
+                  <p className="text-2xl font-bold text-accent italic">
+                    « Notre priorité. Votre santé. »
                   </p>
+                  <div className="space-y-4 text-lg text-white/90 max-w-2xl leading-relaxed">
+                    <p>
+                      96 % des Tunisiens s'inquiètent de la présence de pesticides dans leur alimentation. Chez SICAM, nous ne répondons pas à cette inquiétude avec des promesses — nous y répondons avec des certifications.
+                    </p>
+                    <p>
+                      Notre programme ZRP garantit que chacun de nos produits certifiés est analysé sur plus de 615 molécules de pesticides avant d'arriver sur votre table. Aucun résidu détectable. Une traçabilité totale. Une certification internationale indépendante délivrée par le CCPB (Italie).
+                    </p>
+                    <p className="font-semibold text-white">
+                      SICAM est la première entreprise arabe et africaine, et la première au monde pour le double concentré de tomates, à avoir obtenu cette certification.
+                    </p>
+                  </div>
                   <div className="pt-4">
                     <Link href="/zrp">
                       <Button variant="outline" size="lg" className="bg-white text-secondary border-white text-lg h-14 px-8">
