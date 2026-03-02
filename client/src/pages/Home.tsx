@@ -21,8 +21,7 @@ const slides = [
     subtitle: "Notre priorité. Votre santé.",
     cta: { label: "Découvrir le programme ZRP", href: "/zrp" },
     bg: heroBanner,
-    overlay: "from-[#8B1A2B]/90 via-[#8B1A2B]/60 to-transparent",
-    product: null,
+    bgColor: "bg-[#8B1A2B]",
   },
   {
     id: 1,
@@ -31,8 +30,7 @@ const slides = [
     subtitle: "Certifiées Zéro Résidu de Pesticides. 100% tomates tunisiennes.",
     cta: { label: "En savoir plus", href: "/zrp" },
     bg: posterConcassees,
-    overlay: null,
-    product: null,
+    bgColor: "bg-[#6B1528]",
   },
   {
     id: 2,
@@ -41,8 +39,7 @@ const slides = [
     subtitle: "Au jus naturel. Certifiées ZRP. Idéales pour vos sauces et mijotés.",
     cta: { label: "En savoir plus", href: "/zrp" },
     bg: posterCubes,
-    overlay: null,
-    product: null,
+    bgColor: "bg-[#6B1528]",
   },
   {
     id: 3,
@@ -51,8 +48,7 @@ const slides = [
     subtitle: "Au jus naturel. Certifiées ZRP. La qualité SICAM depuis 1969.",
     cta: { label: "En savoir plus", href: "/zrp" },
     bg: posterEntieres,
-    overlay: null,
-    product: null,
+    bgColor: "bg-[#6B1528]",
   },
 ];
 
@@ -145,102 +141,76 @@ function HeroCarousel() {
 
   return (
     <section className="relative min-h-[90vh] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
-      <div className="absolute inset-0 z-0 bg-[#5a1020]">
-        {slide.bg && (
+      <div className="flex-1 flex flex-col lg:flex-row">
+        {/* Left panel — text on solid color */}
+        <div className={cn("lg:w-[45%] flex flex-col justify-center px-8 md:px-16 lg:px-20 py-12 lg:py-0 transition-colors duration-500", slide.bgColor)}>
+          <div
+            key={`title-${current}`}
+            className="animate-fade-in-up max-w-xl"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-4 text-white" data-testid="hero-title">
+              {slide.title}
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-white/90">
+              {slide.subtitle}
+            </p>
+          </div>
+          <Link href={slide.cta.href}>
+            <Button
+              size="lg"
+              className="text-lg gap-2 h-14 px-8 bg-white text-primary hover:bg-white/90"
+              data-testid="hero-cta"
+            >
+              {slide.cta.label}
+              <ArrowRight size={20} />
+            </Button>
+          </Link>
+        </div>
+
+        {/* Right panel — image */}
+        <div className="lg:w-[55%] relative bg-[#5a1020] flex items-center justify-center overflow-hidden">
           <img
+            key={`img-${current}`}
             src={slide.bg}
-            alt=""
-            className={cn(
-              "h-full transition-opacity duration-700",
-              slide.overlay
-                ? "w-full object-cover object-center"
-                : "mx-auto object-contain"
-            )}
+            alt={slide.title}
+            className="w-full h-full object-contain animate-fade-in-up"
           />
-        )}
-        {slide.overlay && (
-          <div className={cn("absolute inset-0 bg-gradient-to-r", slide.overlay)}></div>
-        )}
+          <button
+            onClick={prev}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
+            data-testid="carousel-prev"
+          >
+            <ArrowLeft size={20} />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
+            data-testid="carousel-next"
+          >
+            <ArrowRight size={20} />
+          </button>
+        </div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 md:px-6 flex-1 flex items-center">
-        {slide.overlay ? (
-          <div className="grid lg:grid-cols-2 gap-8 items-center w-full">
-            <div className="space-y-6">
-              <div
-                key={`title-${current}`}
-                className="animate-fade-in-up"
+      {/* Tab navigation at bottom */}
+      <div className="w-full">
+        <div className="flex justify-center">
+          <div className="flex bg-black/80 backdrop-blur-md rounded-t-xl overflow-hidden">
+            {slides.map((s, i) => (
+              <button
+                key={s.id}
+                onClick={() => goTo(i)}
+                className={cn(
+                  "px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm font-bold uppercase tracking-wider transition-all whitespace-nowrap",
+                  current === i
+                    ? "bg-primary text-white"
+                    : "text-white/70 hover:text-white hover:bg-white/10"
+                )}
+                data-testid={`carousel-tab-${i}`}
               >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-4 text-white">
-                  {slide.title}
-                </h1>
-                <p className="text-xl md:text-2xl mb-8 text-white/90">
-                  {slide.subtitle}
-                </p>
-              </div>
-              <Link href={slide.cta.href}>
-                <Button
-                  size="lg"
-                  className="text-lg gap-2 h-14 px-8"
-                  data-testid="hero-cta"
-                >
-                  {slide.cta.label}
-                  <ArrowRight size={20} />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        ) : (
-          <div className="w-full flex justify-end items-end pb-8">
-            <Link href={slide.cta.href}>
-              <Button
-                size="lg"
-                className="text-lg gap-2 h-14 px-8 bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30"
-                data-testid="hero-cta"
-              >
-                {slide.cta.label}
-                <ArrowRight size={20} />
-              </Button>
-            </Link>
-          </div>
-        )}
-      </div>
-
-      <button
-        onClick={prev}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
-        data-testid="carousel-prev"
-      >
-        <ArrowLeft size={20} />
-      </button>
-      <button
-        onClick={next}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
-        data-testid="carousel-next"
-      >
-        <ArrowRight size={20} />
-      </button>
-
-      <div className="relative z-20 w-full">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex justify-center">
-            <div className="flex bg-black/30 backdrop-blur-md rounded-t-xl overflow-hidden">
-              {slides.map((s, i) => (
-                <button
-                  key={s.id}
-                  onClick={() => goTo(i)}
-                  className={cn(
-                    "px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm font-bold uppercase tracking-wider transition-all whitespace-nowrap",
-                    current === i
-                      ? "bg-primary text-white"
-                      : "text-white/70 hover:text-white hover:bg-white/10"
-                  )}
-                  data-testid={`carousel-tab-${i}`}
-                >
-                  {s.tab}
-                </button>
-              ))}
-            </div>
+                {s.tab}
+              </button>
+            ))}
           </div>
         </div>
       </div>

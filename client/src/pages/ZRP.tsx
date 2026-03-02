@@ -15,58 +15,61 @@ export default function ZRP() {
   return (
     <main className="flex min-h-screen flex-col bg-background">
       {/* Section 1 — Hero */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 z-0">
-          <img
-            src={heroBanner}
-            alt="Champs de tomates SICAM ZRP"
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/70 to-background"></div>
-        </div>
-
-        <div className="container relative z-10 mx-auto px-4 md:px-6 text-center mt-10">
-          <FadeIn>
-            <img src={logoZrpAlt} alt="ZRP Logo" className="h-28 md:h-40 mx-auto mb-6 drop-shadow-2xl" data-testid="zrp-logo" />
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-black text-white leading-tight mb-6 max-w-5xl mx-auto" data-testid="hero-title">
-              Un modèle résilient, respectueux des sols, et intransigeant sur la pureté du produit final.
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed" data-testid="hero-subtitle">
-              Depuis 1969, SICAM cultive l'excellence à la tunisienne. Aujourd'hui, nous franchissons une nouvelle étape : la certification ZRP — Zéro Résidu de Pesticides — pour vous offrir des tomates aussi saines que savoureuses, à chaque boîte.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white text-sm font-medium mb-8" data-testid="badge-ccpb">
-              <Award size={18} className="text-accent" />
-              Certifié ZRP par CCPB — Organisme indépendant italien · Reconnu dans 45 pays
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.4}>
-            <div className="flex flex-wrap justify-center gap-4 mb-10">
-              <a href="#demarche">
-                <Button size="lg" className="text-lg gap-2 h-14 px-8" data-testid="cta-demarche">
-                  Découvrir notre démarche
-                  <ArrowRight size={20} />
-                </Button>
-              </a>
-              <a href="#certificat">
-                <Button size="lg" variant="outline" className="text-lg gap-2 h-14 px-8 bg-white/10 text-white border-white/30 hover:bg-white/20" data-testid="cta-certificat">
-                  Voir le certificat
-                </Button>
-              </a>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.5}>
-            <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 max-w-3xl mx-auto border border-white/10">
-              <p className="text-lg text-white leading-relaxed italic text-center">
-                S'engager dans la troisième voie de l'agriculture, c'est repenser notre métier à la racine. Le Zéro Résidu de Pesticides exige une agronomie de précision, de la prévention et du biocontrôle. C'est l'union parfaite entre la santé, la terre et l'innovation agricole.
+      <section className="relative min-h-[90vh] flex overflow-hidden pt-20">
+        <div className="flex-1 flex flex-col lg:flex-row">
+          {/* Left panel — text on solid green */}
+          <div className="lg:w-[50%] bg-secondary flex flex-col justify-center px-8 md:px-16 lg:px-20 py-12 lg:py-0">
+            <FadeIn>
+              <img src={logoZrpAlt} alt="ZRP Logo" className="h-20 md:h-28 mb-6 drop-shadow-2xl" data-testid="zrp-logo" />
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-black text-white leading-tight mb-6" data-testid="hero-title">
+                Un modèle résilient, respectueux des sols, et intransigeant sur la pureté du produit final.
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="text-lg text-white/90 mb-6 leading-relaxed">
+                Depuis 1969, SICAM cultive l'excellence à la tunisienne. Aujourd'hui, nous franchissons une nouvelle étape : la certification ZRP — Zéro Résidu de Pesticides — pour vous offrir des tomates aussi saines que savoureuses, à chaque boîte.
               </p>
-            </div>
-          </FadeIn>
+            </FadeIn>
+            <FadeIn delay={0.3}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 border border-white/25 text-white text-sm font-medium mb-6" data-testid="badge-ccpb">
+                <Award size={16} className="text-accent" />
+                Certifié ZRP par CCPB · Reconnu dans 45 pays
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.4}>
+              <div className="flex flex-wrap gap-3 mb-8">
+                <a href="#demarche">
+                  <Button size="lg" className="gap-2 h-12 px-6 bg-white text-secondary hover:bg-white/90" data-testid="cta-demarche">
+                    Découvrir notre démarche
+                    <ArrowRight size={18} />
+                  </Button>
+                </a>
+                <a href="#certificat">
+                  <Button size="lg" variant="outline" className="gap-2 h-12 px-6 text-white border-white/30 hover:bg-white/10" data-testid="cta-certificat">
+                    Voir le certificat
+                  </Button>
+                </a>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.5}>
+              <div className="border-l-4 border-accent pl-4">
+                <p className="text-sm text-white/80 leading-relaxed italic">
+                  S'engager dans la troisième voie de l'agriculture, c'est repenser notre métier à la racine. Le Zéro Résidu de Pesticides exige une agronomie de précision, de la prévention et du biocontrôle. C'est l'union parfaite entre la santé, la terre et l'innovation agricole.
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* Right panel — image */}
+          <div className="lg:w-[50%] relative bg-[#5a1020]">
+            <img
+              src={heroBanner}
+              alt="Champs de tomates SICAM ZRP"
+              className="w-full h-full object-contain"
+            />
+          </div>
         </div>
       </section>
 
