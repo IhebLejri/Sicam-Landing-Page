@@ -10,6 +10,9 @@ import logoZrp from '@assets/Asset_3@2x_1772017659058.png';
 import imgTC from '@assets/ZRP_TC_1772025754847.png';
 import imgTPC from '@assets/TPC_ZRP_1772025754847.png';
 import imgTPE from '@assets/TPE_ZRP_1772025754847.png';
+import posterConcassees from '@assets/sicam_poster-03_1772455941845.png';
+import posterCubes from '@assets/sicam_poster-02_1772455941844.png';
+import posterEntieres from '@assets/sicam_poster-01_1772455933609.png';
 
 const slides = [
   {
@@ -28,9 +31,9 @@ const slides = [
     title: "Tomates Pelées Concassées",
     subtitle: "Certifiées Zéro Résidu de Pesticides. 100% tomates tunisiennes.",
     cta: { label: "En savoir plus", href: "/zrp" },
-    bg: "https://images.unsplash.com/photo-1592841200221-a6898f307baa?q=80&w=2070&auto=format&fit=crop",
-    overlay: "from-[#1a3c17]/85 via-[#1a3c17]/50 to-transparent",
-    product: imgTC,
+    bg: posterConcassees,
+    overlay: null,
+    product: null,
   },
   {
     id: 2,
@@ -38,9 +41,9 @@ const slides = [
     title: "Tomates Pelées en Cubes",
     subtitle: "Au jus naturel. Certifiées ZRP. Idéales pour vos sauces et mijotés.",
     cta: { label: "En savoir plus", href: "/zrp" },
-    bg: "https://images.unsplash.com/photo-1471194402529-8e0f5a675de6?q=80&w=2070&auto=format&fit=crop",
-    overlay: "from-[#8B1A2B]/85 via-[#8B1A2B]/50 to-transparent",
-    product: imgTPC,
+    bg: posterCubes,
+    overlay: null,
+    product: null,
   },
   {
     id: 3,
@@ -48,9 +51,9 @@ const slides = [
     title: "Tomates Entières Pelées",
     subtitle: "Au jus naturel. Certifiées ZRP. La qualité SICAM depuis 1969.",
     cta: { label: "En savoir plus", href: "/zrp" },
-    bg: "https://images.unsplash.com/photo-1561136594-7f68413baa99?q=80&w=2070&auto=format&fit=crop",
-    overlay: "from-[#1a3c17]/85 via-[#1a3c17]/50 to-transparent",
-    product: imgTPE,
+    bg: posterEntieres,
+    overlay: null,
+    product: null,
   },
 ];
 
@@ -90,27 +93,44 @@ function HeroCarousel() {
           alt=""
           className="w-full h-full object-cover object-center transition-opacity duration-700"
         />
-        <div className={cn("absolute inset-0 bg-gradient-to-r", slide.overlay)}></div>
+        {slide.overlay && (
+          <div className={cn("absolute inset-0 bg-gradient-to-r", slide.overlay)}></div>
+        )}
       </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-6 flex-1 flex items-center">
-        <div className="grid lg:grid-cols-2 gap-8 items-center w-full">
-          <div className="space-y-6">
-            <div
-              key={`title-${current}`}
-              className="animate-fade-in-up"
-            >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-4 text-white">
-                {slide.title}
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-white/90">
-                {slide.subtitle}
-              </p>
+        {slide.overlay ? (
+          <div className="grid lg:grid-cols-2 gap-8 items-center w-full">
+            <div className="space-y-6">
+              <div
+                key={`title-${current}`}
+                className="animate-fade-in-up"
+              >
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-4 text-white">
+                  {slide.title}
+                </h1>
+                <p className="text-xl md:text-2xl mb-8 text-white/90">
+                  {slide.subtitle}
+                </p>
+              </div>
+              <Link href={slide.cta.href}>
+                <Button
+                  size="lg"
+                  className="text-lg gap-2 h-14 px-8"
+                  data-testid="hero-cta"
+                >
+                  {slide.cta.label}
+                  <ArrowRight size={20} />
+                </Button>
+              </Link>
             </div>
+          </div>
+        ) : (
+          <div className="w-full flex justify-end items-end pb-8">
             <Link href={slide.cta.href}>
               <Button
                 size="lg"
-                className="text-lg gap-2 h-14 px-8"
+                className="text-lg gap-2 h-14 px-8 bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30"
                 data-testid="hero-cta"
               >
                 {slide.cta.label}
@@ -118,22 +138,7 @@ function HeroCarousel() {
               </Button>
             </Link>
           </div>
-
-          {slide.product && (
-            <div className="flex justify-center lg:justify-end">
-              <div
-                key={`product-${current}`}
-                className="animate-fade-in-up"
-              >
-                <img
-                  src={slide.product}
-                  alt={slide.title}
-                  className="h-[350px] md:h-[450px] lg:h-[500px] object-contain drop-shadow-2xl"
-                />
-              </div>
-            </div>
-          )}
-        </div>
+        )}
       </div>
 
       <button
