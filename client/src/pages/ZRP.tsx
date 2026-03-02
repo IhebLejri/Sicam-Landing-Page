@@ -157,10 +157,9 @@ export default function ZRP() {
           </FadeIn>
 
           <FadeIn delay={0.3}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               {[
                 { value: "0,01", unit: "mg/kg", label: "Seuil de détection" },
-                { value: "10", unit: "µg/L", label: "Équivalent" },
                 { value: "5", unit: "cuillères", label: "Dans une piscine olympique" },
                 { value: "615+", unit: "", label: "Molécules testées" },
               ].map((stat, i) => (
