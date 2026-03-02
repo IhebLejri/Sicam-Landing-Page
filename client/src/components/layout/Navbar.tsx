@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,46 +11,10 @@ const navLinks = [
   { href: "/zrp", label: "Programme ZRP" },
 ];
 
-const DRAWER_WIDTH = "70vw";
-
-const MobileMenuContext = createContext({
-  isOpen: false,
-  toggle: () => {},
-  close: () => {},
-});
-
-export function useMobileMenu() {
-  return useContext(MobileMenuContext);
-}
-
-export function MobileMenuProvider({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [location] = useLocation();
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
-  }, [isOpen]);
-
-  return (
-    <MobileMenuContext.Provider value={{ isOpen, toggle: () => setIsOpen(v => !v), close: () => setIsOpen(false) }}>
-      {children}
-    </MobileMenuContext.Provider>
-  );
-}
-
 export function Navbar() {
   const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
-  const { isOpen, toggle } = useMobileMenu();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,6 +24,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileMenuOpen]);
+
   return (
     <>
       <header
@@ -67,10 +40,6 @@ export function Navbar() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm py-3" : "bg-white/90 backdrop-blur-sm py-5"
         )}
-        style={{
-          transform: isOpen ? `translateX(-${DRAWER_WIDTH})` : "translateX(0)",
-          transition: "transform 0.3s ease-in-out",
-        }}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
           <Link href="/" className="flex-shrink-0">
@@ -110,7 +79,7 @@ export function Navbar() {
 
           <button
             className="lg:hidden p-2 text-foreground rounded-full"
-            onClick={toggle}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
             data-testid="mobile-menu-toggle"
           >
@@ -119,38 +88,35 @@ export function Navbar() {
         </div>
       </header>
 
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/40 z-[55] lg:hidden"
-          onClick={toggle}
-          data-testid="mobile-menu-overlay"
-        />
-      )}
-
       <div
         className={cn(
-          "fixed top-0 right-0 bottom-0 z-[60] lg:hidden bg-white shadow-2xl flex flex-col"
+          "fixed inset-0 bg-black/50 z-[55] lg:hidden transition-opacity duration-300",
+          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
-        style={{
-          width: DRAWER_WIDTH,
-          transform: isOpen ? "translateX(0)" : "translateX(100%)",
-          transition: "transform 0.3s ease-in-out",
-        }}
+        onClick={() => setMobileMenuOpen(false)}
+        data-testid="mobile-menu-overlay"
+      />
+
+      <aside
+        className={cn(
+          "fixed top-0 right-0 bottom-0 w-[75%] max-w-[300px] z-[60] lg:hidden bg-white shadow-2xl flex flex-col transition-transform duration-300 ease-in-out",
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        )}
         data-testid="mobile-menu"
       >
-        <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-slate-100">
+        <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-slate-100">
           <img src={logoSicam} alt="SICAM" className="h-8 w-auto" />
           <button
-            className="p-2 text-foreground rounded-full hover:bg-slate-100 transition-colors"
-            onClick={toggle}
-            aria-label="Close menu"
+            className="p-2 text-slate-600 rounded-full hover:bg-slate-100 transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Fermer le menu"
             data-testid="mobile-menu-close"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        <ul className="flex flex-col px-5 py-6 gap-1">
+        <ul className="flex flex-col px-4 py-6 gap-1">
           {navLinks.map((link) => (
             <li key={link.label}>
               <Link
@@ -161,7 +127,7 @@ export function Navbar() {
                     ? "text-primary bg-red-50"
                     : "text-slate-700 hover:text-primary hover:bg-slate-50"
                 )}
-                onClick={toggle}
+                onClick={() => setMobileMenuOpen(false)}
                 data-testid={`mobile-link-${link.label.toLowerCase().replace(/\s/g, '-')}`}
               >
                 {link.label}
@@ -170,14 +136,14 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="mt-auto px-5 pb-6">
-          <Link href="/zrp" onClick={toggle}>
-            <Button className="w-full h-12 text-base font-bold" data-testid="mobile-cta-zrp">
+        <div className="mt-auto px-4 pb-6">
+          <Link href="/zrp" onClick={() => setMobileMenuOpen(false)}>
+            <Button className="w-full h-12 text-sm font-bold" data-testid="mobile-cta-zrp">
               Découvrir le programme ZRP
             </Button>
           </Link>
         </div>
-      </div>
+      </aside>
     </>
   );
 }

@@ -4,7 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-import { Navbar, MobileMenuProvider, useMobileMenu } from "@/components/layout/Navbar";
+import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import Home from "@/pages/Home";
 import ZRP from "@/pages/ZRP";
@@ -20,33 +20,17 @@ function Router() {
   );
 }
 
-function AppContent() {
-  const { isOpen } = useMobileMenu();
-
-  return (
-    <div
-      className="min-h-screen flex flex-col font-sans"
-      style={{
-        transform: isOpen ? "translateX(-70vw)" : "translateX(0)",
-        transition: "transform 0.3s ease-in-out",
-      }}
-    >
-      <Navbar />
-      <div className="flex-1 flex flex-col">
-        <Router />
-      </div>
-      <Footer />
-    </div>
-  );
-}
-
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <MobileMenuProvider>
-          <AppContent />
-        </MobileMenuProvider>
+        <div className="min-h-screen flex flex-col font-sans">
+          <Navbar />
+          <div className="flex-1 flex flex-col">
+            <Router />
+          </div>
+          <Footer />
+        </div>
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
