@@ -87,11 +87,16 @@ function HeroCarousel() {
 
   return (
     <section className="relative min-h-[90vh] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-[#5a1020]">
         <img
           src={slide.bg}
           alt=""
-          className="w-full h-full object-cover object-center transition-opacity duration-700"
+          className={cn(
+            "h-full transition-opacity duration-700",
+            slide.overlay
+              ? "w-full object-cover object-center"
+              : "mx-auto object-contain"
+          )}
         />
         {slide.overlay && (
           <div className={cn("absolute inset-0 bg-gradient-to-r", slide.overlay)}></div>
