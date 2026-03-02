@@ -46,7 +46,7 @@ export default function ZRP() {
             </div>
           </FadeIn>
           <FadeIn delay={0.4}>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4 mb-10">
               <a href="#demarche">
                 <Button size="lg" className="text-lg gap-2 h-14 px-8" data-testid="cta-demarche">
                   Découvrir notre démarche
@@ -59,6 +59,11 @@ export default function ZRP() {
                 </Button>
               </a>
             </div>
+          </FadeIn>
+          <FadeIn delay={0.5}>
+            <p className="text-lg text-white/85 max-w-3xl mx-auto leading-relaxed italic text-center">
+              S'engager dans la troisième voie de l'agriculture, c'est repenser notre métier à la racine. Le Zéro Résidu de Pesticides exige une agronomie de précision, de la prévention et du biocontrôle. C'est l'union parfaite entre la santé, la terre et l'innovation agricole.
+            </p>
           </FadeIn>
         </div>
       </section>
@@ -107,6 +112,14 @@ export default function ZRP() {
                 <blockquote className="border-l-4 border-accent pl-6 text-lg font-medium text-foreground italic">
                   « Le Zéro Résidu de Pesticides n'est pas un argument marketing, c'est notre boussole. Parce qu'on ne fait aucun compromis avec la pureté de ce que l'on vous sert. »
                 </blockquote>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.4}>
+              <div className="bg-secondary/10 rounded-3xl p-8 md:p-10 border border-secondary/20 mt-8 text-center">
+                <p className="text-lg text-slate-700 leading-relaxed italic font-medium">
+                  Exiger le Zéro Résidu de Pesticides, c'est faire le choix de l'agriculture de demain dès aujourd'hui. C'est un engagement profond envers nos terres, nos agriculteurs partenaires, et la santé de nos consommateurs à travers le monde.
+                </p>
               </div>
             </FadeIn>
           </div>
@@ -398,19 +411,34 @@ export default function ZRP() {
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
-              <Button size="lg" className="bg-white text-secondary hover:bg-white/90 text-lg h-14 px-8 gap-2" data-testid="cta-produits">
-                <MapPin size={18} />
-                Trouver nos produits ZRP
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 text-lg h-14 px-8 gap-2" data-testid="cta-download">
-                <Download size={18} />
-                Télécharger notre certificat
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 text-lg h-14 px-8 gap-2" data-testid="cta-contact">
-                <Mail size={18} />
-                Contacter l'équipe export
-              </Button>
+            <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <h4 className="text-lg font-bold mb-4 text-accent">Consommateurs</h4>
+                <div className="flex flex-col gap-3">
+                  <Button size="lg" className="bg-white text-secondary hover:bg-white/90 w-full gap-2" data-testid="cta-produits">
+                    <MapPin size={18} />
+                    Trouver nos produits ZRP
+                  </Button>
+                  <a href="#demarche">
+                    <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 w-full gap-2" data-testid="cta-en-savoir-plus">
+                      En savoir plus sur notre démarche
+                    </Button>
+                  </a>
+                </div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <h4 className="text-lg font-bold mb-4 text-accent">Importateurs / B2B</h4>
+                <div className="flex flex-col gap-3">
+                  <Button size="lg" className="bg-white text-secondary hover:bg-white/90 w-full gap-2" data-testid="cta-download">
+                    <Download size={18} />
+                    Télécharger notre certificat CCPB
+                  </Button>
+                  <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 w-full gap-2" data-testid="cta-contact">
+                    <Mail size={18} />
+                    Contacter notre équipe export
+                  </Button>
+                </div>
+              </div>
             </div>
           </FadeIn>
         </div>
