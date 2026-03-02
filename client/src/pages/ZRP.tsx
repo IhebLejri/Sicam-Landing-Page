@@ -112,7 +112,9 @@ export default function ZRP() {
                   SICAM est aujourd'hui <strong className="text-foreground">la première entreprise tunisienne du secteur de la tomate</strong> à avoir initié cette transformation agricole. Une première à l'échelle arabe et africaine. Et une pionnière à l'échelle mondiale.
                 </p>
                 <blockquote className="border-l-4 border-accent pl-6 text-lg font-medium text-foreground italic">
-                  « Le Zéro Résidu de Pesticides n'est pas un argument marketing, c'est notre boussole. Parce qu'on ne fait aucun compromis avec la pureté de ce que l'on vous sert. Exiger le Zéro Résidu de Pesticides, c'est faire le choix de l'agriculture de demain dès aujourd'hui. C'est un engagement profond envers nos terres, nos agriculteurs partenaires, et la santé de nos consommateurs à travers le monde. »
+                  Le Zéro Résidu de Pesticides n'est pas un argument marketing, c'est notre boussole. Parce qu'on ne fait aucun compromis avec la pureté de ce que l'on vous sert.
+                  <br /><br />
+                  Exiger le Zéro Résidu de Pesticides, c'est faire le choix de l'agriculture de demain dès aujourd'hui. C'est un engagement profond envers nos terres, nos agriculteurs partenaires, et la santé de nos consommateurs à travers le monde.
                 </blockquote>
               </div>
             </FadeIn>
