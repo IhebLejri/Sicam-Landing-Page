@@ -32,7 +32,7 @@ export function Navbar() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "glass-nav py-3" : "bg-transparent py-5"
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm py-3" : "bg-white/90 backdrop-blur-sm py-5"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -54,7 +54,7 @@ export function Navbar() {
                     "text-sm font-medium transition-colors relative group",
                     location === link.href
                       ? "text-primary"
-                      : (isScrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white")
+                      : "text-foreground hover:text-primary"
                   )}
                 >
                   {link.label}
@@ -72,7 +72,7 @@ export function Navbar() {
         </nav>
 
         <button
-          className="lg:hidden z-50 p-2 text-foreground bg-white/50 rounded-full backdrop-blur-sm"
+          className="lg:hidden z-50 p-2 text-foreground rounded-full"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
