@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "wouter";
-import { ArrowRight, ArrowLeft, CheckCircle2, Leaf, ShieldCheck, Globe2, Award, TestTube } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, Leaf, ShieldCheck, Globe2, Award, TestTube, Microscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/utils";
@@ -167,14 +167,15 @@ export default function Home() {
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 text-center">
             {[
-              { value: "1969", label: "Fondation", sub: "+55 ans d'expertise", icon: Award },
+              { value: "+55 ans", label: "D'expertise", sub: "Depuis 1969", icon: Award },
               { value: "+60%", label: "Part de marché", sub: "Leader en Tunisie", icon: Globe2 },
-              { value: "1ère", label: "Entreprise", sub: "Certifiée ZRP", icon: ShieldCheck },
+              { value: "1ère", label: "Entreprise", sub: "Certifiée ZRP dans la tomate en Tunisie, en Afrique et dans le Monde Arabe", icon: ShieldCheck },
               { value: "+30", label: "Pays", sub: "D'exportation", icon: Globe2 },
               { value: "100%", label: "Origine", sub: "Tomates tunisiennes", icon: Leaf },
               { value: "615", label: "Molécules", sub: "Analysées", icon: TestTube },
+              { value: "1000", label: "Tests qualité", sub: "Dans nos labos par jour", icon: Microscope },
             ].map((stat, i) => (
               <FadeIn key={i} delay={i * 0.1} direction="up" className="flex flex-col items-center">
                 <div className="w-16 h-16 rounded-2xl bg-background flex items-center justify-center text-primary mb-4 shadow-sm">
