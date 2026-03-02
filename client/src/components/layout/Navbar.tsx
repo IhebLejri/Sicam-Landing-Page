@@ -7,13 +7,8 @@ import { cn } from "@/lib/utils";
 import logoSicam from '@assets/Asset_2@2x_1772017659057.png';
 
 const navLinks = [
-  { href: "/", label: "Accueil", active: true },
-  { href: "#", label: "Notre histoire", active: false },
-  { href: "/zrp", label: "Programme ZRP", active: true },
-  { href: "#", label: "Nos produits", active: false },
-  { href: "#", label: "Nos valeurs", active: false },
-  { href: "#", label: "Nos certifications", active: false },
-  { href: "#", label: "Contact", active: false },
+  { href: "/", label: "Accueil" },
+  { href: "/zrp", label: "Programme ZRP" },
 ];
 
 export function Navbar() {
@@ -53,29 +48,18 @@ export function Navbar() {
           <ul className="flex items-center gap-6">
             {navLinks.map((link) => (
               <li key={link.label}>
-                {link.active ? (
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      "text-sm font-medium transition-colors relative group",
-                      location === link.href
-                        ? "text-primary"
-                        : (isScrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white")
-                    )}
-                  >
-                    {link.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-                  </Link>
-                ) : (
-                  <span
-                    className={cn(
-                      "text-sm font-medium cursor-default",
-                      isScrolled ? "text-muted-foreground/60" : "text-white/40"
-                    )}
-                  >
-                    {link.label}
-                  </span>
-                )}
+                <Link
+                  href={link.href}
+                  className={cn(
+                    "text-sm font-medium transition-colors relative group",
+                    location === link.href
+                      ? "text-primary"
+                      : (isScrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white")
+                  )}
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                </Link>
               </li>
             ))}
           </ul>
@@ -104,19 +88,13 @@ export function Navbar() {
           <ul className="flex flex-col gap-6 text-xl font-semibold mt-8">
             {navLinks.map((link) => (
               <li key={link.label}>
-                {link.active ? (
-                  <Link
-                    href={link.href}
-                    className="block w-full text-foreground hover:text-primary transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <span className="block w-full text-muted-foreground/50 cursor-default">
-                    {link.label}
-                  </span>
-                )}
+                <Link
+                  href={link.href}
+                  className="block w-full text-foreground hover:text-primary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>

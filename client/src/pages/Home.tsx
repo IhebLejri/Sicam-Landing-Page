@@ -219,7 +219,7 @@ export default function Home() {
             <FadeIn direction="left" className="space-y-6">
               <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Notre Histoire</h2>
               <h3 className="text-4xl md:text-5xl font-black text-foreground leading-tight">
-                SICAM, nés de la terre pour <span className="text-primary">nourrir le monde</span>
+                Préserver la terre, innover pour la santé. <span className="text-primary">SICAM : Le goût authentique, l'exigence en plus</span>
               </h3>
               <div className="space-y-4 text-lg text-slate-600 leading-relaxed">
                 <p>
