@@ -16,56 +16,41 @@ import posterEntieres from '@assets/sicam_poster-01_1772455933609.png';
 const slides = [
   {
     id: 0,
-    tab: "SICAM",
-    title: "",
-    subtitle: "",
-    cta: { label: "Découvrir le programme ZRP", href: "/zrp" },
-    bg: null,
-    video: "/sicam-hero.mp4",
-    overlay: null,
-    product: null,
-  },
-  {
-    id: 1,
     tab: "ZERO RESIDUS DE PESTICIDES",
     title: "Des produits garantis zéro* résidu de pesticides",
     subtitle: "Notre priorité. Votre santé.",
     cta: { label: "Découvrir le programme ZRP", href: "/zrp" },
     bg: heroBanner,
-    video: null,
     overlay: "from-[#8B1A2B]/90 via-[#8B1A2B]/60 to-transparent",
     product: null,
   },
   {
-    id: 2,
+    id: 1,
     tab: "TOMATES PELEES CONCASSEES",
     title: "Tomates Pelées Concassées",
     subtitle: "Certifiées Zéro Résidu de Pesticides. 100% tomates tunisiennes.",
     cta: { label: "En savoir plus", href: "/zrp" },
     bg: posterConcassees,
-    video: null,
     overlay: null,
     product: null,
   },
   {
-    id: 3,
+    id: 2,
     tab: "TOMATES EN CUBES",
     title: "Tomates Pelées en Cubes",
     subtitle: "Au jus naturel. Certifiées ZRP. Idéales pour vos sauces et mijotés.",
     cta: { label: "En savoir plus", href: "/zrp" },
     bg: posterCubes,
-    video: null,
     overlay: null,
     product: null,
   },
   {
-    id: 4,
+    id: 3,
     tab: "TOMATES ENTIERES PELEES",
     title: "Tomates Entières Pelées",
     subtitle: "Au jus naturel. Certifiées ZRP. La qualité SICAM depuis 1969.",
     cta: { label: "En savoir plus", href: "/zrp" },
     bg: posterEntieres,
-    video: null,
     overlay: null,
     product: null,
   },
@@ -102,17 +87,7 @@ function HeroCarousel() {
   return (
     <section className="relative min-h-[90vh] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
       <div className="absolute inset-0 z-0 bg-[#5a1020]">
-        {slide.video ? (
-          <video
-            key={slide.id}
-            src={slide.video}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-          />
-        ) : slide.bg ? (
+        {slide.bg && (
           <img
             src={slide.bg}
             alt=""
@@ -123,7 +98,7 @@ function HeroCarousel() {
                 : "mx-auto object-contain"
             )}
           />
-        ) : null}
+        )}
         {slide.overlay && (
           <div className={cn("absolute inset-0 bg-gradient-to-r", slide.overlay)}></div>
         )}
@@ -218,6 +193,18 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <HeroCarousel />
+
+      <section className="relative bg-black">
+        <video
+          src="/sicam-hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-auto max-h-[80vh] object-cover mx-auto"
+          data-testid="video-sicam"
+        />
+      </section>
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
