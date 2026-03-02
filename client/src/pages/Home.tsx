@@ -6,6 +6,7 @@ import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/utils";
 
 import heroBanner from '@assets/zrp_aff-01_1772017659058.png';
+import posterAll from '@assets/sicam_poster-04_1772459805485.png';
 import logoZrp from '@assets/Asset_3@2x_1772017659058.png';
 import imgTC from '@assets/ZRP_TC_1772025754847.png';
 import imgTPC from '@assets/TPC_ZRP_1772025754847.png';
@@ -20,7 +21,7 @@ const slides = [
     title: "Des produits garantis zéro* résidu de pesticides",
     subtitle: "Notre priorité. Votre santé.",
     cta: { label: "Découvrir le programme ZRP", href: "/zrp" },
-    bg: heroBanner,
+    bg: posterAll,
     bgColor: "bg-[#8B1A2B]",
   },
   {
