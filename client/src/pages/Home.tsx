@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "wouter";
-import { ArrowRight, ArrowLeft, CheckCircle2, Leaf, ShieldCheck, Globe2, Award, TestTube } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, Leaf, ShieldCheck, Globe2, Award, TestTube, Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/utils";
@@ -55,6 +55,65 @@ const slides = [
     product: null,
   },
 ];
+
+function VideoSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !isMuted;
+    setIsMuted(!isMuted);
+  };
+
+  return (
+    <section className="py-12 bg-slate-950">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl group">
+          <video
+            ref={videoRef}
+            src="/sicam-hero.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-auto"
+            data-testid="video-sicam"
+          />
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <button
+              onClick={togglePlay}
+              className="w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white border border-white/20 hover:bg-black/70 transition-all"
+              data-testid="video-play-pause"
+            >
+              {isPlaying ? <Pause size={28} /> : <Play size={28} className="ml-1" />}
+            </button>
+          </div>
+          <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <button
+              onClick={toggleMute}
+              className="w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white border border-white/20 hover:bg-black/70 transition-all"
+              data-testid="video-mute"
+            >
+              {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function HeroCarousel() {
   const [current, setCurrent] = useState(0);
@@ -194,17 +253,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col">
       <HeroCarousel />
 
-      <section className="relative bg-black">
-        <video
-          src="/sicam-hero.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-auto max-h-[80vh] object-cover mx-auto"
-          data-testid="video-sicam"
-        />
-      </section>
+      <VideoSection />
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
