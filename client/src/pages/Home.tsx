@@ -13,45 +13,59 @@ import imgTPE from '@assets/TPE_ZRP_1772025754847.png';
 import posterConcassees from '@assets/sicam_poster-03_1772455941845.png';
 import posterCubes from '@assets/sicam_poster-02_1772455941844.png';
 import posterEntieres from '@assets/sicam_poster-01_1772455933609.png';
-
 const slides = [
   {
     id: 0,
+    tab: "SICAM",
+    title: "",
+    subtitle: "",
+    cta: { label: "Découvrir le programme ZRP", href: "/zrp" },
+    bg: null,
+    video: "/sicam-hero.mp4",
+    overlay: null,
+    product: null,
+  },
+  {
+    id: 1,
     tab: "ZERO RESIDUS DE PESTICIDES",
     title: "Des produits garantis zéro* résidu de pesticides",
     subtitle: "Notre priorité. Votre santé.",
     cta: { label: "Découvrir le programme ZRP", href: "/zrp" },
     bg: heroBanner,
+    video: null,
     overlay: "from-[#8B1A2B]/90 via-[#8B1A2B]/60 to-transparent",
     product: null,
   },
   {
-    id: 1,
+    id: 2,
     tab: "TOMATES PELEES CONCASSEES",
     title: "Tomates Pelées Concassées",
     subtitle: "Certifiées Zéro Résidu de Pesticides. 100% tomates tunisiennes.",
     cta: { label: "En savoir plus", href: "/zrp" },
     bg: posterConcassees,
-    overlay: null,
-    product: null,
-  },
-  {
-    id: 2,
-    tab: "TOMATES EN CUBES",
-    title: "Tomates Pelées en Cubes",
-    subtitle: "Au jus naturel. Certifiées ZRP. Idéales pour vos sauces et mijotés.",
-    cta: { label: "En savoir plus", href: "/zrp" },
-    bg: posterCubes,
+    video: null,
     overlay: null,
     product: null,
   },
   {
     id: 3,
+    tab: "TOMATES EN CUBES",
+    title: "Tomates Pelées en Cubes",
+    subtitle: "Au jus naturel. Certifiées ZRP. Idéales pour vos sauces et mijotés.",
+    cta: { label: "En savoir plus", href: "/zrp" },
+    bg: posterCubes,
+    video: null,
+    overlay: null,
+    product: null,
+  },
+  {
+    id: 4,
     tab: "TOMATES ENTIERES PELEES",
     title: "Tomates Entières Pelées",
     subtitle: "Au jus naturel. Certifiées ZRP. La qualité SICAM depuis 1969.",
     cta: { label: "En savoir plus", href: "/zrp" },
     bg: posterEntieres,
+    video: null,
     overlay: null,
     product: null,
   },
@@ -88,16 +102,28 @@ function HeroCarousel() {
   return (
     <section className="relative min-h-[90vh] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
       <div className="absolute inset-0 z-0 bg-[#5a1020]">
-        <img
-          src={slide.bg}
-          alt=""
-          className={cn(
-            "h-full transition-opacity duration-700",
-            slide.overlay
-              ? "w-full object-cover object-center"
-              : "mx-auto object-contain"
-          )}
-        />
+        {slide.video ? (
+          <video
+            key={slide.id}
+            src={slide.video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        ) : slide.bg ? (
+          <img
+            src={slide.bg}
+            alt=""
+            className={cn(
+              "h-full transition-opacity duration-700",
+              slide.overlay
+                ? "w-full object-cover object-center"
+                : "mx-auto object-contain"
+            )}
+          />
+        ) : null}
         {slide.overlay && (
           <div className={cn("absolute inset-0 bg-gradient-to-r", slide.overlay)}></div>
         )}
