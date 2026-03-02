@@ -61,9 +61,11 @@ export default function ZRP() {
             </div>
           </FadeIn>
           <FadeIn delay={0.5}>
-            <p className="text-lg text-white/85 max-w-3xl mx-auto leading-relaxed italic text-center">
-              S'engager dans la troisième voie de l'agriculture, c'est repenser notre métier à la racine. Le Zéro Résidu de Pesticides exige une agronomie de précision, de la prévention et du biocontrôle. C'est l'union parfaite entre la santé, la terre et l'innovation agricole.
-            </p>
+            <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 max-w-3xl mx-auto border border-white/10">
+              <p className="text-lg text-white leading-relaxed italic text-center">
+                S'engager dans la troisième voie de l'agriculture, c'est repenser notre métier à la racine. Le Zéro Résidu de Pesticides exige une agronomie de précision, de la prévention et du biocontrôle. C'est l'union parfaite entre la santé, la terre et l'innovation agricole.
+              </p>
+            </div>
           </FadeIn>
         </div>
       </section>
