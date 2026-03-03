@@ -69,12 +69,6 @@ export function Navbar() {
                 </li>
               ))}
             </ul>
-
-            <Link href="/zrp">
-              <Button className="font-bold">
-                Découvrir le programme ZRP
-              </Button>
-            </Link>
           </nav>
 
           <button
@@ -136,13 +130,6 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="mt-auto px-4 pb-6">
-          <Link href="/zrp" onClick={() => setMobileMenuOpen(false)}>
-            <Button className="w-full h-12 text-sm font-bold" data-testid="mobile-cta-zrp">
-              Découvrir le programme ZRP
-            </Button>
-          </Link>
-        </div>
       </aside>
     </>
   );

@@ -170,8 +170,8 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 text-center">
             {[
               { value: "+55 ans", label: "D'expertise", sub: "Depuis 1969", icon: Award },
-              { value: "+60%", label: "Part de marché", sub: "Leader en Tunisie", icon: Globe2 },
-              { value: "1ère", label: "Entreprise", sub: "Certifiée ZRP dans la tomate en Tunisie, en Afrique et dans le Monde Arabe", icon: ShieldCheck },
+              { value: "N°1", label: "Du marché", sub: "Leader en Tunisie", icon: Globe2 },
+              { value: "1ère", label: "Entreprise", sub: "Certifiée ZRP dans le secteur de transformation de la tomate en Tunisie, en Afrique et dans le Monde Arabe", icon: ShieldCheck },
               { value: "+30", label: "Pays", sub: "D'exportation", icon: Globe2 },
               { value: "100%", label: "Origine", sub: "Tomates tunisiennes", icon: Leaf },
               { value: "615", label: "Molécules", sub: "Analysées", icon: TestTube },
