@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { SiFacebook, SiInstagram, SiLinkedin } from "react-icons/si";
 
 import logoSicam from '@assets/Asset_2@2x_1772017659057.png';
 
@@ -68,9 +69,16 @@ export function Footer() {
 
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
           <p>© {new Date().getFullYear()} SICAM - Société Industrielle de Conserves Alimentaires. Tous droits réservés.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Mentions légales</a>
-            <a href="#" className="hover:text-white transition-colors">Politique de confidentialité</a>
+          <div className="flex items-center gap-4">
+            <a href="https://www.facebook.com/SICAMTunisia" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#1877F2] hover:text-white transition-all" data-testid="link-facebook">
+              <SiFacebook size={18} />
+            </a>
+            <a href="https://www.instagram.com/sicam_tunisia_officiel?igsh=amlpZnk1cjhzbWF5" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#E4405F] hover:text-white transition-all" data-testid="link-instagram">
+              <SiInstagram size={18} />
+            </a>
+            <a href="https://www.linkedin.com/company/sicam-tunisia/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#0A66C2] hover:text-white transition-all" data-testid="link-linkedin">
+              <SiLinkedin size={18} />
+            </a>
           </div>
         </div>
       </div>
