@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/utils";
 
-import heroBanner from '@assets/zrp_aff-01_1772017659058.png';
+import heroBanner from '@assets/sicam_poster-04_1772609045602.png';
 import logoZrp from '@assets/Asset_3@2x_1772017659058.png';
 import logoZrpAlt from '@assets/zrp_1772017659059.png';
 import imgTC from '@assets/ZRP_TC_1772025754847.png';
@@ -161,7 +161,7 @@ export default function ZRP() {
               {[
                 { value: "0,01", unit: "mg/kg", label: "Seuil de détection" },
                 { value: "5", unit: "cuillères", label: "Dans une piscine olympique" },
-                { value: "615+", unit: "", label: "Molécules testées" },
+                { value: "600+", unit: "", label: "Molécules testées" },
               ].map((stat, i) => (
                 <div key={i} className="bg-white rounded-2xl p-5 text-center shadow-sm border border-slate-100">
                   <p className="text-2xl md:text-3xl font-black text-secondary">{stat.value}<span className="text-sm font-medium text-slate-500 ml-1">{stat.unit}</span></p>
@@ -205,8 +205,8 @@ export default function ZRP() {
               {
                 step: "03",
                 icon: FlaskConical,
-                title: "Analyses sur plus de 615 molécules",
-                desc: "Avant toute mise sur le marché, chaque lot de tomates est soumis à des analyses laboratoire approfondies. Plus de 615 molécules de pesticides différentes sont recherchées. Le seuil de tolérance est fixé à 0,01 mg/kg. Si une molécule dépasse ce seuil — même infime — le lot ne peut pas être commercialisé sous la certification ZRP.",
+                title: "Analyses sur plus de 600 molécules",
+                desc: "Avant toute mise sur le marché, chaque lot de tomates est soumis à des analyses laboratoire approfondies. Plus de 600 molécules de pesticides différentes sont recherchées. Le seuil de tolérance est fixé à 0,01 mg/kg. Si une molécule dépasse ce seuil — même infime — le lot ne peut pas être commercialisé sous la certification ZRP.",
               },
               {
                 step: "04",
@@ -261,7 +261,7 @@ export default function ZRP() {
               { n: "02", title: "Accompagnement de nos agriculteurs partenaires", text: "SICAM s'engage à former, guider et soutenir ses agriculteurs dans une utilisation raisonnée, encadrée et contrôlée des pesticides. L'objectif : réduire les intrants au strict minimum nécessaire." },
               { n: "03", title: "Transparence totale", text: "La certification ZRP est délivrée par un organisme indépendant — CCPB — qui audite nos pratiques et valide nos résultats. Aucune complaisance, aucun conflit d'intérêt." },
               { n: "04", title: "Traçabilité complète", text: "De la graine à la boîte, chaque maillon de notre chaîne est documenté, traçable et contrôlable. Vous pouvez avoir confiance dans l'origine et la qualité de ce que vous consommez." },
-              { n: "05", title: "Analyses systématiques sur plus de 615 molécules", text: "Avant toute mise sur le marché, nos produits sont systématiquement analysés sur un panel de plus de 615 molécules de pesticides. C'est l'une des veilles analytiques les plus exigeantes du secteur." },
+              { n: "05", title: "Analyses systématiques sur plus de 600 molécules", text: "Avant toute mise sur le marché, nos produits sont systématiquement analysés sur un panel de plus de 600 molécules de pesticides. C'est l'une des veilles analytiques les plus exigeantes du secteur." },
               { n: "06", title: "Zéro résidu détectable", text: "L'objectif final est clair : aucun résidu de pesticides détectable dans nos tomates ni dans nos produits finis, au-delà du seuil de 0,01 mg/kg." },
             ].map((commit, i) => (
               <FadeIn key={i} delay={i * 0.1}>
@@ -288,7 +288,7 @@ export default function ZRP() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {[
-              { value: "615+", label: "molécules de pesticides", sub: "analysées à chaque lot", color: "text-secondary" },
+              { value: "600+", label: "molécules de pesticides", sub: "analysées à chaque lot", color: "text-secondary" },
               { value: "0,01", label: "mg/kg", sub: "seuil de détection — l'un des plus bas au monde", color: "text-primary" },
               { value: "74 %", label: "des agriculteurs partenaires", sub: "engagés dans la démarche ZRP en 2025", color: "text-secondary" },
               { value: "100 %", label: "l'objectif", sub: "d'approvisionnement ZRP fixé à l'horizon 2030", color: "text-primary" },

@@ -174,7 +174,7 @@ export default function Home() {
               { value: "1ère", label: "Entreprise", sub: "Certifiée ZRP dans le secteur de transformation de la tomate en Tunisie, en Afrique et dans le Monde Arabe", icon: ShieldCheck },
               { value: "+30", label: "Pays", sub: "D'exportation", icon: Globe2 },
               { value: "100%", label: "Origine", sub: "Tomates tunisiennes", icon: Leaf },
-              { value: "615", label: "Molécules", sub: "Analysées", icon: TestTube },
+              { value: "600", label: "Molécules", sub: "Analysées", icon: TestTube },
               { value: "1000", label: "Tests qualité", sub: "Dans nos labos par jour", icon: Microscope },
             ].map((stat, i) => (
               <FadeIn key={i} delay={i * 0.1} direction="up" className="flex flex-col items-center">
@@ -266,7 +266,7 @@ export default function Home() {
                       96 % des Tunisiens s'inquiètent de la présence de pesticides dans leur alimentation. Chez SICAM, nous ne répondons pas à cette inquiétude avec des promesses — nous y répondons avec des certifications.
                     </p>
                     <p>
-                      Notre programme ZRP garantit que chacun de nos produits certifiés est analysé sur plus de 615 molécules de pesticides avant d'arriver sur votre table. Aucun résidu détectable. Une traçabilité totale. Une certification internationale indépendante délivrée par le CCPB (Italie).
+                      Notre programme ZRP garantit que chacun de nos produits certifiés est analysé sur plus de 600 molécules de pesticides avant d'arriver sur votre table. Aucun résidu détectable. Une traçabilité totale. Une certification internationale indépendante délivrée par le CCPB (Italie).
                     </p>
                     <p className="font-semibold text-white">
                       SICAM est la première entreprise arabe et africaine, et la première au monde pour le double concentré de tomates, à avoir obtenu cette certification.
