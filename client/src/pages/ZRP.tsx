@@ -365,10 +365,12 @@ export default function ZRP() {
                   <p className="text-sm text-slate-500 leading-relaxed mb-6">
                     Tous conformes à la norme DTP 10 rev. 05 — « Produits agricoles et agroalimentaires végétaux avec réduction de 100 % des Limites Maximales des Résidus des produits phytosanitaires » — pour les activités de Production, Transformation et Commercialisation.
                   </p>
-                  <Button className="w-full gap-2" size="lg" data-testid="btn-download-certificat">
-                    <Download size={18} />
-                    Télécharger le certificat CCPB (PDF)
-                  </Button>
+                  <a href="/Certification_ZRP_SICAM.pdf" download>
+                    <Button className="w-full gap-2" size="lg" data-testid="btn-download-certificat">
+                      <Download size={18} />
+                      Télécharger le certificat CCPB (PDF)
+                    </Button>
+                  </a>
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 border border-slate-200 flex items-center gap-6">
@@ -427,10 +429,12 @@ export default function ZRP() {
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                 <h4 className="text-lg font-bold mb-4 text-accent">Importateurs / B2B</h4>
                 <div className="flex flex-col gap-3">
-                  <Button size="lg" className="bg-white text-secondary hover:bg-white/90 w-full gap-2" data-testid="cta-download">
-                    <Download size={18} />
-                    Télécharger notre certificat CCPB
-                  </Button>
+                  <a href="/Certification_ZRP_SICAM.pdf" download>
+                    <Button size="lg" className="bg-white text-secondary hover:bg-white/90 w-full gap-2" data-testid="cta-download">
+                      <Download size={18} />
+                      Télécharger notre certificat CCPB
+                    </Button>
+                  </a>
                   <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 w-full gap-2" data-testid="cta-contact">
                     <Mail size={18} />
                     Contacter notre équipe export
