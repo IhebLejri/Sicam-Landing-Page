@@ -9,6 +9,7 @@ import logoSicam from '@assets/Asset_2@2x_1772017659057.png';
 const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/nos-produits", label: "Nos Produits" },
+  { href: "/certifications", label: "Certifications" },
   { href: "/zrp", label: "Programme ZRP" },
 ];
 

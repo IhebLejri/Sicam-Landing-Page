@@ -9,6 +9,7 @@ import { Footer } from "@/components/layout/Footer";
 import Home from "@/pages/Home";
 import ZRP from "@/pages/ZRP";
 import NosProduits from "@/pages/NosProduits";
+import Certifications from "@/pages/Certifications";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/zrp" component={ZRP} />
       <Route path="/nos-produits" component={NosProduits} />
+      <Route path="/certifications" component={Certifications} />
       <Route component={NotFound} />
     </Switch>
   );
