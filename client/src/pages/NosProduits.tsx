@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/utils";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { ShieldCheck, Award, X, Flame, Leaf } from "lucide-react";
 
 import dct800g from "@assets/DCT-800G-FR_1773059756210.png";
 import dct from "@assets/DCT-FR_1773059756210.png";
@@ -13,188 +15,322 @@ import tcp15 from "@assets/TCP-15_-FR_1773059756213.png";
 import tpc from "@assets/TPC-FR_1773059756213.png";
 import tpe from "@assets/TPE_1773059756214.png";
 
-import kg3Pulpe from "@assets/3-KG-PULPE-DE-TOMATE_1773059635480.png";
-import kg3SP from "@assets/3KG-SP_1773059635480.png";
-import kg3TC from "@assets/3-KG-TC_1773059635480.png";
-import kg3TCA from "@assets/3KG-TCA_1773059635481.png";
-import kg3TCP4 from "@assets/3-KG-TCP-4_-FR_1773059635481.png";
-import kg3TCP15 from "@assets/3-KG-TCP-15_-FR_1773059635481.png";
-import kg3TPC from "@assets/3-KG-TPC_1773059635482.png";
-import kg3TPE from "@assets/3-KG-TPE-FR-1_1773059635482.png";
+import harissa135 from "@assets/H-135g_1773059349700.png";
+import harissa380 from "@assets/H-380g_1773059349700.png";
+import harissa760 from "@assets/H-760g_1773059349701.png";
+import harissa70 from "@assets/ETUI-&-TUBE-HARISSA-70g_1773059349699.png";
 
 import confAbricot from "@assets/CONFITURE-ABRICOT_1773059334071.png";
 import confCoing from "@assets/CONFITURE-COING_1773059334071.png";
 import confFigue from "@assets/CONFITURE-FIGUE_1773059334072.png";
 import confFraise from "@assets/CONFITURE-FRAISE_1773059334072.png";
 
-import harissa70 from "@assets/ETUI-&-TUBE-HARISSA-70g_1773059349699.png";
-import harissa140 from "@assets/ETUI-&-TUBE-HARISSA-140g_1773059349700.png";
-import harissa135 from "@assets/H-135g_1773059349700.png";
-import harissa380 from "@assets/H-380g_1773059349700.png";
-import harissa760 from "@assets/H-760g_1773059349701.png";
+import ficheTPC from "@assets/fiche1_1773061001087.png";
+import ficheTPE from "@assets/fiche2_1773061001087.png";
+import ficheTCA from "@assets/fiche5_1773061001088.png";
+import ficheTC from "@assets/fiche6_1773061001089.png";
+import fichePulpe from "@assets/fiche7_1773061001089.png";
+import ficheSP from "@assets/fiche8_1773061001089.png";
+import ficheTCP4 from "@assets/fiche9_1773061001090.png";
+import ficheTCP15 from "@assets/fiche10_1773061001090.png";
+import ficheHarissa from "@assets/fiche11_1773061001090.png";
+import ficheDCT from "@assets/fiche12_1773061001091.png";
 
-import alRaha from "@assets/AL_RAHA_TPE_ANG_copie_1773059395998.png";
-import alTaieAng from "@assets/AL_TAIE_TPC_ANG_1773059395999.png";
-import alTaieArb from "@assets/AL_TAIE_TPC_ARB_1773059395999.png";
-import baresaTC from "@assets/BARESA-TC_1773059395999.png";
-import baresaTPE from "@assets/BARESA-TPE_1773059396000.png";
-import bontaTPCAng from "@assets/BONTA_TPC_ANG_1773059418667.png";
-import bontaTPCArb from "@assets/BONTA_TPC_ARB_1773059418667.png";
-import bontaTPEAng from "@assets/BONTA_TPE_ANG_copie_1773059418667.png";
-import bontaTPEArb from "@assets/BONTA_TPE_ARB_1773059418668.png";
-import farmfoodTPC from "@assets/FARMFOOD-TPC_1773059418668.png";
-import farmfoodTPE from "@assets/FARMFOOD_TPE_1773059418668.png";
-import fifoodAng from "@assets/FIFOOD_TPE_ANG_1773059418669.png";
-import fifoodArb from "@assets/FIFOOD_TPE_ARB_1773059418669.png";
-import fleursChamps from "@assets/FLEURS-DES-CHAMPS_1773059418669.png";
-import fleursPack from "@assets/FLEURS-DES-CHAMPS-PACK_1773059469210.png";
-import kosta from "@assets/KOSTA_1773059469210.png";
-import leaderTCA from "@assets/LEADER_TCA_1773059469210.png";
-import leaderTPC from "@assets/LEADER_TPC_1773059469211.png";
-import leaderTPE from "@assets/LEADER_TPE_1773059469211.png";
-import makadirTPCAng from "@assets/MAKADIR_TPC_ANG_1773059469211.png";
-import makadirTPCArb from "@assets/MAKADIR_TPC_ARB_1773059469212.png";
-import makadirTPEAng from "@assets/MAKADIR_TPE_ANG_1773059502596.png";
-import makadirTPEArb from "@assets/MAKADIR_TPE_ARB_1773059502597.png";
-import plantTPC from "@assets/PLANT-TPC_1773059545634.png";
-import reem from "@assets/REEM_1773059545634.png";
-import rima from "@assets/RIMA_1773059545636.png";
-import safaAng from "@assets/SAFA_FOOD_ANG_copie_1773059545636.png";
-import safaArb from "@assets/SAFA_FOOD_TPE_ARB_2_1773059545637.png";
-import santaTPC from "@assets/SANTA-MARIA-TPC_1773059545637.png";
-import santaTPE from "@assets/SANTA-MARIA-TPE_1773059545638.png";
-import pleinSoleilTPC from "@assets/TPC-PLEIN-SOLEIL_1773059545638.png";
-import pleinSoleilTPE from "@assets/TPE-PLEIN-SOLEIL_1773059545638.png";
+import logoZrp from "@assets/Asset_3@2x_1772017659058.png";
 
-import moroAng from "@assets/MORO_TPE_ANG_1773059502598.png";
-import moroArb from "@assets/MORO_ARB_TPE_1773059502597.png";
-import myGarden from "@assets/My_garden_of_eden_ANG_1773059502598.png";
-import nadirTCAAng from "@assets/NADIR_TCA_ANG_2_1773059502599.png";
-import nadirTCAArb from "@assets/NADIR_TCA_ARB_2_1773059502599.png";
-import nadirTCPAng from "@assets/NADIR_TCP_4__ANG_._1773059502599.png";
-import nadirTCPArb from "@assets/NADIR_TCP_4__ARB_2_1773059502600.png";
-import nadirTPCAng from "@assets/NADIR_TPC_ANG_2_1773059545633.png";
-import nadirTPEAng from "@assets/NADIR_TPE_ANG_2png_1773059545633.png";
-import nadirTPEArb from "@assets/NADIR_TPE_ARB_2_1773059545634.png";
-
-type Category = "all" | "tomates" | "tomates3kg" | "confitures" | "harissa" | "mdd";
+type Category = "all" | "tomates" | "harissa" | "confitures" | "zrp";
 
 interface Product {
   id: string;
   name: string;
   image: string;
-  category: Category;
-  size?: string;
+  category: "tomates" | "harissa" | "confitures";
+  description: string;
+  tags: string[];
+  zrp: boolean;
+  formats: string;
+  ficheImage?: string;
+  badges?: string[];
 }
 
 const categories: { key: Category; label: string }[] = [
-  { key: "all", label: "Tous les produits" },
-  { key: "tomates", label: "Tomates SICAM" },
-  { key: "tomates3kg", label: "Tomates 3 KG" },
-  { key: "confitures", label: "Confitures" },
-  { key: "harissa", label: "Harissa" },
-  { key: "mdd", label: "Marques Distributeurs" },
+  { key: "all", label: "Toutes les catégories" },
+  { key: "tomates", label: "Tomates (10)" },
+  { key: "harissa", label: "Harissa (4 formats)" },
+  { key: "confitures", label: "Confitures (4 saveurs)" },
+  { key: "zrp", label: "Certifié ZRP \u2605" },
 ];
+
+const categoryIntros: Record<string, string> = {
+  tomates: "La tomate est notre cœur de métier depuis 1969. 100 % d'origine tunisienne, récoltée en plein soleil, transformée rapidement pour préserver toutes ses qualités — nos tomates SICAM s'adaptent à toutes vos recettes, du quotidien à l'exceptionnel.",
+  harissa: "La harissa SICAM, c'est une institution. Élue Produit de l'Année sept fois consécutives, elle est la harissa de référence en Tunisie — reconnue pour son équilibre entre feu et profondeur, sa couleur vive, et sa consistance qui nappe sans déchirer. Disponible en quatre formats pour s'adapter à tous les usages.",
+  confitures: "Des fruits tunisiens sélectionnés avec soin, transformés en confitures généreuses et parfumées. Chaque pot est une invitation à retrouver le goût authentique des fruits du terroir tunisien.",
+};
 
 const products: Product[] = [
-  { id: "dct", name: "Double Concentré de Tomates", image: dct, category: "tomates", size: "400g" },
-  { id: "dct-800", name: "Double Concentré de Tomates", image: dct800g, category: "tomates", size: "800g" },
-  { id: "pulpe", name: "Pulpe de Tomates", image: pulpe, category: "tomates", size: "400g" },
-  { id: "sp", name: "Sauce Pizza Basilic et Origan", image: sp, category: "tomates", size: "400g" },
-  { id: "tc", name: "Tomates Pelées Concassées", image: tc, category: "tomates", size: "400g" },
-  { id: "tca", name: "Tomates Pelées Concassées à l'Ail", image: tca, category: "tomates", size: "400g" },
-  { id: "tcp4", name: "Tomates Concassées Pimentées 4%", image: tcp4, category: "tomates", size: "400g" },
-  { id: "tcp15", name: "Tomates Concassées Piquantes +15%", image: tcp15, category: "tomates", size: "400g" },
-  { id: "tpc", name: "Tomates Pelées en Cubes", image: tpc, category: "tomates", size: "400g" },
-  { id: "tpe", name: "Tomates Entières Pelées", image: tpe, category: "tomates", size: "400g" },
+  {
+    id: "dct-800",
+    name: "Double Concentré de Tomates",
+    image: dct800g,
+    category: "tomates",
+    description: "Notre produit signature. Double concentré de tomates tunisiennes, cultivées en plein soleil et transformées dans les heures suivant la récolte pour préserver intensité et couleur. Sans conservateurs, sans arômes ajoutés. Une concentration de saveur pure, au format idéal pour la cuisine du quotidien et les grandes tablées.",
+    tags: ["Tomates", "100 % tunisien", "Sans conservateurs"],
+    zrp: true,
+    formats: "Boîte 4/4 — 800g net | Disponible aussi en sac aseptique (usage professionnel)",
+    ficheImage: ficheDCT,
+  },
+  {
+    id: "dct-400",
+    name: "Double Concentré de Tomates",
+    image: dct,
+    category: "tomates",
+    description: "Le même double concentré SICAM, en format demi-boîte — idéal pour les petits foyers ou les recettes à portions individuelles. Même qualité, même engagement ZRP, même traçabilité totale du champ à la boîte.",
+    tags: ["Tomates", "100 % tunisien", "Sans conservateurs"],
+    zrp: true,
+    formats: "Boîte ½ — 400g net",
+    ficheImage: ficheDCT,
+  },
+  {
+    id: "tpe",
+    name: "Tomates Pelées Entières",
+    image: tpe,
+    category: "tomates",
+    description: "Des tomates entières, pelées à la vapeur, conservées dans leur propre jus naturel. Charnues, fondantes, avec ce goût légèrement sucré que seul le soleil tunisien donne à la tomate. Parfaites pour les sauces, les plats mijotés, les coulis maison.",
+    tags: ["Tomates", "100 % tunisien", "Sans conservateurs"],
+    zrp: true,
+    formats: "Boîte 4/4 — 800g net | Boîte ½ — 400g net",
+    ficheImage: ficheTPE,
+  },
+  {
+    id: "tpc",
+    name: "Tomates Pelées en Cubes",
+    image: tpc,
+    category: "tomates",
+    description: "Coupées en dés réguliers, prêtes à l'emploi. Texture ferme qui se tient à la cuisson, idéale pour les sauces chunky, les shakshuka, les tajines ou toute recette où vous souhaitez voir les morceaux. SICAM est la première entreprise au monde à avoir certifié ZRP ce format.",
+    tags: ["Tomates", "100 % tunisien", "Sans conservateurs"],
+    zrp: true,
+    formats: "Boîte 4/4 — 800g net | Boîte ½ — 400g net",
+    ficheImage: ficheTPC,
+  },
+  {
+    id: "pulpe",
+    name: "Pulpe de Tomate",
+    image: pulpe,
+    category: "tomates",
+    description: "Une pulpe généreuse, obtenue par pressage doux des tomates fraîches. Texture naturelle préservée, couleur rouge intense, saveur équilibrée entre douceur et acidité. La base parfaite pour toutes vos sauces tomate maison, vos pizzas, vos soupes.",
+    tags: ["Tomates", "100 % tunisien", "Sans conservateurs"],
+    zrp: true,
+    formats: "Boîte 4/4 — 800g net | En aseptique (usage professionnel)",
+    ficheImage: fichePulpe,
+  },
+  {
+    id: "tc",
+    name: "Tomates Pelées Concassées",
+    image: tc,
+    category: "tomates",
+    description: "Tomates pelées et concassées en morceaux irréguliers — texture rustique et généreuse, idéale pour les sauces à l'italienne, les ragouts et les plats de famille. La base incontournable de la cuisine méditerranéenne.",
+    tags: ["Tomates", "100 % tunisien"],
+    zrp: false,
+    formats: "Boîte 4/4 — 800g net | Boîte ½ — 400g net",
+    ficheImage: ficheTC,
+  },
+  {
+    id: "tca",
+    name: "Tomates Pelées Concassées à l'Ail",
+    image: tca,
+    category: "tomates",
+    description: "Le classique revisité : des tomates concassées relevées d'ail naturel. Prêtes à l'emploi, sans préparation supplémentaire. Pour vos sauces pasta, vos bruschette et toutes vos recettes où l'ail est le fil conducteur.",
+    tags: ["Tomates", "100 % tunisien", "Arôme naturel"],
+    zrp: false,
+    formats: "Boîte ½ — 400g net",
+    ficheImage: ficheTCA,
+  },
+  {
+    id: "tcp4",
+    name: "Tomates Concassées Pimentées 4%",
+    image: tcp4,
+    category: "tomates",
+    description: "Une touche de chaleur maîtrisée : 4 % de piment doux pour relever vos plats sans les dominer. Idéales pour les shakshuka, les sauces arabiata, les tajines ou simplement pour ceux qui aiment sentir la vie dans leur assiette.",
+    tags: ["Tomates", "100 % tunisien", "Piment doux"],
+    zrp: false,
+    formats: "Boîte ½ — 400g net",
+    ficheImage: ficheTCP4,
+  },
+  {
+    id: "tcp15",
+    name: "Tomates Concassées Piquantes 15%",
+    image: tcp15,
+    category: "tomates",
+    description: "Pour les amateurs de saveurs qui s'assument. 15 % de piment — une intensité franche, sans compromis. La version pour ceux qui aiment que leurs plats aient du caractère. En sauce, en garniture, ou à la cuillère pour les aventuriers.",
+    tags: ["Tomates", "100 % tunisien", "Piment fort"],
+    zrp: false,
+    formats: "Boîte ½ — 400g net",
+    ficheImage: ficheTCP15,
+  },
+  {
+    id: "sp",
+    name: "Sauce Pizza Basilic & Origan",
+    image: sp,
+    category: "tomates",
+    description: "Une sauce prête à l'emploi, parfumée au basilic et à l'origan naturels. La base idéale pour vos pizzas maison, mais aussi pour les bruschette, les pâtes ou toute recette qui mérite un fond aromatique méditerranéen. Résultat garanti, même pour les cuisiniers pressés.",
+    tags: ["Tomates", "100 % tunisien", "Prête à l'emploi", "Herbes naturelles"],
+    zrp: false,
+    formats: "Boîte ½ — 400g net",
+    ficheImage: ficheSP,
+  },
 
-  { id: "3kg-pulpe", name: "Pulpe de Tomates", image: kg3Pulpe, category: "tomates3kg", size: "3 KG" },
-  { id: "3kg-sp", name: "Sauce Pizza Basilic et Origan", image: kg3SP, category: "tomates3kg", size: "3 KG" },
-  { id: "3kg-tc", name: "Tomates Pelées Concassées", image: kg3TC, category: "tomates3kg", size: "3 KG" },
-  { id: "3kg-tca", name: "Tomates Pelées Concassées à l'Ail", image: kg3TCA, category: "tomates3kg", size: "3 KG" },
-  { id: "3kg-tcp4", name: "Tomates Concassées Pimentées 4%", image: kg3TCP4, category: "tomates3kg", size: "3 KG" },
-  { id: "3kg-tcp15", name: "Tomates Concassées Piquantes +15%", image: kg3TCP15, category: "tomates3kg", size: "3 KG" },
-  { id: "3kg-tpc", name: "Tomates Pelées en Cubes", image: kg3TPC, category: "tomates3kg", size: "3 KG" },
-  { id: "3kg-tpe", name: "Tomates Pelées Entières", image: kg3TPE, category: "tomates3kg", size: "3 KG" },
+  {
+    id: "harissa-760",
+    name: "Harissa SICAM — 760g",
+    image: harissa760,
+    category: "harissa",
+    description: "Le grand format pour les vrais amateurs. Recette traditionnelle, piments tunisiens sélectionnés, texture généreuse. Idéale pour les grandes tablées, la cuisine en quantité, ou simplement pour ne jamais en manquer. La harissa qui a fait la réputation de SICAM depuis des décennies.",
+    tags: ["Harissa", "Recette traditionnelle", "Piments sélectionnés"],
+    zrp: false,
+    formats: "Boîte — 760g net",
+    ficheImage: ficheHarissa,
+    badges: ["Produit de l'Année — 7 fois"],
+  },
+  {
+    id: "harissa-380",
+    name: "Harissa SICAM — 380g",
+    image: harissa380,
+    category: "harissa",
+    description: "Le format familial — celui du quotidien. Même recette, même équilibre, même intensité que le grand format. Parfait pour accompagner les repas de famille, assaisonner les bricks, relever un couscous ou customiser un sandwich.",
+    tags: ["Harissa", "Recette traditionnelle", "Format familial"],
+    zrp: false,
+    formats: "Boîte — 380g net",
+    ficheImage: ficheHarissa,
+    badges: ["Produit de l'Année — 7 fois"],
+  },
+  {
+    id: "harissa-135",
+    name: "Harissa SICAM — 135g",
+    image: harissa135,
+    category: "harissa",
+    description: "Le format pratique du quotidien — pour les petits foyers, les repas individuels, ou comme premier contact avec la harissa SICAM. Compact, économique, fidèle à la recette originale.",
+    tags: ["Harissa", "Recette traditionnelle", "Format pratique"],
+    zrp: false,
+    formats: "Boîte — 135g net",
+    ficheImage: ficheHarissa,
+    badges: ["Produit de l'Année — 7 fois"],
+  },
+  {
+    id: "harissa-tube",
+    name: "Harissa SICAM — Tube",
+    image: harissa70,
+    category: "harissa",
+    description: "La harissa SICAM en tube — pratique, propre, refermable. Le compagnon idéal pour doser précisément votre harissa, en cuisine comme à table. Même recette, format optimisé pour le quotidien.",
+    tags: ["Harissa", "Recette traditionnelle", "Format tube"],
+    zrp: false,
+    formats: "Tube 70g | Tube 140g",
+    ficheImage: ficheHarissa,
+    badges: ["Produit de l'Année — 7 fois"],
+  },
 
-  { id: "conf-abricot", name: "Confiture d'Abricot", image: confAbricot, category: "confitures" },
-  { id: "conf-coing", name: "Confiture de Coing", image: confCoing, category: "confitures" },
-  { id: "conf-figue", name: "Confiture de Figue", image: confFigue, category: "confitures" },
-  { id: "conf-fraise", name: "Confiture de Fraise", image: confFraise, category: "confitures" },
-
-  { id: "harissa-70", name: "Harissa en Tube", image: harissa70, category: "harissa", size: "70g" },
-  { id: "harissa-140", name: "Harissa en Tube", image: harissa140, category: "harissa", size: "140g" },
-  { id: "harissa-135", name: "Harissa", image: harissa135, category: "harissa", size: "135g" },
-  { id: "harissa-380", name: "Harissa", image: harissa380, category: "harissa", size: "380g" },
-  { id: "harissa-760", name: "Harissa", image: harissa760, category: "harissa", size: "760g" },
-
-  { id: "al-raha", name: "Al Raha", image: alRaha, category: "mdd" },
-  { id: "al-taie-ang", name: "Al Taie (EN)", image: alTaieAng, category: "mdd" },
-  { id: "al-taie-arb", name: "Al Taie (AR)", image: alTaieArb, category: "mdd" },
-  { id: "baresa-tc", name: "Baresa TC", image: baresaTC, category: "mdd" },
-  { id: "baresa-tpe", name: "Baresa TPE", image: baresaTPE, category: "mdd" },
-  { id: "bonta-tpc-ang", name: "Bonta TPC (EN)", image: bontaTPCAng, category: "mdd" },
-  { id: "bonta-tpc-arb", name: "Bonta TPC (AR)", image: bontaTPCArb, category: "mdd" },
-  { id: "bonta-tpe-ang", name: "Bonta TPE (EN)", image: bontaTPEAng, category: "mdd" },
-  { id: "bonta-tpe-arb", name: "Bonta TPE (AR)", image: bontaTPEArb, category: "mdd" },
-  { id: "farmfood-tpc", name: "Farmfood TPC", image: farmfoodTPC, category: "mdd" },
-  { id: "farmfood-tpe", name: "Farmfood TPE", image: farmfoodTPE, category: "mdd" },
-  { id: "fifood-ang", name: "Fifood (EN)", image: fifoodAng, category: "mdd" },
-  { id: "fifood-arb", name: "Fifood (AR)", image: fifoodArb, category: "mdd" },
-  { id: "fleurs-champs", name: "Fleurs des Champs", image: fleursChamps, category: "mdd" },
-  { id: "fleurs-pack", name: "Fleurs des Champs Pack", image: fleursPack, category: "mdd" },
-  { id: "kosta", name: "Kosta", image: kosta, category: "mdd" },
-  { id: "leader-tca", name: "Leader TCA", image: leaderTCA, category: "mdd" },
-  { id: "leader-tpc", name: "Leader TPC", image: leaderTPC, category: "mdd" },
-  { id: "leader-tpe", name: "Leader TPE", image: leaderTPE, category: "mdd" },
-  { id: "makadir-tpc-ang", name: "Makadir TPC (EN)", image: makadirTPCAng, category: "mdd" },
-  { id: "makadir-tpc-arb", name: "Makadir TPC (AR)", image: makadirTPCArb, category: "mdd" },
-  { id: "makadir-tpe-ang", name: "Makadir TPE (EN)", image: makadirTPEAng, category: "mdd" },
-  { id: "makadir-tpe-arb", name: "Makadir TPE (AR)", image: makadirTPEArb, category: "mdd" },
-  { id: "moro-ang", name: "Moro (EN)", image: moroAng, category: "mdd" },
-  { id: "moro-arb", name: "Moro (AR)", image: moroArb, category: "mdd" },
-  { id: "my-garden", name: "My Garden of Eden", image: myGarden, category: "mdd" },
-  { id: "nadir-tca-ang", name: "Nadir TCA (EN)", image: nadirTCAAng, category: "mdd" },
-  { id: "nadir-tca-arb", name: "Nadir TCA (AR)", image: nadirTCAArb, category: "mdd" },
-  { id: "nadir-tcp-ang", name: "Nadir TCP (EN)", image: nadirTCPAng, category: "mdd" },
-  { id: "nadir-tcp-arb", name: "Nadir TCP (AR)", image: nadirTCPArb, category: "mdd" },
-  { id: "nadir-tpc-ang", name: "Nadir TPC (EN)", image: nadirTPCAng, category: "mdd" },
-  { id: "nadir-tpe-ang", name: "Nadir TPE (EN)", image: nadirTPEAng, category: "mdd" },
-  { id: "nadir-tpe-arb", name: "Nadir TPE (AR)", image: nadirTPEArb, category: "mdd" },
-  { id: "plant-tpc", name: "Plant TPC", image: plantTPC, category: "mdd" },
-  { id: "reem", name: "Reem", image: reem, category: "mdd" },
-  { id: "rima", name: "Rima", image: rima, category: "mdd" },
-  { id: "safa-ang", name: "Safa Food (EN)", image: safaAng, category: "mdd" },
-  { id: "safa-arb", name: "Safa Food (AR)", image: safaArb, category: "mdd" },
-  { id: "santa-tpc", name: "Santa Maria TPC", image: santaTPC, category: "mdd" },
-  { id: "santa-tpe", name: "Santa Maria TPE", image: santaTPE, category: "mdd" },
-  { id: "pleinsoleil-tpc", name: "Plein Soleil TPC", image: pleinSoleilTPC, category: "mdd" },
-  { id: "pleinsoleil-tpe", name: "Plein Soleil TPE", image: pleinSoleilTPE, category: "mdd" },
+  {
+    id: "conf-abricot",
+    name: "Confiture d'Abricot",
+    image: confAbricot,
+    category: "confitures",
+    description: "Confiture d'abricots tunisiens, préparée avec des fruits sélectionnés pour leur maturité et leur parfum. Une texture généreuse et un goût ensoleillé qui rappelle les vergers du nord de la Tunisie.",
+    tags: ["Confiture", "Fruits tunisiens"],
+    zrp: false,
+    formats: "Pot en verre",
+  },
+  {
+    id: "conf-coing",
+    name: "Confiture de Coing",
+    image: confCoing,
+    category: "confitures",
+    description: "Le coing tunisien sublimé en confiture dorée et parfumée. Une saveur douce et subtilement épicée, parfaite pour les petits-déjeuners et les goûters authentiques.",
+    tags: ["Confiture", "Fruits tunisiens"],
+    zrp: false,
+    formats: "Pot en verre",
+  },
+  {
+    id: "conf-figue",
+    name: "Confiture de Figue",
+    image: confFigue,
+    category: "confitures",
+    description: "Des figues tunisiennes gorgées de soleil, transformées en une confiture onctueuse et savoureuse. Le goût du terroir tunisien dans chaque cuillère.",
+    tags: ["Confiture", "Fruits tunisiens"],
+    zrp: false,
+    formats: "Pot en verre",
+  },
+  {
+    id: "conf-fraise",
+    name: "Confiture de Fraise",
+    image: confFraise,
+    category: "confitures",
+    description: "Des fraises tunisiennes sélectionnées pour leur douceur et leur arôme intense. Une confiture classique, généreuse en fruits, pour tous les moments de partage.",
+    tags: ["Confiture", "Fruits tunisiens"],
+    zrp: false,
+    formats: "Pot en verre",
+  },
 ];
 
-function ProductCard({ product, index }: { product: Product; index: number }) {
+function ProductCard({ product, index, onFicheClick }: { product: Product; index: number; onFicheClick: (img: string, name: string) => void }) {
   return (
-    <FadeIn delay={Math.min(index * 0.05, 0.4)} direction="up">
+    <FadeIn delay={Math.min(index * 0.08, 0.5)} direction="up">
       <div
-        className="group bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+        className="group bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col"
         data-testid={`product-card-${product.id}`}
       >
         <div className="relative aspect-square bg-gradient-to-b from-slate-50 to-white p-6 flex items-center justify-center overflow-hidden">
           <img
             src={product.image}
             alt={product.name}
-            className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500"
+            className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />
+          {product.zrp && (
+            <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-secondary text-white text-xs font-bold shadow-lg" data-testid={`badge-zrp-${product.id}`}>
+              <ShieldCheck size={14} />
+              ZRP
+            </div>
+          )}
+          {product.badges?.map((badge, i) => (
+            <div key={i} className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-amber-500 text-white text-xs font-bold shadow-lg" data-testid={`badge-award-${product.id}`}>
+              <Award size={14} />
+              <span className="hidden sm:inline">{badge}</span>
+              <span className="sm:hidden">7x</span>
+            </div>
+          ))}
         </div>
-        <div className="p-4 text-center border-t border-slate-50">
-          <h3 className="font-bold text-sm text-foreground leading-snug" data-testid={`product-name-${product.id}`}>
+
+        <div className="p-5 flex flex-col flex-1 border-t border-slate-50">
+          <h3 className="font-bold text-base text-foreground leading-snug mb-2" data-testid={`product-name-${product.id}`}>
             {product.name}
           </h3>
-          {product.size && (
-            <span className="inline-block mt-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold" data-testid={`product-size-${product.id}`}>
-              {product.size}
-            </span>
+
+          <div className="flex flex-wrap gap-1.5 mb-3">
+            {product.tags.map((tag, i) => (
+              <span key={i} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-medium">
+                {tag === "Piment fort" && <Flame size={10} className="text-red-500" />}
+                {tag === "Piment doux" && <Flame size={10} className="text-orange-400" />}
+                {tag.includes("tunisien") && <Leaf size={10} className="text-secondary" />}
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <p className="text-sm text-slate-500 leading-relaxed mb-3 line-clamp-3 flex-1">
+            {product.description}
+          </p>
+
+          <p className="text-xs text-slate-400 font-medium mb-3" data-testid={`product-formats-${product.id}`}>
+            {product.formats}
+          </p>
+
+          {product.ficheImage && (
+            <button
+              onClick={() => onFicheClick(product.ficheImage!, product.name)}
+              className="w-full mt-auto py-2.5 px-4 rounded-xl bg-primary/5 hover:bg-primary/10 text-primary text-sm font-semibold transition-colors border border-primary/10"
+              data-testid={`fiche-btn-${product.id}`}
+            >
+              Fiche technique
+            </button>
           )}
         </div>
       </div>
@@ -204,10 +340,23 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
 
 export default function NosProduits() {
   const [activeCategory, setActiveCategory] = useState<Category>("all");
+  const [ficheOpen, setFicheOpen] = useState(false);
+  const [ficheImg, setFicheImg] = useState("");
+  const [ficheName, setFicheName] = useState("");
 
-  const filtered = activeCategory === "all"
-    ? products
-    : products.filter((p) => p.category === activeCategory);
+  const openFiche = (img: string, name: string) => {
+    setFicheImg(img);
+    setFicheName(name);
+    setFicheOpen(true);
+  };
+
+  const filtered = activeCategory === "zrp"
+    ? products.filter((p) => p.zrp)
+    : activeCategory === "all"
+      ? products
+      : products.filter((p) => p.category === activeCategory);
+
+  const realCategories = categories.filter(c => c.key !== "all" && c.key !== "zrp");
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -218,17 +367,20 @@ export default function NosProduits() {
         </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <FadeIn>
-            <h1 className="text-4xl md:text-6xl font-black text-white mb-4" data-testid="products-title">
-              Nos Produits
+            <p className="text-sm md:text-base font-bold tracking-widest text-white/70 uppercase mb-4">
+              100 % tunisien. Du champ à votre table.
+            </p>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight" data-testid="products-title">
+              Nos produits — La générosité tunisienne, mise en boîte depuis 1969
             </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
-              Toute la richesse de la tomate tunisienne, transformée avec passion et savoir-faire depuis 1969.
+            <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
+              Chaque produit SICAM est le résultat d'un choix : celui de la qualité sur le compromis, de la traçabilité sur l'opacité, du goût authentique sur le standardisé. Des tomates cultivées sous le soleil de Medjez El Bab aux confitures de fruits tunisiens, en passant par notre harissa de caractère — voici notre gamme complète.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      <section className="py-12 bg-white sticky top-[52px] md:top-[64px] z-30 border-b border-slate-100 shadow-sm" role="toolbar" aria-label="Filtrer par catégorie">
+      <section className="py-6 bg-white sticky top-[52px] md:top-[64px] z-30 border-b border-slate-100 shadow-sm" role="toolbar" aria-label="Filtrer par catégorie">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-wrap justify-center gap-2 md:gap-3" data-testid="product-filters">
             {categories.map((cat) => (
@@ -237,9 +389,13 @@ export default function NosProduits() {
                 onClick={() => setActiveCategory(cat.key)}
                 className={cn(
                   "px-4 md:px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-200",
-                  activeCategory === cat.key
-                    ? "bg-primary text-white shadow-lg shadow-primary/25"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-800"
+                  cat.key === "zrp" && activeCategory === cat.key
+                    ? "bg-secondary text-white shadow-lg shadow-secondary/25"
+                    : cat.key === "zrp" && activeCategory !== cat.key
+                      ? "bg-secondary/10 text-secondary hover:bg-secondary/20 border border-secondary/20"
+                      : activeCategory === cat.key
+                        ? "bg-primary text-white shadow-lg shadow-primary/25"
+                        : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-800"
                 )}
                 data-testid={`filter-${cat.key}`}
                 aria-pressed={activeCategory === cat.key}
@@ -253,21 +409,43 @@ export default function NosProduits() {
 
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 md:px-6">
+          {activeCategory === "zrp" && (
+            <FadeIn>
+              <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 p-6 rounded-2xl bg-secondary/5 border border-secondary/10 text-center sm:text-left">
+                <img src={logoZrp} alt="Logo ZRP" className="w-16 h-16 object-contain flex-shrink-0" />
+                <div>
+                  <h2 className="text-xl md:text-2xl font-black text-secondary mb-1">
+                    Produits Certifiés Zéro Résidu de Pesticides
+                  </h2>
+                  <p className="text-sm text-slate-600">
+                    Saisons 2024 & 2025 — Certification CCPB N° 02/2025/10. Analysés sur plus de 600 molécules de pesticides.
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+          )}
+
           {activeCategory === "all" ? (
             <>
-              {categories.filter(c => c.key !== "all").map((cat) => {
+              {realCategories.map((cat) => {
                 const catProducts = products.filter(p => p.category === cat.key);
+                const intro = categoryIntros[cat.key];
                 return (
-                  <div key={cat.key} className="mb-16 last:mb-0" data-testid={`section-${cat.key}`}>
+                  <div key={cat.key} className="mb-20 last:mb-0" data-testid={`section-${cat.key}`}>
                     <FadeIn>
                       <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">
                         {cat.label}
                       </h2>
-                      <div className="w-16 h-1 bg-primary rounded-full mb-8" />
+                      <div className="w-16 h-1 bg-primary rounded-full mb-4" />
+                      {intro && (
+                        <p className="text-slate-600 leading-relaxed max-w-3xl mb-8">
+                          {intro}
+                        </p>
+                      )}
                     </FadeIn>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                       {catProducts.map((product, i) => (
-                        <ProductCard key={product.id} product={product} index={i} />
+                        <ProductCard key={product.id} product={product} index={i} onFicheClick={openFiche} />
                       ))}
                     </div>
                   </div>
@@ -275,11 +453,20 @@ export default function NosProduits() {
               })}
             </>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-              {filtered.map((product, i) => (
-                <ProductCard key={product.id} product={product} index={i} />
-              ))}
-            </div>
+            <>
+              {activeCategory !== "zrp" && categoryIntros[activeCategory] && (
+                <FadeIn>
+                  <p className="text-slate-600 leading-relaxed max-w-3xl mb-8">
+                    {categoryIntros[activeCategory]}
+                  </p>
+                </FadeIn>
+              )}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filtered.map((product, i) => (
+                  <ProductCard key={product.id} product={product} index={i} onFicheClick={openFiche} />
+                ))}
+              </div>
+            </>
           )}
 
           <FadeIn>
@@ -289,7 +476,7 @@ export default function NosProduits() {
                 <h3 className="text-2xl md:text-3xl font-black text-white mb-3">
                   Service Marques Distributeurs (MDD)
                 </h3>
-                <p className="text-white/90 text-lg max-w-2xl mx-auto mb-2">
+                <p className="text-white/90 text-lg max-w-2xl mx-auto">
                   SICAM propose un service complet de fabrication sous marques distributeurs. Nous accompagnons nos partenaires internationaux avec des produits sur mesure, conformes aux standards de qualité les plus exigeants.
                 </p>
               </div>
@@ -297,6 +484,33 @@ export default function NosProduits() {
           </FadeIn>
         </div>
       </section>
+
+      <Dialog open={ficheOpen} onOpenChange={setFicheOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-0">
+          <DialogTitle className="sr-only">Fiche technique — {ficheName}</DialogTitle>
+          <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-white border-b">
+            <h3 className="font-bold text-lg text-foreground">Fiche technique — {ficheName}</h3>
+            <button
+              onClick={() => setFicheOpen(false)}
+              className="p-2 rounded-full hover:bg-slate-100 transition-colors"
+              data-testid="fiche-modal-close"
+              aria-label="Fermer la fiche technique"
+            >
+              <X size={20} />
+            </button>
+          </div>
+          {ficheImg && (
+            <div className="p-4">
+              <img
+                src={ficheImg}
+                alt={`Fiche technique — ${ficheName}`}
+                className="w-full h-auto rounded-lg"
+                data-testid="fiche-modal-image"
+              />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </main>
   );
 }

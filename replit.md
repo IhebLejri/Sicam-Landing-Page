@@ -27,12 +27,13 @@ Corporate landing page for SICAM, a Tunisian tomato products company established
 - `client/src/components/layout/Footer.tsx` - Social links (Facebook, Instagram, LinkedIn)
 - `client/src/components/ui/fade-in.tsx` - Scroll-triggered animation wrapper
 
-## Product Categories (Nos Produits)
-- **Tomates SICAM** (400g): DCT, Pulpe, Sauce Pizza, TC, TCA, TCP 4%, TCP 15%, TPC, TPE
-- **Tomates 3 KG**: Same varieties in 3kg format
-- **Confitures**: Abricot, Coing, Figue, Fraise
-- **Harissa**: 70g, 135g, 140g, 380g, 760g
-- **Marques Distributeurs (MDD)**: 30+ private label brands
+## Product Categories (Nos Produits) — 18 references, 3 categories
+- **Tomates** (10): DCT 800g, DCT 400g, TPE, TPC, Pulpe (all 5 ZRP-certified), TC, TCA, TCP 4%, TCP 15%, Sauce Pizza
+- **Harissa** (4 formats): 760g, 380g, 135g, Tube 70g — all with "Produit de l'Année 7 fois" badge
+- **Confitures** (4 saveurs): Abricot, Coing, Figue, Fraise
+- **Certifié ZRP filter**: Cross-category filter showing only ZRP-certified products
+- Each product has rich description, tags, format info, and fiche technique modal (12 fiche images)
+- MDD (private label) shown as bottom CTA banner, not as product cards
 
 ## Deployment
 - Static build via `npm run build` → `dist/public/`
