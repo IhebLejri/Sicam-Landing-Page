@@ -230,32 +230,35 @@ export default function NotreHistoire() {
             </div>
           </FadeIn>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <div className="relative">
-              <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-slate-200 -translate-y-1/2" />
+              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 md:-translate-x-px" />
 
-              <div className="flex flex-col md:flex-row md:overflow-x-auto md:gap-0 gap-6 md:pb-4 scrollbar-hide">
-                {timelineEvents.map((event, i) => (
-                  <FadeIn key={i} delay={Math.min(i * 0.1, 0.5)} direction="up">
-                    <div
-                      className={cn(
-                        "relative flex md:flex-col items-start md:items-center md:min-w-[160px] md:px-3",
-                        "pl-10 md:pl-0"
-                      )}
-                      data-testid={`frise-event-${i}`}
-                    >
-                      <div className="absolute left-0 md:relative md:left-auto w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-[10px] font-black z-10 flex-shrink-0 md:mb-3">
-                        {i + 1}
-                      </div>
+              {timelineEvents.map((event, i) => (
+                <FadeIn key={i} delay={Math.min(i * 0.1, 0.5)} direction={i % 2 === 0 ? "right" : "left"}>
+                  <div
+                    className={cn(
+                      "relative flex items-start mb-10 last:mb-0",
+                      i % 2 !== 0 && "md:flex-row-reverse"
+                    )}
+                    data-testid={`frise-event-${i}`}
+                  >
+                    <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-primary border-4 border-white shadow-sm -translate-x-1/2 mt-2 z-10" />
 
-                      <div className="md:text-center">
-                        <span className="block text-xl md:text-2xl font-black text-primary mb-1">{event.year}</span>
-                        <p className="text-sm text-slate-600 leading-snug">{event.text}</p>
+                    <div className={cn(
+                      "ml-12 md:ml-0 md:w-[45%]",
+                      i % 2 === 0 ? "md:pr-10 md:text-right" : "md:pl-10 md:text-left"
+                    )}>
+                      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5" >
+                        <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-black mb-2">
+                          {event.year}
+                        </span>
+                        <p className="text-sm text-slate-700 leading-relaxed">{event.text}</p>
                       </div>
                     </div>
-                  </FadeIn>
-                ))}
-              </div>
+                  </div>
+                </FadeIn>
+              ))}
             </div>
           </div>
         </div>
