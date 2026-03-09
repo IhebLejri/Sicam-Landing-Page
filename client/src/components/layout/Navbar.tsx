@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 import logoSicam from '@assets/Asset_2@2x_1772017659057.png';
 
 const navLinks = [
   { href: "/", label: "Accueil" },
+  { href: "/notre-histoire", label: "Notre Histoire" },
   { href: "/nos-produits", label: "Nos Produits" },
   { href: "/certifications", label: "Certifications" },
   { href: "/zrp", label: "Programme ZRP" },
@@ -76,7 +76,9 @@ export function Navbar() {
           <button
             className="lg:hidden p-2 text-foreground rounded-full"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav-drawer"
             data-testid="mobile-menu-toggle"
           >
             <Menu className="h-6 w-6" />
@@ -94,10 +96,12 @@ export function Navbar() {
       />
 
       <aside
+        id="mobile-nav-drawer"
         className={cn(
           "fixed top-0 right-0 bottom-0 w-[75%] max-w-[300px] z-[60] lg:hidden bg-white shadow-2xl flex flex-col transition-transform duration-300 ease-in-out",
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
+        aria-hidden={!mobileMenuOpen}
         data-testid="mobile-menu"
       >
         <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-slate-100">
@@ -120,7 +124,7 @@ export function Navbar() {
                 className={cn(
                   "block w-full px-4 py-3 rounded-xl text-base font-semibold transition-colors",
                   location === link.href
-                    ? "text-primary bg-red-50"
+                    ? "text-primary bg-primary/5"
                     : "text-slate-700 hover:text-primary hover:bg-slate-50"
                 )}
                 onClick={() => setMobileMenuOpen(false)}
