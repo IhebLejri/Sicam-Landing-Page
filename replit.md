@@ -20,6 +20,7 @@ Corporate landing page for SICAM, a Tunisian tomato products company established
 |-------|------|-------------|
 | `/` | `client/src/pages/Home.tsx` | Hero carousel, stats, histoire, ZRP promo |
 | `/notre-histoire` | `client/src/pages/NotreHistoire.tsx` | Heritage: 5 blocs + chronological timeline |
+| `/nos-valeurs` | `client/src/pages/NosValeurs.tsx` | 5 core values, ZRP founding values, communication intentions |
 | `/nos-produits` | `client/src/pages/NosProduits.tsx` | Full product catalog with category filters |
 | `/certifications` | `client/src/pages/Certifications.tsx` | 10 certifications, social audits, 20-year timeline |
 | `/zrp` | `client/src/pages/ZRP.tsx` | Zero Residue Pesticides program |

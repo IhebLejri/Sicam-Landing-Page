@@ -11,6 +11,7 @@ import ZRP from "@/pages/ZRP";
 import NosProduits from "@/pages/NosProduits";
 import Certifications from "@/pages/Certifications";
 import NotreHistoire from "@/pages/NotreHistoire";
+import NosValeurs from "@/pages/NosValeurs";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -21,6 +22,7 @@ function Router() {
       <Route path="/nos-produits" component={NosProduits} />
       <Route path="/certifications" component={Certifications} />
       <Route path="/notre-histoire" component={NotreHistoire} />
+      <Route path="/nos-valeurs" component={NosValeurs} />
       <Route component={NotFound} />
     </Switch>
   );
