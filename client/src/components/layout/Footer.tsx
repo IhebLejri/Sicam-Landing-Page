@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { SiFacebook, SiInstagram, SiLinkedin } from "react-icons/si";
 
 import logoSicam from '@assets/Asset_2@2x_1772017659057.png';
@@ -16,6 +16,71 @@ const quickLinks = [
 export function Footer() {
   return (
     <footer className="bg-[#1a1714] text-white/60">
+      <div className="bg-primary">
+        <div className="container mx-auto px-6 md:px-8 py-16 md:py-20">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <p className="text-xs font-display font-semibold tracking-[0.2em] text-white/40 uppercase mb-4">Nous contacter</p>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4" data-testid="contact-title">
+              SICAM — Siège social
+            </h2>
+            <p className="text-white/70 font-light">
+              Disponible du lundi au vendredi de 08:00 à 17:00
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-12">
+            <div>
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Phone size={16} className="text-accent" />
+                <span className="text-xs font-display font-semibold tracking-wider text-white/50 uppercase">Téléphone</span>
+              </div>
+              <a href="tel:+21678560300" className="text-white font-serif font-bold text-lg hover:text-accent transition-colors" data-testid="contact-phone">
+                +216 78 560 300
+              </a>
+            </div>
+            <div>
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Mail size={16} className="text-accent" />
+                <span className="text-xs font-display font-semibold tracking-wider text-white/50 uppercase">E-mail</span>
+              </div>
+              <a href="mailto:contact@sicam.com.tn" className="text-white font-serif font-bold text-lg hover:text-accent transition-colors" data-testid="contact-email">
+                contact@sicam.com.tn
+              </a>
+            </div>
+            <div>
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <MapPin size={16} className="text-accent" />
+                <span className="text-xs font-display font-semibold tracking-wider text-white/50 uppercase">Adresse</span>
+              </div>
+              <p className="text-white font-semibold text-sm leading-relaxed">
+                Route du Kef<br />
+                Medjez El Bab, Tunisie
+              </p>
+            </div>
+          </div>
+
+          <div className="border-t border-white/15 pt-10">
+            <p className="text-xs font-display font-semibold tracking-[0.15em] text-white/40 uppercase text-center mb-6">
+              SICAM S.A. (Siège social en Tunisie)
+            </p>
+            <div className="rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3200.5!2d9.6124!3d36.6486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e4b9f4c7e1d8a1%3A0x2e3f4a5b6c7d8e9f!2sMedjez-el-Bab%2C%20Tunisia!5e0!3m2!1sfr!2stn!4v1700000000000!5m2!1sfr!2stn"
+                width="100%"
+                height="350"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="SICAM - Medjez El Bab, Tunisie"
+                className="w-full"
+                data-testid="map-iframe"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-12 py-20 md:py-24">
           <div className="lg:col-span-5">

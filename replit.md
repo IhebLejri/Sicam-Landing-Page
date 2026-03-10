@@ -32,7 +32,8 @@ Corporate landing page for SICAM, a Tunisian tomato products company established
 
 ## Key Components
 - `client/src/components/layout/Navbar.tsx` - Fixed navbar, white bg, mobile drawer
-- `client/src/components/layout/Footer.tsx` - Social links (Facebook, Instagram, LinkedIn)
+- `client/src/components/layout/Footer.tsx` - Red contact section with Google Maps embed + dark footer with social links
+- `client/src/components/CookieConsent.tsx` - Cookie consent banner (localStorage key: `sicam_cookie_consent`), 3 options: tout autoriser, personnaliser, refuser
 - `client/src/components/ui/fade-in.tsx` - Scroll-triggered animation wrapper
 
 ## Product Categories (Nos Produits) — 18 references, 3 categories
