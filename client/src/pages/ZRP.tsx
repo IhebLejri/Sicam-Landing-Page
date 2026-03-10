@@ -18,12 +18,12 @@ export default function ZRP() {
       <section className="relative min-h-[90vh] flex overflow-hidden pt-20">
         <div className="flex-1 flex flex-col lg:flex-row">
           {/* Left panel — text on solid green */}
-          <div className="lg:w-[50%] bg-secondary flex flex-col justify-center px-8 md:px-16 lg:px-20 py-12 lg:py-0">
+          <div className="lg:w-[50%] bg-secondary flex flex-col justify-center px-8 md:px-16 lg:px-20 py-16 lg:py-0">
             <FadeIn>
-              <img src={logoZrpAlt} alt="ZRP Logo" className="h-20 md:h-28 mb-6 drop-shadow-2xl" data-testid="zrp-logo" />
+              <img src={logoZrpAlt} alt="ZRP Logo" className="h-20 md:h-28 mb-8 drop-shadow-2xl" data-testid="zrp-logo" />
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-black text-white leading-tight mb-6" data-testid="hero-title">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-6" data-testid="hero-title">
                 Un modèle résilient, respectueux des sols, et intransigeant sur la pureté du produit final.
               </h1>
             </FadeIn>
@@ -75,10 +75,10 @@ export default function ZRP() {
 
       {/* Section 2 — Notre histoire : pourquoi le ZRP est né */}
       <section id="demarche" className="py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+        <div className="container mx-auto px-6 md:px-8 max-w-4xl">
           <FadeIn className="text-center mb-12">
-            <h2 className="text-sm font-bold tracking-widest text-secondary uppercase mb-3">Notre Histoire</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-black text-foreground" data-testid="section-histoire-title">
+            <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">Notre Histoire</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground" data-testid="section-histoire-title">
               Pourquoi le ZRP est né
             </h3>
           </FadeIn>
@@ -90,7 +90,7 @@ export default function ZRP() {
                   Tout commence par une question simple, posée par nos équipes il y a plusieurs années : <strong className="text-foreground">comment faire mieux pour la santé des consommateurs ?</strong>
                 </p>
                 <div className="bg-primary/5 rounded-2xl p-6 border border-primary/10 mb-6">
-                  <p className="text-3xl md:text-4xl font-black text-primary text-center mb-2">96 %</p>
+                  <p className="text-3xl md:text-4xl font-serif font-bold text-primary text-center mb-2">96 %</p>
                   <p className="text-center text-slate-600">des Tunisiens déclarent s'inquiéter de l'impact des pesticides sur leur alimentation.</p>
                 </div>
                 <p className="text-lg text-slate-600 leading-relaxed">
@@ -127,10 +127,10 @@ export default function ZRP() {
 
       {/* Section 3 — Qu'est-ce que le ZRP ? */}
       <section className="py-24 bg-slate-50">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+        <div className="container mx-auto px-6 md:px-8 max-w-4xl">
           <FadeIn className="text-center mb-12">
-            <h2 className="text-sm font-bold tracking-widest text-secondary uppercase mb-3">Définition</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-black text-foreground" data-testid="section-definition-title">
+            <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">Définition</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground" data-testid="section-definition-title">
               Qu'est-ce que le ZRP ?
             </h3>
           </FadeIn>
@@ -164,7 +164,7 @@ export default function ZRP() {
                 { value: "600+", unit: "", label: "Molécules testées" },
               ].map((stat, i) => (
                 <div key={i} className="bg-white rounded-2xl p-5 text-center shadow-sm border border-slate-100">
-                  <p className="text-2xl md:text-3xl font-black text-secondary">{stat.value}<span className="text-sm font-medium text-slate-500 ml-1">{stat.unit}</span></p>
+                  <p className="text-2xl md:text-3xl font-serif font-bold text-secondary">{stat.value}<span className="text-sm font-medium text-slate-500 ml-1">{stat.unit}</span></p>
                   <p className="text-xs text-slate-500 mt-1">{stat.label}</p>
                 </div>
               ))}
@@ -175,10 +175,10 @@ export default function ZRP() {
 
       {/* Section 4 — Notre processus ZRP en 5 étapes */}
       <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+        <div className="container mx-auto px-6 md:px-8 max-w-5xl">
           <FadeIn className="text-center mb-6">
-            <h2 className="text-sm font-bold tracking-widest text-secondary uppercase mb-3">Notre Processus</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-black text-foreground" data-testid="section-processus-title">
+            <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">Notre Processus</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground" data-testid="section-processus-title">
               Le parcours ZRP en 5 étapes
             </h3>
           </FadeIn>
@@ -243,9 +243,9 @@ export default function ZRP() {
       {/* Section 5 — Les 6 engagements ZRP */}
       <section className="py-24 bg-primary text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-        <div className="container relative z-10 mx-auto px-4 md:px-6">
+        <div className="container relative z-10 mx-auto px-6 md:px-8">
           <FadeIn className="text-center mb-6">
-            <h2 className="text-4xl md:text-5xl font-display font-black mb-4" data-testid="section-engagements-title">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4" data-testid="section-engagements-title">
               Nos 6 Engagements
             </h2>
           </FadeIn>
@@ -266,7 +266,7 @@ export default function ZRP() {
             ].map((commit, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 h-full">
-                  <div className="text-4xl font-display font-black text-accent/50 mb-3">{commit.n}</div>
+                  <div className="text-4xl font-serif font-bold text-accent/50 mb-3">{commit.n}</div>
                   <h4 className="text-lg font-bold mb-3">{commit.title}</h4>
                   <p className="text-white/80 text-sm leading-relaxed">{commit.text}</p>
                 </div>
@@ -278,10 +278,10 @@ export default function ZRP() {
 
       {/* Section 6 — ZRP en chiffres */}
       <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <FadeIn className="text-center mb-16">
-            <h2 className="text-sm font-bold tracking-widest text-secondary uppercase mb-3">En Chiffres</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-black text-foreground" data-testid="section-chiffres-title">
+            <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">En Chiffres</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground" data-testid="section-chiffres-title">
               ZRP en chiffres
             </h3>
           </FadeIn>
@@ -295,7 +295,7 @@ export default function ZRP() {
             ].map((stat, i) => (
               <FadeIn key={i} delay={i * 0.1} direction="up">
                 <div className="text-center p-8 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
-                  <p className={cn("text-5xl md:text-6xl font-black mb-2", stat.color)}>{stat.value}</p>
+                  <p className={cn("text-5xl md:text-6xl font-serif font-bold mb-2", stat.color)}>{stat.value}</p>
                   <p className="text-lg font-bold text-slate-800">{stat.label}</p>
                   <p className="text-sm text-slate-500 mt-1">{stat.sub}</p>
                 </div>
@@ -307,10 +307,10 @@ export default function ZRP() {
 
       {/* Section 7 — La certification CCPB */}
       <section id="certificat" className="py-24 bg-slate-50">
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+        <div className="container mx-auto px-6 md:px-8 max-w-5xl">
           <FadeIn className="text-center mb-16">
-            <h2 className="text-sm font-bold tracking-widest text-secondary uppercase mb-3">La Certification</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-black text-foreground" data-testid="section-certification-title">
+            <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">La Certification</h2>
+            <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground" data-testid="section-certification-title">
               Qui garantit nos tomates ?
             </h3>
           </FadeIn>
@@ -393,12 +393,12 @@ export default function ZRP() {
         <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl"></div>
 
-        <div className="container relative z-10 mx-auto px-4 md:px-6 max-w-4xl text-center">
+        <div className="container relative z-10 mx-auto px-6 md:px-8 max-w-4xl text-center">
           <FadeIn>
             <img src={logoZrp} alt="Logo ZRP" className="w-24 h-24 mx-auto mb-8 drop-shadow-xl" />
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h2 className="text-3xl md:text-5xl font-display font-black leading-tight mb-6" data-testid="cta-final-title">
+            <h2 className="text-3xl md:text-5xl font-serif font-bold leading-tight mb-6" data-testid="cta-final-title">
               Notre démarche Zéro Résidu de Pesticides est née d'une double évidence : protéger la richesse de la terre et garantir l'authenticité absolue du goût.
             </h2>
           </FadeIn>

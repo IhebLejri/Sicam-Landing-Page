@@ -158,7 +158,7 @@ function CertCard({ cert, index }: { cert: Certification; index: number }) {
       >
         <div className="p-6 flex-1 flex flex-col">
           <div className="flex items-start gap-4 mb-4">
-            <div className={cn("w-14 h-14 rounded-xl flex items-center justify-center text-white font-black text-xs flex-shrink-0", cert.color)}>
+            <div className={cn("w-14 h-14 rounded-xl flex items-center justify-center text-white font-serif font-bold text-xs flex-shrink-0", cert.color)}>
               {cert.icon}
             </div>
             <div className="flex-1 min-w-0">
@@ -225,20 +225,20 @@ function CertCard({ cert, index }: { cert: Certification; index: number }) {
 export default function Certifications() {
   return (
     <main className="flex min-h-screen flex-col">
-      <section className="relative pt-32 pb-16 bg-gradient-to-b from-primary/95 to-primary overflow-hidden">
+      <section className="relative pt-36 pb-24 bg-gradient-to-b from-primary/95 to-primary overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/10 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl" />
         </div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
+        <div className="container mx-auto px-6 md:px-8 relative z-10 text-center max-w-4xl">
           <FadeIn>
-            <p className="text-sm md:text-base font-bold tracking-widest text-white/50 uppercase mb-4">
+            <p className="text-xs font-display font-semibold tracking-[0.2em] text-white/40 uppercase mb-6">
               Plus de 20 ans d'exigence. Sans interruption.
             </p>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight" data-testid="certifications-title">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight" data-testid="certifications-title">
               Certifications & Labels — Chaque logo est un engagement tenu
             </h1>
-            <p className="text-base md:text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-white/60 max-w-3xl mx-auto leading-relaxed font-light">
               Une certification, ça se mérite chaque année. Un auditeur indépendant vient vérifier que ce que nous promettons correspond à ce que nous faisons — sans indulgence, sans faveur. Depuis 2003, notre portefeuille de certifications n'a cessé de s'élargir. En 2025, SICAM détient simultanément les certifications les plus exigeantes du secteur agroalimentaire international.
             </p>
           </FadeIn>
@@ -246,7 +246,7 @@ export default function Certifications() {
       </section>
 
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
               { value: "+20 ans", label: "De certifications internationales", sub: "Maintenues sans interruption depuis 2003", icon: Calendar },
@@ -258,7 +258,7 @@ export default function Certifications() {
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mx-auto mb-3">
                   <stat.icon size={28} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-3xl md:text-4xl font-black text-foreground mb-1" data-testid={`stat-value-${i}`}>{stat.value}</h3>
+                <h3 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-1" data-testid={`stat-value-${i}`}>{stat.value}</h3>
                 <p className="text-sm font-bold text-slate-800">{stat.label}</p>
                 <p className="text-xs text-muted-foreground mt-1">{stat.sub}</p>
               </FadeIn>
@@ -268,9 +268,9 @@ export default function Certifications() {
       </section>
 
       <section className="py-20 bg-background" data-testid="certifications-grid">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-2">
               Nos certifications actives en 2025
             </h2>
             <div className="w-16 h-1 bg-primary rounded-full mb-4" />
@@ -304,10 +304,10 @@ export default function Certifications() {
       </section>
 
       <section className="py-20 bg-white" data-testid="social-audits-section">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <FadeIn direction="right">
-              <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">
+              <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-2">
                 Audits sociaux 2025 : l'humain au cœur de nos priorités
               </h2>
               <div className="w-16 h-1 bg-primary rounded-full mb-6" />
@@ -326,7 +326,7 @@ export default function Certifications() {
 
             <FadeIn direction="left">
               <div className="space-y-4">
-                <h4 className="text-sm font-bold tracking-widest text-slate-500 uppercase">Les quatre axes évalués</h4>
+                <h4 className="text-sm font-bold tracking-[0.15em] text-slate-500 uppercase">Les quatre axes évalués</h4>
                 {[
                   "Le respect strict de la législation sociale et du droit du travail tunisien et international",
                   "L'engagement de l'entreprise pour des conditions de travail sûres, équitables et inclusives",
@@ -341,7 +341,7 @@ export default function Certifications() {
               </div>
 
               <div className="mt-8 space-y-3">
-                <h4 className="text-sm font-bold tracking-widest text-slate-500 uppercase">Les trois programmes d'audit</h4>
+                <h4 className="text-sm font-bold tracking-[0.15em] text-slate-500 uppercase">Les trois programmes d'audit</h4>
                 {[
                   { name: "Amfori BSCI", desc: "Conformité sociale basée sur les conventions de l'OIT et les droits humains fondamentaux." },
                   { name: "SMETA", desc: "Audit éthique selon les 4 piliers : travail, santé & sécurité, environnement, éthique des affaires." },
@@ -359,9 +359,9 @@ export default function Certifications() {
       </section>
 
       <section className="py-20 bg-background" data-testid="timeline-section">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-2">
               L'exigence ne date pas d'hier.
             </h2>
             <div className="w-16 h-1 bg-primary rounded-full mb-4" />

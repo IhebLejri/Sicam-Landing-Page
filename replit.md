@@ -10,10 +10,15 @@ Corporate landing page for SICAM, a Tunisian tomato products company established
 - **Backend**: Express (dev server only, static build for production)
 - **Build output**: `dist/public/` (configured in vite.config.ts)
 
-## Brand Colors
-- Primary Red: `#E30613`
-- Secondary Green: `#009640`
-- Accent Yellow: `#FFD100`
+## Design System (Premium)
+- **Typography**: Headings use `Playfair Display` serif, body uses `Inter`, display labels use `Montserrat`
+- **Font classes**: `font-serif` (Playfair Display), `font-display` (Montserrat), `font-sans` (Inter)
+- **Brand Colors**: Primary Red `#E30613`, Secondary Green `#009640`, Accent Yellow `#FFD100`
+- **Background**: Warm off-white `hsl(36, 30%, 97%)`
+- **Spacing**: `section-padding` (py-24 md:py-32), `section-padding-sm` (py-16 md:py-24)
+- **Hero pattern**: All pages use `pt-36 pb-24`, small label with `font-display font-semibold tracking-[0.2em] text-white/40`, serif heading, light body text
+- **Navbar**: Thin, elegant, `font-display` links with active underline indicator
+- **Footer**: Dark `#1a1714` background, editorial layout
 
 ## Pages
 | Route | File | Description |

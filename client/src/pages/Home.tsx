@@ -5,19 +5,16 @@ import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/utils";
 
-import heroBanner from '@assets/zrp_aff-01_1772017659058.png';
 import posterAll from '@assets/sicam_poster-04_1772459805485.png';
 import logoZrp from '@assets/Asset_3@2x_1772017659058.png';
-import imgTC from '@assets/ZRP_TC_1772025754847.png';
-import imgTPC from '@assets/TPC_ZRP_1772025754847.png';
-import imgTPE from '@assets/TPE_ZRP_1772025754847.png';
 import posterConcassees from '@assets/sicam_poster-03_1772455941845.png';
 import posterCubes from '@assets/sicam_poster-02_1772455941844.png';
 import posterEntieres from '@assets/sicam_poster-01_1772455933609.png';
+
 const slides = [
   {
     id: 0,
-    tab: "ZERO RESIDUS DE PESTICIDES",
+    tab: "ZERO RÉSIDUS",
     title: "Des produits garantis zéro* résidu de pesticides",
     subtitle: "Notre priorité. Votre santé.",
     cta: { label: "Découvrir le programme ZRP", href: "/zrp" },
@@ -26,28 +23,28 @@ const slides = [
   },
   {
     id: 1,
-    tab: "TOMATES PELEES CONCASSEES",
+    tab: "CONCASSÉES",
     title: "Tomates Pelées Concassées",
-    subtitle: "Certifiées Zéro Résidu de Pesticides. 100% tomates tunisiennes.",
-    cta: { label: "En savoir plus", href: "/zrp" },
+    subtitle: "Certifiées Zéro Résidu de Pesticides. 100 % tomates tunisiennes.",
+    cta: { label: "Voir nos produits", href: "/nos-produits" },
     bg: posterConcassees,
     bgColor: "bg-[#6B1528]",
   },
   {
     id: 2,
-    tab: "TOMATES EN CUBES",
+    tab: "EN CUBES",
     title: "Tomates Pelées en Cubes",
     subtitle: "Au jus naturel. Certifiées ZRP. Idéales pour vos sauces et mijotés.",
-    cta: { label: "En savoir plus", href: "/zrp" },
+    cta: { label: "Voir nos produits", href: "/nos-produits" },
     bg: posterCubes,
     bgColor: "bg-[#6B1528]",
   },
   {
     id: 3,
-    tab: "TOMATES ENTIERES PELEES",
+    tab: "ENTIÈRES",
     title: "Tomates Entières Pelées",
     subtitle: "Au jus naturel. Certifiées ZRP. La qualité SICAM depuis 1969.",
-    cta: { label: "En savoir plus", href: "/zrp" },
+    cta: { label: "Voir nos produits", href: "/nos-produits" },
     bg: posterEntieres,
     bgColor: "bg-[#6B1528]",
   },
@@ -73,43 +70,37 @@ function HeroCarousel() {
   }, [current, goTo]);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      next();
-    }, 6000);
+    const timer = setInterval(() => { next(); }, 6000);
     return () => clearInterval(timer);
   }, [next]);
 
   const slide = slides[current];
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
+    <section className="relative min-h-[92vh] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
       <div className="flex-1 flex flex-col lg:flex-row">
-        {/* Left panel — text on solid color */}
-        <div className={cn("lg:w-[45%] flex flex-col justify-center px-8 md:px-16 lg:px-20 py-12 lg:py-0 transition-colors duration-500", slide.bgColor)}>
-          <div
-            key={`title-${current}`}
-            className="animate-fade-in-up max-w-xl"
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-4 text-white" data-testid="hero-title">
+        <div className={cn("lg:w-[45%] flex flex-col justify-center px-8 md:px-16 lg:px-20 py-16 lg:py-0 transition-colors duration-700", slide.bgColor)}>
+          <div key={`title-${current}`} className="animate-fade-in-up max-w-xl">
+            <p className="text-xs font-display font-semibold uppercase tracking-[0.2em] text-white/40 mb-6">SICAM — Depuis 1969</p>
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif font-bold leading-[1.1] mb-6 text-white" data-testid="hero-title">
               {slide.title}
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white/90">
+            <p className="text-lg md:text-xl mb-10 text-white/80 font-light leading-relaxed">
               {slide.subtitle}
             </p>
           </div>
           <Link href={slide.cta.href}>
             <Button
               size="lg"
-              className="text-lg gap-2 h-14 px-8 bg-white text-primary hover:bg-white/90"
+              className="text-sm gap-2.5 h-12 px-8 bg-white text-primary hover:bg-white/90 font-display font-semibold uppercase tracking-wider rounded-full"
               data-testid="hero-cta"
             >
               {slide.cta.label}
-              <ArrowRight size={20} />
+              <ArrowRight size={16} />
             </Button>
           </Link>
         </div>
 
-        {/* Right panel — image */}
         <div className="lg:w-[55%] relative bg-[#5a1020] flex items-center justify-center overflow-hidden">
           <img
             key={`img-${current}`}
@@ -119,34 +110,33 @@ function HeroCarousel() {
           />
           <button
             onClick={prev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
+            className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full flex items-center justify-center transition-all bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20"
             data-testid="carousel-prev"
           >
-            <ArrowLeft size={20} />
+            <ArrowLeft size={18} strokeWidth={1.5} />
           </button>
           <button
             onClick={next}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
+            className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full flex items-center justify-center transition-all bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20"
             data-testid="carousel-next"
           >
-            <ArrowRight size={20} />
+            <ArrowRight size={18} strokeWidth={1.5} />
           </button>
         </div>
       </div>
 
-      {/* Tab navigation at bottom */}
       <div className="w-full">
         <div className="flex justify-center">
-          <div className="flex bg-black/80 backdrop-blur-md rounded-t-xl overflow-hidden">
+          <div className="flex bg-[#1a1714]/90 backdrop-blur-md overflow-hidden">
             {slides.map((s, i) => (
               <button
                 key={s.id}
                 onClick={() => goTo(i)}
                 className={cn(
-                  "px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm font-bold uppercase tracking-wider transition-all whitespace-nowrap",
+                  "px-5 md:px-8 py-3.5 md:py-4 text-[11px] md:text-xs font-display font-semibold uppercase tracking-[0.15em] transition-all whitespace-nowrap",
                   current === i
                     ? "bg-primary text-white"
-                    : "text-white/70 hover:text-white hover:bg-white/10"
+                    : "text-white/40 hover:text-white/70 hover:bg-white/5"
                 )}
                 data-testid={`carousel-tab-${i}`}
               >
@@ -165,9 +155,9 @@ export default function Home() {
     <main className="flex min-h-screen flex-col">
       <HeroCarousel />
 
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 text-center">
+      <section className="section-padding bg-white">
+        <div className="container mx-auto px-6 md:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-10 md:gap-8 text-center">
             {[
               { value: "+55 ans", label: "D'expertise", sub: "Depuis 1969", icon: Award },
               { value: "N°1", label: "Du marché", sub: "Leader en Tunisie", icon: Globe2 },
@@ -177,51 +167,51 @@ export default function Home() {
               { value: "600", label: "Molécules", sub: "Analysées", icon: TestTube },
               { value: "1000", label: "Tests qualité", sub: "Dans nos labos par jour", icon: Microscope },
             ].map((stat, i) => (
-              <FadeIn key={i} delay={i * 0.1} direction="up" className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-2xl bg-background flex items-center justify-center text-primary mb-4 shadow-sm">
-                  <stat.icon size={32} strokeWidth={1.5} />
+              <FadeIn key={i} delay={i * 0.08} direction="up" className="flex flex-col items-center">
+                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center text-primary/70 mb-4">
+                  <stat.icon size={28} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-4xl font-black text-foreground mb-1">{stat.value}</h3>
-                <p className="text-sm font-bold text-slate-800">{stat.label}</p>
-                <p className="text-xs text-muted-foreground mt-1">{stat.sub}</p>
+                <h3 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-1">{stat.value}</h3>
+                <p className="text-xs font-display font-semibold uppercase tracking-wider text-foreground/60">{stat.label}</p>
+                <p className="text-[11px] text-muted-foreground mt-1 leading-snug">{stat.sub}</p>
               </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="histoire" className="py-24 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section id="histoire" className="section-padding bg-background">
+        <div className="container mx-auto px-6 md:px-8">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
             <FadeIn direction="right">
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-[3rem] blur-2xl opacity-50"></div>
-                <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl">
+                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?q=80&w=2070&auto=format&fit=crop"
                     alt="Tomates fraîches"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 border-4 border-white/20 rounded-[2rem]"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
-                <div className="absolute -bottom-8 -right-8 bg-white p-6 rounded-3xl shadow-xl max-w-xs hidden md:block">
-                  <div className="flex items-center gap-4 mb-2">
-                    <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
-                      <CheckCircle2 size={24} />
+                <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-lg max-w-[240px] hidden md:block">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+                      <CheckCircle2 size={20} strokeWidth={1.5} />
                     </div>
-                    <span className="font-bold text-lg">Qualité Garantie</span>
+                    <span className="font-serif font-bold text-base">Qualité Garantie</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">Une sélection rigoureuse des meilleures graines pour une saveur authentique.</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">Une sélection rigoureuse des meilleures graines pour une saveur authentique.</p>
                 </div>
               </div>
             </FadeIn>
 
-            <FadeIn direction="left" className="space-y-6">
-              <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Notre Histoire</h2>
-              <h3 className="text-4xl md:text-5xl font-black text-foreground leading-tight">
-                Préserver la terre, innover pour la santé. <span className="text-primary">SICAM : Le goût authentique, l'exigence en plus</span>
-              </h3>
-              <div className="space-y-4 text-lg text-slate-600 leading-relaxed">
+            <FadeIn direction="left" className="space-y-8">
+              <p className="text-xs font-display font-semibold uppercase tracking-[0.2em] text-primary/60">Notre Histoire</p>
+              <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-serif font-bold text-foreground leading-[1.15]">
+                Préserver la terre, innover pour la santé.{" "}
+                <span className="text-primary italic">Le goût authentique, l'exigence en plus.</span>
+              </h2>
+              <div className="space-y-5 text-base text-foreground/60 leading-[1.8]">
                 <p>
                   Depuis 1969, SICAM s'engage à offrir le meilleur de la nature tunisienne. Notre histoire est celle d'une passion pour la terre et d'un savoir-faire transmis de génération en génération.
                 </p>
@@ -229,62 +219,64 @@ export default function Home() {
                   Aujourd'hui, nous allons plus loin dans notre engagement pour votre santé et celle de l'environnement avec une démarche révolutionnaire dans l'industrie agroalimentaire tunisienne.
                 </p>
               </div>
-              <ul className="space-y-3 pt-4">
+              <ul className="space-y-4 pt-2">
                 {["Agriculture durable et responsable", "Soutien aux agriculteurs locaux", "Innovation continue dans nos procédés"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
-                    <CheckCircle2 className="text-secondary" size={20} />
+                  <li key={i} className="flex items-center gap-3 text-foreground/70 text-[15px]">
+                    <CheckCircle2 className="text-secondary" size={18} strokeWidth={1.5} />
                     {item}
                   </li>
                 ))}
               </ul>
+              <Link href="/notre-histoire" className="inline-flex items-center gap-2 text-sm font-display font-semibold text-primary hover:text-primary/80 transition-colors uppercase tracking-wider pt-2" data-testid="link-histoire">
+                Découvrir notre histoire
+                <ArrowRight size={16} />
+              </Link>
             </FadeIn>
           </div>
         </div>
       </section>
 
       <section className="py-12 pb-24">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
-            <div className="bg-secondary rounded-[3rem] p-8 md:p-16 relative overflow-hidden shadow-2xl shadow-secondary/20">
-              <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl"></div>
+            <div className="bg-secondary rounded-3xl p-10 md:p-20 relative overflow-hidden">
+              <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
 
-              <div className="relative z-10 grid lg:grid-cols-12 gap-12 items-center">
-                <div className="lg:col-span-8 space-y-6">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 text-white text-sm font-medium">
-                    <ShieldCheck size={18} />
-                    Notre programme phare
-                  </div>
-                  <h2 className="text-4xl md:text-6xl font-black text-white leading-tight">
-                    Zéro Résidu de Pesticides <span className="text-accent">— ZRP</span>
+              <div className="relative z-10 grid lg:grid-cols-12 gap-16 items-center">
+                <div className="lg:col-span-8 space-y-8">
+                  <p className="text-xs font-display font-semibold uppercase tracking-[0.2em] text-white/40">Notre programme phare</p>
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
+                    Zéro Résidu de Pesticides{" "}
+                    <span className="text-accent italic">— ZRP</span>
                   </h2>
-                  <p className="text-2xl font-bold text-accent italic">
+                  <p className="text-xl font-serif italic text-accent/90">
                     « Notre priorité. Votre santé. »
                   </p>
-                  <div className="space-y-4 text-lg text-white/90 max-w-2xl leading-relaxed">
+                  <div className="space-y-5 text-base text-white/70 max-w-2xl leading-[1.8]">
                     <p>
                       96 % des Tunisiens s'inquiètent de la présence de pesticides dans leur alimentation. Chez SICAM, nous ne répondons pas à cette inquiétude avec des promesses — nous y répondons avec des certifications.
                     </p>
                     <p>
-                      Notre programme ZRP garantit que chacun de nos produits certifiés est analysé sur plus de 600 molécules de pesticides avant d'arriver sur votre table. Aucun résidu détectable. Une traçabilité totale. Une certification internationale indépendante délivrée par le CCPB (Italie).
+                      Notre programme ZRP garantit que chacun de nos produits certifiés est analysé sur plus de 600 molécules de pesticides avant d'arriver sur votre table. Aucun résidu détectable. Une traçabilité totale.
                     </p>
-                    <p className="font-semibold text-white">
+                    <p className="text-white/90 font-medium">
                       SICAM est la première entreprise arabe et africaine, et la première au monde pour le double concentré de tomates, à avoir obtenu cette certification.
                     </p>
                   </div>
-                  <div className="pt-4">
+                  <div className="pt-2">
                     <Link href="/zrp">
-                      <Button variant="outline" size="lg" className="bg-white text-secondary border-white text-lg h-14 px-8">
+                      <Button variant="outline" size="lg" className="bg-white text-secondary border-white text-sm h-12 px-8 font-display font-semibold uppercase tracking-wider rounded-full">
                         Tout savoir sur le programme ZRP
-                        <ArrowRight className="ml-2" size={20} />
+                        <ArrowRight className="ml-2" size={16} />
                       </Button>
                     </Link>
                   </div>
                 </div>
 
                 <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                  <div className="bg-white p-8 rounded-full shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                    <img src={logoZrp} alt="Logo ZRP" className="w-48 h-48 object-contain" />
+                  <div className="bg-white/10 backdrop-blur-sm p-10 rounded-full animate-float">
+                    <img src={logoZrp} alt="Logo ZRP" className="w-40 h-40 md:w-48 md:h-48 object-contain" />
                   </div>
                 </div>
               </div>

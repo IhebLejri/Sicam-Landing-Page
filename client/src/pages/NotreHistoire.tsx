@@ -18,16 +18,16 @@ const timelineEvents = [
 export default function NotreHistoire() {
   return (
     <main className="flex min-h-screen flex-col">
-      <section className="relative pt-32 pb-20 bg-gradient-to-b from-primary/95 to-primary overflow-hidden">
+      <section className="relative pt-36 pb-24 bg-gradient-to-b from-primary/95 to-primary overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full -translate-y-1/2 -translate-x-1/2 blur-3xl" />
         </div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
+        <div className="container mx-auto px-6 md:px-8 relative z-10 text-center max-w-4xl">
           <FadeIn>
-            <p className="text-sm md:text-base font-bold tracking-widest text-white/50 uppercase mb-4" data-testid="hero-surtitre">
-              Une famille, une terre, une passion.
+            <p className="text-xs font-display font-semibold tracking-[0.2em] text-white/40 uppercase mb-6" data-testid="hero-surtitre">
+              Une famille, une terre, une passion
             </p>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight" data-testid="histoire-title">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight" data-testid="histoire-title">
               L'Héritage SICAM : Une passion tunisienne, une excellence mondiale.
             </h1>
           </FadeIn>
@@ -35,16 +35,16 @@ export default function NotreHistoire() {
       </section>
 
       <section className="py-20 bg-white" data-testid="bloc-racine">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-3xl mx-auto">
             <FadeIn>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Sprout size={24} className="text-primary" />
                 </div>
-                <span className="text-sm font-bold tracking-widest text-primary/60 uppercase">La Racine</span>
+                <span className="text-sm font-bold tracking-[0.15em] text-primary/60 uppercase">La Racine</span>
               </div>
-              <h2 className="text-2xl md:text-4xl font-black text-foreground mb-6" data-testid="bloc-racine-title">
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-6" data-testid="bloc-racine-title">
                 1969 : Là où tout a commencé
               </h2>
               <div className="space-y-5 text-slate-600 leading-relaxed text-base md:text-lg">
@@ -64,16 +64,16 @@ export default function NotreHistoire() {
       </section>
 
       <section className="py-20 bg-background" data-testid="bloc-excellence">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Factory size={24} className="text-primary" />
                 </div>
-                <span className="text-sm font-bold tracking-widest text-primary/60 uppercase">L'Excellence Industrielle</span>
+                <span className="text-sm font-bold tracking-[0.15em] text-primary/60 uppercase">L'Excellence Industrielle</span>
               </div>
-              <h2 className="text-2xl md:text-4xl font-black text-foreground mb-6" data-testid="bloc-excellence-title">
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-6" data-testid="bloc-excellence-title">
                 Du cœur de la Medjerda au Top 20 Mondial
               </h2>
               <p className="text-slate-600 leading-relaxed text-base md:text-lg mb-8">
@@ -105,7 +105,7 @@ export default function NotreHistoire() {
               ].map((item, i) => (
                 <FadeIn key={i} delay={0.1 * (i + 1)} direction="up">
                   <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm h-full flex flex-col" data-testid={`excellence-card-${i}`}>
-                    <span className="text-2xl font-black text-primary mb-2">{item.stat}</span>
+                    <span className="text-2xl font-serif font-bold text-primary mb-2">{item.stat}</span>
                     <h4 className="font-bold text-foreground mb-2">{item.title}</h4>
                     <p className="text-sm text-slate-600 leading-relaxed flex-1">{item.text}</p>
                   </div>
@@ -117,16 +117,16 @@ export default function NotreHistoire() {
       </section>
 
       <section className="py-20 bg-white" data-testid="bloc-agri">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
                   <Tractor size={24} className="text-secondary" />
                 </div>
-                <span className="text-sm font-bold tracking-widest text-secondary/60 uppercase">Le Partenariat Agricole</span>
+                <span className="text-sm font-bold tracking-[0.15em] text-secondary/60 uppercase">Le Partenariat Agricole</span>
               </div>
-              <h2 className="text-2xl md:text-4xl font-black text-foreground mb-6" data-testid="bloc-agri-title">
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-6" data-testid="bloc-agri-title">
                 SICAM Agri : La main dans la main avec la terre
               </h2>
               <p className="text-slate-600 leading-relaxed text-base md:text-lg mb-4">
@@ -158,7 +158,7 @@ export default function NotreHistoire() {
                 <FadeIn key={i} delay={0.1 * (i + 1)} direction="up">
                   <div className="bg-secondary/5 rounded-2xl border border-secondary/10 p-6 h-full" data-testid={`agri-card-${i}`}>
                     <div className="mb-3">
-                      <span className="text-3xl font-black text-secondary">{item.stat}</span>
+                      <span className="text-3xl font-serif font-bold text-secondary">{item.stat}</span>
                       <span className="text-sm font-semibold text-secondary/70 ml-1.5">{item.unit}</span>
                     </div>
                     <p className="text-sm text-slate-600 leading-relaxed">{item.text}</p>
@@ -171,16 +171,16 @@ export default function NotreHistoire() {
       </section>
 
       <section className="py-20 bg-background" data-testid="bloc-zrp">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-3xl mx-auto">
             <FadeIn>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
                   <FlaskConical size={24} className="text-secondary" />
                 </div>
-                <span className="text-sm font-bold tracking-widest text-secondary/60 uppercase">L'Innovation et le Futur</span>
+                <span className="text-sm font-bold tracking-[0.15em] text-secondary/60 uppercase">L'Innovation et le Futur</span>
               </div>
-              <h2 className="text-2xl md:text-4xl font-black text-foreground mb-6" data-testid="bloc-zrp-title">
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-6" data-testid="bloc-zrp-title">
                 Pionniers par nature : L'Engagement ZRP
               </h2>
               <div className="space-y-5 text-slate-600 leading-relaxed text-base md:text-lg">
@@ -218,13 +218,13 @@ export default function NotreHistoire() {
       </section>
 
       <section className="py-20 bg-white" data-testid="frise-chronologique">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
             <div className="text-center mb-12">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                 <Calendar size={24} className="text-primary" />
               </div>
-              <h2 className="text-2xl md:text-4xl font-black text-foreground" data-testid="frise-title">
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground" data-testid="frise-title">
                 Les dates clés
               </h2>
             </div>
@@ -250,7 +250,7 @@ export default function NotreHistoire() {
                       i % 2 === 0 ? "md:pr-10 md:text-right" : "md:pl-10 md:text-left"
                     )}>
                       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5" >
-                        <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-black mb-2">
+                        <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-serif font-bold mb-2">
                           {event.year}
                         </span>
                         <p className="text-sm text-slate-700 leading-relaxed">{event.text}</p>

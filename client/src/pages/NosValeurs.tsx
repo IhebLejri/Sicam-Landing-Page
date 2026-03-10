@@ -112,20 +112,20 @@ const intentions = [
 export default function NosValeurs() {
   return (
     <main className="flex min-h-screen flex-col">
-      <section className="relative pt-32 pb-20 bg-gradient-to-b from-primary/95 to-primary overflow-hidden">
+      <section className="relative pt-36 pb-24 bg-gradient-to-b from-primary/95 to-primary overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/10 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl" />
         </div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
+        <div className="container mx-auto px-6 md:px-8 relative z-10 text-center max-w-4xl">
           <FadeIn>
-            <p className="text-sm md:text-base font-bold tracking-widest text-white/70 uppercase mb-4" data-testid="hero-surtitre">
+            <p className="text-xs font-display font-semibold tracking-[0.2em] text-white/40 uppercase mb-6" data-testid="hero-surtitre">
               Ce qui nous anime depuis 1969
             </p>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight" data-testid="valeurs-title">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight" data-testid="valeurs-title">
               Nos valeurs — La boussole de chaque décision que nous prenons
             </h1>
-            <p className="text-base md:text-lg text-white/85 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-white/70 max-w-3xl mx-auto leading-relaxed font-light">
               Derrière chaque boîte SICAM, derrière chaque partenariat avec nos agriculteurs, derrière chaque choix de certification — il y a cinq valeurs. Pas inscrites sur un mur. Visibles dans ce que nous faisons.
             </p>
           </FadeIn>
@@ -133,7 +133,7 @@ export default function NosValeurs() {
       </section>
 
       <section className="py-20 bg-white" data-testid="valeurs-section">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="space-y-20">
             {valeurs.map((v, i) => (
               <FadeIn key={v.id} delay={0.1} direction={i % 2 === 0 ? "right" : "left"}>
@@ -148,13 +148,13 @@ export default function NosValeurs() {
                     <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center text-white flex-shrink-0", v.color)}>
                       <v.icon size={30} strokeWidth={1.5} />
                     </div>
-                    <span className={cn("text-xs font-black tracking-widest uppercase hidden lg:block", v.colorText)}>
+                    <span className={cn("text-xs font-serif font-bold tracking-[0.15em] uppercase hidden lg:block", v.colorText)}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
 
                   <div>
-                    <h2 className="text-2xl md:text-3xl font-black text-foreground mb-4" data-testid={`valeur-title-${v.id}`}>
+                    <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4" data-testid={`valeur-title-${v.id}`}>
                       {v.title}
                     </h2>
                     <p className="text-lg font-semibold text-foreground/80 mb-4 leading-relaxed">
@@ -180,12 +180,12 @@ export default function NosValeurs() {
       </section>
 
       <section className="py-20 bg-background" data-testid="zrp-valeurs-section">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
               <div className="flex flex-col sm:flex-row items-center gap-4 mb-4 text-center sm:text-left">
                 <img src={logoZrp} alt="Logo ZRP" className="w-16 h-16 object-contain flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-black text-foreground">
+                <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground">
                   Des valeurs qui se voient. Dans nos champs. Dans nos boîtes.
                 </h2>
               </div>
@@ -213,10 +213,10 @@ export default function NosValeurs() {
       </section>
 
       <section className="py-20 bg-white" data-testid="intentions-section">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
-              <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">
+              <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-2">
                 La façon dont nous vous parlons est aussi un engagement.
               </h2>
               <div className="w-16 h-1 bg-primary rounded-full mb-4" />
@@ -243,9 +243,9 @@ export default function NosValeurs() {
       </section>
 
       <section className="py-20 bg-gradient-to-b from-primary/95 to-primary" data-testid="cta-section">
-        <div className="container mx-auto px-4 md:px-6 text-center">
+        <div className="container mx-auto px-6 md:px-8 text-center">
           <FadeIn>
-            <h2 className="text-2xl md:text-3xl font-black text-white mb-8">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-8">
               Des valeurs qui se vérifient. Des engagements qui se voient.
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

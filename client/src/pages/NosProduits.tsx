@@ -360,20 +360,20 @@ export default function NosProduits() {
 
   return (
     <main className="flex min-h-screen flex-col">
-      <section className="relative pt-32 pb-16 bg-gradient-to-b from-primary to-[#b8050f] overflow-hidden">
+      <section className="relative pt-36 pb-24 bg-gradient-to-b from-primary to-[#b8050f] overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl" />
         </div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
+        <div className="container mx-auto px-6 md:px-8 relative z-10 text-center max-w-4xl">
           <FadeIn>
-            <p className="text-sm md:text-base font-bold tracking-widest text-white/70 uppercase mb-4">
+            <p className="text-xs font-display font-semibold tracking-[0.2em] text-white/40 uppercase mb-6">
               100 % tunisien. Du champ à votre table.
             </p>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight" data-testid="products-title">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight" data-testid="products-title">
               Nos produits — La générosité tunisienne, mise en boîte depuis 1969
             </h1>
-            <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-white/60 max-w-3xl mx-auto leading-relaxed font-light">
               Chaque produit SICAM est le résultat d'un choix : celui de la qualité sur le compromis, de la traçabilité sur l'opacité, du goût authentique sur le standardisé. Des tomates cultivées sous le soleil de Medjez El Bab aux confitures de fruits tunisiens, en passant par notre harissa de caractère — voici notre gamme complète.
             </p>
           </FadeIn>
@@ -381,14 +381,14 @@ export default function NosProduits() {
       </section>
 
       <section className="py-6 bg-white sticky top-[52px] md:top-[64px] z-30 border-b border-slate-100 shadow-sm" role="toolbar" aria-label="Filtrer par catégorie">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="flex flex-wrap justify-center gap-2 md:gap-3" data-testid="product-filters">
             {categories.map((cat) => (
               <button
                 key={cat.key}
                 onClick={() => setActiveCategory(cat.key)}
                 className={cn(
-                  "px-4 md:px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-200",
+                  "px-6 md:px-8 py-2.5 rounded-full text-sm font-semibold transition-all duration-200",
                   cat.key === "zrp" && activeCategory === cat.key
                     ? "bg-secondary text-white shadow-lg shadow-secondary/25"
                     : cat.key === "zrp" && activeCategory !== cat.key
@@ -408,13 +408,13 @@ export default function NosProduits() {
       </section>
 
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-6 md:px-8">
           {activeCategory === "zrp" && (
             <FadeIn>
               <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 p-6 rounded-2xl bg-secondary/5 border border-secondary/10 text-center sm:text-left">
                 <img src={logoZrp} alt="Logo ZRP" className="w-16 h-16 object-contain flex-shrink-0" />
                 <div>
-                  <h2 className="text-xl md:text-2xl font-black text-secondary mb-1">
+                  <h2 className="text-xl md:text-2xl font-serif font-bold text-secondary mb-1">
                     Produits Certifiés Zéro Résidu de Pesticides
                   </h2>
                   <p className="text-sm text-slate-600">
@@ -433,7 +433,7 @@ export default function NosProduits() {
                 return (
                   <div key={cat.key} className="mb-20 last:mb-0" data-testid={`section-${cat.key}`}>
                     <FadeIn>
-                      <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">
+                      <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-2">
                         {cat.label}
                       </h2>
                       <div className="w-16 h-1 bg-primary rounded-full mb-4" />
@@ -473,7 +473,7 @@ export default function NosProduits() {
             <div className="mt-20 bg-gradient-to-r from-secondary to-emerald-700 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl" />
               <div className="relative z-10">
-                <h3 className="text-2xl md:text-3xl font-black text-white mb-3">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-3">
                   Service Marques Distributeurs (MDD)
                 </h3>
                 <p className="text-white/90 text-lg max-w-2xl mx-auto">
