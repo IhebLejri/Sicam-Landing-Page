@@ -339,7 +339,10 @@ function ProductCard({ product, index, onFicheClick }: { product: Product; index
 }
 
 export default function NosProduits() {
-  const [activeCategory, setActiveCategory] = useState<Category>("all");
+  const initialFilter = typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search).get("filter") as Category | null
+    : null;
+  const [activeCategory, setActiveCategory] = useState<Category>(initialFilter === "zrp" ? "zrp" : "all");
   const [ficheOpen, setFicheOpen] = useState(false);
   const [ficheImg, setFicheImg] = useState("");
   const [ficheName, setFicheName] = useState("");

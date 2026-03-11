@@ -415,10 +415,12 @@ export default function ZRP() {
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                 <h4 className="text-lg font-bold mb-4 text-accent">Consommateurs</h4>
                 <div className="flex flex-col gap-3">
-                  <Button size="lg" className="bg-white text-secondary hover:bg-white/90 w-full gap-2" data-testid="cta-produits">
-                    <MapPin size={18} />
-                    Trouver nos produits ZRP
-                  </Button>
+                  <Link href="/nos-produits?filter=zrp">
+                    <Button size="lg" className="bg-white text-secondary hover:bg-white/90 w-full gap-2" data-testid="cta-produits">
+                      <MapPin size={18} />
+                      Trouver nos produits ZRP
+                    </Button>
+                  </Link>
                   <a href="#demarche">
                     <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 w-full gap-2" data-testid="cta-en-savoir-plus">
                       En savoir plus sur notre démarche
@@ -435,10 +437,12 @@ export default function ZRP() {
                       Télécharger notre certificat CCPB
                     </Button>
                   </a>
-                  <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 w-full gap-2" data-testid="cta-contact">
-                    <Mail size={18} />
-                    Contacter notre équipe export
-                  </Button>
+                  <a href="#contact-footer" onClick={(e) => { e.preventDefault(); document.querySelector('footer')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                    <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 w-full gap-2" data-testid="cta-contact">
+                      <Mail size={18} />
+                      Contacter notre équipe export
+                    </Button>
+                  </a>
                 </div>
               </div>
             </div>
