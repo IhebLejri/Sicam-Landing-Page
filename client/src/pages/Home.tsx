@@ -162,7 +162,7 @@ function VideoPlayer() {
               preload="metadata"
               className="w-full h-full block object-contain"
             >
-              <source src="https://sicam-tunisia.ovh/videos/modifie.mp4" type="video/mp4" />
+              <source src="https://sicam-tunisia.com/videos/modifie.mp4" type="video/mp4" />
             </video>
           </div>
         </FadeIn>
