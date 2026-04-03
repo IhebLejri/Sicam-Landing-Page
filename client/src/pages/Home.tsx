@@ -155,6 +155,24 @@ export default function Home() {
     <main className="flex min-h-screen flex-col">
       <HeroCarousel />
 
+      <section className="pt-12 pb-4 bg-white">
+        <div className="container mx-auto px-8 md:px-16 lg:px-24">
+          <FadeIn direction="up">
+            <div className="rounded-2xl overflow-hidden shadow-xl bg-black" data-testid="hero-video">
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                className="w-full block"
+                poster=""
+              >
+                <source src="https://sicam-tunisia.ovh/videos/modifie.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       <section className="section-padding bg-white">
         <div className="container mx-auto px-6 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-10 md:gap-8 text-center">
