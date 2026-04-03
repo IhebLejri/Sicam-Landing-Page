@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "wouter";
-import { ArrowRight, ArrowLeft, CheckCircle2, Leaf, ShieldCheck, Globe2, Award, TestTube, Microscope } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, Leaf, ShieldCheck, Globe2, Award, TestTube, Microscope, Play, Pause, Volume2, VolumeX, Maximize } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/utils";
@@ -150,28 +150,130 @@ function HeroCarousel() {
   );
 }
 
+function VideoPlayer() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const [muted, setMuted] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [showControls, setShowControls] = useState(true);
+  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const togglePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) { v.play(); setPlaying(true); } else { v.pause(); setPlaying(false); }
+  };
+
+  const toggleMute = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+  };
+
+  const handleFullscreen = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.requestFullscreen) v.requestFullscreen();
+  };
+
+  const handleTimeUpdate = () => {
+    const v = videoRef.current;
+    if (!v || !v.duration) return;
+    setProgress((v.currentTime / v.duration) * 100);
+  };
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const v = videoRef.current;
+    if (!v || !v.duration) return;
+    v.currentTime = (Number(e.target.value) / 100) * v.duration;
+  };
+
+  const handleMouseMove = () => {
+    setShowControls(true);
+    if (hideTimer.current) clearTimeout(hideTimer.current);
+    if (playing) {
+      hideTimer.current = setTimeout(() => setShowControls(false), 2500);
+    }
+  };
+
+  return (
+    <section className="pt-10 pb-4 bg-white">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24">
+        <FadeIn direction="up">
+          <div
+            className="relative rounded-2xl overflow-hidden shadow-2xl bg-black group"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={() => playing && setShowControls(false)}
+            data-testid="hero-video"
+          >
+            <video
+              ref={videoRef}
+              playsInline
+              preload="metadata"
+              className="w-full block max-h-[70vh] object-contain"
+              onTimeUpdate={handleTimeUpdate}
+              onEnded={() => setPlaying(false)}
+            >
+              <source src="https://sicam-tunisia.ovh/videos/modifie.mp4" type="video/mp4" />
+            </video>
+
+            <div
+              className={cn(
+                "absolute inset-0 flex items-center justify-center transition-opacity duration-300",
+                !playing ? "opacity-100" : "opacity-0 pointer-events-none"
+              )}
+            >
+              <button
+                onClick={togglePlay}
+                className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/60 flex items-center justify-center hover:bg-white/30 transition-all"
+                data-testid="video-play-btn"
+              >
+                <Play size={36} className="text-white ml-1" fill="white" />
+              </button>
+            </div>
+
+            <div
+              className={cn(
+                "absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-5 pt-8 pb-4 transition-opacity duration-300",
+                showControls ? "opacity-100" : "opacity-0"
+              )}
+            >
+              <input
+                type="range"
+                min={0}
+                max={100}
+                value={progress}
+                onChange={handleSeek}
+                className="w-full h-1 accent-primary mb-3 cursor-pointer"
+                data-testid="video-progress"
+              />
+              <div className="flex items-center gap-3">
+                <button onClick={togglePlay} className="text-white hover:text-primary transition-colors" data-testid="video-toggle-btn">
+                  {playing ? <Pause size={20} fill="currentColor" /> : <Play size={20} fill="currentColor" />}
+                </button>
+                <button onClick={toggleMute} className="text-white hover:text-primary transition-colors" data-testid="video-mute-btn">
+                  {muted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+                </button>
+                <div className="flex-1" />
+                <button onClick={handleFullscreen} className="text-white hover:text-primary transition-colors" data-testid="video-fullscreen-btn">
+                  <Maximize size={18} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <HeroCarousel />
 
-      <section className="pt-12 pb-4 bg-white">
-        <div className="container mx-auto px-8 md:px-16 lg:px-24">
-          <FadeIn direction="up">
-            <div className="rounded-2xl overflow-hidden shadow-xl bg-black" data-testid="hero-video">
-              <video
-                controls
-                playsInline
-                preload="metadata"
-                className="w-full block"
-                poster=""
-              >
-                <source src="https://sicam-tunisia.ovh/videos/modifie.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <VideoPlayer />
 
       <section className="section-padding bg-white">
         <div className="container mx-auto px-6 md:px-8">
