@@ -5,6 +5,27 @@ import { ArrowRight, Sprout, Factory, Tractor, FlaskConical, Calendar } from "lu
 
 import logoZrp from "@assets/Asset_3@2x_1772017659058.png";
 
+const BASE = "https://sicam-tunisia.com/videos";
+
+function SectionVideo({ src, label }: { src: string; label: string }) {
+  return (
+    <FadeIn delay={0.2}>
+      <div className="mt-10 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5">
+        <video
+          controls
+          playsInline
+          preload="metadata"
+          aria-label={label}
+          className="w-full block bg-black"
+          style={{ aspectRatio: "16/9" }}
+        >
+          <source src={src} type="video/mp4" />
+        </video>
+      </div>
+    </FadeIn>
+  );
+}
+
 const timelineEvents = [
   { year: "1958", text: "Youssef Bayahi lance la première entreprise, genèse du Groupe." },
   { year: "1969", text: "Naissance de SICAM à Medjez El Bab." },
@@ -18,6 +39,7 @@ const timelineEvents = [
 export default function NotreHistoire() {
   return (
     <main className="flex min-h-screen flex-col">
+      {/* ── Hero ── */}
       <section className="relative pt-36 pb-24 bg-gradient-to-b from-primary/95 to-primary overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full -translate-y-1/2 -translate-x-1/2 blur-3xl" />
@@ -34,6 +56,7 @@ export default function NotreHistoire() {
         </div>
       </section>
 
+      {/* ── La Racine ── */}
       <section className="py-20 bg-white" data-testid="bloc-racine">
         <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-3xl mx-auto">
@@ -59,10 +82,13 @@ export default function NotreHistoire() {
                 </p>
               </div>
             </FadeIn>
+
+            <SectionVideo src={`${BASE}/sec1.mp4`} label="Vidéo — La Racine de SICAM" />
           </div>
         </div>
       </section>
 
+      {/* ── L'Excellence Industrielle ── */}
       <section className="py-20 bg-background" data-testid="bloc-excellence">
         <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
@@ -112,10 +138,13 @@ export default function NotreHistoire() {
                 </FadeIn>
               ))}
             </div>
+
+            <SectionVideo src={`${BASE}/sec2.mp4`} label="Vidéo — L'Excellence Industrielle SICAM" />
           </div>
         </div>
       </section>
 
+      {/* ── Le Partenariat Agricole ── */}
       <section className="py-20 bg-white" data-testid="bloc-agri">
         <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
@@ -166,10 +195,13 @@ export default function NotreHistoire() {
                 </FadeIn>
               ))}
             </div>
+
+            <SectionVideo src={`${BASE}/sec3.mp4`} label="Vidéo — Le Partenariat Agricole SICAM" />
           </div>
         </div>
       </section>
 
+      {/* ── L'Innovation et le Futur ── */}
       <section className="py-20 bg-background" data-testid="bloc-zrp">
         <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-3xl mx-auto">
@@ -196,8 +228,10 @@ export default function NotreHistoire() {
               </div>
             </FadeIn>
 
+            <SectionVideo src={`${BASE}/sec4.mp4`} label="Vidéo — L'Innovation et le Futur SICAM" />
+
             <FadeIn delay={0.15}>
-              <div className="mt-8 flex flex-col sm:flex-row items-center gap-6 p-6 rounded-2xl bg-secondary/5 border border-secondary/10 text-center sm:text-left">
+              <div className="mt-10 flex flex-col sm:flex-row items-center gap-6 p-6 rounded-2xl bg-secondary/5 border border-secondary/10 text-center sm:text-left">
                 <img src={logoZrp} alt="Logo ZRP" className="w-20 h-20 object-contain flex-shrink-0" />
                 <div className="flex-1">
                   <p className="font-bold text-foreground text-lg mb-1">
@@ -217,6 +251,7 @@ export default function NotreHistoire() {
         </div>
       </section>
 
+      {/* ── Frise chronologique ── */}
       <section className="py-20 bg-white" data-testid="frise-chronologique">
         <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
@@ -249,7 +284,7 @@ export default function NotreHistoire() {
                       "ml-12 md:ml-0 md:w-[45%]",
                       i % 2 === 0 ? "md:pr-10 md:text-right" : "md:pl-10 md:text-left"
                     )}>
-                      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5" >
+                      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
                         <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-serif font-bold mb-2">
                           {event.year}
                         </span>
