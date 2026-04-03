@@ -155,13 +155,12 @@ function VideoPlayer() {
     <section className="pt-10 pb-4 bg-white">
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
         <FadeIn direction="up">
-          <div className="rounded-2xl overflow-hidden shadow-xl bg-black" data-testid="hero-video">
+          <div className="rounded-2xl overflow-hidden shadow-xl bg-black aspect-video" data-testid="hero-video">
             <video
               controls
               playsInline
               preload="metadata"
-              className="w-full block"
-              style={{ maxHeight: "72vh" }}
+              className="w-full h-full block object-contain"
             >
               <source src="https://sicam-tunisia.ovh/videos/modifie.mp4" type="video/mp4" />
             </video>
