@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { SiFacebook, SiInstagram, SiLinkedin } from "react-icons/si";
+import { SiFacebook, SiInstagram, SiLinkedin, SiTiktok, SiYoutube } from "react-icons/si";
 
 import logoSicam from '@assets/Asset_2@2x_1772017659057.png';
 
@@ -140,6 +140,8 @@ export function Footer() {
               { href: "https://www.facebook.com/SICAMTunisia", icon: SiFacebook, id: "link-facebook" },
               { href: "https://www.instagram.com/sicam_tunisia_officiel?igsh=amlpZnk1cjhzbWF5", icon: SiInstagram, id: "link-instagram" },
               { href: "https://www.linkedin.com/company/sicam-tunisia/", icon: SiLinkedin, id: "link-linkedin" },
+              { href: "https://www.tiktok.com/@sicam.tunisie", icon: SiTiktok, id: "link-tiktok" },
+              { href: "https://youtube.com/@sicamtunisia1969", icon: SiYoutube, id: "link-youtube" },
             ].map((social) => (
               <a
                 key={social.id}
