@@ -50,7 +50,7 @@ const valeurs = [
     borderColor: "border-secondary",
     colorText: "text-secondary",
     intro: "SICAM ne produit pas seul. Et nous ne prétendons pas le faire.",
-    body: "Notre force, c'est un écosystème : plus de 1 800 agriculteurs partenaires, une filiale de production de boîtes métalliques (PROCAN — 198 millions de canettes par an), une entité commerciale en France (PLANT SAS), un réseau de distribution locale (SOINDI), et des équipes agronomes qui font le lien entre tous ces acteurs sur le terrain. Sans oublier les organismes de certification indépendants à qui nous soumettons nos résultats, et les clients distributeurs avec qui nous construisons des relations durables.",
+    body: "Notre force, c'est un écosystème : plus de 1 800 agriculteurs partenaires, une filiale de production de boîtes métalliques (PROCAN — 198 millions de canettes par an), une entité commerciale en France (PLANT SAS), un réseau de distribution local (SOINDI), et des équipes agronomes qui font le lien entre tous ces acteurs sur le terrain. Sans oublier les organismes de certification indépendants à qui nous soumettons nos résultats, et les clients distributeurs avec qui nous construisons des relations durables.",
     closing: "La collaboration n'est pas un idéal abstrait chez nous. C'est notre mode de fonctionnement au quotidien — et la raison pour laquelle une tomate cultivée à Sbikha peut respecter les exigences d'un distributeur en Allemagne ou au Royaume-Uni.",
     promise: "Travailler main dans la main avec les agriculteurs, les distributeurs et les partenaires pour une production responsable et une chaîne de valeur qui profite à tous.",
   },
