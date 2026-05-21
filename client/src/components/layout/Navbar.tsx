@@ -35,6 +35,19 @@ export function Navbar() {
   const [showProductsMenu, setShowProductsMenu] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const menuLiRef = useRef<HTMLLIElement>(null);
+  const [menuOffsetLeft, setMenuOffsetLeft] = useState(0);
+
+  useEffect(() => {
+    const updateOffset = () => {
+      if (menuLiRef.current) {
+        setMenuOffsetLeft(menuLiRef.current.getBoundingClientRect().left);
+      }
+    };
+    updateOffset();
+    window.addEventListener("resize", updateOffset);
+    return () => window.removeEventListener("resize", updateOffset);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -95,6 +108,7 @@ export function Navbar() {
                     <li
                       key={link.label}
                       className="relative"
+                      ref={menuLiRef}
                       onMouseEnter={handleMenuEnter}
                       onMouseLeave={handleMenuLeave}
                     >
@@ -169,9 +183,9 @@ export function Navbar() {
           onMouseLeave={handleMenuLeave}
           data-testid="mega-menu"
         >
-          {/* Categories grid — aligned under "Nos Produits" nav link */}
+          {/* Categories grid — starts exactly under "Nos Produits" nav link */}
           <div className="bg-primary">
-            <div className="container mx-auto px-6 md:px-8 flex justify-end py-8">
+            <div className="py-8" style={{ paddingLeft: menuOffsetLeft }}>
               <div className="grid grid-cols-2 gap-x-16 gap-y-2 w-72">
                 {productSubMenu.map(item => (
                   <Link
