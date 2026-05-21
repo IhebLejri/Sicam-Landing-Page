@@ -189,7 +189,7 @@ export default function Home() {
               { value: "+30", label: "Pays", sub: "D'exportation", icon: Globe2 },
               { value: "100%", label: "Origine", sub: "Tomates tunisiennes", icon: Leaf },
               { value: "600", label: "Molécules", sub: "Analysées", icon: TestTube },
-              { value: "1000", label: "Tests qualité", sub: "Dans nos labos par jour", icon: Microscope },
+              { value: "1000", label: "Tests qualité", sub: "Dans nos laboratoires par jour", icon: Microscope },
             ].map((stat, i) => (
               <FadeIn key={i} delay={i * 0.08} direction="up" className="flex flex-col items-center">
                 <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center text-primary/70 mb-4">
