@@ -15,10 +15,10 @@ export default function ZRP() {
   return (
     <main className="flex min-h-screen flex-col bg-background">
       {/* Section 1 — Hero */}
-      <section className="relative h-[600px] flex overflow-hidden pt-20">
-        <div className="h-full flex flex-col lg:flex-row w-full">
+      <section className="relative flex overflow-hidden pt-20">
+        <div className="flex flex-col lg:flex-row w-full">
           {/* Left panel — text on solid green */}
-          <div className="lg:w-[50%] bg-secondary flex flex-col justify-start px-8 md:px-16 lg:px-20 pt-8 pb-4 overflow-hidden">
+          <div className="w-full lg:w-1/2 bg-secondary flex flex-col justify-start px-6 md:px-16 lg:px-20 pt-8 pb-10 lg:pb-4 min-w-0">
             <FadeIn>
               <img src={logoZrpAlt} alt="ZRP Logo" className="h-14 md:h-16 mb-4 drop-shadow-2xl" data-testid="zrp-logo" />
             </FadeIn>
@@ -28,7 +28,7 @@ export default function ZRP() {
               </h1>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="text-lg text-white/90 mb-6 leading-relaxed">
+              <p className="text-base lg:text-lg text-white/90 mb-6 leading-relaxed">
                 Depuis 1969, SICAM cultive l'excellence à la tunisienne. Aujourd'hui, nous franchissons une nouvelle étape : la certification ZRP — Zéro Résidu de Pesticides — pour vous offrir des tomates aussi saines que savoureuses, à chaque boîte.
               </p>
             </FadeIn>
@@ -62,8 +62,8 @@ export default function ZRP() {
             </FadeIn>
           </div>
 
-          {/* Right panel — image */}
-          <div className="lg:w-[50%] relative bg-[#5a1020]">
+          {/* Right panel — image, hidden on mobile */}
+          <div className="hidden lg:block lg:w-1/2 relative bg-[#5a1020] min-h-[600px]">
             <img
               src={heroBanner}
               alt="Champs de tomates SICAM ZRP"
@@ -75,7 +75,7 @@ export default function ZRP() {
 
       {/* Section 2 — Notre histoire : pourquoi le ZRP est né */}
       <section id="demarche" className="py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-6 md:px-8 max-w-4xl">
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
           <FadeIn className="text-center mb-12">
             <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">Notre Histoire</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground" data-testid="section-histoire-title">
@@ -127,7 +127,7 @@ export default function ZRP() {
 
       {/* Section 3 — Qu'est-ce que le ZRP ? */}
       <section className="py-24 bg-slate-50 overflow-hidden">
-        <div className="container mx-auto px-6 md:px-8 max-w-4xl">
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
           <FadeIn className="text-center mb-12">
             <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">Définition</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground" data-testid="section-definition-title">
@@ -175,7 +175,7 @@ export default function ZRP() {
 
       {/* Section 4 — Notre processus ZRP en 5 étapes */}
       <section className="py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-6 md:px-8 max-w-5xl">
+        <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
           <FadeIn className="text-center mb-6">
             <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">Notre Processus</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground" data-testid="section-processus-title">
@@ -243,7 +243,7 @@ export default function ZRP() {
       {/* Section 5 — Les 6 engagements ZRP */}
       <section className="py-24 bg-primary text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-        <div className="container relative z-10 mx-auto px-6 md:px-8">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
           <FadeIn className="text-center mb-6">
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4" data-testid="section-engagements-title">
               Nos 6 Engagements
@@ -278,7 +278,7 @@ export default function ZRP() {
 
       {/* Section 6 — ZRP en chiffres */}
       <section className="py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-6 md:px-8">
+        <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
           <FadeIn className="text-center mb-16">
             <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">En Chiffres</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground" data-testid="section-chiffres-title">
@@ -307,7 +307,7 @@ export default function ZRP() {
 
       {/* Section 7 — La certification CCPB */}
       <section id="certificat" className="py-24 bg-slate-50 overflow-hidden">
-        <div className="container mx-auto px-6 md:px-8 max-w-5xl">
+        <div className="w-full max-w-5xl mx-auto px-6 md:px-8">
           <FadeIn className="text-center mb-16">
             <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">La Certification</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground" data-testid="section-certification-title">
@@ -315,15 +315,15 @@ export default function ZRP() {
             </h3>
           </FadeIn>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <FadeIn delay={0.1}>
-              <div className="space-y-6">
-                <p className="text-lg text-slate-600 leading-relaxed">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 items-start">
+            <FadeIn delay={0.1} className="w-full min-w-0">
+              <div className="space-y-6 w-full min-w-0">
+                <p className="text-base text-slate-600 leading-relaxed">
                   La certification ZRP de SICAM est délivrée par <strong className="text-foreground">CCPB — Controllo e Certificazione Prodotti Biologici</strong> — un organisme italien d'inspection et de certification fondé en 1988, reconnu à l'échelle internationale comme référence en matière de certification agroalimentaire et biologique.
                 </p>
 
-                <div className="bg-white rounded-2xl p-6 border border-slate-200 space-y-4">
-                  <h4 className="text-lg font-bold text-foreground">Qui est CCPB ?</h4>
+                <div className="bg-white rounded-2xl p-5 border border-slate-200 space-y-4 w-full min-w-0">
+                  <h4 className="text-base font-bold text-foreground">Qui est CCPB ?</h4>
                   <ul className="space-y-3">
                     {[
                       "Fondé en 1988/1989 en Italie, dans le secteur biologique et éco-responsable",
@@ -332,8 +332,8 @@ export default function ZRP() {
                       "Certifications : BRCGS, IFS, FSSC 22000",
                       "Présent en Tunisie via un réseau de filiales méditerranéennes",
                     ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-slate-600">
-                        <CheckCircle2 className="text-secondary mt-0.5 flex-shrink-0" size={18} />
+                      <li key={i} className="flex items-start gap-3 text-slate-600 text-sm">
+                        <CheckCircle2 className="text-secondary mt-0.5 flex-shrink-0" size={16} />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -342,11 +342,11 @@ export default function ZRP() {
               </div>
             </FadeIn>
 
-            <FadeIn delay={0.2}>
-              <div className="space-y-6">
-                <div className="bg-white rounded-2xl p-6 border border-slate-200">
-                  <h4 className="text-lg font-bold text-foreground mb-4">Notre certificat</h4>
-                  <p className="text-slate-600 leading-relaxed mb-4">
+            <FadeIn delay={0.2} className="w-full min-w-0">
+              <div className="space-y-5 w-full min-w-0">
+                <div className="bg-white rounded-2xl p-5 border border-slate-200 w-full min-w-0">
+                  <h4 className="text-base font-bold text-foreground mb-4">Notre certificat</h4>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
                     Le certificat CCPB n° 02/2025/10, émis le 21 août 2025, couvre l'ensemble des produits phares de la gamme SICAM :
                   </p>
                   <ul className="space-y-2 mb-6">
@@ -356,13 +356,13 @@ export default function ZRP() {
                       "Tomates pelées entières",
                       "Pulpe de tomate",
                     ].map((product, i) => (
-                      <li key={i} className="flex items-center gap-2 text-slate-700 font-medium">
-                        <ShieldCheck className="text-secondary" size={16} />
+                      <li key={i} className="flex items-center gap-2 text-slate-700 text-sm font-medium">
+                        <ShieldCheck className="text-secondary flex-shrink-0" size={15} />
                         {product}
                       </li>
                     ))}
                   </ul>
-                  <p className="text-sm text-slate-500 leading-relaxed mb-6">
+                  <p className="text-xs text-slate-500 leading-relaxed mb-6">
                     Tous conformes à la norme DTP 10 rev. 05 — « Produits agricoles et agroalimentaires végétaux avec réduction de 100 % des Limites Maximales des Résidus des produits phytosanitaires » — pour les activités de Production, Transformation et Commercialisation.
                   </p>
                   <a href="/Certification_ZRP_SICAM.pdf" download>
@@ -373,13 +373,13 @@ export default function ZRP() {
                   </a>
                 </div>
 
-                <div className="bg-white rounded-2xl p-6 border border-slate-200 flex items-center gap-6">
-                  <div className="w-20 h-20 rounded-2xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                    <img src={logoZrp} alt="Logo ZRP" className="w-14 h-14 object-contain" />
+                <div className="bg-white rounded-2xl p-5 border border-slate-200 flex items-center gap-4 w-full min-w-0">
+                  <div className="w-16 h-16 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                    <img src={logoZrp} alt="Logo ZRP" className="w-10 h-10 object-contain" />
                   </div>
-                  <div>
-                    <p className="font-bold text-foreground">Certification indépendante</p>
-                    <p className="text-sm text-slate-500">Validée par CCPB, organisme reconnu dans 45 pays, totalement indépendant de SICAM.</p>
+                  <div className="min-w-0">
+                    <p className="font-bold text-foreground text-sm">Certification indépendante</p>
+                    <p className="text-xs text-slate-500 mt-1">Validée par CCPB, organisme reconnu dans 45 pays, totalement indépendant de SICAM.</p>
                   </div>
                 </div>
               </div>
@@ -395,7 +395,7 @@ export default function ZRP() {
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary/20 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="container relative z-10 mx-auto px-6 md:px-8 max-w-4xl text-center">
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center">
           <FadeIn>
             <img src={logoZrp} alt="Logo ZRP" className="w-24 h-24 mx-auto mb-8 drop-shadow-xl" />
           </FadeIn>
@@ -413,9 +413,9 @@ export default function ZRP() {
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                <h4 className="text-lg font-bold mb-4 text-accent">Consommateurs</h4>
+            <div className="flex flex-col sm:flex-row gap-6 w-full max-w-2xl mx-auto">
+              <div className="flex-1 bg-white/10 rounded-2xl p-6 border border-white/20">
+                <h4 className="text-base font-bold mb-4 text-accent">Consommateurs</h4>
                 <div className="flex flex-col gap-3">
                   <Link href="/nos-produits?filter=zrp">
                     <Button size="lg" className="bg-white text-secondary hover:bg-white/90 w-full gap-2" data-testid="cta-produits">
@@ -425,24 +425,24 @@ export default function ZRP() {
                   </Link>
                   <a href="#demarche">
                     <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 w-full gap-2" data-testid="cta-en-savoir-plus">
-                      En savoir plus sur notre démarche
+                      En savoir plus
                     </Button>
                   </a>
                 </div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                <h4 className="text-lg font-bold mb-4 text-accent">Importateurs / B2B</h4>
+              <div className="flex-1 bg-white/10 rounded-2xl p-6 border border-white/20">
+                <h4 className="text-base font-bold mb-4 text-accent">Importateurs / B2B</h4>
                 <div className="flex flex-col gap-3">
                   <a href="/Certification_ZRP_SICAM.pdf" download>
                     <Button size="lg" className="bg-white text-secondary hover:bg-white/90 w-full gap-2" data-testid="cta-download">
                       <Download size={18} />
-                      Télécharger notre certificat CCPB
+                      Télécharger le certificat
                     </Button>
                   </a>
                   <a href="#contact-footer" onClick={(e) => { e.preventDefault(); document.querySelector('footer')?.scrollIntoView({ behavior: 'smooth' }); }}>
                     <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 w-full gap-2" data-testid="cta-contact">
                       <Mail size={18} />
-                      Contacter notre équipe export
+                      Contacter l'équipe export
                     </Button>
                   </a>
                 </div>
