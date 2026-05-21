@@ -14,7 +14,7 @@ const valeurs = [
     borderColor: "border-[#2D5016]",
     colorText: "text-[#2D5016]",
     intro: "Tout ce que nous faisons part d'une conviction : vous méritez le meilleur. Pas ce qui passe les normes de justesse — le meilleur.",
-    body: "Cette exigence se traduit dans notre programme ZRP, où nous analysons 600 molécules de pesticides avant chaque mise sur le marché. Elle se traduit dans nos environ 1 000 analyses qualité réalisées chaque jour dans notre laboratoire interne. Elle se traduit dans nos certifications IFS V8, BRC V9 et ISO 22000 — des standards que nous maintenons en continu depuis plus de vingt ans, pas parce qu'ils sont obligatoires, mais parce qu'ils correspondent à ce que nous voulons être.",
+    body: "Cette exigence se traduit dans notre programme ZRP, où nous analysons 600 molécules de pesticides avant chaque mise sur le marché. Elle se traduit dans plus de 1000 analyses qualitatives par jour dans notre laboratoire interne. Elle se traduit dans nos certifications IFS V8, BRC V9 et ISO 22000 — des standards que nous maintenons en continu depuis plus de vingt ans, pas parce qu'ils sont obligatoires, mais parce qu'ils correspondent à ce que nous voulons être.",
     closing: "La santé et la qualité ne sont pas des arguments de vente chez SICAM. Ce sont des contraintes que nous nous imposons librement — parce que la qualité de ce que vous mangez a un impact réel sur votre vie.",
     promise: "Garantir des produits sains et de haute qualité pour préserver l'environnement et la santé de tous.",
   },
