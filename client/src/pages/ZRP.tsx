@@ -33,9 +33,9 @@ export default function ZRP() {
               </p>
             </FadeIn>
             <FadeIn delay={0.3}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 border border-white/25 text-white text-sm font-medium mb-6" data-testid="badge-ccpb">
-                <Award size={16} className="text-accent" />
-                Certifié ZRP par CCPB · Reconnu dans 45 pays
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 border border-white/25 text-white text-sm font-medium mb-6 w-fit max-w-full flex-wrap" data-testid="badge-ccpb">
+                <Award size={16} className="text-accent flex-shrink-0" />
+                <span>Certifié ZRP par CCPB · Reconnu dans 45 pays</span>
               </div>
             </FadeIn>
             <FadeIn delay={0.4}>
