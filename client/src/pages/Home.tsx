@@ -77,9 +77,9 @@ function HeroCarousel() {
   const slide = slides[current];
 
   return (
-    <section className="relative min-h-[70vh] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
-      <div className="flex-1 flex flex-col lg:flex-row">
-        <div className={cn("lg:w-[45%] flex flex-col justify-center px-6 md:px-16 lg:px-20 py-10 lg:py-0 transition-colors duration-700", slide.bgColor)}>
+    <section className="relative h-[500px] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
+      <div className="h-full flex flex-col lg:flex-row">
+        <div className={cn("lg:w-[45%] flex flex-col justify-center px-6 md:px-16 lg:px-20 py-8 lg:py-0 transition-colors duration-700", slide.bgColor)}>
           <div key={`title-${current}`} className="animate-fade-in-up max-w-xl">
             <p className="text-[11px] font-display font-semibold uppercase tracking-[0.2em] text-white/40 mb-4 md:mb-6">SICAM — Depuis 1969</p>
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-[3.5rem] font-serif font-bold leading-[1.15] mb-4 md:mb-6 text-white" data-testid="hero-title">
@@ -101,7 +101,7 @@ function HeroCarousel() {
           </Link>
         </div>
 
-        <div className="lg:w-[55%] relative bg-[#5a1020] flex items-center justify-center overflow-hidden min-h-[240px] sm:min-h-[320px] lg:min-h-0">
+        <div className="lg:w-[55%] relative bg-[#5a1020] flex items-center justify-center overflow-hidden">
           <img
             key={`img-${current}`}
             src={slide.bg}

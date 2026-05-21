@@ -15,12 +15,12 @@ export default function ZRP() {
   return (
     <main className="flex min-h-screen flex-col bg-background">
       {/* Section 1 — Hero */}
-      <section className="relative min-h-[70vh] flex overflow-hidden pt-20">
-        <div className="flex-1 flex flex-col lg:flex-row">
+      <section className="relative h-[600px] flex overflow-hidden pt-20">
+        <div className="h-full flex flex-col lg:flex-row w-full">
           {/* Left panel — text on solid green */}
-          <div className="lg:w-[50%] bg-secondary flex flex-col justify-center px-8 md:px-16 lg:px-20 py-16 lg:py-0">
+          <div className="lg:w-[50%] bg-secondary flex flex-col justify-start px-8 md:px-16 lg:px-20 pt-8 pb-4 overflow-hidden">
             <FadeIn>
-              <img src={logoZrpAlt} alt="ZRP Logo" className="h-20 md:h-28 mb-8 drop-shadow-2xl" data-testid="zrp-logo" />
+              <img src={logoZrpAlt} alt="ZRP Logo" className="h-14 md:h-16 mb-4 drop-shadow-2xl" data-testid="zrp-logo" />
             </FadeIn>
             <FadeIn delay={0.1}>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-6" data-testid="hero-title">
