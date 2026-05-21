@@ -9,7 +9,7 @@ const productSubMenu = [
   { label: "Tomates", anchor: "cat-tomates", desc: "10 références" },
   { label: "Harissa", anchor: "cat-harissa", desc: "4 formats" },
   { label: "Confitures", anchor: "cat-confitures", desc: "4 saveurs" },
-  { label: "Certifié Zéro Résidu de Pesticides — ZRP", anchor: "cat-zrp", desc: "5 références" },
+  { label: "Certifié Zéro Résidu de Pesticides — ZRP", anchor: "cat-zrp", desc: "5 références certifiées" },
 ];
 
 const navLinks = [
@@ -25,7 +25,7 @@ function scrollToAnchor(anchor: string) {
   setTimeout(() => {
     const el = document.getElementById(anchor);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, 200);
+  }, 250);
 }
 
 export function Navbar() {
@@ -34,7 +34,6 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showProductsMenu, setShowProductsMenu] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  const menuRef = useRef<HTMLLIElement>(null);
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -46,6 +45,7 @@ export function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
     setMobileProductsOpen(false);
+    setShowProductsMenu(false);
   }, [location]);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export function Navbar() {
   };
 
   const handleMenuLeave = () => {
-    closeTimeout.current = setTimeout(() => setShowProductsMenu(false), 120);
+    closeTimeout.current = setTimeout(() => setShowProductsMenu(false), 150);
   };
 
   const isProductsActive = location === "/nos-produits" || location.startsWith("/nos-produits/");
@@ -70,7 +70,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ? "bg-white/98 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.04)] py-3"
+            ? "bg-white/98 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.06)] py-3"
             : "bg-white/95 backdrop-blur-sm py-5"
         )}
       >
@@ -95,7 +95,6 @@ export function Navbar() {
                     <li
                       key={link.label}
                       className="relative"
-                      ref={menuRef}
                       onMouseEnter={handleMenuEnter}
                       onMouseLeave={handleMenuLeave}
                     >
@@ -119,52 +118,6 @@ export function Navbar() {
                           isProductsActive ? "opacity-100" : "opacity-0"
                         )} />
                       </Link>
-
-                      {/* Mega-menu dropdown */}
-                      <div
-                        className={cn(
-                          "absolute top-full left-1/2 -translate-x-1/2 w-[400px] rounded-b-2xl overflow-hidden shadow-2xl transition-all duration-200 z-50",
-                          showProductsMenu
-                            ? "opacity-100 translate-y-0 pointer-events-auto"
-                            : "opacity-0 -translate-y-2 pointer-events-none"
-                        )}
-                        onMouseEnter={handleMenuEnter}
-                        onMouseLeave={handleMenuLeave}
-                        data-testid="mega-menu"
-                      >
-                        <div className="bg-primary p-5 grid grid-cols-2 gap-1">
-                          {productSubMenu.map(item => (
-                            <Link
-                              key={item.anchor}
-                              href={`/nos-produits#${item.anchor}`}
-                              onClick={() => {
-                                setShowProductsMenu(false);
-                                scrollToAnchor(item.anchor);
-                              }}
-                              className="group flex flex-col px-4 py-3 rounded-xl hover:bg-white/10 transition-colors"
-                              data-testid={`mega-${item.anchor}`}
-                            >
-                              <span className="text-white font-bold uppercase tracking-[0.1em] text-[11px] mb-0.5 leading-snug">
-                                {item.label}
-                              </span>
-                              <span className="text-white/40 text-[10px] font-medium">
-                                {item.desc}
-                              </span>
-                            </Link>
-                          ))}
-                        </div>
-                        <div className="bg-[#c00a14] px-5 py-3 flex items-center justify-between">
-                          <span className="text-white/50 text-[11px] font-medium">18 références au total</span>
-                          <Link
-                            href="/nos-produits"
-                            onClick={() => setShowProductsMenu(false)}
-                            className="text-white text-[11px] font-bold hover:text-white/80 transition-colors flex items-center gap-1"
-                            data-testid="mega-voir-tout"
-                          >
-                            Voir tout <ArrowRight size={11} />
-                          </Link>
-                        </div>
-                      </div>
                     </li>
                   );
                 }
@@ -202,6 +155,57 @@ export function Navbar() {
           >
             <Menu className="h-6 w-6" strokeWidth={1.5} />
           </button>
+        </div>
+
+        {/* ── Full-width mega-menu (desktop only) ── */}
+        <div
+          className={cn(
+            "absolute left-0 right-0 top-full hidden lg:block shadow-2xl transition-all duration-200 origin-top",
+            showProductsMenu
+              ? "opacity-100 pointer-events-auto translate-y-0"
+              : "opacity-0 pointer-events-none -translate-y-1"
+          )}
+          onMouseEnter={handleMenuEnter}
+          onMouseLeave={handleMenuLeave}
+          data-testid="mega-menu"
+        >
+          {/* Categories grid */}
+          <div className="bg-primary">
+            <div className="container mx-auto px-8 md:px-16 py-8 grid grid-cols-2 md:grid-cols-4 gap-2">
+              {productSubMenu.map(item => (
+                <Link
+                  key={item.anchor}
+                  href={`/nos-produits#${item.anchor}`}
+                  onClick={() => {
+                    setShowProductsMenu(false);
+                    scrollToAnchor(item.anchor);
+                  }}
+                  className="group flex flex-col px-5 py-4 rounded-xl hover:bg-white/10 transition-colors"
+                  data-testid={`mega-${item.anchor}`}
+                >
+                  <span className="text-white font-bold uppercase tracking-[0.12em] text-[12px] mb-1 leading-snug group-hover:text-white transition-colors">
+                    {item.label}
+                  </span>
+                  <span className="text-white/40 text-[11px] font-medium group-hover:text-white/60 transition-colors">
+                    {item.desc}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Footer bar */}
+          <div className="bg-[#b80410] px-8 md:px-16 py-3 flex items-center justify-between">
+            <span className="text-white/50 text-[11px] font-medium">18 références — 100 % tunisien</span>
+            <Link
+              href="/nos-produits"
+              onClick={() => setShowProductsMenu(false)}
+              className="text-white text-[11px] font-bold hover:text-white/80 transition-colors flex items-center gap-1.5"
+              data-testid="mega-voir-tout"
+            >
+              Voir toute la gamme <ArrowRight size={11} />
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -272,7 +276,6 @@ export function Navbar() {
                     </button>
                   </div>
 
-                  {/* Mobile sub-menu */}
                   <div className={cn(
                     "overflow-hidden transition-all duration-300",
                     mobileProductsOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"

@@ -149,7 +149,7 @@ function CategorySection({ config }: { config: CategoryConfig }) {
           src={config.bgImage}
           alt=""
           aria-hidden
-          className="absolute inset-0 w-full h-full object-contain object-center opacity-[0.11] scale-[1.4] pointer-events-none select-none"
+          className="absolute inset-0 w-full h-full object-contain object-center opacity-[0.22] pointer-events-none select-none"
         />
         <div className="relative z-10 p-10 pb-12">
           <p className="text-[72px] leading-none font-serif font-bold text-white/10 uppercase select-none pointer-events-none">
@@ -365,13 +365,19 @@ export default function NosProduits() {
         </div>
       </nav>
 
-      {/* Category sections */}
-      {categoryConfigs.map(config => (
-        <CategorySection key={config.key} config={config} />
-      ))}
+      {/* Category sections — spaced like Mutti */}
+      <div className="flex flex-col gap-6 bg-background py-6">
+        {categoryConfigs.map(config => (
+          <div key={config.key} className="mx-4 md:mx-8 lg:mx-12 rounded-2xl overflow-hidden shadow-sm ring-1 ring-slate-100">
+            <CategorySection config={config} />
+          </div>
+        ))}
 
-      {/* ZRP section */}
-      <ZRPSection />
+        {/* ZRP section */}
+        <div className="mx-4 md:mx-8 lg:mx-12 rounded-2xl overflow-hidden shadow-sm ring-1 ring-slate-100">
+          <ZRPSection />
+        </div>
+      </div>
 
       {/* MDD banner */}
       <section className="py-20 bg-white">
