@@ -239,109 +239,115 @@ export function Navbar() {
         data-testid="mobile-menu-overlay"
       />
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — right:0 fixe, animation via max-width pour éviter tout débordement hors viewport */}
       <aside
         id="mobile-nav-drawer"
         className={cn(
-          "fixed top-0 bottom-0 w-[80%] max-w-[320px] z-[60] lg:hidden bg-white flex flex-col transition-all duration-300 ease-in-out shadow-[-8px_0_30px_rgba(0,0,0,0.08)]",
-          mobileMenuOpen ? "right-0 opacity-100" : "-right-[320px] opacity-0 pointer-events-none"
+          "fixed top-0 right-0 bottom-0 z-[60] lg:hidden bg-white flex flex-col",
+          "overflow-hidden transition-[max-width,opacity,box-shadow] duration-300 ease-in-out",
+          mobileMenuOpen
+            ? "max-w-[320px] opacity-100 pointer-events-auto shadow-[-8px_0_30px_rgba(0,0,0,0.08)]"
+            : "max-w-0 opacity-0 pointer-events-none shadow-none"
         )}
         aria-hidden={!mobileMenuOpen}
         data-testid="mobile-menu"
       >
-        <div className="flex items-center justify-between px-6 pt-6 pb-5 border-b border-slate-100/80">
-          <img src={logoSicam} alt="SICAM" className="h-9 w-auto" />
-          <button
-            className="p-2 text-foreground/50 hover:text-foreground transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-            aria-label="Fermer le menu"
-            data-testid="mobile-menu-close"
-          >
-            <X className="h-5 w-5" strokeWidth={1.5} />
-          </button>
-        </div>
+        {/* Contenu à largeur fixe, clipé par le aside quand fermé */}
+        <div className="w-[320px] flex flex-col h-full">
+          <div className="flex items-center justify-between px-6 pt-6 pb-5 border-b border-slate-100/80 shrink-0">
+            <img src={logoSicam} alt="SICAM" className="h-9 w-auto" />
+            <button
+              className="p-2 text-foreground/50 hover:text-foreground transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-label="Fermer le menu"
+              data-testid="mobile-menu-close"
+            >
+              <X className="h-5 w-5" strokeWidth={1.5} />
+            </button>
+          </div>
 
-        <ul className="flex flex-col px-4 py-6 gap-1 overflow-y-auto flex-1">
-          {navLinks.map((link) => {
-            if (link.hasMenu) {
+          <ul className="flex flex-col px-4 py-6 gap-1 overflow-y-auto flex-1">
+            {navLinks.map((link) => {
+              if (link.hasMenu) {
+                return (
+                  <li key={link.label}>
+                    <div className="flex items-center">
+                      <Link
+                        href={link.href}
+                        className={cn(
+                          "flex-1 px-4 py-3.5 text-[15px] font-display font-semibold tracking-wide transition-colors rounded-lg rounded-r-none",
+                          isProductsActive
+                            ? "text-primary bg-primary/5"
+                            : "text-foreground/70 hover:text-foreground hover:bg-slate-50"
+                        )}
+                        onClick={() => setMobileMenuOpen(false)}
+                        data-testid="mobile-link-nos-produits"
+                      >
+                        {link.label}
+                      </Link>
+                      <button
+                        onClick={() => setMobileProductsOpen(o => !o)}
+                        className={cn(
+                          "px-3 py-3.5 rounded-lg rounded-l-none border-l border-slate-100 transition-colors",
+                          isProductsActive ? "text-primary bg-primary/5" : "text-foreground/50 hover:bg-slate-50"
+                        )}
+                        aria-label="Voir les catégories"
+                        data-testid="mobile-products-toggle"
+                      >
+                        <ChevronDown
+                          size={16}
+                          className={cn("transition-transform duration-200", mobileProductsOpen && "rotate-180")}
+                        />
+                      </button>
+                    </div>
+
+                    <div className={cn(
+                      "overflow-hidden transition-all duration-300",
+                      mobileProductsOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+                    )}>
+                      <ul className="pl-4 pt-1 pb-2 flex flex-col gap-0.5">
+                        {productSubMenu.map(item => (
+                          <li key={item.anchor}>
+                            <Link
+                              href={`/nos-produits#${item.anchor}`}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                scrollToAnchor(item.anchor);
+                              }}
+                              className="block px-4 py-2.5 text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-50 rounded-lg transition-colors"
+                              data-testid={`mobile-submenu-${item.anchor}`}
+                            >
+                              <span className="block text-[13px]">{item.label}</span>
+                              <span className="text-[11px] text-slate-400 font-normal">{item.desc}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </li>
+                );
+              }
+
               return (
                 <li key={link.label}>
-                  <div className="flex items-center">
-                    <Link
-                      href={link.href}
-                      className={cn(
-                        "flex-1 px-4 py-3.5 text-[15px] font-display font-semibold tracking-wide transition-colors rounded-lg rounded-r-none",
-                        isProductsActive
-                          ? "text-primary bg-primary/5"
-                          : "text-foreground/70 hover:text-foreground hover:bg-slate-50"
-                      )}
-                      onClick={() => setMobileMenuOpen(false)}
-                      data-testid="mobile-link-nos-produits"
-                    >
-                      {link.label}
-                    </Link>
-                    <button
-                      onClick={() => setMobileProductsOpen(o => !o)}
-                      className={cn(
-                        "px-3 py-3.5 rounded-lg rounded-l-none border-l border-slate-100 transition-colors",
-                        isProductsActive ? "text-primary bg-primary/5" : "text-foreground/50 hover:bg-slate-50"
-                      )}
-                      aria-label="Voir les catégories"
-                      data-testid="mobile-products-toggle"
-                    >
-                      <ChevronDown
-                        size={16}
-                        className={cn("transition-transform duration-200", mobileProductsOpen && "rotate-180")}
-                      />
-                    </button>
-                  </div>
-
-                  <div className={cn(
-                    "overflow-hidden transition-all duration-300",
-                    mobileProductsOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
-                  )}>
-                    <ul className="pl-4 pt-1 pb-2 flex flex-col gap-0.5">
-                      {productSubMenu.map(item => (
-                        <li key={item.anchor}>
-                          <Link
-                            href={`/nos-produits#${item.anchor}`}
-                            onClick={() => {
-                              setMobileMenuOpen(false);
-                              scrollToAnchor(item.anchor);
-                            }}
-                            className="block px-4 py-2.5 text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-50 rounded-lg transition-colors"
-                            data-testid={`mobile-submenu-${item.anchor}`}
-                          >
-                            <span className="block text-[13px]">{item.label}</span>
-                            <span className="text-[11px] text-slate-400 font-normal">{item.desc}</span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      "block w-full px-4 py-3.5 text-[15px] font-display font-semibold tracking-wide transition-colors rounded-lg",
+                      location === link.href
+                        ? "text-primary bg-primary/5"
+                        : "text-foreground/70 hover:text-foreground hover:bg-slate-50/50"
+                    )}
+                    onClick={() => setMobileMenuOpen(false)}
+                    data-testid={`mobile-link-${link.label.toLowerCase().replace(/\s/g, '-')}`}
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               );
-            }
-
-            return (
-              <li key={link.label}>
-                <Link
-                  href={link.href}
-                  className={cn(
-                    "block w-full px-4 py-3.5 text-[15px] font-display font-semibold tracking-wide transition-colors rounded-lg",
-                    location === link.href
-                      ? "text-primary bg-primary/5"
-                      : "text-foreground/70 hover:text-foreground hover:bg-slate-50/50"
-                  )}
-                  onClick={() => setMobileMenuOpen(false)}
-                  data-testid={`mobile-link-${link.label.toLowerCase().replace(/\s/g, '-')}`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+            })}
+          </ul>
+        </div>
       </aside>
     </>
   );
