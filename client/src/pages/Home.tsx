@@ -163,7 +163,7 @@ function VideoPlayer() {
               playsInline
               className="w-full h-full block object-contain"
             >
-              <source src="https://sicam-tunisia.com/videos/modifie.mp4" type="video/mp4" />
+              <source src="/test-video.mp4" type="video/mp4" />
             </video>
           </div>
         </FadeIn>
