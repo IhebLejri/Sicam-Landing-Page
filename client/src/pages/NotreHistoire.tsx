@@ -129,8 +129,8 @@ export default function NotreHistoire() {
                 },
                 {
                   title: "Rapidité",
-                  text: "Grâce à notre implantation stratégique, la tomate passe du champ à la boîte en quelques heures seulement.",
-                  stat: "Quelques heures",
+                  text: "Grâce à notre implantation stratégique, la tomate passe du champ à la boîte en environ 3h seulement.",
+                  stat: "Environ 3h",
                 },
                 {
                   title: "Présence globale",
