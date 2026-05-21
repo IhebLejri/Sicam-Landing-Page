@@ -172,7 +172,7 @@ export function Navbar() {
           {/* Categories grid — centered */}
           <div className="bg-primary">
             <div className="flex justify-center py-8 px-8">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-x-16 gap-y-2 max-w-3xl w-full">
+              <div className="grid grid-cols-2 gap-x-16 gap-y-2 max-w-xl w-full">
                 {productSubMenu.map(item => (
                   <Link
                     key={item.anchor}
