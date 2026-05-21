@@ -51,7 +51,7 @@ export default function ProductDetail() {
           />
           {/* Main product image */}
           <FadeIn direction="up">
-            <div className="relative z-10 p-8 lg:p-16 flex items-center justify-center mt-16 lg:mt-0">
+            <div className="relative z-10 p-4 md:p-8 lg:p-16 flex items-center justify-center mt-16 lg:mt-0">
               <img
                 src={product.image}
                 alt={product.name}
@@ -63,7 +63,7 @@ export default function ProductDetail() {
         </div>
 
         {/* Right: product info */}
-        <div className="lg:w-[55%] flex flex-col justify-center px-8 md:px-12 lg:px-16 py-12 lg:pt-36 lg:pb-16 bg-background">
+        <div className="lg:w-[55%] flex flex-col justify-center px-5 md:px-12 lg:px-16 py-8 lg:pt-36 lg:pb-16 bg-background">
 
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-xs text-slate-400 mb-8 flex-wrap" aria-label="Fil d'ariane" data-testid="breadcrumb">
@@ -73,7 +73,7 @@ export default function ProductDetail() {
             <span>/</span>
             <Link href={`/nos-produits#cat-${product.category}`} className="hover:text-foreground transition-colors">{config.label}</Link>
             <span>/</span>
-            <span className="text-slate-600 truncate max-w-[160px]">{product.name}</span>
+            <span className="text-slate-600 truncate max-w-[200px] md:max-w-none">{product.name}</span>
           </nav>
 
           <FadeIn direction="up">

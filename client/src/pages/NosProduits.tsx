@@ -42,7 +42,7 @@ function ProductCarousel({
   const dotActive = accentColor === "secondary" ? "bg-secondary" : "bg-primary";
 
   return (
-    <div className="flex-1 flex flex-col items-center justify-center py-10 px-8 md:px-10 relative select-none">
+    <div className="flex-1 flex flex-col items-center justify-center py-6 px-5 md:px-10 relative select-none">
       {/* Prev arrow */}
       <button
         onClick={prev}
@@ -163,7 +163,7 @@ function CategorySection({ config }: { config: CategoryConfig }) {
       {/* Right: category info + product carousel */}
       <div className="flex-1 flex flex-col md:flex-row bg-background">
         {/* Description column */}
-        <div className="md:w-[45%] p-8 lg:p-10 xl:p-12 flex flex-col justify-center md:border-r border-slate-100">
+        <div className="md:w-[45%] p-5 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center md:border-r border-slate-100">
           {/* Mobile: category tag */}
           <p className="text-[10px] font-display font-bold tracking-[0.2em] text-primary/40 uppercase mb-3">
             {config.subtitle}
@@ -248,7 +248,7 @@ function ZRPSection() {
       {/* Right */}
       <div className="flex-1 flex flex-col md:flex-row bg-background">
         {/* Description */}
-        <div className="md:w-[45%] p-8 lg:p-10 xl:p-12 flex flex-col justify-center md:border-r border-slate-100">
+        <div className="md:w-[45%] p-5 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center md:border-r border-slate-100">
           <div className="flex items-center gap-3 mb-4">
             <img src={logoZrp} alt="ZRP" className="w-10 h-10 object-contain" />
           </div>

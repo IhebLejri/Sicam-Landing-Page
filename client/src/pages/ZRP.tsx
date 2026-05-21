@@ -157,7 +157,7 @@ export default function ZRP() {
           </FadeIn>
 
           <FadeIn delay={0.3}>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { value: "0,01", unit: "mg/kg", label: "Seuil de détection" },
                 { value: "5", unit: "cuillères", label: "Dans une piscine olympique" },
@@ -188,7 +188,7 @@ export default function ZRP() {
             </p>
           </FadeIn>
 
-          <div className="relative border-l-4 border-secondary/20 ml-4 md:ml-12 space-y-10 pb-4">
+          <div className="relative border-l-4 border-secondary/20 ml-3 md:ml-12 space-y-10 pb-4">
             {[
               {
                 step: "01",
@@ -222,7 +222,7 @@ export default function ZRP() {
               },
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.1} direction="left">
-                <div className="relative pl-8 md:pl-16">
+                <div className="relative pl-7 md:pl-16">
                   <div className="absolute -left-[22px] top-1 w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-white text-sm font-bold shadow-lg ring-4 ring-white">
                     {item.step}
                   </div>
@@ -295,7 +295,7 @@ export default function ZRP() {
             ].map((stat, i) => (
               <FadeIn key={i} delay={i * 0.1} direction="up">
                 <div className="text-center p-8 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
-                  <p className={cn("text-5xl md:text-6xl font-serif font-bold mb-2", stat.color)}>{stat.value}</p>
+                  <p className={cn("text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-2", stat.color)}>{stat.value}</p>
                   <p className="text-lg font-bold text-slate-800">{stat.label}</p>
                   <p className="text-sm text-slate-500 mt-1">{stat.sub}</p>
                 </div>
