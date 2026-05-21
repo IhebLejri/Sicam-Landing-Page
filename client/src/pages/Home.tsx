@@ -260,10 +260,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 pb-24">
-        <div className="container mx-auto px-6 md:px-8">
+      <section className="py-12 pb-24 overflow-hidden">
+        <div className="container mx-auto px-4 md:px-8">
           <FadeIn>
-            <div className="bg-secondary rounded-3xl p-10 md:p-20 relative overflow-hidden">
+            <div className="bg-secondary rounded-3xl p-6 md:p-12 lg:p-20 relative overflow-hidden">
               <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
               <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
 
