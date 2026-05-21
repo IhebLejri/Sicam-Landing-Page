@@ -319,10 +319,10 @@ export default function NosProduits() {
               className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight"
               data-testid="products-title"
             >
-              Nos Produits
+              Nos produits — La générosité tunisienne, mise en boîte depuis 1969
             </h1>
-            <p className="text-base text-white/60 max-w-2xl mx-auto leading-relaxed font-light">
-              Tomates, Harissa, Confitures — 18 références issues du terroir tunisien, fabriquées avec passion depuis 1969.
+            <p className="text-base text-white/60 max-w-3xl mx-auto leading-relaxed font-light">
+              Chaque produit SICAM est le résultat d'un choix : celui de la qualité sur le compromis, de la traçabilité sur l'opacité, du goût authentique sur le standardisé. Des tomates cultivées sous le soleil de Medjez El Bab aux confitures de fruits tunisiens, en passant par notre harissa de caractère — voici notre gamme complète.
             </p>
           </FadeIn>
 

@@ -169,33 +169,35 @@ export function Navbar() {
           onMouseLeave={handleMenuLeave}
           data-testid="mega-menu"
         >
-          {/* Categories grid */}
+          {/* Categories grid — centered */}
           <div className="bg-primary">
-            <div className="container mx-auto px-8 md:px-16 py-8 grid grid-cols-2 md:grid-cols-4 gap-2">
-              {productSubMenu.map(item => (
-                <Link
-                  key={item.anchor}
-                  href={`/nos-produits#${item.anchor}`}
-                  onClick={() => {
-                    setShowProductsMenu(false);
-                    scrollToAnchor(item.anchor);
-                  }}
-                  className="group flex flex-col px-5 py-4 rounded-xl hover:bg-white/10 transition-colors"
-                  data-testid={`mega-${item.anchor}`}
-                >
-                  <span className="text-white font-bold uppercase tracking-[0.12em] text-[12px] mb-1 leading-snug group-hover:text-white transition-colors">
-                    {item.label}
-                  </span>
-                  <span className="text-white/40 text-[11px] font-medium group-hover:text-white/60 transition-colors">
-                    {item.desc}
-                  </span>
-                </Link>
-              ))}
+            <div className="flex justify-center py-8 px-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-x-16 gap-y-2 max-w-3xl w-full">
+                {productSubMenu.map(item => (
+                  <Link
+                    key={item.anchor}
+                    href={`/nos-produits#${item.anchor}`}
+                    onClick={() => {
+                      setShowProductsMenu(false);
+                      scrollToAnchor(item.anchor);
+                    }}
+                    className="group flex flex-col px-2 py-3 rounded-xl hover:bg-white/10 transition-colors"
+                    data-testid={`mega-${item.anchor}`}
+                  >
+                    <span className="text-white font-bold uppercase tracking-[0.12em] text-[12px] mb-1 leading-snug">
+                      {item.label}
+                    </span>
+                    <span className="text-white/40 text-[11px] font-medium group-hover:text-white/60 transition-colors">
+                      {item.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Footer bar */}
-          <div className="bg-[#b80410] px-8 md:px-16 py-3 flex items-center justify-between">
+          <div className="bg-[#b80410] px-8 py-3 flex justify-center items-center gap-8">
             <span className="text-white/50 text-[11px] font-medium">18 références — 100 % tunisien</span>
             <Link
               href="/nos-produits"
