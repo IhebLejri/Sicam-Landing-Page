@@ -277,7 +277,7 @@ export default function ZRP() {
       </section>
 
       {/* Section 6 — ZRP en chiffres */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="container mx-auto px-6 md:px-8">
           <FadeIn className="text-center mb-16">
             <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">En Chiffres</h2>
@@ -391,8 +391,8 @@ export default function ZRP() {
       {/* Section 8 — Call to action final */}
       <section className="py-24 bg-secondary text-white relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary/20 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container relative z-10 mx-auto px-6 md:px-8 max-w-4xl text-center">
