@@ -232,7 +232,7 @@ export default function NotreHistoire() {
             <FadeIn delay={0.1}>
               <div className="space-y-5 text-slate-600">
                 <p>
-                  L'héritage ne nous empêche pas d'innover, au contraire. Nous avons été les premiers à lancer la <strong className="text-foreground">tomate pelée en 1969</strong>, les premiers sur l'<strong className="text-foreground">ouverture facile en 2012</strong>.
+                  L'héritage ne nous empêche pas d'innover, au contraire. Nous avons été les premiers à lancer la <strong className="text-foreground">tomate pelée en 2008</strong>, les premiers sur l'<strong className="text-foreground">ouverture facile en 2012</strong>.
                 </p>
                 <p>
                   Aujourd'hui, SICAM marque l'histoire mondiale de la tomate en devenant la <strong className="text-foreground">première entreprise au monde</strong> à certifier son Double Concentré et ses Tomates Cubées « Zéro Résidu de Pesticides — ZRP ».
