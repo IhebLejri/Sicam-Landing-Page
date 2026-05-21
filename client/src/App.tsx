@@ -11,6 +11,7 @@ import { CookieConsent } from "@/components/CookieConsent";
 import Home from "@/pages/Home";
 import ZRP from "@/pages/ZRP";
 import NosProduits from "@/pages/NosProduits";
+import ProductDetail from "@/pages/ProductDetail";
 import Certifications from "@/pages/Certifications";
 import NotreHistoire from "@/pages/NotreHistoire";
 import NosValeurs from "@/pages/NosValeurs";
@@ -21,6 +22,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/zrp" component={ZRP} />
+      <Route path="/nos-produits/:slug" component={ProductDetail} />
       <Route path="/nos-produits" component={NosProduits} />
       <Route path="/certifications" component={Certifications} />
       <Route path="/notre-histoire" component={NotreHistoire} />

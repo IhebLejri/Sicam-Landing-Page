@@ -1,519 +1,396 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "wouter";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/utils";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { ShieldCheck, Award, X, Flame, Leaf } from "lucide-react";
+import { ChevronLeft, ChevronRight, ShieldCheck, Award } from "lucide-react";
+import {
+  allProducts,
+  categoryConfigs,
+  getProductsByCategory,
+  getZRPProducts,
+  logoZrp,
+  type CategoryConfig,
+  type Product,
+} from "@/data/products";
 
-import dct800g from "@assets/DCT-800G-FR_1773059756210.png";
-import dct from "@assets/DCT-FR_1773059756210.png";
-import pulpe from "@assets/PULPE-DE-TOMATE-FR_1773059756211.png";
-import sp from "@assets/SP-FR_1773059756211.png";
-import tc from "@assets/TC_1773059756212.png";
-import tca from "@assets/TCA_1773059756212.png";
-import tcp4 from "@assets/TCP-4_-FR_1773059756212.png";
-import tcp15 from "@assets/TCP-15_-FR_1773059756213.png";
-import tpc from "@assets/TPC-FR_1773059756213.png";
-import tpe from "@assets/TPE_1773059756214.png";
+const subNavItems = [
+  { label: "Tomates", anchor: "cat-tomates" },
+  { label: "Harissa", anchor: "cat-harissa" },
+  { label: "Confitures", anchor: "cat-confitures" },
+  { label: "Certifié ZRP", anchor: "cat-zrp" },
+];
 
-import harissa135 from "@assets/H-135g_1773059349700.png";
-import harissa380 from "@assets/H-380g_1773059349700.png";
-import harissa760 from "@assets/H-760g_1773059349701.png";
-import harissa70 from "@assets/ETUI-&-TUBE-HARISSA-70g_1773059349699.png";
-
-import confAbricot from "@assets/CONFITURE-ABRICOT_1773059334071.png";
-import confCoing from "@assets/CONFITURE-COING_1773059334071.png";
-import confFigue from "@assets/CONFITURE-FIGUE_1773059334072.png";
-import confFraise from "@assets/CONFITURE-FRAISE_1773059334072.png";
-
-import ficheTPC from "@assets/fiche1_1773061001087.png";
-import ficheTPE from "@assets/fiche2_1773061001087.png";
-import ficheTCA from "@assets/fiche5_1773061001088.png";
-import ficheTC from "@assets/fiche6_1773061001089.png";
-import fichePulpe from "@assets/fiche7_1773061001089.png";
-import ficheSP from "@assets/fiche8_1773061001089.png";
-import ficheTCP4 from "@assets/fiche9_1773061001090.png";
-import ficheTCP15 from "@assets/fiche10_1773061001090.png";
-import ficheHarissa from "@assets/fiche11_1773061001090.png";
-import ficheDCT from "@assets/fiche12_1773061001091.png";
-
-import logoZrp from "@assets/Asset_3@2x_1772017659058.png";
-
-type Category = "all" | "tomates" | "harissa" | "confitures" | "zrp";
-
-interface Product {
-  id: string;
-  name: string;
-  image: string;
-  category: "tomates" | "harissa" | "confitures";
-  description: string;
-  tags: string[];
-  zrp: boolean;
-  formats: string;
-  ficheImage?: string;
-  badges?: string[];
+function scrollToSection(anchor: string) {
+  const el = document.getElementById(anchor);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-const categories: { key: Category; label: string }[] = [
-  { key: "all", label: "Toutes les catégories" },
-  { key: "tomates", label: "Tomates (10)" },
-  { key: "harissa", label: "Harissa (4 formats)" },
-  { key: "confitures", label: "Confitures (4 saveurs)" },
-  { key: "zrp", label: "Certifié ZRP \u2605" },
-];
+function ProductCarousel({
+  products,
+  accentColor = "primary",
+}: {
+  products: Product[];
+  accentColor?: "primary" | "secondary";
+}) {
+  const [idx, setIdx] = useState(0);
+  const product = products[idx];
 
-const categoryIntros: Record<string, string> = {
-  tomates: "La tomate est notre cœur de métier depuis 1969. 100 % d'origine tunisienne, récoltée en plein soleil, transformée rapidement pour préserver toutes ses qualités — nos tomates SICAM s'adaptent à toutes vos recettes, du quotidien à l'exceptionnel.",
-  harissa: "La harissa SICAM, c'est une institution. Élue Produit de l'Année sept fois consécutives, elle est la harissa de référence en Tunisie — reconnue pour son équilibre entre feu et profondeur, sa couleur vive, et sa consistance qui nappe sans déchirer. Disponible en quatre formats pour s'adapter à tous les usages.",
-  confitures: "Des fruits tunisiens sélectionnés avec soin, transformés en confitures généreuses et parfumées. Chaque pot est une invitation à retrouver le goût authentique des fruits du terroir tunisien.",
-};
+  const prev = () => setIdx(i => (i - 1 + products.length) % products.length);
+  const next = () => setIdx(i => (i + 1) % products.length);
 
-const products: Product[] = [
-  {
-    id: "dct-800",
-    name: "Double Concentré de Tomates",
-    image: dct800g,
-    category: "tomates",
-    description: "Notre produit signature. Double concentré de tomates tunisiennes, cultivées en plein soleil et transformées dans les heures suivant la récolte pour préserver intensité et couleur. Sans conservateurs, sans arômes ajoutés. Une concentration de saveur pure, au format idéal pour la cuisine du quotidien et les grandes tablées.",
-    tags: ["Tomates", "100 % tunisien", "Sans conservateurs"],
-    zrp: true,
-    formats: "Boîte 4/4 — 800g net | Disponible aussi en sac aseptique (usage professionnel)",
-    ficheImage: ficheDCT,
-  },
-  {
-    id: "dct-400",
-    name: "Double Concentré de Tomates",
-    image: dct,
-    category: "tomates",
-    description: "Le même double concentré SICAM, en format demi-boîte — idéal pour les petits foyers ou les recettes à portions individuelles. Même qualité, même engagement ZRP, même traçabilité totale du champ à la boîte.",
-    tags: ["Tomates", "100 % tunisien", "Sans conservateurs"],
-    zrp: true,
-    formats: "Boîte ½ — 400g net",
-    ficheImage: ficheDCT,
-  },
-  {
-    id: "tpe",
-    name: "Tomates Pelées Entières",
-    image: tpe,
-    category: "tomates",
-    description: "Des tomates entières, pelées à la vapeur, conservées dans leur propre jus naturel. Charnues, fondantes, avec ce goût légèrement sucré que seul le soleil tunisien donne à la tomate. Parfaites pour les sauces, les plats mijotés, les coulis maison.",
-    tags: ["Tomates", "100 % tunisien", "Sans conservateurs"],
-    zrp: true,
-    formats: "Boîte 4/4 — 800g net | Boîte ½ — 400g net",
-    ficheImage: ficheTPE,
-  },
-  {
-    id: "tpc",
-    name: "Tomates Pelées en Cubes",
-    image: tpc,
-    category: "tomates",
-    description: "Coupées en dés réguliers, prêtes à l'emploi. Texture ferme qui se tient à la cuisson, idéale pour les sauces chunky, les shakshuka, les tajines ou toute recette où vous souhaitez voir les morceaux. SICAM est la première entreprise au monde à avoir certifié ZRP ce format.",
-    tags: ["Tomates", "100 % tunisien", "Sans conservateurs"],
-    zrp: true,
-    formats: "Boîte 4/4 — 800g net | Boîte ½ — 400g net",
-    ficheImage: ficheTPC,
-  },
-  {
-    id: "pulpe",
-    name: "Pulpe de Tomate",
-    image: pulpe,
-    category: "tomates",
-    description: "Une pulpe généreuse, obtenue par pressage doux des tomates fraîches. Texture naturelle préservée, couleur rouge intense, saveur équilibrée entre douceur et acidité. La base parfaite pour toutes vos sauces tomate maison, vos pizzas, vos soupes.",
-    tags: ["Tomates", "100 % tunisien", "Sans conservateurs"],
-    zrp: true,
-    formats: "Boîte 4/4 — 800g net | En aseptique (usage professionnel)",
-    ficheImage: fichePulpe,
-  },
-  {
-    id: "tc",
-    name: "Tomates Pelées Concassées",
-    image: tc,
-    category: "tomates",
-    description: "Tomates pelées et concassées en morceaux irréguliers — texture rustique et généreuse, idéale pour les sauces à l'italienne, les ragouts et les plats de famille. La base incontournable de la cuisine méditerranéenne.",
-    tags: ["Tomates", "100 % tunisien"],
-    zrp: false,
-    formats: "Boîte 4/4 — 800g net | Boîte ½ — 400g net",
-    ficheImage: ficheTC,
-  },
-  {
-    id: "tca",
-    name: "Tomates Pelées Concassées à l'Ail",
-    image: tca,
-    category: "tomates",
-    description: "Le classique revisité : des tomates concassées relevées d'ail naturel. Prêtes à l'emploi, sans préparation supplémentaire. Pour vos sauces pasta, vos bruschette et toutes vos recettes où l'ail est le fil conducteur.",
-    tags: ["Tomates", "100 % tunisien", "Arôme naturel"],
-    zrp: false,
-    formats: "Boîte ½ — 400g net",
-    ficheImage: ficheTCA,
-  },
-  {
-    id: "tcp4",
-    name: "Tomates Concassées Pimentées 4%",
-    image: tcp4,
-    category: "tomates",
-    description: "Une touche de chaleur maîtrisée : 4 % de piment doux pour relever vos plats sans les dominer. Idéales pour les shakshuka, les sauces arabiata, les tajines ou simplement pour ceux qui aiment sentir la vie dans leur assiette.",
-    tags: ["Tomates", "100 % tunisien", "Piment doux"],
-    zrp: false,
-    formats: "Boîte ½ — 400g net",
-    ficheImage: ficheTCP4,
-  },
-  {
-    id: "tcp15",
-    name: "Tomates Concassées Piquantes 15%",
-    image: tcp15,
-    category: "tomates",
-    description: "Pour les amateurs de saveurs qui s'assument. 15 % de piment — une intensité franche, sans compromis. La version pour ceux qui aiment que leurs plats aient du caractère. En sauce, en garniture, ou à la cuillère pour les aventuriers.",
-    tags: ["Tomates", "100 % tunisien", "Piment fort"],
-    zrp: false,
-    formats: "Boîte ½ — 400g net",
-    ficheImage: ficheTCP15,
-  },
-  {
-    id: "sp",
-    name: "Sauce Pizza Basilic & Origan",
-    image: sp,
-    category: "tomates",
-    description: "Une sauce prête à l'emploi, parfumée au basilic et à l'origan naturels. La base idéale pour vos pizzas maison, mais aussi pour les bruschette, les pâtes ou toute recette qui mérite un fond aromatique méditerranéen. Résultat garanti, même pour les cuisiniers pressés.",
-    tags: ["Tomates", "100 % tunisien", "Prête à l'emploi", "Herbes naturelles"],
-    zrp: false,
-    formats: "Boîte ½ — 400g net",
-    ficheImage: ficheSP,
-  },
+  const accent = accentColor === "secondary" ? "text-secondary border-secondary hover:border-secondary hover:text-secondary" : "text-primary border-primary hover:border-primary hover:text-primary";
+  const dotActive = accentColor === "secondary" ? "bg-secondary" : "bg-primary";
 
-  {
-    id: "harissa-760",
-    name: "Harissa SICAM — 760g",
-    image: harissa760,
-    category: "harissa",
-    description: "Le grand format pour les vrais amateurs. Recette traditionnelle, piments tunisiens sélectionnés, texture généreuse. Idéale pour les grandes tablées, la cuisine en quantité, ou simplement pour ne jamais en manquer. La harissa qui a fait la réputation de SICAM depuis des décennies.",
-    tags: ["Harissa", "Recette traditionnelle", "Piments sélectionnés"],
-    zrp: false,
-    formats: "Boîte — 760g net",
-    ficheImage: ficheHarissa,
-    badges: ["Produit de l'Année — 7 fois"],
-  },
-  {
-    id: "harissa-380",
-    name: "Harissa SICAM — 380g",
-    image: harissa380,
-    category: "harissa",
-    description: "Le format familial — celui du quotidien. Même recette, même équilibre, même intensité que le grand format. Parfait pour accompagner les repas de famille, assaisonner les bricks, relever un couscous ou customiser un sandwich.",
-    tags: ["Harissa", "Recette traditionnelle", "Format familial"],
-    zrp: false,
-    formats: "Boîte — 380g net",
-    ficheImage: ficheHarissa,
-    badges: ["Produit de l'Année — 7 fois"],
-  },
-  {
-    id: "harissa-135",
-    name: "Harissa SICAM — 135g",
-    image: harissa135,
-    category: "harissa",
-    description: "Le format pratique du quotidien — pour les petits foyers, les repas individuels, ou comme premier contact avec la harissa SICAM. Compact, économique, fidèle à la recette originale.",
-    tags: ["Harissa", "Recette traditionnelle", "Format pratique"],
-    zrp: false,
-    formats: "Boîte — 135g net",
-    ficheImage: ficheHarissa,
-    badges: ["Produit de l'Année — 7 fois"],
-  },
-  {
-    id: "harissa-tube",
-    name: "Harissa SICAM — Tube",
-    image: harissa70,
-    category: "harissa",
-    description: "La harissa SICAM en tube — pratique, propre, refermable. Le compagnon idéal pour doser précisément votre harissa, en cuisine comme à table. Même recette, format optimisé pour le quotidien.",
-    tags: ["Harissa", "Recette traditionnelle", "Format tube"],
-    zrp: false,
-    formats: "Tube 70g | Tube 140g",
-    ficheImage: ficheHarissa,
-    badges: ["Produit de l'Année — 7 fois"],
-  },
-
-  {
-    id: "conf-abricot",
-    name: "Confiture d'Abricot",
-    image: confAbricot,
-    category: "confitures",
-    description: "Confiture d'abricots tunisiens, préparée avec des fruits sélectionnés pour leur maturité et leur parfum. Une texture généreuse et un goût ensoleillé qui rappelle les vergers du nord de la Tunisie.",
-    tags: ["Confiture", "Fruits tunisiens"],
-    zrp: false,
-    formats: "Pot en verre",
-  },
-  {
-    id: "conf-coing",
-    name: "Confiture de Coing",
-    image: confCoing,
-    category: "confitures",
-    description: "Le coing tunisien sublimé en confiture dorée et parfumée. Une saveur douce et subtilement épicée, parfaite pour les petits-déjeuners et les goûters authentiques.",
-    tags: ["Confiture", "Fruits tunisiens"],
-    zrp: false,
-    formats: "Pot en verre",
-  },
-  {
-    id: "conf-figue",
-    name: "Confiture de Figue",
-    image: confFigue,
-    category: "confitures",
-    description: "Des figues tunisiennes gorgées de soleil, transformées en une confiture onctueuse et savoureuse. Le goût du terroir tunisien dans chaque cuillère.",
-    tags: ["Confiture", "Fruits tunisiens"],
-    zrp: false,
-    formats: "Pot en verre",
-  },
-  {
-    id: "conf-fraise",
-    name: "Confiture de Fraise",
-    image: confFraise,
-    category: "confitures",
-    description: "Des fraises tunisiennes sélectionnées pour leur douceur et leur arôme intense. Une confiture classique, généreuse en fruits, pour tous les moments de partage.",
-    tags: ["Confiture", "Fruits tunisiens"],
-    zrp: false,
-    formats: "Pot en verre",
-  },
-];
-
-function ProductCard({ product, index, onFicheClick }: { product: Product; index: number; onFicheClick: (img: string, name: string) => void }) {
   return (
-    <FadeIn delay={Math.min(index * 0.08, 0.5)} direction="up">
-      <div
-        className="group bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col"
-        data-testid={`product-card-${product.id}`}
+    <div className="flex-1 flex flex-col items-center justify-center py-10 px-8 md:px-10 relative select-none">
+      {/* Prev arrow */}
+      <button
+        onClick={prev}
+        className={cn("absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm hover:shadow-md transition-all z-10", accent)}
+        aria-label="Produit précédent"
+        data-testid={`carousel-prev-${products[0]?.category ?? "zrp"}`}
       >
-        <div className="relative aspect-square bg-gradient-to-b from-slate-50 to-white p-6 flex items-center justify-center overflow-hidden">
+        <ChevronLeft size={17} />
+      </button>
+
+      {/* Next arrow */}
+      <button
+        onClick={next}
+        className={cn("absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm hover:shadow-md transition-all z-10", accent)}
+        aria-label="Produit suivant"
+        data-testid={`carousel-next-${products[0]?.category ?? "zrp"}`}
+      >
+        <ChevronRight size={17} />
+      </button>
+
+      {/* Product image (clickable) */}
+      <Link
+        href={`/nos-produits/${product.id}`}
+        className="group block mb-5"
+        data-testid={`img-link-${product.id}`}
+      >
+        <div className="relative">
           <img
+            key={product.id}
             src={product.image}
             alt={product.name}
-            className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
-            loading="lazy"
+            className="h-48 md:h-56 lg:h-64 w-auto object-contain group-hover:scale-[1.06] transition-transform duration-300 cursor-pointer drop-shadow-lg"
           />
           {product.zrp && (
-            <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-secondary text-white text-xs font-bold shadow-lg" data-testid={`badge-zrp-${product.id}`}>
-              <ShieldCheck size={14} />
-              ZRP
+            <div className="absolute -top-2 -right-2 w-7 h-7 bg-secondary rounded-full flex items-center justify-center shadow-md">
+              <ShieldCheck size={13} className="text-white" />
             </div>
           )}
-          {product.badges?.map((badge, i) => (
-            <div key={i} className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-amber-500 text-white text-xs font-bold shadow-lg" data-testid={`badge-award-${product.id}`}>
-              <Award size={14} />
-              <span className="hidden sm:inline">{badge}</span>
-              <span className="sm:hidden">7x</span>
+          {product.badges && product.badges.length > 0 && !product.zrp && (
+            <div className="absolute -top-2 -right-2 w-7 h-7 bg-amber-500 rounded-full flex items-center justify-center shadow-md">
+              <Award size={13} className="text-white" />
             </div>
-          ))}
+          )}
         </div>
+      </Link>
 
-        <div className="p-5 flex flex-col flex-1 border-t border-slate-50">
-          <h3 className="font-bold text-base text-foreground leading-snug mb-2" data-testid={`product-name-${product.id}`}>
-            {product.name}
-          </h3>
+      {/* Product name link */}
+      <Link
+        href={`/nos-produits/${product.id}`}
+        className="group text-center block px-4"
+        data-testid={`name-link-${product.id}`}
+      >
+        <p className={cn("text-sm font-bold leading-snug transition-colors max-w-[180px] mx-auto", accentColor === "secondary" ? "text-foreground group-hover:text-secondary" : "text-foreground group-hover:text-primary")}>
+          {product.name}
+        </p>
+        <p className="text-[11px] text-slate-400 mt-1">{product.shortDesc}</p>
+      </Link>
 
-          <div className="flex flex-wrap gap-1.5 mb-3">
-            {product.tags.map((tag, i) => (
-              <span key={i} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-medium">
-                {tag === "Piment fort" && <Flame size={10} className="text-red-500" />}
-                {tag === "Piment doux" && <Flame size={10} className="text-orange-400" />}
-                {tag.includes("tunisien") && <Leaf size={10} className="text-secondary" />}
-                {tag}
-              </span>
-            ))}
-          </div>
+      {/* Dot indicators */}
+      <div className="flex gap-1.5 mt-5" role="tablist">
+        {products.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIdx(i)}
+            role="tab"
+            aria-selected={i === idx}
+            className={cn(
+              "h-1.5 rounded-full transition-all duration-300",
+              i === idx ? `w-6 ${dotActive}` : "w-1.5 bg-slate-300 hover:bg-slate-400"
+            )}
+            aria-label={`Produit ${i + 1}`}
+            data-testid={`dot-${i}`}
+          />
+        ))}
+      </div>
 
-          <p className="text-sm text-slate-500 leading-relaxed mb-3 line-clamp-3 flex-1">
-            {product.description}
+      {/* Counter */}
+      <p className="mt-2 text-[11px] text-slate-400 font-medium tracking-wide">
+        {idx + 1} / {products.length}
+      </p>
+    </div>
+  );
+}
+
+function CategorySection({ config }: { config: CategoryConfig }) {
+  const products = getProductsByCategory(config.key);
+  const currentProducts = products;
+  const firstProduct = currentProducts[0];
+
+  return (
+    <section
+      id={`cat-${config.key}`}
+      className="flex flex-col lg:flex-row min-h-[480px] lg:min-h-[520px] border-b border-slate-100 scroll-mt-16"
+      data-testid={`section-${config.key}`}
+    >
+      {/* Left: decorative gradient panel (desktop) */}
+      <div
+        className={cn(
+          "hidden lg:flex relative w-[34%] bg-gradient-to-br overflow-hidden flex-col justify-end",
+          config.gradient
+        )}
+      >
+        <img
+          src={config.bgImage}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-contain object-center opacity-[0.11] scale-[1.4] pointer-events-none select-none"
+        />
+        <div className="relative z-10 p-10 pb-12">
+          <p className="text-[72px] leading-none font-serif font-bold text-white/10 uppercase select-none pointer-events-none">
+            {config.label}
           </p>
-
-          <p className="text-xs text-slate-400 font-medium mb-3" data-testid={`product-formats-${product.id}`}>
-            {product.formats}
-          </p>
-
-          {product.ficheImage && (
-            <button
-              onClick={() => onFicheClick(product.ficheImage!, product.name)}
-              className="w-full mt-auto py-2.5 px-4 rounded-xl bg-primary/5 hover:bg-primary/10 text-primary text-sm font-semibold transition-colors border border-primary/10"
-              data-testid={`fiche-btn-${product.id}`}
-            >
-              Fiche technique
-            </button>
-          )}
+          <div className="w-8 h-0.5 bg-white/20 mb-3 mt-2" />
+          <p className="text-white/40 text-sm font-medium tracking-wide">{config.subtitle}</p>
         </div>
       </div>
-    </FadeIn>
+
+      {/* Right: category info + product carousel */}
+      <div className="flex-1 flex flex-col md:flex-row bg-background">
+        {/* Description column */}
+        <div className="md:w-[45%] p-8 lg:p-10 xl:p-12 flex flex-col justify-center md:border-r border-slate-100">
+          {/* Mobile: category tag */}
+          <p className="text-[10px] font-display font-bold tracking-[0.2em] text-primary/40 uppercase mb-3">
+            {config.subtitle}
+          </p>
+
+          <h2
+            className="text-2xl lg:text-3xl font-serif font-bold text-foreground mb-3"
+            data-testid={`cat-heading-${config.key}`}
+          >
+            {config.label}
+          </h2>
+
+          <div className="w-8 h-0.5 bg-primary mb-5" />
+
+          <p className="text-sm text-slate-600 leading-relaxed mb-6">
+            {config.description}
+          </p>
+
+          {/* Divider + current product info */}
+          <div className="mt-auto pt-5 border-t border-slate-100">
+            <Link
+              href={`/nos-produits/${firstProduct?.id}`}
+              className="group"
+              data-testid={`cat-link-first-${config.key}`}
+            >
+              <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-base leading-snug mb-1.5">
+                {firstProduct?.name}
+              </h3>
+            </Link>
+            <p className="text-xs text-slate-400 font-medium mb-2.5">{firstProduct?.formats}</p>
+            <div className="flex flex-wrap gap-1.5">
+              {firstProduct?.zrp && (
+                <span className="inline-flex items-center gap-1 px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded-full">
+                  <ShieldCheck size={10} />
+                  Zéro Résidu de Pesticides — ZRP
+                </span>
+              )}
+              {firstProduct?.tags.slice(0, 2).map(tag => (
+                <span key={tag} className="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-medium rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Product carousel */}
+        <div className="flex-1 bg-[hsl(36,25%,97%)]">
+          <ProductCarousel products={currentProducts} accentColor="primary" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ZRPSection() {
+  const products = getZRPProducts();
+
+  return (
+    <section
+      id="cat-zrp"
+      className="flex flex-col lg:flex-row min-h-[480px] lg:min-h-[520px] border-b border-slate-100 scroll-mt-16"
+      data-testid="section-zrp"
+    >
+      {/* Left: green gradient panel (desktop) */}
+      <div className="hidden lg:flex relative w-[34%] bg-gradient-to-br from-[#0c4a20] via-[#186030] to-[#1e7a38] overflow-hidden flex-col justify-end">
+        <img
+          src={logoZrp}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-contain opacity-[0.08] scale-125 pointer-events-none select-none"
+        />
+        <div className="relative z-10 p-10 pb-12">
+          <p className="text-[52px] leading-tight font-serif font-bold text-white/10 uppercase select-none pointer-events-none">
+            Zéro Résidu
+          </p>
+          <div className="w-8 h-0.5 bg-white/20 mb-3 mt-2" />
+          <p className="text-white/40 text-sm font-medium tracking-wide">Certifié CCPB — Première mondiale</p>
+        </div>
+      </div>
+
+      {/* Right */}
+      <div className="flex-1 flex flex-col md:flex-row bg-background">
+        {/* Description */}
+        <div className="md:w-[45%] p-8 lg:p-10 xl:p-12 flex flex-col justify-center md:border-r border-slate-100">
+          <div className="flex items-center gap-3 mb-4">
+            <img src={logoZrp} alt="ZRP" className="w-10 h-10 object-contain" />
+          </div>
+          <p className="text-[10px] font-display font-bold tracking-[0.2em] text-secondary/50 uppercase mb-3">
+            Certifié CCPB N° 02/2025/10
+          </p>
+
+          <h2 className="text-2xl lg:text-3xl font-serif font-bold text-foreground mb-3" data-testid="cat-heading-zrp">
+            Zéro Résidu de Pesticides — ZRP
+          </h2>
+
+          <div className="w-8 h-0.5 bg-secondary mb-5" />
+
+          <p className="text-sm text-slate-600 leading-relaxed mb-6">
+            SICAM est la <strong className="text-foreground">première entreprise au monde</strong> à certifier ses tomates Zéro Résidu de Pesticides. 1 000 analyses quotidiennes, traçabilité totale du champ à la boîte sur 600 molécules de pesticides.
+          </p>
+
+          <div className="mt-auto pt-5 border-t border-slate-100">
+            <p className="text-xs text-slate-400 font-medium mb-3">
+              5 références certifiées — Saisons 2024 & 2025
+            </p>
+            <Link
+              href="/zrp"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-xs font-bold hover:bg-secondary/20 transition-colors"
+              data-testid="link-zrp-detail"
+            >
+              <ShieldCheck size={13} />
+              En savoir plus sur le programme ZRP
+            </Link>
+          </div>
+        </div>
+
+        {/* ZRP Carousel */}
+        <div className="flex-1 bg-[hsl(150,20%,97%)]">
+          <ProductCarousel products={products} accentColor="secondary" />
+        </div>
+      </div>
+    </section>
   );
 }
 
 export default function NosProduits() {
-  const initialFilter = typeof window !== "undefined"
-    ? new URLSearchParams(window.location.search).get("filter") as Category | null
-    : null;
-  const [activeCategory, setActiveCategory] = useState<Category>(initialFilter === "zrp" ? "zrp" : "all");
-  const [ficheOpen, setFicheOpen] = useState(false);
-  const [ficheImg, setFicheImg] = useState("");
-  const [ficheName, setFicheName] = useState("");
-
-  const openFiche = (img: string, name: string) => {
-    setFicheImg(img);
-    setFicheName(name);
-    setFicheOpen(true);
-  };
-
-  const filtered = activeCategory === "zrp"
-    ? products.filter((p) => p.zrp)
-    : activeCategory === "all"
-      ? products
-      : products.filter((p) => p.category === activeCategory);
-
-  const realCategories = categories.filter(c => c.key !== "all" && c.key !== "zrp");
+  useEffect(() => {
+    const hash = window.location.hash?.replace("#", "");
+    if (hash) {
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 200);
+    }
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col">
-      <section className="relative pt-36 pb-24 bg-gradient-to-b from-primary to-[#b8050f] overflow-hidden">
-        <div className="absolute inset-0">
+
+      {/* Hero */}
+      <section className="relative pt-36 pb-20 bg-gradient-to-b from-primary to-[#9a0f18] overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl" />
         </div>
         <div className="container mx-auto px-6 md:px-8 relative z-10 text-center max-w-4xl">
           <FadeIn>
-            <p className="text-xs font-display font-semibold tracking-[0.2em] text-white/40 uppercase mb-6">
+            <p className="text-[11px] font-display font-semibold tracking-[0.2em] text-white/40 uppercase mb-6">
               100 % tunisien. Du champ à votre table.
             </p>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight" data-testid="products-title">
-              Nos produits — La générosité tunisienne, mise en boîte depuis 1969
+            <h1
+              className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight"
+              data-testid="products-title"
+            >
+              Nos Produits
             </h1>
-            <p className="text-base md:text-lg text-white/60 max-w-3xl mx-auto leading-relaxed font-light">
-              Chaque produit SICAM est le résultat d'un choix : celui de la qualité sur le compromis, de la traçabilité sur l'opacité, du goût authentique sur le standardisé. Des tomates cultivées sous le soleil de Medjez El Bab aux confitures de fruits tunisiens, en passant par notre harissa de caractère — voici notre gamme complète.
+            <p className="text-base text-white/60 max-w-2xl mx-auto leading-relaxed font-light">
+              Tomates, Harissa, Confitures — 18 références issues du terroir tunisien, fabriquées avec passion depuis 1969.
             </p>
+          </FadeIn>
+
+          {/* Quick-links in hero */}
+          <FadeIn delay={0.15}>
+            <div className="flex flex-wrap justify-center gap-3 mt-10">
+              {subNavItems.map(item => (
+                <button
+                  key={item.anchor}
+                  onClick={() => scrollToSection(item.anchor)}
+                  className="px-5 py-2 rounded-full border border-white/20 text-white/70 text-xs font-display font-semibold uppercase tracking-[0.1em] hover:bg-white/10 hover:text-white transition-all"
+                  data-testid={`hero-nav-${item.anchor}`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
           </FadeIn>
         </div>
       </section>
 
-      <section className="py-6 bg-white sticky top-[52px] md:top-[64px] z-30 border-b border-slate-100 shadow-sm" role="toolbar" aria-label="Filtrer par catégorie">
+      {/* Sticky sub-navigation */}
+      <nav
+        className="sticky top-[52px] md:top-[60px] z-30 bg-white border-b border-slate-100 shadow-sm"
+        aria-label="Catégories de produits"
+      >
         <div className="container mx-auto px-6 md:px-8">
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3" data-testid="product-filters">
-            {categories.map((cat) => (
+          <div className="flex overflow-x-auto scrollbar-hide" data-testid="cat-nav">
+            {subNavItems.map(item => (
               <button
-                key={cat.key}
-                onClick={() => setActiveCategory(cat.key)}
-                className={cn(
-                  "px-6 md:px-8 py-2.5 rounded-full text-sm font-semibold transition-all duration-200",
-                  cat.key === "zrp" && activeCategory === cat.key
-                    ? "bg-secondary text-white shadow-lg shadow-secondary/25"
-                    : cat.key === "zrp" && activeCategory !== cat.key
-                      ? "bg-secondary/10 text-secondary hover:bg-secondary/20 border border-secondary/20"
-                      : activeCategory === cat.key
-                        ? "bg-primary text-white shadow-lg shadow-primary/25"
-                        : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-800"
-                )}
-                data-testid={`filter-${cat.key}`}
-                aria-pressed={activeCategory === cat.key}
+                key={item.anchor}
+                onClick={() => scrollToSection(item.anchor)}
+                className="flex-shrink-0 px-5 md:px-7 py-4 text-[11px] md:text-[12px] font-display font-bold uppercase tracking-[0.12em] text-slate-400 hover:text-primary border-b-2 border-transparent hover:border-primary transition-all whitespace-nowrap"
+                data-testid={`subnav-${item.anchor}`}
               >
-                {cat.label}
+                {item.label}
               </button>
             ))}
           </div>
         </div>
-      </section>
+      </nav>
 
-      <section className="py-16 bg-background">
+      {/* Category sections */}
+      {categoryConfigs.map(config => (
+        <CategorySection key={config.key} config={config} />
+      ))}
+
+      {/* ZRP section */}
+      <ZRPSection />
+
+      {/* MDD banner */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-6 md:px-8">
-          {activeCategory === "zrp" && (
-            <FadeIn>
-              <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 p-6 rounded-2xl bg-secondary/5 border border-secondary/10 text-center sm:text-left">
-                <img src={logoZrp} alt="Logo ZRP" className="w-16 h-16 object-contain flex-shrink-0" />
-                <div>
-                  <h2 className="text-xl md:text-2xl font-serif font-bold text-secondary mb-1">
-                    Produits Certifiés Zéro Résidu de Pesticides
-                  </h2>
-                  <p className="text-sm text-slate-600">
-                    Saisons 2024 & 2025 — Certification CCPB N° 02/2025/10. Analysés sur plus de 600 molécules de pesticides.
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-          )}
-
-          {activeCategory === "all" ? (
-            <>
-              {realCategories.map((cat) => {
-                const catProducts = products.filter(p => p.category === cat.key);
-                const intro = categoryIntros[cat.key];
-                return (
-                  <div key={cat.key} className="mb-20 last:mb-0" data-testid={`section-${cat.key}`}>
-                    <FadeIn>
-                      <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-2">
-                        {cat.label}
-                      </h2>
-                      <div className="w-16 h-1 bg-primary rounded-full mb-4" />
-                      {intro && (
-                        <p className="text-slate-600 leading-relaxed max-w-3xl mb-8">
-                          {intro}
-                        </p>
-                      )}
-                    </FadeIn>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {catProducts.map((product, i) => (
-                        <ProductCard key={product.id} product={product} index={i} onFicheClick={openFiche} />
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </>
-          ) : (
-            <>
-              {activeCategory !== "zrp" && categoryIntros[activeCategory] && (
-                <FadeIn>
-                  <p className="text-slate-600 leading-relaxed max-w-3xl mb-8">
-                    {categoryIntros[activeCategory]}
-                  </p>
-                </FadeIn>
-              )}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filtered.map((product, i) => (
-                  <ProductCard key={product.id} product={product} index={i} onFicheClick={openFiche} />
-                ))}
-              </div>
-            </>
-          )}
-
           <FadeIn>
-            <div className="mt-20 bg-gradient-to-r from-secondary to-emerald-700 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl" />
+            <div className="bg-gradient-to-r from-secondary to-emerald-700 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl pointer-events-none" />
               <div className="relative z-10">
                 <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-3">
                   Service Marques Distributeurs (MDD)
                 </h3>
                 <p className="text-white/90 text-lg max-w-2xl mx-auto">
-                  SICAM propose un service complet de fabrication sous marques distributeurs. Nous accompagnons nos partenaires internationaux avec des produits sur mesure, conformes aux standards de qualité les plus exigeants.
+                  SICAM propose un service complet de fabrication sous marques distributeurs. Nous accompagnons nos partenaires internationaux avec des produits sur mesure, conformes aux standards les plus exigeants.
                 </p>
               </div>
             </div>
           </FadeIn>
         </div>
       </section>
-
-      <Dialog open={ficheOpen} onOpenChange={setFicheOpen}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-0">
-          <DialogTitle className="sr-only">Fiche technique — {ficheName}</DialogTitle>
-          <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-white border-b">
-            <h3 className="font-bold text-lg text-foreground">Fiche technique — {ficheName}</h3>
-            <button
-              onClick={() => setFicheOpen(false)}
-              className="p-2 rounded-full hover:bg-slate-100 transition-colors"
-              data-testid="fiche-modal-close"
-              aria-label="Fermer la fiche technique"
-            >
-              <X size={20} />
-            </button>
-          </div>
-          {ficheImg && (
-            <div className="p-4">
-              <img
-                src={ficheImg}
-                alt={`Fiche technique — ${ficheName}`}
-                className="w-full h-auto rounded-lg"
-                data-testid="fiche-modal-image"
-              />
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
     </main>
   );
 }
