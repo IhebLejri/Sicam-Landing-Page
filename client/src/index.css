@@ -56,6 +56,11 @@
     font-family: var(--font-serif);
     @apply tracking-tight;
   }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
 }
 
 @layer utilities {

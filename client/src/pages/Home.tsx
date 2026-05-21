@@ -15,7 +15,7 @@ const slides = [
   {
     id: 0,
     tab: "ZERO RÉSIDUS",
-    title: "Des produits garantis zéro* résidu de pesticides",
+    title: "Des produits garantis Zéro Résidu de Pesticides — ZRP",
     subtitle: "Notre priorité. Votre santé.",
     cta: { label: "Découvrir le programme ZRP", href: "/zrp" },
     bg: posterAll,
@@ -25,7 +25,7 @@ const slides = [
     id: 1,
     tab: "CONCASSÉES",
     title: "Tomates Pelées Concassées",
-    subtitle: "Certifiées Zéro Résidu de Pesticides. 100 % tomates tunisiennes.",
+    subtitle: "Certifiées Zéro Résidu de Pesticides — ZRP. 100 % tomates tunisiennes.",
     cta: { label: "Voir nos produits", href: "/nos-produits" },
     bg: posterConcassees,
     bgColor: "bg-[#6B1528]",
@@ -34,7 +34,7 @@ const slides = [
     id: 2,
     tab: "EN CUBES",
     title: "Tomates Pelées en Cubes",
-    subtitle: "Au jus naturel. Certifiées ZRP. Idéales pour vos sauces et mijotés.",
+    subtitle: "Au jus naturel. Certifiées Zéro Résidu de Pesticides — ZRP. Idéales pour vos sauces.",
     cta: { label: "Voir nos produits", href: "/nos-produits" },
     bg: posterCubes,
     bgColor: "bg-[#6B1528]",
@@ -43,7 +43,7 @@ const slides = [
     id: 3,
     tab: "ENTIÈRES",
     title: "Tomates Entières Pelées",
-    subtitle: "Au jus naturel. Certifiées ZRP. La qualité SICAM depuis 1969.",
+    subtitle: "Au jus naturel. Certifiées Zéro Résidu de Pesticides — ZRP. La qualité SICAM depuis 1969.",
     cta: { label: "Voir nos produits", href: "/nos-produits" },
     bg: posterEntieres,
     bgColor: "bg-[#6B1528]",
@@ -77,31 +77,31 @@ function HeroCarousel() {
   const slide = slides[current];
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
+    <section className="relative min-h-[100svh] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
       <div className="flex-1 flex flex-col lg:flex-row">
-        <div className={cn("lg:w-[45%] flex flex-col justify-center px-8 md:px-16 lg:px-20 py-16 lg:py-0 transition-colors duration-700", slide.bgColor)}>
+        <div className={cn("lg:w-[45%] flex flex-col justify-center px-6 md:px-16 lg:px-20 py-10 lg:py-0 transition-colors duration-700", slide.bgColor)}>
           <div key={`title-${current}`} className="animate-fade-in-up max-w-xl">
-            <p className="text-xs font-display font-semibold uppercase tracking-[0.2em] text-white/40 mb-6">SICAM — Depuis 1969</p>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif font-bold leading-[1.1] mb-6 text-white" data-testid="hero-title">
+            <p className="text-[11px] font-display font-semibold uppercase tracking-[0.2em] text-white/40 mb-4 md:mb-6">SICAM — Depuis 1969</p>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-[3.5rem] font-serif font-bold leading-[1.15] mb-4 md:mb-6 text-white" data-testid="hero-title">
               {slide.title}
             </h1>
-            <p className="text-lg md:text-xl mb-10 text-white/80 font-light leading-relaxed">
+            <p className="text-base md:text-xl mb-8 md:mb-10 text-white/80 font-light leading-relaxed">
               {slide.subtitle}
             </p>
           </div>
           <Link href={slide.cta.href}>
             <Button
               size="lg"
-              className="text-sm gap-2.5 h-12 px-8 bg-white text-primary hover:bg-white/90 font-display font-semibold uppercase tracking-wider rounded-full"
+              className="text-xs md:text-sm gap-2.5 h-10 md:h-12 px-6 md:px-8 bg-white text-primary hover:bg-white/90 font-display font-semibold uppercase tracking-wider rounded-full w-fit"
               data-testid="hero-cta"
             >
               {slide.cta.label}
-              <ArrowRight size={16} />
+              <ArrowRight size={14} />
             </Button>
           </Link>
         </div>
 
-        <div className="lg:w-[55%] relative bg-[#5a1020] flex items-center justify-center overflow-hidden">
+        <div className="lg:w-[55%] relative bg-[#5a1020] flex items-center justify-center overflow-hidden min-h-[240px] sm:min-h-[320px] lg:min-h-0">
           <img
             key={`img-${current}`}
             src={slide.bg}
@@ -110,30 +110,30 @@ function HeroCarousel() {
           />
           <button
             onClick={prev}
-            className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full flex items-center justify-center transition-all bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20"
+            className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-11 md:h-11 rounded-full flex items-center justify-center transition-all bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20"
             data-testid="carousel-prev"
           >
-            <ArrowLeft size={18} strokeWidth={1.5} />
+            <ArrowLeft size={16} strokeWidth={1.5} />
           </button>
           <button
             onClick={next}
-            className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full flex items-center justify-center transition-all bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20"
+            className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-11 md:h-11 rounded-full flex items-center justify-center transition-all bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20"
             data-testid="carousel-next"
           >
-            <ArrowRight size={18} strokeWidth={1.5} />
+            <ArrowRight size={16} strokeWidth={1.5} />
           </button>
         </div>
       </div>
 
       <div className="w-full">
         <div className="flex justify-center">
-          <div className="flex bg-[#1a1714]/90 backdrop-blur-md overflow-hidden">
+          <div className="flex bg-[#1a1714]/90 backdrop-blur-md overflow-x-auto w-full lg:w-auto">
             {slides.map((s, i) => (
               <button
                 key={s.id}
                 onClick={() => goTo(i)}
                 className={cn(
-                  "px-5 md:px-8 py-3.5 md:py-4 text-[11px] md:text-xs font-display font-semibold uppercase tracking-[0.15em] transition-all whitespace-nowrap",
+                  "flex-1 lg:flex-none px-4 md:px-8 py-3 md:py-4 text-[10px] md:text-xs font-display font-semibold uppercase tracking-[0.12em] transition-all whitespace-nowrap",
                   current === i
                     ? "bg-primary text-white"
                     : "text-white/40 hover:text-white/70 hover:bg-white/5"
@@ -153,13 +153,14 @@ function HeroCarousel() {
 function VideoPlayer() {
   return (
     <section className="pt-10 pb-4 bg-white">
-      <div className="container mx-auto px-8 md:px-16 lg:px-24">
+      <div className="container mx-auto px-4 md:px-16 lg:px-24">
         <FadeIn direction="up">
           <div className="rounded-2xl overflow-hidden shadow-xl bg-black aspect-video" data-testid="hero-video">
             <video
-              controls
+              autoPlay
+              loop
+              muted
               playsInline
-              preload="metadata"
               className="w-full h-full block object-contain"
             >
               <source src="https://sicam-tunisia.com/videos/modifie.mp4" type="video/mp4" />

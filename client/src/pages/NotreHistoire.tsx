@@ -9,12 +9,13 @@ const BASE = "https://sicam-tunisia.com/videos";
 
 function SectionVideo({ src, label }: { src: string; label: string }) {
   return (
-    <FadeIn delay={0.2}>
-      <div className="mt-10 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5">
+    <FadeIn delay={0.1}>
+      <div className="my-8 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5">
         <video
-          controls
+          autoPlay
+          loop
+          muted
           playsInline
-          preload="metadata"
           aria-label={label}
           className="w-full block bg-black"
           style={{ aspectRatio: "16/9" }}
@@ -33,7 +34,7 @@ const timelineEvents = [
   { year: "2013", text: "Création de PROCAN (Autonomie sur l'emballage métallique)." },
   { year: "2016", text: "Lancement de SICAM AGRI (Partenariat agricole intégré)." },
   { year: "2021", text: "Internationalisation avec l'acquisition de PLANT SAS (France)." },
-  { year: "2025", text: "Révolution ZRP (Certification Zéro Résidu de Pesticides)." },
+  { year: "2025", text: "Révolution Zéro Résidu de Pesticides — ZRP (Certification)." },
 ];
 
 export default function NotreHistoire() {
@@ -67,10 +68,15 @@ export default function NotreHistoire() {
                 </div>
                 <span className="text-sm font-bold tracking-[0.15em] text-primary/60 uppercase">La Racine</span>
               </div>
-              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-6" data-testid="bloc-racine-title">
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-4" data-testid="bloc-racine-title">
                 1969 : Là où tout a commencé
               </h2>
-              <div className="space-y-5 text-slate-600 leading-relaxed text-base md:text-lg">
+            </FadeIn>
+
+            <SectionVideo src={`${BASE}/sec1.mp4`} label="Vidéo — La Racine de SICAM" />
+
+            <FadeIn delay={0.15}>
+              <div className="space-y-5 text-slate-600">
                 <p>
                   L'histoire de SICAM est avant tout une histoire de transmission. Elle prend racine dans la vision d'un homme, <strong className="text-foreground">Youssef Bayahi (1920–2007)</strong>, un pionnier qui a cru, dès l'aube de l'indépendance, au potentiel infini de l'agriculture tunisienne.
                 </p>
@@ -82,8 +88,6 @@ export default function NotreHistoire() {
                 </p>
               </div>
             </FadeIn>
-
-            <SectionVideo src={`${BASE}/sec1.mp4`} label="Vidéo — La Racine de SICAM" />
           </div>
         </div>
       </section>
@@ -99,10 +103,15 @@ export default function NotreHistoire() {
                 </div>
                 <span className="text-sm font-bold tracking-[0.15em] text-primary/60 uppercase">L'Excellence Industrielle</span>
               </div>
-              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-6" data-testid="bloc-excellence-title">
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-4" data-testid="bloc-excellence-title">
                 Du cœur de la Medjerda au Top 20 Mondial
               </h2>
-              <p className="text-slate-600 leading-relaxed text-base md:text-lg mb-8">
+            </FadeIn>
+
+            <SectionVideo src={`${BASE}/sec2.mp4`} label="Vidéo — L'Excellence Industrielle SICAM" />
+
+            <FadeIn delay={0.1}>
+              <p className="text-slate-600 mb-8">
                 Ce qui a commencé comme une aventure locale est devenu une référence internationale. SICAM est aujourd'hui le <strong className="text-foreground">1er transformateur de tomates en Tunisie</strong> et se hisse fièrement dans le <strong className="text-foreground">Top 20 mondial</strong> des industriels de la tomate.
               </p>
             </FadeIn>
@@ -138,8 +147,6 @@ export default function NotreHistoire() {
                 </FadeIn>
               ))}
             </div>
-
-            <SectionVideo src={`${BASE}/sec2.mp4`} label="Vidéo — L'Excellence Industrielle SICAM" />
           </div>
         </div>
       </section>
@@ -155,13 +162,18 @@ export default function NotreHistoire() {
                 </div>
                 <span className="text-sm font-bold tracking-[0.15em] text-secondary/60 uppercase">Le Partenariat Agricole</span>
               </div>
-              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-6" data-testid="bloc-agri-title">
-                SICAM Agri : La main dans la main avec la terre
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-4" data-testid="bloc-agri-title">
+                SICAM Agri / PROCAN : La main dans la main avec la terre
               </h2>
-              <p className="text-slate-600 leading-relaxed text-base md:text-lg mb-4">
-                Chez SICAM, nous sommes d'abord des agriculteurs. En 2016, nous avons structuré notre engagement en créant <strong className="text-foreground">SICAM AGRI</strong>.
+            </FadeIn>
+
+            <SectionVideo src={`${BASE}/sec3.mp4`} label="Vidéo — Le Partenariat Agricole SICAM" />
+
+            <FadeIn delay={0.1}>
+              <p className="text-slate-600 mb-4">
+                Chez SICAM, nous sommes d'abord des agriculteurs. En 2016, nous avons structuré notre engagement en créant <strong className="text-foreground">SICAM Agri / PROCAN</strong>.
               </p>
-              <p className="text-slate-600 leading-relaxed text-base md:text-lg mb-8">
+              <p className="text-slate-600 mb-8">
                 Nous ne nous contentons pas d'acheter des récoltes ; nous construisons l'avenir avec nos <strong className="text-foreground">2 100 agriculteurs partenaires</strong>.
               </p>
             </FadeIn>
@@ -195,8 +207,6 @@ export default function NotreHistoire() {
                 </FadeIn>
               ))}
             </div>
-
-            <SectionVideo src={`${BASE}/sec3.mp4`} label="Vidéo — Le Partenariat Agricole SICAM" />
           </div>
         </div>
       </section>
@@ -212,15 +222,20 @@ export default function NotreHistoire() {
                 </div>
                 <span className="text-sm font-bold tracking-[0.15em] text-secondary/60 uppercase">L'Innovation et le Futur</span>
               </div>
-              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-6" data-testid="bloc-zrp-title">
-                Pionniers par nature : L'Engagement ZRP
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-4" data-testid="bloc-zrp-title">
+                Pionniers par nature : L'Engagement Zéro Résidu de Pesticides — ZRP
               </h2>
-              <div className="space-y-5 text-slate-600 leading-relaxed text-base md:text-lg">
+            </FadeIn>
+
+            <SectionVideo src={`${BASE}/sec4.mp4`} label="Vidéo — L'Innovation et le Futur SICAM" />
+
+            <FadeIn delay={0.1}>
+              <div className="space-y-5 text-slate-600">
                 <p>
                   L'héritage ne nous empêche pas d'innover, au contraire. Nous avons été les premiers à lancer la <strong className="text-foreground">tomate pelée en 1969</strong>, les premiers sur l'<strong className="text-foreground">ouverture facile en 2012</strong>.
                 </p>
                 <p>
-                  Aujourd'hui, SICAM marque l'histoire mondiale de la tomate en devenant la <strong className="text-foreground">première entreprise au monde</strong> à certifier son Double Concentré et ses Tomates Cubées « Zéro Résidu de Pesticides » (ZRP).
+                  Aujourd'hui, SICAM marque l'histoire mondiale de la tomate en devenant la <strong className="text-foreground">première entreprise au monde</strong> à certifier son Double Concentré et ses Tomates Cubées « Zéro Résidu de Pesticides — ZRP ».
                 </p>
                 <p>
                   C'est l'aboutissement de décennies de savoir-faire, d'analyses rigoureuses (1 000 analyses/jour) et d'une traçabilité totale.
@@ -228,9 +243,7 @@ export default function NotreHistoire() {
               </div>
             </FadeIn>
 
-            <SectionVideo src={`${BASE}/sec4.mp4`} label="Vidéo — L'Innovation et le Futur SICAM" />
-
-            <FadeIn delay={0.15}>
+            <FadeIn delay={0.2}>
               <div className="mt-10 flex flex-col sm:flex-row items-center gap-6 p-6 rounded-2xl bg-secondary/5 border border-secondary/10 text-center sm:text-left">
                 <img src={logoZrp} alt="Logo ZRP" className="w-20 h-20 object-contain flex-shrink-0" />
                 <div className="flex-1">
@@ -242,7 +255,7 @@ export default function NotreHistoire() {
                   </p>
                 </div>
                 <Link href="/zrp" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary/50 flex-shrink-0" data-testid="link-zrp">
-                  Découvrir le ZRP
+                  Découvrir le Zéro Résidu de Pesticides — ZRP
                   <ArrowRight size={16} />
                 </Link>
               </div>
