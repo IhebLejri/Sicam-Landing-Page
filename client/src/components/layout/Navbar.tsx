@@ -169,10 +169,10 @@ export function Navbar() {
           onMouseLeave={handleMenuLeave}
           data-testid="mega-menu"
         >
-          {/* Categories grid — centered */}
+          {/* Categories grid — aligned under "Nos Produits" nav link */}
           <div className="bg-primary">
-            <div className="flex justify-center py-8 px-8">
-              <div className="grid grid-cols-2 gap-x-16 gap-y-2 max-w-xl w-full">
+            <div className="container mx-auto px-6 md:px-8 flex justify-end py-8">
+              <div className="grid grid-cols-2 gap-x-16 gap-y-2 w-72">
                 {productSubMenu.map(item => (
                   <Link
                     key={item.anchor}
