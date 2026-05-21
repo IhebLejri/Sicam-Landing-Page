@@ -239,22 +239,22 @@ export function Navbar() {
         data-testid="mobile-menu-overlay"
       />
 
-      {/* Mobile drawer — right:0 fixe, animation via max-width pour éviter tout débordement hors viewport */}
+      {/* Mobile drawer — right:0 toujours (bord droit = bord viewport, jamais au-delà).
+           Masquage via clip-path pour ne jamais dépasser la largeur du viewport. */}
       <aside
         id="mobile-nav-drawer"
         className={cn(
-          "fixed top-0 right-0 bottom-0 z-[60] lg:hidden bg-white flex flex-col",
-          "overflow-hidden transition-[max-width,opacity,box-shadow] duration-300 ease-in-out",
+          "fixed top-0 right-0 bottom-0 w-[80%] max-w-[320px] z-[60] lg:hidden bg-white flex flex-col",
+          "shadow-[-8px_0_30px_rgba(0,0,0,0.08)]",
+          "transition-[clip-path,opacity] duration-300 ease-in-out",
           mobileMenuOpen
-            ? "max-w-[320px] opacity-100 pointer-events-auto shadow-[-8px_0_30px_rgba(0,0,0,0.08)]"
-            : "max-w-0 opacity-0 pointer-events-none shadow-none"
+            ? "[clip-path:inset(0_0_0_0%)] opacity-100 pointer-events-auto"
+            : "[clip-path:inset(0_0_0_100%)] opacity-0 pointer-events-none"
         )}
         aria-hidden={!mobileMenuOpen}
         data-testid="mobile-menu"
       >
-        {/* Contenu à largeur fixe, clipé par le aside quand fermé */}
-        <div className="w-[320px] flex flex-col h-full">
-          <div className="flex items-center justify-between px-6 pt-6 pb-5 border-b border-slate-100/80 shrink-0">
+        <div className="flex items-center justify-between px-6 pt-6 pb-5 border-b border-slate-100/80 shrink-0">
             <img src={logoSicam} alt="SICAM" className="h-9 w-auto" />
             <button
               className="p-2 text-foreground/50 hover:text-foreground transition-colors"
@@ -347,7 +347,6 @@ export function Navbar() {
               );
             })}
           </ul>
-        </div>
       </aside>
     </>
   );
