@@ -65,7 +65,7 @@ export const categoryConfigs: CategoryConfig[] = [
     gradient: "from-[#6e0c14] via-[#9a1820] to-[#b82030]",
     bgImage: tpe,
     subtitle: "Notre cœur de métier depuis 1969",
-    description: "La tomate est notre passion. 100 % d'origine tunisienne, récoltée en plein soleil de la Medjerda, transformée en environ 3h pour préserver intensité et couleur. Nos 10 références s'adaptent à toutes vos recettes, du quotidien à l'exceptionnel.",
+    description: "La tomate est notre passion. 100 % d'origine tunisienne, récoltée en plein soleil de la Medjerda, transformée en quelques heures pour préserver intensité et couleur. Nos 10 références s'adaptent à toutes vos recettes, du quotidien à l'exceptionnel.",
   },
   {
     key: "harissa",
