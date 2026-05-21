@@ -306,7 +306,7 @@ export default function NosProduits() {
 
       {/* Hero */}
       <section className="relative pt-36 pb-20 bg-gradient-to-b from-primary to-[#9a0f18] overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl" />
         </div>
@@ -384,7 +384,9 @@ export default function NosProduits() {
         <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
             <div className="bg-gradient-to-r from-secondary to-emerald-700 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl pointer-events-none" />
+              <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl" />
+              </div>
               <div className="relative z-10">
                 <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-3">
                   Service Marques Distributeurs (MDD)

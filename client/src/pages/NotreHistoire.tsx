@@ -42,7 +42,7 @@ export default function NotreHistoire() {
     <main className="flex min-h-screen flex-col">
       {/* ── Hero ── */}
       <section className="relative pt-36 pb-24 bg-gradient-to-b from-primary/95 to-primary overflow-hidden">
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full -translate-y-1/2 -translate-x-1/2 blur-3xl" />
         </div>
         <div className="container mx-auto px-6 md:px-8 relative z-10 text-center max-w-4xl">

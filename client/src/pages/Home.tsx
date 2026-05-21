@@ -264,8 +264,10 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-8">
           <FadeIn>
             <div className="bg-secondary rounded-3xl p-6 md:p-12 lg:p-20 relative overflow-hidden">
-              <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
+              <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+                <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
+              </div>
 
               <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                 <div className="lg:col-span-8 space-y-8 min-w-0">
