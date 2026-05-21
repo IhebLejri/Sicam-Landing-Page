@@ -243,8 +243,8 @@ export function Navbar() {
       <aside
         id="mobile-nav-drawer"
         className={cn(
-          "fixed top-0 right-0 bottom-0 w-[80%] max-w-[320px] z-[60] lg:hidden bg-white flex flex-col transition-transform duration-300 ease-in-out shadow-[-8px_0_30px_rgba(0,0,0,0.08)]",
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          "fixed top-0 bottom-0 w-[80%] max-w-[320px] z-[60] lg:hidden bg-white flex flex-col transition-all duration-300 ease-in-out shadow-[-8px_0_30px_rgba(0,0,0,0.08)]",
+          mobileMenuOpen ? "right-0 opacity-100" : "-right-[320px] opacity-0 pointer-events-none"
         )}
         aria-hidden={!mobileMenuOpen}
         data-testid="mobile-menu"
