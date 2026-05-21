@@ -15,7 +15,7 @@ export default function ZRP() {
   return (
     <main className="flex min-h-screen flex-col bg-background">
       {/* Section 1 — Hero */}
-      <section className="relative min-h-[90vh] flex overflow-hidden pt-20">
+      <section className="relative min-h-[70vh] flex overflow-hidden pt-20">
         <div className="flex-1 flex flex-col lg:flex-row">
           {/* Left panel — text on solid green */}
           <div className="lg:w-[50%] bg-secondary flex flex-col justify-center px-8 md:px-16 lg:px-20 py-16 lg:py-0">

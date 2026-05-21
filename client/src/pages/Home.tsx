@@ -77,7 +77,7 @@ function HeroCarousel() {
   const slide = slides[current];
 
   return (
-    <section className="relative min-h-[100svh] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
+    <section className="relative min-h-[70vh] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
       <div className="flex-1 flex flex-col lg:flex-row">
         <div className={cn("lg:w-[45%] flex flex-col justify-center px-6 md:px-16 lg:px-20 py-10 lg:py-0 transition-colors duration-700", slide.bgColor)}>
           <div key={`title-${current}`} className="animate-fade-in-up max-w-xl">
