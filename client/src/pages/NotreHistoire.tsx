@@ -5,7 +5,7 @@ import { ArrowRight, Sprout, Factory, Tractor, FlaskConical, Calendar } from "lu
 
 import logoZrp from "@assets/Asset_3@2x_1772017659058.png";
 
-const BASE = "https://sicam-tunisia.com/videos";
+const BASE = "";
 
 function SectionVideo({ src, label }: { src: string; label: string }) {
   return (
