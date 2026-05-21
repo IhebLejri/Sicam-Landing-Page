@@ -163,7 +163,7 @@ export default function NotreHistoire() {
                 <span className="text-sm font-bold tracking-[0.15em] text-secondary/60 uppercase">Le Partenariat Agricole</span>
               </div>
               <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-4" data-testid="bloc-agri-title">
-                SICAM Agri / PROCAN : La main dans la main avec la terre
+                SICAM Agri : La main dans la main avec la terre
               </h2>
             </FadeIn>
 
@@ -171,7 +171,7 @@ export default function NotreHistoire() {
 
             <FadeIn delay={0.1}>
               <p className="text-slate-600 mb-4">
-                Chez SICAM, nous sommes d'abord des agriculteurs. En 2016, nous avons structuré notre engagement en créant <strong className="text-foreground">SICAM Agri / PROCAN</strong>.
+                Chez SICAM, nous sommes d'abord des agriculteurs. En 2016, nous avons structuré notre engagement en créant <strong className="text-foreground">SICAM Agri</strong>.
               </p>
               <p className="text-slate-600 mb-8">
                 Nous ne nous contentons pas d'acheter des récoltes ; nous construisons l'avenir avec nos <strong className="text-foreground">2 100 agriculteurs partenaires</strong>.
