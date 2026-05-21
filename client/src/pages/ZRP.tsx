@@ -74,7 +74,7 @@ export default function ZRP() {
       </section>
 
       {/* Section 2 — Notre histoire : pourquoi le ZRP est né */}
-      <section id="demarche" className="py-24 bg-white">
+      <section id="demarche" className="py-24 bg-white overflow-hidden">
         <div className="container mx-auto px-6 md:px-8 max-w-4xl">
           <FadeIn className="text-center mb-12">
             <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">Notre Histoire</h2>
@@ -126,7 +126,7 @@ export default function ZRP() {
       </section>
 
       {/* Section 3 — Qu'est-ce que le ZRP ? */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 bg-slate-50 overflow-hidden">
         <div className="container mx-auto px-6 md:px-8 max-w-4xl">
           <FadeIn className="text-center mb-12">
             <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">Définition</h2>
@@ -174,7 +174,7 @@ export default function ZRP() {
       </section>
 
       {/* Section 4 — Notre processus ZRP en 5 étapes */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="container mx-auto px-6 md:px-8 max-w-5xl">
           <FadeIn className="text-center mb-6">
             <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">Notre Processus</h2>
@@ -221,7 +221,7 @@ export default function ZRP() {
                 desc: "La conformité ZRP n'est pas auto-déclarée. Elle est validée et certifiée par CCPB (Italie), organisme de certification internationale totalement indépendant de SICAM. Une garantie objective, délivrée par un tiers reconnu dans 45 pays.",
               },
             ].map((item, i) => (
-              <FadeIn key={i} delay={i * 0.1} direction="left">
+              <FadeIn key={i} delay={i * 0.1} direction="up">
                 <div className="relative pl-7 md:pl-16">
                   <div className="absolute -left-[22px] top-1 w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-white text-sm font-bold shadow-lg ring-4 ring-white">
                     {item.step}
@@ -306,7 +306,7 @@ export default function ZRP() {
       </section>
 
       {/* Section 7 — La certification CCPB */}
-      <section id="certificat" className="py-24 bg-slate-50">
+      <section id="certificat" className="py-24 bg-slate-50 overflow-hidden">
         <div className="container mx-auto px-6 md:px-8 max-w-5xl">
           <FadeIn className="text-center mb-16">
             <h2 className="text-sm font-bold tracking-[0.15em] text-secondary uppercase mb-3">La Certification</h2>

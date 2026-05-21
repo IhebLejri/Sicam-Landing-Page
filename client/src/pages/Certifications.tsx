@@ -303,10 +303,10 @@ export default function Certifications() {
         </div>
       </section>
 
-      <section className="py-20 bg-white" data-testid="social-audits-section">
+      <section className="py-20 bg-white overflow-hidden" data-testid="social-audits-section">
         <div className="container mx-auto px-6 md:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <FadeIn direction="right">
+            <FadeIn direction="up">
               <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-2">
                 Audits sociaux 2025 : l'humain au cœur de nos priorités
               </h2>
@@ -324,7 +324,7 @@ export default function Certifications() {
               </div>
             </FadeIn>
 
-            <FadeIn direction="left">
+            <FadeIn direction="up">
               <div className="space-y-4">
                 <h4 className="text-sm font-bold tracking-[0.15em] text-slate-500 uppercase">Les quatre axes évalués</h4>
                 {[

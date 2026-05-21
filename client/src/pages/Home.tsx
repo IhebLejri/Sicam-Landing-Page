@@ -204,10 +204,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="histoire" className="section-padding bg-background">
+      <section id="histoire" className="section-padding bg-background overflow-hidden">
         <div className="container mx-auto px-6 md:px-8">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <FadeIn direction="right">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <FadeIn direction="up">
               <div className="relative">
                 <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
                   <img
@@ -229,7 +229,7 @@ export default function Home() {
               </div>
             </FadeIn>
 
-            <FadeIn direction="left" className="space-y-8">
+            <FadeIn direction="up" className="space-y-8">
               <p className="text-xs font-display font-semibold uppercase tracking-[0.2em] text-primary/60">Notre Histoire</p>
               <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-serif font-bold text-foreground leading-[1.15]">
                 Préserver la terre, innover pour la santé.{" "}
