@@ -45,9 +45,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <ScrollToTop />
-        <div className="min-h-screen flex flex-col font-sans">
+        <div className="min-h-screen flex flex-col font-sans w-full max-w-full overflow-x-hidden">
           <Navbar />
-          <div className="flex-1 flex flex-col">
+          <div className="flex-1 flex flex-col w-full overflow-x-hidden">
             <Router />
           </div>
           <Footer />

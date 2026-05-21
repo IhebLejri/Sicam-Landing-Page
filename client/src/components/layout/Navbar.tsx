@@ -62,8 +62,12 @@ export function Navbar() {
   }, [location]);
 
   useEffect(() => {
-    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (mobileMenuOpen) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "";
+    }
+    return () => { document.body.style.overflowY = ""; };
   }, [mobileMenuOpen]);
 
   const handleMenuEnter = () => {
