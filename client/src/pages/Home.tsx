@@ -267,8 +267,8 @@ export default function Home() {
               <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
               <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
 
-              <div className="relative z-10 grid lg:grid-cols-12 gap-16 items-center">
-                <div className="lg:col-span-8 space-y-8">
+              <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+                <div className="lg:col-span-8 space-y-8 min-w-0">
                   <p className="text-xs font-display font-semibold uppercase tracking-[0.2em] text-white/40">Notre programme phare</p>
                   <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
                     Zéro Résidu de Pesticides{" "}
@@ -277,7 +277,7 @@ export default function Home() {
                   <p className="text-xl font-serif italic text-accent/90">
                     « Notre priorité. Votre santé. »
                   </p>
-                  <div className="space-y-5 text-base text-white/70 max-w-2xl leading-[1.8]">
+                  <div className="space-y-5 text-base text-white/70 max-w-2xl leading-[1.8] break-words">
                     <p>
                       96 % des Tunisiens s'inquiètent de la présence de pesticides dans leur alimentation. Chez SICAM, nous ne répondons pas à cette inquiétude avec des promesses — nous y répondons avec des certifications.
                     </p>
@@ -289,8 +289,8 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="pt-2">
-                    <Link href="/zrp">
-                      <Button variant="outline" size="lg" className="bg-white text-secondary border-white text-sm h-12 px-8 font-display font-semibold uppercase tracking-wider rounded-full">
+                    <Link href="/zrp" className="block sm:inline-block">
+                      <Button variant="outline" size="lg" className="w-full sm:w-auto bg-white text-secondary border-white text-sm h-12 px-8 font-display font-semibold uppercase tracking-wider rounded-full">
                         Tout savoir sur le programme ZRP
                         <ArrowRight className="ml-2" size={16} />
                       </Button>
