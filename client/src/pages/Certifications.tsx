@@ -370,23 +370,47 @@ export default function Certifications() {
             </p>
           </FadeIn>
 
-          <div className="relative">
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 md:-translate-x-px" />
+          {/* ── Mobile timeline (< md) ── */}
+          <div className="md:hidden relative pl-8">
+            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-200" />
+            {timeline.map((entry, i) => (
+              <FadeIn key={i} delay={Math.min(i * 0.1, 0.6)} direction="up">
+                <div className={cn("relative", i < timeline.length - 1 ? "mb-6" : "")}>
+                  <div className="absolute -left-[22px] top-1.5 w-3 h-3 rounded-full bg-primary border-2 border-white shadow-sm z-10" />
+                  <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm" data-testid={`timeline-${i}`}>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">{entry.period}</span>
+                    </div>
+                    <h4 className="font-bold text-foreground mb-2">{entry.title}</h4>
+                    <ul className="space-y-1">
+                      {entry.items.map((item, j) => (
+                        <li key={j} className="flex items-start gap-2 text-sm text-slate-600">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
 
+          {/* ── Desktop timeline (≥ md) — zigzag ── */}
+          <div className="hidden md:block relative">
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 -translate-x-px" />
             {timeline.map((entry, i) => (
               <FadeIn key={i} delay={Math.min(i * 0.1, 0.6)} direction={i % 2 === 0 ? "right" : "left"}>
                 <div className={cn(
                   "relative flex items-start mb-8 last:mb-0",
-                  "md:justify-start",
-                  i % 2 !== 0 && "md:flex-row-reverse"
+                  i % 2 !== 0 ? "flex-row-reverse" : ""
                 )}>
-                  <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-primary border-2 border-white shadow-sm -translate-x-1/2 mt-1.5 z-10" />
-
+                  <div className="absolute left-1/2 w-3 h-3 rounded-full bg-primary border-2 border-white shadow-sm -translate-x-1/2 mt-1.5 z-10" />
                   <div className={cn(
-                    "ml-10 md:ml-0 md:w-[45%]",
-                    i % 2 === 0 ? "md:pr-12" : "md:pl-12"
+                    "w-[45%]",
+                    i % 2 === 0 ? "pr-12" : "pl-12"
                   )}>
-                    <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm" data-testid={`timeline-${i}`}>
+                    <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm" data-testid={`timeline-desktop-${i}`}>
                       <div className="flex items-center gap-2 mb-2">
                         <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">{entry.period}</span>
                       </div>
