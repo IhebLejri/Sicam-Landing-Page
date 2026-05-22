@@ -82,7 +82,7 @@ const zrpValeurs = [
   {
     icon: Handshake,
     title: "Encourager une agriculture durable",
-    text: "En accompagnant nos agriculteurs vers des pratiques qui préservent les sols, réduisent les intrants chimiques et construisent une filière pérenne.",
+    text: "En accompagnant nos agriculteurs vers des pratiques qui préservent le sol et qui réduisent l'empreinte hydrique.",
   },
   {
     icon: MessageCircle,

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -6,10 +6,16 @@ import { cn } from "@/lib/utils";
 import logoSicam from '@assets/Asset_2@2x_1772017659057.png';
 
 const productSubMenu = [
-  { label: "Tomates", anchor: "cat-tomates", desc: "10 références" },
+  { label: "DCT", anchor: "cat-dct", desc: "Double Concentré de Tomate" },
+  { label: "Tomates Pelées", anchor: "cat-tomate-pelee", desc: "Entières, Concassées & Cubées" },
+  { label: "Pulpe de Tomate", anchor: "cat-pulpe", desc: "Texture naturelle préservée" },
+  { label: "Sauce Pizza", anchor: "cat-sauce-pizza", desc: "Basilic & Origan" },
   { label: "Harissa", anchor: "cat-harissa", desc: "4 formats" },
   { label: "Confitures", anchor: "cat-confitures", desc: "4 saveurs" },
-  { label: "Certifié Zéro Résidu de Pesticides — ZRP", anchor: "cat-zrp", desc: "5 références certifiées" },
+  { label: "Légumineuses", anchor: "cat-legumineuses", desc: "5 références" },
+  { label: "Certifié ZRP", anchor: "cat-zrp", desc: "5 références certifiées" },
+  { label: "Packs", anchor: "cat-packs", desc: "Bientôt disponible" },
+  { label: "Aseptiques", anchor: "cat-aseptiques", desc: "Bientôt disponible" },
 ];
 
 const navLinks = [
@@ -34,20 +40,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showProductsMenu, setShowProductsMenu] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const menuLiRef = useRef<HTMLLIElement>(null);
-  const [menuOffsetLeft, setMenuOffsetLeft] = useState(0);
-
-  useEffect(() => {
-    const updateOffset = () => {
-      if (menuLiRef.current) {
-        setMenuOffsetLeft(menuLiRef.current.getBoundingClientRect().left);
-      }
-    };
-    updateOffset();
-    window.addEventListener("resize", updateOffset);
-    return () => window.removeEventListener("resize", updateOffset);
-  }, []);
+  let closeTimeout: ReturnType<typeof setTimeout> | null = null;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -71,12 +64,12 @@ export function Navbar() {
   }, [mobileMenuOpen]);
 
   const handleMenuEnter = () => {
-    if (closeTimeout.current) clearTimeout(closeTimeout.current);
+    if (closeTimeout) clearTimeout(closeTimeout);
     setShowProductsMenu(true);
   };
 
   const handleMenuLeave = () => {
-    closeTimeout.current = setTimeout(() => setShowProductsMenu(false), 150);
+    closeTimeout = setTimeout(() => setShowProductsMenu(false), 150);
   };
 
   const isProductsActive = location === "/nos-produits" || location.startsWith("/nos-produits/");
@@ -91,7 +84,7 @@ export function Navbar() {
             : "bg-white/95 backdrop-blur-sm py-5"
         )}
       >
-        <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
           <Link href="/" className="flex-shrink-0">
             <img
               src={logoSicam}
@@ -112,7 +105,6 @@ export function Navbar() {
                     <li
                       key={link.label}
                       className="relative"
-                      ref={menuLiRef}
                       onMouseEnter={handleMenuEnter}
                       onMouseLeave={handleMenuLeave}
                     >
@@ -187,10 +179,9 @@ export function Navbar() {
           onMouseLeave={handleMenuLeave}
           data-testid="mega-menu"
         >
-          {/* Categories grid — starts exactly under "Nos Produits" nav link */}
           <div className="bg-primary">
-            <div className="py-8" style={{ paddingLeft: menuOffsetLeft }}>
-              <div className="grid grid-cols-2 gap-x-16 gap-y-2 w-72">
+            <div className="w-full max-w-5xl mx-auto px-8 py-8">
+              <div className="grid grid-cols-5 gap-x-4 gap-y-1">
                 {productSubMenu.map(item => (
                   <Link
                     key={item.anchor}
@@ -199,13 +190,13 @@ export function Navbar() {
                       setShowProductsMenu(false);
                       scrollToAnchor(item.anchor);
                     }}
-                    className="group flex flex-col px-2 py-3 rounded-xl hover:bg-white/10 transition-colors"
+                    className="group flex flex-col px-3 py-3 rounded-xl hover:bg-white/10 transition-colors"
                     data-testid={`mega-${item.anchor}`}
                   >
-                    <span className="text-white font-bold uppercase tracking-[0.12em] text-[12px] mb-1 leading-snug">
+                    <span className="text-white font-bold uppercase tracking-[0.1em] text-[11px] mb-1 leading-snug">
                       {item.label}
                     </span>
-                    <span className="text-white/40 text-[11px] font-medium group-hover:text-white/60 transition-colors">
+                    <span className="text-white/40 text-[10px] font-medium group-hover:text-white/60 transition-colors leading-snug">
                       {item.desc}
                     </span>
                   </Link>
@@ -216,7 +207,7 @@ export function Navbar() {
 
           {/* Footer bar */}
           <div className="bg-[#b80410] px-8 py-3 flex justify-center items-center gap-8">
-            <span className="text-white/50 text-[11px] font-medium">18 références — 100 % tunisien</span>
+            <span className="text-white/50 text-[11px] font-medium">10 catégories — 100 % tunisien</span>
             <Link
               href="/nos-produits"
               onClick={() => setShowProductsMenu(false)}
@@ -239,8 +230,7 @@ export function Navbar() {
         data-testid="mobile-menu-overlay"
       />
 
-      {/* Mobile drawer — right:0 toujours (bord droit = bord viewport, jamais au-delà).
-           Masquage via clip-path pour ne jamais dépasser la largeur du viewport. */}
+      {/* Mobile drawer */}
       <aside
         id="mobile-nav-drawer"
         className={cn(
@@ -255,98 +245,98 @@ export function Navbar() {
         data-testid="mobile-menu"
       >
         <div className="flex items-center justify-between px-6 pt-6 pb-5 border-b border-slate-100/80 shrink-0">
-            <img src={logoSicam} alt="SICAM" className="h-9 w-auto" />
-            <button
-              className="p-2 text-foreground/50 hover:text-foreground transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-              aria-label="Fermer le menu"
-              data-testid="mobile-menu-close"
-            >
-              <X className="h-5 w-5" strokeWidth={1.5} />
-            </button>
-          </div>
+          <img src={logoSicam} alt="SICAM" className="h-9 w-auto" />
+          <button
+            className="p-2 text-foreground/50 hover:text-foreground transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Fermer le menu"
+            data-testid="mobile-menu-close"
+          >
+            <X className="h-5 w-5" strokeWidth={1.5} />
+          </button>
+        </div>
 
-          <ul className="flex flex-col px-4 py-6 gap-1 overflow-y-auto flex-1">
-            {navLinks.map((link) => {
-              if (link.hasMenu) {
-                return (
-                  <li key={link.label}>
-                    <div className="flex items-center">
-                      <Link
-                        href={link.href}
-                        className={cn(
-                          "flex-1 px-4 py-3.5 text-[15px] font-display font-semibold tracking-wide transition-colors rounded-lg rounded-r-none",
-                          isProductsActive
-                            ? "text-primary bg-primary/5"
-                            : "text-foreground/70 hover:text-foreground hover:bg-slate-50"
-                        )}
-                        onClick={() => setMobileMenuOpen(false)}
-                        data-testid="mobile-link-nos-produits"
-                      >
-                        {link.label}
-                      </Link>
-                      <button
-                        onClick={() => setMobileProductsOpen(o => !o)}
-                        className={cn(
-                          "px-3 py-3.5 rounded-lg rounded-l-none border-l border-slate-100 transition-colors",
-                          isProductsActive ? "text-primary bg-primary/5" : "text-foreground/50 hover:bg-slate-50"
-                        )}
-                        aria-label="Voir les catégories"
-                        data-testid="mobile-products-toggle"
-                      >
-                        <ChevronDown
-                          size={16}
-                          className={cn("transition-transform duration-200", mobileProductsOpen && "rotate-180")}
-                        />
-                      </button>
-                    </div>
-
-                    <div className={cn(
-                      "overflow-hidden transition-all duration-300",
-                      mobileProductsOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
-                    )}>
-                      <ul className="pl-4 pt-1 pb-2 flex flex-col gap-0.5">
-                        {productSubMenu.map(item => (
-                          <li key={item.anchor}>
-                            <Link
-                              href={`/nos-produits#${item.anchor}`}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                scrollToAnchor(item.anchor);
-                              }}
-                              className="block px-4 py-2.5 text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-50 rounded-lg transition-colors"
-                              data-testid={`mobile-submenu-${item.anchor}`}
-                            >
-                              <span className="block text-[13px]">{item.label}</span>
-                              <span className="text-[11px] text-slate-400 font-normal">{item.desc}</span>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </li>
-                );
-              }
-
+        <ul className="flex flex-col px-4 py-6 gap-1 overflow-y-auto flex-1">
+          {navLinks.map((link) => {
+            if (link.hasMenu) {
               return (
                 <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      "block w-full px-4 py-3.5 text-[15px] font-display font-semibold tracking-wide transition-colors rounded-lg",
-                      location === link.href
-                        ? "text-primary bg-primary/5"
-                        : "text-foreground/70 hover:text-foreground hover:bg-slate-50/50"
-                    )}
-                    onClick={() => setMobileMenuOpen(false)}
-                    data-testid={`mobile-link-${link.label.toLowerCase().replace(/\s/g, '-')}`}
-                  >
-                    {link.label}
-                  </Link>
+                  <div className="flex items-center">
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "flex-1 px-4 py-3.5 text-[15px] font-display font-semibold tracking-wide transition-colors rounded-lg rounded-r-none",
+                        isProductsActive
+                          ? "text-primary bg-primary/5"
+                          : "text-foreground/70 hover:text-foreground hover:bg-slate-50"
+                      )}
+                      onClick={() => setMobileMenuOpen(false)}
+                      data-testid="mobile-link-nos-produits"
+                    >
+                      {link.label}
+                    </Link>
+                    <button
+                      onClick={() => setMobileProductsOpen(o => !o)}
+                      className={cn(
+                        "px-3 py-3.5 rounded-lg rounded-l-none border-l border-slate-100 transition-colors",
+                        isProductsActive ? "text-primary bg-primary/5" : "text-foreground/50 hover:bg-slate-50"
+                      )}
+                      aria-label="Voir les catégories"
+                      data-testid="mobile-products-toggle"
+                    >
+                      <ChevronDown
+                        size={16}
+                        className={cn("transition-transform duration-200", mobileProductsOpen && "rotate-180")}
+                      />
+                    </button>
+                  </div>
+
+                  <div className={cn(
+                    "overflow-hidden transition-all duration-300",
+                    mobileProductsOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                  )}>
+                    <ul className="pl-4 pt-1 pb-2 flex flex-col gap-0.5">
+                      {productSubMenu.map(item => (
+                        <li key={item.anchor}>
+                          <Link
+                            href={`/nos-produits#${item.anchor}`}
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              scrollToAnchor(item.anchor);
+                            }}
+                            className="block px-4 py-2 text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-50 rounded-lg transition-colors"
+                            data-testid={`mobile-submenu-${item.anchor}`}
+                          >
+                            <span className="block text-[13px]">{item.label}</span>
+                            <span className="text-[11px] text-slate-400 font-normal">{item.desc}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </li>
               );
-            })}
-          </ul>
+            }
+
+            return (
+              <li key={link.label}>
+                <Link
+                  href={link.href}
+                  className={cn(
+                    "block w-full px-4 py-3.5 text-[15px] font-display font-semibold tracking-wide transition-colors rounded-lg",
+                    location === link.href
+                      ? "text-primary bg-primary/5"
+                      : "text-foreground/70 hover:text-foreground hover:bg-slate-50/50"
+                  )}
+                  onClick={() => setMobileMenuOpen(false)}
+                  data-testid={`mobile-link-${link.label.toLowerCase().replace(/\s/g, '-')}`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </aside>
     </>
   );

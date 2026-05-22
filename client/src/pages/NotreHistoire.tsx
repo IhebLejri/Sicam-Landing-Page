@@ -29,11 +29,12 @@ function SectionVideo({ src, label }: { src: string; label: string }) {
 
 const timelineEvents = [
   { year: "1958", text: "Youssef Bayahi lance la première entreprise, genèse du Groupe." },
-  { year: "1969", text: "Naissance de SICAM à Medjez El Bab." },
-  { year: "2012", text: "Innovation « Easy Open » (Ouverture Facile)." },
-  { year: "2013", text: "Création de PROCAN (Autonomie sur l'emballage métallique)." },
-  { year: "2016", text: "Lancement de SICAM AGRI (Partenariat agricole intégré)." },
-  { year: "2021", text: "Internationalisation avec l'acquisition de PLANT SAS (France)." },
+  { year: "1969", text: "Fondation de la société SICAM à Medjez El Bab." },
+  { year: "2008", text: "Lancement de la gamme Tomates Pelées." },
+  { year: "2012", text: "Création de PROCAN (autonomie sur l'emballage métallique)." },
+  { year: "2015", text: "Ouverture Easy Open — innovation packaging." },
+  { year: "2017", text: "Création de SICAM Agri (partenariat agricole intégré)." },
+  { year: "2021", text: "Acquisition de SICAM PLANT (France) — expansion internationale." },
   { year: "2025", text: "Révolution Zéro Résidu de Pesticides — ZRP (Certification)." },
 ];
 

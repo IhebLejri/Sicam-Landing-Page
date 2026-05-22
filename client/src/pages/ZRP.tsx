@@ -286,18 +286,18 @@ export default function ZRP() {
             </h3>
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
               { value: "600+", label: "molécules de pesticides", sub: "analysées à chaque lot", color: "text-secondary" },
-              { value: "0,01", label: "mg/kg", sub: "seuil de détection — l'un des plus bas au monde", color: "text-primary" },
-              { value: "74 %", label: "des agriculteurs partenaires", sub: "engagés dans la démarche ZRP en 2025", color: "text-secondary" },
-              { value: "100 %", label: "l'objectif", sub: "d'approvisionnement ZRP fixé à l'horizon 2030", color: "text-primary" },
+              { value: "0,01", label: "mg/kg", sub: "seuil de détection parmi les plus bas au monde", color: "text-primary" },
+              { value: "74 %", label: "agriculteurs partenaires", sub: "engagés dans la démarche ZRP en 2025", color: "text-secondary" },
+              { value: "100 %", label: "objectif 2030", sub: "approvisionnement ZRP — cap fixé et jalons définis", color: "text-primary" },
             ].map((stat, i) => (
-              <FadeIn key={i} delay={i * 0.1} direction="up">
-                <div className="text-center p-8 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
+              <FadeIn key={i} delay={i * 0.1} direction="up" className="h-full">
+                <div className="h-full text-center p-8 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-lg transition-shadow flex flex-col items-center justify-center">
                   <p className={cn("text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-2", stat.color)}>{stat.value}</p>
-                  <p className="text-lg font-bold text-slate-800">{stat.label}</p>
-                  <p className="text-sm text-slate-500 mt-1">{stat.sub}</p>
+                  <p className="text-base font-bold text-slate-800 leading-snug">{stat.label}</p>
+                  <p className="text-sm text-slate-500 mt-2 leading-snug">{stat.sub}</p>
                 </div>
               </FadeIn>
             ))}
