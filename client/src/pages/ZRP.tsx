@@ -294,10 +294,10 @@ export default function ZRP() {
               { value: "100 %", label: "objectif 2030", sub: "approvisionnement ZRP — cap fixé et jalons définis", color: "text-primary" },
             ].map((stat, i) => (
               <FadeIn key={i} delay={i * 0.1} direction="up" className="h-full">
-                <div className="h-full text-center p-8 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-lg transition-shadow flex flex-col items-center justify-center">
-                  <p className={cn("text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-2", stat.color)}>{stat.value}</p>
-                  <p className="text-base font-bold text-slate-800 leading-snug">{stat.label}</p>
-                  <p className="text-sm text-slate-500 mt-2 leading-snug">{stat.sub}</p>
+                <div className="h-full text-center p-6 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-lg transition-shadow flex flex-col items-center justify-center">
+                  <p className={cn("text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-2 whitespace-nowrap", stat.color)}>{stat.value}</p>
+                  <p className="text-sm font-bold text-slate-800 leading-snug">{stat.label}</p>
+                  <p className="text-xs text-slate-500 mt-1.5 leading-snug">{stat.sub}</p>
                 </div>
               </FadeIn>
             ))}
