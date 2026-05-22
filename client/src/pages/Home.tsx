@@ -77,15 +77,15 @@ function HeroCarousel() {
   const slide = slides[current];
 
   return (
-    <section className="relative h-[500px] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
+    <section className="relative h-[540px] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
       <div className="h-full flex flex-col lg:flex-row">
-        <div className={cn("lg:w-[45%] flex flex-col justify-center px-8 sm:px-12 md:px-16 lg:px-20 py-10 lg:py-0 transition-colors duration-700", slide.bgColor)}>
+        <div className={cn("lg:w-[45%] flex flex-col justify-center px-8 sm:px-12 md:px-14 lg:px-16 py-10 lg:py-0 transition-colors duration-700", slide.bgColor)}>
           <div key={`title-${current}`} className="animate-fade-in-up max-w-xl">
-            <p className="text-[11px] font-display font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">SICAM — Depuis 1969</p>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-[3.5rem] font-serif font-bold leading-[1.15] mb-5 md:mb-7 text-white" data-testid="hero-title">
+            <p className="text-[11px] font-display font-semibold uppercase tracking-[0.2em] text-white/70 mb-4">SICAM — Depuis 1969</p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-[3.5rem] font-serif font-bold leading-tight mb-4 md:mb-5 text-white" data-testid="hero-title">
               {slide.title}
             </h1>
-            <p className="text-base md:text-xl mb-8 md:mb-10 text-white/90 font-light leading-relaxed">
+            <p className="text-sm md:text-base lg:text-base xl:text-lg mb-6 md:mb-8 text-white/90 font-light leading-relaxed">
               {slide.subtitle}
             </p>
           </div>
