@@ -77,12 +77,12 @@ function HeroCarousel() {
   const slide = slides[current];
 
   return (
-    <section className="relative h-[540px] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
+    <section className="relative h-[500px] md:h-[540px] lg:h-[580px] xl:h-[640px] 2xl:h-[720px] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
       <div className="h-full flex flex-col lg:flex-row">
         <div className={cn("lg:w-[45%] flex flex-col justify-center px-8 sm:px-12 md:px-14 lg:px-16 py-10 lg:py-0 transition-colors duration-700", slide.bgColor)}>
           <div key={`title-${current}`} className="animate-fade-in-up max-w-xl">
             <p className="text-[11px] font-display font-semibold uppercase tracking-[0.2em] text-white/70 mb-4">SICAM — Depuis 1969</p>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-[3.5rem] font-serif font-bold leading-snug mb-4 md:mb-5 text-white" data-testid="hero-title">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-[3.25rem] font-serif font-bold leading-snug mb-4 md:mb-5 text-white" data-testid="hero-title">
               {slide.title}
             </h1>
             <p className="text-sm md:text-base lg:text-base xl:text-lg mb-6 md:mb-8 text-white/90 font-light leading-relaxed">
