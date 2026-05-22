@@ -20,7 +20,7 @@ const subNavItems = [
   { label: "Harissa", anchor: "cat-harissa" },
   { label: "Confitures", anchor: "cat-confitures" },
   { label: "Légumineuses", anchor: "cat-legumineuses" },
-  { label: "Certifié ZRP", anchor: "cat-zrp" },
+  { label: "Zéro Résidu de Pesticides — ZRP", anchor: "cat-zrp" },
   { label: "Packs", anchor: "cat-packs" },
   { label: "Aseptiques", anchor: "cat-aseptiques" },
 ];

@@ -371,7 +371,7 @@ export default function Certifications() {
           </FadeIn>
 
           <div className="relative">
-            <div className="absolute left-7 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 md:-translate-x-px" />
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 md:-translate-x-px" />
 
             {timeline.map((entry, i) => (
               <FadeIn key={i} delay={Math.min(i * 0.1, 0.6)} direction={i % 2 === 0 ? "right" : "left"}>
@@ -380,10 +380,10 @@ export default function Certifications() {
                   "md:justify-start",
                   i % 2 !== 0 && "md:flex-row-reverse"
                 )}>
-                  <div className="absolute left-7 md:left-1/2 w-4 h-4 rounded-full bg-primary border-4 border-white shadow-sm -translate-x-1/2 mt-1 z-10" />
+                  <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-primary border-2 border-white shadow-sm -translate-x-1/2 mt-1.5 z-10" />
 
                   <div className={cn(
-                    "ml-16 md:ml-0 md:w-[45%]",
+                    "ml-10 md:ml-0 md:w-[45%]",
                     i % 2 === 0 ? "md:pr-12" : "md:pl-12"
                   )}>
                     <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm" data-testid={`timeline-${i}`}>

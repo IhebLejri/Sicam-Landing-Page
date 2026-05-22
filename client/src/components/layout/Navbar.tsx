@@ -13,7 +13,7 @@ const productSubMenu = [
   { label: "Harissa", anchor: "cat-harissa", desc: "4 formats" },
   { label: "Confitures", anchor: "cat-confitures", desc: "4 saveurs" },
   { label: "Légumineuses", anchor: "cat-legumineuses", desc: "5 références" },
-  { label: "Certifié ZRP", anchor: "cat-zrp", desc: "5 références certifiées" },
+  { label: "Zéro Résidu de Pesticides — ZRP", anchor: "cat-zrp", desc: "5 références certifiées" },
   { label: "Packs", anchor: "cat-packs", desc: "Bientôt disponible" },
   { label: "Aseptiques", anchor: "cat-aseptiques", desc: "Bientôt disponible" },
 ];
