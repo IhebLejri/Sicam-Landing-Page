@@ -19,6 +19,15 @@ import confCoing from "@assets/CONFITURE-COING_1773059334071.png";
 import confFigue from "@assets/CONFITURE-FIGUE_1773059334072.png";
 import confFraise from "@assets/CONFITURE-FRAISE_1773059334072.png";
 
+import packTCA from "@assets/PACK_DE_3_TCA_1779722498028.jpg";
+import packTCP4 from "@assets/PACK_DE_3_TCP_4PCT_1779722498029.jpg";
+import packTCP15 from "@assets/PACK_DE_3_TCP_15PCT_1779722498030.jpg";
+import packTPC from "@assets/PACK_DE_3_TPC_1779722498030.jpg";
+import packTPE from "@assets/PACK_DE_3_TPE_1779722498030.jpg";
+import packPulpe from "@assets/PACK_DE3_PULPE_V1_1779722498031.jpg";
+import packSP from "@assets/PACK_DE_3_SP_1779722498031.jpg";
+import packTC from "@assets/PACK_DE_3_TC_1779722498031.jpg";
+
 import champignons from "@assets/CHAMPIGNONS-DE-PARIS_1779446577492.png";
 import haricotVert from "@assets/HARICOT-VERT_1779446585181.png";
 import maisDoux from "@assets/MAIS-DOUX-280g_1779446595506.png";
@@ -48,7 +57,8 @@ export type ProductCategory =
   | "sauce-pizza"
   | "harissa"
   | "confitures"
-  | "legumineuses";
+  | "legumineuses"
+  | "packs";
 
 export interface Product {
   id: string;
@@ -129,6 +139,14 @@ export const categoryConfigs: CategoryConfig[] = [
     bgImage: haricotVert,
     subtitle: "Légumes en conserve — Fraîcheur préservée",
     description: "Des légumes sélectionnés avec soin, conservés au naturel pour préserver toute leur fraîcheur et leur valeur nutritive. Champignons, haricots verts, maïs doux, petits pois — une gamme complète pour accompagner vos plats au quotidien.",
+  },
+  {
+    key: "packs",
+    label: "Packs",
+    gradient: "from-[#1a2a4a] via-[#253560] to-[#2e4080]",
+    bgImage: packTPE,
+    subtitle: "Format Pack 3 × 400g — Économique & pratique",
+    description: "Nos produits phares conditionnés en pack de 3 boîtes 400g. Le format idéal pour les grandes familles, la restauration ou simplement faire des réserves sans jamais manquer de qualité SICAM. Tomates pelées, concassées, en cubes, sauce pizza et pulpe — toute la gamme en pack.",
   },
 ];
 
@@ -403,6 +421,94 @@ export const allProducts: Product[] = [
     tags: ["Conserve naturelle", "Mélange"],
     zrp: false,
     formats: "Boîte — 400g net / 265g égoutté",
+  },
+  {
+    id: "pack-tpe",
+    name: "Pack Tomates Pelées Entières 3×400g",
+    image: packTPE,
+    category: "packs",
+    description: "Nos tomates pelées entières au jus naturel, conditionnées en pack économique de 3 boîtes 400g. Idéales pour toutes vos sauces, plats mijotés et coulis maison. Qualité SICAM, format pratique.",
+    shortDesc: "Pack 3×400g, tomates entières",
+    tags: ["Pack économique", "100 % tunisien"],
+    zrp: false,
+    formats: "Pack 3 × 400g",
+  },
+  {
+    id: "pack-tpc",
+    name: "Pack Tomates Pelées en Cubes 3×400g",
+    image: packTPC,
+    category: "packs",
+    description: "Des dés de tomates pelées prêts à l'emploi, en pack de 3 boîtes. Texture ferme qui se tient à la cuisson — idéal pour les sauces chunky, les shakshuka et les tajines. Format avantageux.",
+    shortDesc: "Pack 3×400g, tomates en cubes",
+    tags: ["Pack économique", "100 % tunisien"],
+    zrp: false,
+    formats: "Pack 3 × 400g",
+  },
+  {
+    id: "pack-tc",
+    name: "Pack Tomates Pelées Concassées 3×400g",
+    image: packTC,
+    category: "packs",
+    description: "Nos tomates pelées concassées en morceaux généreux, en pack de 3. La base incontournable de la cuisine méditerranéenne — sauces, ragouts, pizzas. Pratique et économique.",
+    shortDesc: "Pack 3×400g, tomates concassées",
+    tags: ["Pack économique", "100 % tunisien"],
+    zrp: false,
+    formats: "Pack 3 × 400g",
+  },
+  {
+    id: "pack-tca",
+    name: "Pack Tomates Concassées à l'Ail 3×400g",
+    image: packTCA,
+    category: "packs",
+    description: "Tomates pelées concassées parfumées à l'ail, en pack de 3 boîtes 400g. Un concentré de saveur méditerranéenne pour vos sauces, pâtes et plats cuisinés. L'ail ajoute caractère et profondeur.",
+    shortDesc: "Pack 3×400g, à l'ail",
+    tags: ["Pack économique", "Aromatisé à l'ail"],
+    zrp: false,
+    formats: "Pack 3 × 400g",
+  },
+  {
+    id: "pack-tcp4",
+    name: "Pack Tomates Concassées Pimentées 4% 3×400g",
+    image: packTCP4,
+    category: "packs",
+    description: "Tomates pelées concassées avec 4 % de piment — une chaleur douce et parfumée, en pack de 3 boîtes. Parfaites pour apporter du caractère à vos plats sans agressivité. Le choix des amateurs de saveurs relevées.",
+    shortDesc: "Pack 3×400g, pimentées 4%",
+    tags: ["Pack économique", "Légèrement pimenté"],
+    zrp: false,
+    formats: "Pack 3 × 400g",
+  },
+  {
+    id: "pack-tcp15",
+    name: "Pack Tomates Concassées Piquantes +15% 3×400g",
+    image: packTCP15,
+    category: "packs",
+    description: "Pour les amateurs de sensations fortes — tomates concassées avec plus de 15 % de piment, en pack de 3 boîtes 400g. Chaleur intense et persistante, parfaite pour les amateurs de cuisine relevée.",
+    shortDesc: "Pack 3×400g, piquantes +15%",
+    tags: ["Pack économique", "Très pimenté"],
+    zrp: false,
+    formats: "Pack 3 × 400g",
+  },
+  {
+    id: "pack-pulpe",
+    name: "Pack Pulpe de Tomates 3×400g",
+    image: packPulpe,
+    category: "packs",
+    description: "Notre pulpe de tomates généreuse et naturelle, en pack économique de 3 boîtes. Texture naturelle préservée, couleur rouge intense. La base parfaite pour toutes vos sauces, pizzas et soupes — format pratique.",
+    shortDesc: "Pack 3×400g, pulpe naturelle",
+    tags: ["Pack économique", "100 % tunisien"],
+    zrp: false,
+    formats: "Pack 3 × 400g",
+  },
+  {
+    id: "pack-sp",
+    name: "Pack Sauce Pizza Basilic & Origan 3×400g",
+    image: packSP,
+    category: "packs",
+    description: "Notre sauce pizza prête à l'emploi au basilic et à l'origan naturels, en pack de 3 boîtes 400g. Pratique pour les pizzas maison, les pâtes et toutes les recettes méditerranéennes. Format idéal pour la famille.",
+    shortDesc: "Pack 3×400g, basilic & origan",
+    tags: ["Pack économique", "Prête à l'emploi"],
+    zrp: false,
+    formats: "Pack 3 × 400g",
   },
 ];
 

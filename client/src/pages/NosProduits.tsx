@@ -390,15 +390,6 @@ export default function NosProduits() {
           <ZRPSection />
         </div>
 
-        {/* Packs */}
-        <div className="mx-4 md:mx-8 lg:mx-12 rounded-2xl overflow-hidden shadow-sm ring-1 ring-slate-100">
-          <ComingSoonSection
-            id="cat-packs"
-            title="Packs"
-            subtitle="Notre gamme de packs est en cours de préparation. Disponible prochainement."
-          />
-        </div>
-
         {/* Aseptiques */}
         <div className="mx-4 md:mx-8 lg:mx-12 rounded-2xl overflow-hidden shadow-sm ring-1 ring-slate-100">
           <ComingSoonSection

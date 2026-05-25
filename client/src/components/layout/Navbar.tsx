@@ -14,7 +14,7 @@ const productSubMenu = [
   { label: "Confitures", anchor: "cat-confitures", desc: "4 saveurs" },
   { label: "Légumineuses", anchor: "cat-legumineuses", desc: "5 références" },
   { label: "Zéro Résidu de Pesticides — ZRP", anchor: "cat-zrp", desc: "5 références certifiées" },
-  { label: "Packs", anchor: "cat-packs", desc: "Bientôt disponible" },
+  { label: "Packs", anchor: "cat-packs", desc: "8 références — 3×400g" },
   { label: "Aseptiques", anchor: "cat-aseptiques", desc: "Bientôt disponible" },
 ];
 
