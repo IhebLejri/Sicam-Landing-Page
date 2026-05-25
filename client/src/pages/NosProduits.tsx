@@ -79,7 +79,7 @@ function ProductCarousel({
               key={product.id}
               src={product.image}
               alt={product.name}
-              className="w-auto h-auto max-h-48 md:max-h-56 lg:max-h-64 max-w-[260px] md:max-w-[300px] lg:max-w-[340px] object-contain [mix-blend-mode:multiply] group-hover:scale-[1.06] transition-transform duration-300 cursor-pointer drop-shadow-lg"
+              className="w-auto h-auto max-h-48 md:max-h-56 lg:max-h-64 max-w-[260px] md:max-w-[300px] lg:max-w-[340px] object-contain group-hover:scale-[1.06] transition-transform duration-300 cursor-pointer"
             />
           ) : (
             <img
@@ -218,7 +218,7 @@ function CategorySection({ config }: { config: CategoryConfig }) {
           </div>
         </div>
 
-        <div className="flex-1 bg-[hsl(36,25%,97%)]">
+        <div className={cn("flex-1", config.portraitCrop ? "bg-white" : "bg-[hsl(36,25%,97%)]")}>
           <ProductCarousel products={products} accentColor="primary" portraitCrop={config.portraitCrop} />
         </div>
       </div>
