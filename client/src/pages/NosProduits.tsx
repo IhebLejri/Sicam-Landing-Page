@@ -218,7 +218,7 @@ function CategorySection({ config }: { config: CategoryConfig }) {
           </div>
         </div>
 
-        <div className={cn("flex-1", config.portraitCrop ? "bg-white" : "bg-[hsl(36,25%,97%)]")}>
+        <div className="flex-1 bg-[hsl(36,25%,97%)]">
           <ProductCarousel products={products} accentColor="primary" portraitCrop={config.portraitCrop} />
         </div>
       </div>

@@ -19,14 +19,14 @@ import confCoing from "@assets/CONFITURE-COING_1773059334071.png";
 import confFigue from "@assets/CONFITURE-FIGUE_1773059334072.png";
 import confFraise from "@assets/CONFITURE-FRAISE_1773059334072.png";
 
-import packTCA from "@assets/PACK_DE_3_TCA_1779722498028.jpg";
-import packTCP4 from "@assets/PACK_DE_3_TCP_4PCT_1779722498029.jpg";
-import packTCP15 from "@assets/PACK_DE_3_TCP_15PCT_1779722498030.jpg";
-import packTPC from "@assets/PACK_DE_3_TPC_1779722498030.jpg";
-import packTPE from "@assets/PACK_DE_3_TPE_1779722498030.jpg";
-import packPulpe from "@assets/PACK_DE3_PULPE_V1_1779722498031.jpg";
-import packSP from "@assets/PACK_DE_3_SP_1779722498031.jpg";
-import packTC from "@assets/PACK_DE_3_TC_1779722498031.jpg";
+import packTCA from "@assets/PACK_DE_3_TCA_nobg.png";
+import packTCP4 from "@assets/PACK_DE_3_TCP_4PCT_nobg.png";
+import packTCP15 from "@assets/PACK_DE_3_TCP_15PCT_nobg.png";
+import packTPC from "@assets/PACK_DE_3_TPC_nobg.png";
+import packTPE from "@assets/PACK_DE_3_TPE_nobg.png";
+import packPulpe from "@assets/PACK_DE3_PULPE_V1_nobg.png";
+import packSP from "@assets/PACK_DE_3_SP_nobg.png";
+import packTC from "@assets/PACK_DE_3_TC_nobg.png";
 
 import champignons from "@assets/CHAMPIGNONS-DE-PARIS_1779446577492.png";
 import haricotVert from "@assets/HARICOT-VERT_1779446585181.png";
