@@ -6,16 +6,16 @@ import { cn } from "@/lib/utils";
 import logoSicam from '@assets/Asset_2@2x_1772017659057.png';
 
 const productSubMenu = [
-  { label: "DCT", anchor: "cat-dct", desc: "Double Concentré de Tomate" },
-  { label: "Tomates Pelées", anchor: "cat-tomate-pelee", desc: "Entières, Concassées & Cubées" },
-  { label: "Pulpe de Tomate", anchor: "cat-pulpe", desc: "Texture naturelle préservée" },
-  { label: "Sauce Pizza", anchor: "cat-sauce-pizza", desc: "Basilic & Origan" },
-  { label: "Harissa", anchor: "cat-harissa", desc: "4 formats" },
-  { label: "Confitures", anchor: "cat-confitures", desc: "4 saveurs" },
-  { label: "Légumineuses", anchor: "cat-legumineuses", desc: "5 références" },
-  { label: "Zéro Résidu de Pesticides — ZRP", anchor: "cat-zrp", desc: "5 références certifiées" },
-  { label: "Packs", anchor: "cat-packs", desc: "8 références — 3×400g" },
-  { label: "Aseptiques", anchor: "cat-aseptiques", desc: "Bientôt disponible" },
+  { label: "DOUBLE CONCENTRÉ DE TOMATE", anchor: "cat-dct" },
+  { label: "Gamme Tomates Pelées", anchor: "cat-tomate-pelee" },
+  { label: "Gamme Pulpe de Tomate", anchor: "cat-pulpe" },
+  { label: "Sauce Pizza", anchor: "cat-sauce-pizza" },
+  { label: "Harissa", anchor: "cat-harissa" },
+  { label: "Confitures", anchor: "cat-confitures" },
+  { label: "Légumineuses", anchor: "cat-legumineuses" },
+  { label: "Zéro Résidu de Pesticides — ZRP", anchor: "cat-zrp" },
+  { label: "Packs", anchor: "cat-packs" },
+  { label: "Aseptiques", anchor: "cat-aseptiques" },
 ];
 
 const navLinks = [
@@ -193,11 +193,8 @@ export function Navbar() {
                     className="group flex flex-col px-3 py-3 rounded-xl hover:bg-white/10 transition-colors"
                     data-testid={`mega-${item.anchor}`}
                   >
-                    <span className="text-white font-bold uppercase tracking-[0.1em] text-[11px] mb-1 leading-snug">
+                    <span className="text-white font-bold uppercase tracking-[0.1em] text-[11px] leading-snug">
                       {item.label}
-                    </span>
-                    <span className="text-white/40 text-[10px] font-medium group-hover:text-white/60 transition-colors leading-snug">
-                      {item.desc}
                     </span>
                   </Link>
                 ))}
