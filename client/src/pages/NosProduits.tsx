@@ -33,9 +33,11 @@ function scrollToSection(anchor: string) {
 function ProductCarousel({
   products,
   accentColor = "primary",
+  portraitCrop = false,
 }: {
   products: Product[];
   accentColor?: "primary" | "secondary";
+  portraitCrop?: boolean;
 }) {
   const [idx, setIdx] = useState(0);
   const product = products[idx];
@@ -71,13 +73,25 @@ function ProductCarousel({
         className="group block mb-5"
         data-testid={`img-link-${product.id}`}
       >
-        <div className="relative">
-          <img
-            key={product.id}
-            src={product.image}
-            alt={product.name}
-            className="h-48 md:h-56 lg:h-64 w-auto object-contain group-hover:scale-[1.06] transition-transform duration-300 cursor-pointer drop-shadow-lg"
-          />
+        <div className="relative flex justify-center">
+          {portraitCrop ? (
+            <div className="h-48 md:h-56 lg:h-64 w-32 md:w-36 lg:w-40 overflow-hidden rounded-sm">
+              <img
+                key={product.id}
+                src={product.image}
+                alt={product.name}
+                className="w-full h-full object-cover group-hover:scale-[1.06] transition-transform duration-300 cursor-pointer drop-shadow-lg"
+                style={{ objectPosition: "15% center" }}
+              />
+            </div>
+          ) : (
+            <img
+              key={product.id}
+              src={product.image}
+              alt={product.name}
+              className="h-48 md:h-56 lg:h-64 w-auto object-contain group-hover:scale-[1.06] transition-transform duration-300 cursor-pointer drop-shadow-lg"
+            />
+          )}
           {product.zrp && (
             <div className="absolute -top-2 -right-2 w-7 h-7 bg-secondary rounded-full flex items-center justify-center shadow-md">
               <ShieldCheck size={13} className="text-white" />
@@ -208,7 +222,7 @@ function CategorySection({ config }: { config: CategoryConfig }) {
         </div>
 
         <div className="flex-1 bg-[hsl(36,25%,97%)]">
-          <ProductCarousel products={products} accentColor="primary" />
+          <ProductCarousel products={products} accentColor="primary" portraitCrop={config.portraitCrop} />
         </div>
       </div>
     </section>
