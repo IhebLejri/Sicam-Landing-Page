@@ -49,7 +49,7 @@ function ProductCarousel({
   const dotActive = accentColor === "secondary" ? "bg-secondary" : "bg-primary";
 
   return (
-    <div className="flex-1 flex flex-col items-center justify-center py-6 px-5 md:px-10 relative select-none">
+    <div className={cn("flex-1 flex flex-col items-center justify-center py-6 relative select-none", portraitCrop ? "px-14 md:px-16 lg:px-20" : "px-5 md:px-10")}>
       <button
         onClick={prev}
         className={cn("absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm hover:shadow-md transition-all z-10", accent)}
@@ -79,7 +79,7 @@ function ProductCarousel({
               key={product.id}
               src={product.image}
               alt={product.name}
-              className="w-auto h-auto max-h-36 md:max-h-44 lg:max-h-52 max-w-[260px] md:max-w-[300px] lg:max-w-[340px] object-contain group-hover:scale-[1.06] transition-transform duration-300 cursor-pointer drop-shadow-lg"
+              className="w-auto h-auto max-h-48 md:max-h-56 lg:max-h-64 max-w-full object-contain group-hover:scale-[1.06] transition-transform duration-300 cursor-pointer drop-shadow-lg"
             />
           ) : (
             <img
