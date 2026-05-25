@@ -75,15 +75,12 @@ function ProductCarousel({
       >
         <div className="relative flex justify-center">
           {portraitCrop ? (
-            <div className="h-48 md:h-56 lg:h-64 w-32 md:w-36 lg:w-40 overflow-hidden rounded-sm">
-              <img
-                key={product.id}
-                src={product.image}
-                alt={product.name}
-                className="w-full h-full object-cover group-hover:scale-[1.06] transition-transform duration-300 cursor-pointer drop-shadow-lg"
-                style={{ objectPosition: "15% center" }}
-              />
-            </div>
+            <img
+              key={product.id}
+              src={product.image}
+              alt={product.name}
+              className="w-auto h-auto max-h-36 md:max-h-44 lg:max-h-52 max-w-[260px] md:max-w-[300px] lg:max-w-[340px] object-contain group-hover:scale-[1.06] transition-transform duration-300 cursor-pointer drop-shadow-lg"
+            />
           ) : (
             <img
               key={product.id}
