@@ -143,24 +143,21 @@ function CertItem({ cert, index }: { cert: Certification; index: number }) {
           <CertIcon className="w-28 h-36 md:w-32 md:h-40 mb-5 drop-shadow-xl opacity-80" />
         )}
 
-        {/* Titre */}
-        <p className="text-white font-bold text-[13px] md:text-[14px] uppercase tracking-[0.12em] leading-snug max-w-[160px]">
-          {cert.name}
-        </p>
-
-        {/* Ligne soulignée cliquable uniquement si PDF */}
+        {/* Titre — cliquable si PDF */}
         {cert.pdf ? (
           <a
             href={cert.pdf}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 text-white/55 text-[11px] font-medium underline underline-offset-2 hover:text-white transition-colors"
+            className="text-white font-bold text-[13px] md:text-[14px] uppercase tracking-[0.12em] leading-snug max-w-[160px] underline underline-offset-2 hover:text-white/70 transition-colors"
             data-testid={`cert-pdf-link-${cert.id}`}
           >
-            Voir le certificat
+            {cert.name}
           </a>
         ) : (
-          <span className="mt-2 text-white/25 text-[11px]">—</span>
+          <p className="text-white font-bold text-[13px] md:text-[14px] uppercase tracking-[0.12em] leading-snug max-w-[160px]">
+            {cert.name}
+          </p>
         )}
       </div>
     </FadeIn>
