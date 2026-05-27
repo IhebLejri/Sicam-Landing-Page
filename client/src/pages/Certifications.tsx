@@ -79,29 +79,30 @@ const certifications: Certification[] = [
   },
 ];
 
-/* SVG certificate icon — style Mutti (document + sceau avec checkmark) */
+/* SVG certificate icon — style Mutti fidèle */
 function CertIcon({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 80 100"
+      viewBox="0 0 100 120"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
-      {/* Document body */}
-      <rect x="6" y="4" width="58" height="74" rx="4" stroke="white" strokeWidth="3.5" />
-      {/* Folded corner */}
-      <path d="M48 4 L64 20" stroke="white" strokeWidth="3.5" strokeLinecap="round" />
-      <path d="M48 4 L48 20 L64 20" stroke="white" strokeWidth="3.5" strokeLinejoin="round" fill="none" />
-      {/* Lines */}
-      <line x1="18" y1="34" x2="52" y2="34" stroke="white" strokeWidth="3" strokeLinecap="round" />
-      <line x1="18" y1="44" x2="52" y2="44" stroke="white" strokeWidth="3" strokeLinecap="round" />
-      <line x1="18" y1="54" x2="40" y2="54" stroke="white" strokeWidth="3" strokeLinecap="round" />
-      {/* Seal circle */}
-      <circle cx="58" cy="82" r="16" fill="#C61653" stroke="white" strokeWidth="2.5" />
-      {/* Checkmark inside seal */}
-      <polyline points="50,82 56,88 66,74" stroke="white" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      {/* Document body — rectangle arrondi */}
+      <rect x="8" y="4" width="72" height="88" rx="6" stroke="white" strokeWidth="3.5" />
+      {/* Coin plié haut-droite */}
+      <polyline points="62,4 80,22 80,4 62,4" stroke="white" strokeWidth="3" strokeLinejoin="round" fill="rgba(255,255,255,0.08)" />
+      {/* Lignes horizontales simulant du texte */}
+      <line x1="22" y1="36" x2="64" y2="36" stroke="white" strokeWidth="3" strokeLinecap="round" />
+      <line x1="22" y1="48" x2="64" y2="48" stroke="white" strokeWidth="3" strokeLinecap="round" />
+      <line x1="22" y1="60" x2="64" y2="60" stroke="white" strokeWidth="3" strokeLinecap="round" />
+      <line x1="22" y1="72" x2="48" y2="72" stroke="white" strokeWidth="3" strokeLinecap="round" />
+      {/* Sceau circulaire — fond rouge fuchsia + bordure blanche */}
+      <circle cx="72" cy="100" r="20" fill="#C61653" />
+      <circle cx="72" cy="100" r="20" stroke="white" strokeWidth="3" />
+      {/* Checkmark dans le sceau */}
+      <polyline points="62,100 69,108 83,90" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
     </svg>
   );
 }
@@ -111,16 +112,16 @@ function CertItem({ cert, index }: { cert: Certification; index: number }) {
     <div
       className={cn(
         "group flex flex-col items-center text-center cursor-pointer",
-        cert.pdf && "hover:opacity-100 opacity-85 transition-opacity"
+        cert.pdf && "hover:opacity-100 opacity-90 transition-opacity"
       )}
       data-testid={`cert-card-${cert.id}`}
     >
-      <CertIcon className="w-16 h-20 md:w-18 md:h-24 mb-4 drop-shadow-lg group-hover:scale-105 transition-transform duration-200" />
-      <p className="text-white font-bold text-[11px] md:text-[12px] uppercase tracking-[0.12em] leading-snug max-w-[120px]">
+      <CertIcon className="w-28 h-36 md:w-32 md:h-40 mb-5 drop-shadow-xl group-hover:scale-105 transition-transform duration-200" />
+      <p className="text-white font-bold text-[13px] md:text-[14px] uppercase tracking-[0.12em] leading-snug max-w-[160px]">
         {cert.name}
       </p>
       {cert.pdf && (
-        <span className="mt-2 text-white/40 text-[9px] uppercase tracking-widest font-semibold">
+        <span className="mt-2 text-white/40 text-[10px] uppercase tracking-widest font-semibold">
           PDF ↗
         </span>
       )}
@@ -177,16 +178,17 @@ export default function Certifications() {
         data-testid="certs-section"
         style={{ minHeight: 500 }}
       >
-        {/* Tomato field background */}
-        <div className="absolute inset-0">
+        {/* Tomato field background — flouté pour lisibilité */}
+        <div className="absolute inset-0 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?q=80&w=2070&auto=format&fit=crop"
             alt=""
             aria-hidden
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-110"
+            style={{ filter: "blur(6px)" }}
           />
           {/* Dark overlay like Mutti */}
-          <div className="absolute inset-0 bg-[#1a1714]/72" />
+          <div className="absolute inset-0 bg-[#1a1714]/70" />
         </div>
 
         <div className="relative z-10 container mx-auto px-6 md:px-8">
@@ -196,8 +198,8 @@ export default function Certifications() {
             </h2>
           </FadeIn>
 
-          {/* Grid of certificate icons — 3 cols mobile, 5 cols tablet, all in a row desktop */}
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-x-6 gap-y-14 max-w-5xl mx-auto justify-items-center">
+          {/* Grid 3 colonnes × 3 lignes — grandes icônes style Mutti */}
+          <div className="grid grid-cols-3 gap-x-10 gap-y-16 max-w-3xl mx-auto justify-items-center">
             {certifications.map((cert, i) => (
               <CertItem key={cert.id} cert={cert} index={i} />
             ))}
