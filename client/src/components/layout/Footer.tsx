@@ -1,15 +1,15 @@
 import { Link } from "wouter";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import { SiFacebook, SiInstagram, SiLinkedin, SiTiktok, SiYoutube } from "react-icons/si";
 
-import logoSicam from '@assets/Asset_2@2x_1772017659057.png';
+import logoSicam from '@assets/Asset_2@2x_1779867553760.png';
 
 const quickLinks = [
   { label: "Accueil", href: "/" },
   { label: "Notre Histoire", href: "/notre-histoire" },
   { label: "Nos Valeurs", href: "/nos-valeurs" },
   { label: "Nos Produits", href: "/nos-produits" },
-  { label: "Certifications", href: "/certifications" },
+  { label: "Nos Engagements RSE", href: "/nos-engagements-rse" },
   { label: "Programme ZRP", href: "/zrp" },
 ];
 
@@ -34,8 +34,8 @@ export function Footer() {
                 <Phone size={16} className="text-accent" />
                 <span className="text-xs font-display font-semibold tracking-wider text-white/50 uppercase">Téléphone</span>
               </div>
-              <a href="tel:+21678560300" className="text-white font-serif font-bold text-lg hover:text-accent transition-colors" data-testid="contact-phone">
-                +216 78 560 300
+              <a href="tel:+21678562068" className="text-white font-serif font-bold text-lg hover:text-accent transition-colors" data-testid="contact-phone">
+                +216 78 56 20 68
               </a>
             </div>
             <div>
@@ -93,7 +93,7 @@ export function Footer() {
             <div className="space-y-4">
               {[
                 { icon: MapPin, text: "Route du Kef, Medjez El Bab, Tunisie" },
-                { icon: Phone, text: "+216 78 560 300" },
+                { icon: Phone, text: "+216 78 56 20 68" },
                 { icon: Mail, text: "contact@sicam.com.tn" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3 text-white/50">

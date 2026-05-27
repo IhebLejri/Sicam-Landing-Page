@@ -13,7 +13,7 @@ import {
 } from "@/data/products";
 
 const subNavItems = [
-  { label: "DCT", anchor: "cat-dct" },
+  { label: "Double Concentré", anchor: "cat-dct" },
   { label: "Tomates Pelées", anchor: "cat-tomate-pelee" },
   { label: "Pulpe", anchor: "cat-pulpe" },
   { label: "Sauce Pizza", anchor: "cat-sauce-pizza" },
@@ -110,7 +110,6 @@ function ProductCarousel({
         <p className={cn("text-sm font-bold leading-snug transition-colors max-w-[180px] mx-auto", accentColor === "secondary" ? "text-foreground group-hover:text-secondary" : "text-foreground group-hover:text-primary")}>
           {product.name}
         </p>
-        <p className="text-[11px] text-slate-400 mt-1">{product.shortDesc}</p>
       </Link>
 
       <div className="flex gap-1.5 mt-5" role="tablist">
@@ -157,10 +156,10 @@ function CategorySection({ config }: { config: CategoryConfig }) {
           src={config.bgImage}
           alt=""
           aria-hidden
-          className="absolute inset-0 w-full h-full object-contain object-center opacity-[0.22] pointer-events-none select-none"
+          className="absolute inset-0 w-full h-full object-contain object-center opacity-[0.32] pointer-events-none select-none"
         />
         <div className="relative z-10 p-10 pb-12">
-          <p className="text-[64px] leading-none font-serif font-bold text-white/10 uppercase select-none pointer-events-none">
+          <p className="text-[48px] leading-none font-serif font-bold text-white/10 uppercase select-none pointer-events-none">
             {config.label}
           </p>
           <div className="w-8 h-0.5 bg-white/20 mb-3 mt-2" />
@@ -329,7 +328,7 @@ export default function NosProduits() {
     <main className="flex min-h-screen flex-col">
 
       {/* Hero */}
-      <section className="relative pt-36 pb-20 bg-gradient-to-b from-primary to-[#9a0f18] overflow-hidden">
+      <section className="relative pt-36 pb-20 bg-gradient-to-b from-primary to-[#7a0e33] overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl" />

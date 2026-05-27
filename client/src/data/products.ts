@@ -1,4 +1,3 @@
-import dct800g from "@assets/DCT-800G-FR_1773059756210.png";
 import dct from "@assets/DCT-FR_1773059756210.png";
 import pulpe from "@assets/PULPE-DE-TOMATE-FR_1773059756211.png";
 import sp from "@assets/SP-FR_1773059756211.png";
@@ -13,6 +12,7 @@ import harissa135 from "@assets/H-135g_1773059349700.png";
 import harissa380 from "@assets/H-380g_1773059349700.png";
 import harissa760 from "@assets/H-760g_1773059349701.png";
 import harissa70 from "@assets/ETUI-&-TUBE-HARISSA-70g_1773059349699.png";
+import harissa140 from "@assets/ETUI-&-TUBE-HARISSA-140g_1779868415546.png";
 
 import confAbricot from "@assets/CONFITURE-ABRICOT_1773059334071.png";
 import confCoing from "@assets/CONFITURE-COING_1773059334071.png";
@@ -45,9 +45,9 @@ import ficheTCP15 from "@assets/fiche10_1773061001090.png";
 import ficheHarissa from "@assets/fiche11_1773061001090.png";
 import ficheDCT from "@assets/fiche12_1773061001091.png";
 
-export { dct800g as bgTomates, harissa760 as bgHarissa, confFraise as bgConfitures };
+export { dct as bgTomates, harissa760 as bgHarissa, confFraise as bgConfitures };
 
-import logoZrpAsset from "@assets/Asset_3@2x_1772017659058.png";
+import logoZrpAsset from "@assets/Asset_3@2x_1779867553760.png";
 export { logoZrpAsset as logoZrp };
 
 export type ProductCategory =
@@ -88,10 +88,10 @@ export const categoryConfigs: CategoryConfig[] = [
   {
     key: "dct",
     label: "Double Concentré de Tomate",
-    gradient: "from-[#6e0c14] via-[#9a1820] to-[#b82030]",
-    bgImage: dct800g,
-    subtitle: "Gamme DCT — Notre signature depuis 1969",
-    description: "Le double concentré de tomates SICAM, c'est l'essence même de la tomate tunisienne. Cultivées sous le soleil de la Medjerda, transformées en environ 3h pour préserver intensité et couleur. Sans conservateurs, sans arômes ajoutés. Deux formats pour tous les usages.",
+    gradient: "from-[#7a0e33] via-[#a01040] to-[#c61653]",
+    bgImage: dct,
+    subtitle: "Notre signature depuis 1969",
+    description: "Le double concentré de tomates SICAM, c'est l'essence même de la tomate tunisienne. Cultivées sous le soleil de la Medjerda, transformées en environ 3h pour préserver intensité et couleur. Sans conservateurs, sans arômes ajoutés.",
   },
   {
     key: "tomate-pelee",
@@ -123,7 +123,7 @@ export const categoryConfigs: CategoryConfig[] = [
     gradient: "from-[#7a2400] via-[#b03a10] to-[#c85015]",
     bgImage: harissa760,
     subtitle: "7 fois Produit de l'Année",
-    description: "La harissa SICAM, c'est une institution. Élue Produit de l'Année sept fois consécutives, elle est reconnue pour son équilibre parfait entre feu et profondeur, sa couleur vive, et sa consistance qui nappe sans déchirer. 4 formats pour tous les usages.",
+    description: "La harissa SICAM, c'est une institution. Élue Produit de l'Année sept fois consécutives, elle est reconnue pour son équilibre parfait entre feu et profondeur, sa couleur vive, et sa consistance qui nappe sans déchirer. 5 formats pour tous les usages.",
   },
   {
     key: "confitures",
@@ -131,7 +131,7 @@ export const categoryConfigs: CategoryConfig[] = [
     gradient: "from-[#5c2e10] via-[#8c5020] to-[#a86a30]",
     bgImage: confFraise,
     subtitle: "Les fruits du terroir tunisien",
-    description: "Des fruits tunisiens sélectionnés avec soin, transformés en confitures généreuses et parfumées. Chaque pot est une invitation à retrouver le goût authentique du terroir tunisien. 4 saveurs, autant de moments de partage.",
+    description: "Des fruits tunisiens sélectionnés avec soin, transformés en confitures généreuses et parfumées. Chaque boîte est une invitation à retrouver le goût authentique du terroir tunisien. 4 saveurs, autant de moments de partage.",
   },
   {
     key: "legumineuses",
@@ -154,23 +154,11 @@ export const categoryConfigs: CategoryConfig[] = [
 
 export const allProducts: Product[] = [
   {
-    id: "dct-800",
-    name: "Double Concentré de Tomates 800g",
-    image: dct800g,
-    category: "dct",
-    description: "Notre produit signature. Double concentré de tomates tunisiennes, cultivées en plein soleil et transformées dans les heures suivant la récolte pour préserver intensité et couleur. Sans conservateurs, sans arômes ajoutés. Une concentration de saveur pure, au format idéal pour la cuisine du quotidien et les grandes tablées.",
-    shortDesc: "Double concentré, format grand public",
-    tags: ["100 % tunisien", "Sans conservateurs"],
-    zrp: true,
-    formats: "Boîte 4/4 — 800g net",
-    ficheImage: ficheDCT,
-  },
-  {
     id: "dct-400",
     name: "Double Concentré de Tomates 400g",
     image: dct,
     category: "dct",
-    description: "Le même double concentré SICAM, en format demi-boîte. Idéal pour les petits foyers ou les recettes à portions individuelles. Même qualité, même engagement ZRP, même traçabilité totale du champ à la boîte.",
+    description: "Notre produit signature. Double concentré de tomates tunisiennes, cultivées en plein soleil et transformées dans les heures suivant la récolte pour préserver intensité et couleur. Sans conservateurs, sans arômes ajoutés. Idéal pour les petits foyers ou les recettes à portions individuelles.",
     shortDesc: "Double concentré, format demi-boîte",
     tags: ["100 % tunisien", "Sans conservateurs"],
     zrp: true,
@@ -313,7 +301,7 @@ export const allProducts: Product[] = [
     badges: ["Produit de l'Année — 7 fois"],
   },
   {
-    id: "harissa-tube",
+    id: "harissa-tube-70",
     name: "Harissa SICAM Tube 70g",
     image: harissa70,
     category: "harissa",
@@ -321,7 +309,20 @@ export const allProducts: Product[] = [
     shortDesc: "Format tube, refermable",
     tags: ["Recette traditionnelle", "Format tube"],
     zrp: false,
-    formats: "Tube 70g | Tube 140g",
+    formats: "Tube — 70g net",
+    ficheImage: ficheHarissa,
+    badges: ["Produit de l'Année — 7 fois"],
+  },
+  {
+    id: "harissa-tube-140",
+    name: "Harissa SICAM Tube 140g",
+    image: harissa140,
+    category: "harissa",
+    description: "La harissa SICAM en grand tube — format généreux, pratique et refermable. La même recette authentique en format économique pour un usage quotidien. Pratique pour la cuisine et la table.",
+    shortDesc: "Grand tube, format économique",
+    tags: ["Recette traditionnelle", "Format tube"],
+    zrp: false,
+    formats: "Tube — 140g net",
     ficheImage: ficheHarissa,
     badges: ["Produit de l'Année — 7 fois"],
   },
@@ -334,7 +335,7 @@ export const allProducts: Product[] = [
     shortDesc: "Abricots tunisiens, saveur ensoleillée",
     tags: ["Fruits tunisiens"],
     zrp: false,
-    formats: "Pot en verre",
+    formats: "Boîte",
   },
   {
     id: "conf-coing",
@@ -345,7 +346,7 @@ export const allProducts: Product[] = [
     shortDesc: "Coing tunisien, saveur dorée",
     tags: ["Fruits tunisiens"],
     zrp: false,
-    formats: "Pot en verre",
+    formats: "Boîte",
   },
   {
     id: "conf-figue",
@@ -356,7 +357,7 @@ export const allProducts: Product[] = [
     shortDesc: "Figues tunisiennes, goût du terroir",
     tags: ["Fruits tunisiens"],
     zrp: false,
-    formats: "Pot en verre",
+    formats: "Boîte",
   },
   {
     id: "conf-fraise",
@@ -367,7 +368,7 @@ export const allProducts: Product[] = [
     shortDesc: "Fraises tunisiennes, généreuse en fruits",
     tags: ["Fruits tunisiens"],
     zrp: false,
-    formats: "Pot en verre",
+    formats: "Boîte",
   },
   {
     id: "champignons-paris",
@@ -462,7 +463,7 @@ export const allProducts: Product[] = [
     name: "Pack Tomates Concassées à l'Ail 3×400g",
     image: packTCA,
     category: "packs",
-    description: "Tomates pelées concassées parfumées à l'ail, en pack de 3 boîtes 400g. Un concentré de saveur méditerranéenne pour vos sauces, pâtes et plats cuisinés. L'ail ajoute caractère et profondeur.",
+    description: "Tomates pelées concassées parfumées à l'ail, en pack de 3 boîtes 400g. Un concentré de saveur méditerranéenne pour vos sauces, pâtes et plats cuisinés.",
     shortDesc: "Pack 3×400g, à l'ail",
     tags: ["Pack économique", "Aromatisé à l'ail"],
     zrp: false,
@@ -473,7 +474,7 @@ export const allProducts: Product[] = [
     name: "Pack Tomates Concassées Pimentées 4% 3×400g",
     image: packTCP4,
     category: "packs",
-    description: "Tomates pelées concassées avec 4 % de piment — une chaleur douce et parfumée, en pack de 3 boîtes. Parfaites pour apporter du caractère à vos plats sans agressivité. Le choix des amateurs de saveurs relevées.",
+    description: "Tomates pelées concassées avec 4 % de piment — une chaleur douce et parfumée, en pack de 3 boîtes.",
     shortDesc: "Pack 3×400g, pimentées 4%",
     tags: ["Pack économique", "Légèrement pimenté"],
     zrp: false,
@@ -484,7 +485,7 @@ export const allProducts: Product[] = [
     name: "Pack Tomates Concassées Piquantes +15% 3×400g",
     image: packTCP15,
     category: "packs",
-    description: "Pour les amateurs de sensations fortes — tomates concassées avec plus de 15 % de piment, en pack de 3 boîtes 400g. Chaleur intense et persistante, parfaite pour les amateurs de cuisine relevée.",
+    description: "Pour les amateurs de sensations fortes — tomates concassées avec plus de 15 % de piment, en pack de 3 boîtes 400g.",
     shortDesc: "Pack 3×400g, piquantes +15%",
     tags: ["Pack économique", "Très pimenté"],
     zrp: false,
@@ -495,7 +496,7 @@ export const allProducts: Product[] = [
     name: "Pack Pulpe de Tomates 3×400g",
     image: packPulpe,
     category: "packs",
-    description: "Notre pulpe de tomates généreuse et naturelle, en pack économique de 3 boîtes. Texture naturelle préservée, couleur rouge intense. La base parfaite pour toutes vos sauces, pizzas et soupes — format pratique.",
+    description: "Notre pulpe de tomates généreuse et naturelle, en pack économique de 3 boîtes. Texture naturelle préservée, couleur rouge intense.",
     shortDesc: "Pack 3×400g, pulpe naturelle",
     tags: ["Pack économique", "100 % tunisien"],
     zrp: false,
@@ -506,7 +507,7 @@ export const allProducts: Product[] = [
     name: "Pack Sauce Pizza Basilic & Origan 3×400g",
     image: packSP,
     category: "packs",
-    description: "Notre sauce pizza prête à l'emploi au basilic et à l'origan naturels, en pack de 3 boîtes 400g. Pratique pour les pizzas maison, les pâtes et toutes les recettes méditerranéennes. Format idéal pour la famille.",
+    description: "Notre sauce pizza prête à l'emploi au basilic et à l'origan naturels, en pack de 3 boîtes 400g.",
     shortDesc: "Pack 3×400g, basilic & origan",
     tags: ["Pack économique", "Prête à l'emploi"],
     zrp: false,

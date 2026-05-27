@@ -5,48 +5,63 @@ import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/utils";
 
-import posterAll from '@assets/sicam_poster-04_1772459805485.png';
-import logoZrp from '@assets/Asset_3@2x_1772017659058.png';
-import posterConcassees from '@assets/sicam_poster-03_1772455941845.png';
-import posterCubes from '@assets/sicam_poster-02_1772455941844.png';
-import posterEntieres from '@assets/sicam_poster-01_1772455933609.png';
+import logoZrp from '@assets/Asset_3@2x_1779867553760.png';
+import imgTPC from '@assets/TPC-FR_1773059756213.png';
+import imgTPE from '@assets/TPE_1773059756214.png';
+import imgTC from '@assets/TC_1773059756212.png';
+import imgDCTDramatic from '@assets/WhatsApp_Image_2026-05-25_at_15.42.36_1779867553758.jpeg';
+import imgZRP4 from '@assets/WhatsApp_Image_2026-05-25_at_15.42.37_1779867553759.jpeg';
 
 const slides = [
   {
     id: 0,
-    tab: "ZERO RÉSIDUS",
-    title: "Des produits garantis Zéro Résidu de Pesticides — ZRP",
-    subtitle: "Notre priorité. Votre santé.",
-    cta: { label: "Découvrir le programme ZRP", href: "/zrp" },
-    bg: posterAll,
-    bgColor: "bg-[#8B1A2B]",
+    tab: "TOMATES EN CUBES",
+    title: "Tomates Pelées en Cubes",
+    subtitle: "SICAM est la première entreprise au monde à certifier ZRP ce format.",
+    cta: { label: "Voir nos produits", href: "/nos-produits" },
+    bg: imgTPC,
+    bgColor: "#6B1240",
+    objectFit: "contain" as const,
   },
   {
     id: 1,
+    tab: "DOUBLE CONCENTRÉ",
+    title: "Double Concentré de Tomates",
+    subtitle: "Notre produit signature. Idéal pour les petits foyers ou les recettes à portions individuelles.",
+    cta: { label: "Voir le produit", href: "/nos-produits" },
+    bg: imgDCTDramatic,
+    bgColor: "#0d0600",
+    objectFit: "cover" as const,
+  },
+  {
+    id: 2,
+    tab: "TOMATES ENTIÈRES",
+    title: "Tomates Entières Pelées",
+    subtitle: "Au jus naturel. Certifiées Zéro Résidu de Pesticides — ZRP. La qualité SICAM depuis 1969.",
+    cta: { label: "Voir nos produits", href: "/nos-produits" },
+    bg: imgTPE,
+    bgColor: "#6B1240",
+    objectFit: "contain" as const,
+  },
+  {
+    id: 3,
     tab: "CONCASSÉES",
     title: "Tomates Pelées Concassées",
     subtitle: "Certifiées Zéro Résidu de Pesticides — ZRP. 100 % tomates tunisiennes.",
     cta: { label: "Voir nos produits", href: "/nos-produits" },
-    bg: posterConcassees,
-    bgColor: "bg-[#6B1528]",
+    bg: imgTC,
+    bgColor: "#6B1240",
+    objectFit: "contain" as const,
   },
   {
-    id: 2,
-    tab: "EN CUBES",
-    title: "Tomates Pelées en Cubes",
-    subtitle: "Au jus naturel. Certifiées Zéro Résidu de Pesticides — ZRP. Idéales pour vos sauces.",
-    cta: { label: "Voir nos produits", href: "/nos-produits" },
-    bg: posterCubes,
-    bgColor: "bg-[#6B1528]",
-  },
-  {
-    id: 3,
-    tab: "ENTIÈRES",
-    title: "Tomates Entières Pelées",
-    subtitle: "Au jus naturel. Certifiées Zéro Résidu de Pesticides — ZRP. La qualité SICAM depuis 1969.",
-    cta: { label: "Voir nos produits", href: "/nos-produits" },
-    bg: posterEntieres,
-    bgColor: "bg-[#6B1528]",
+    id: 4,
+    tab: "ZÉRO RÉSIDU",
+    title: "Des produits garantis Zéro Résidu de Pesticides — ZRP",
+    subtitle: "Notre priorité. Votre santé.",
+    cta: { label: "Découvrir le programme ZRP", href: "/zrp" },
+    bg: imgZRP4,
+    bgColor: "#0c2d18",
+    objectFit: "cover" as const,
   },
 ];
 
@@ -77,47 +92,75 @@ function HeroCarousel() {
   const slide = slides[current];
 
   return (
-    <section className="relative h-[500px] md:h-[540px] lg:h-[580px] xl:h-[640px] 2xl:h-[720px] flex flex-col overflow-hidden pt-20" data-testid="hero-carousel">
-      <div className="h-full flex flex-col lg:flex-row">
-        <div className={cn("lg:w-[45%] flex flex-col justify-center px-8 sm:px-12 md:px-14 lg:px-16 py-10 lg:py-0 transition-colors duration-700", slide.bgColor)}>
-          <div key={`title-${current}`} className="animate-fade-in-up max-w-xl">
-            <p className="text-[11px] font-display font-semibold uppercase tracking-[0.2em] text-white/70 mb-4">SICAM — Depuis 1969</p>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-[3.25rem] font-serif font-bold leading-snug mb-4 md:mb-5 text-white" data-testid="hero-title">
-              {slide.title}
-            </h1>
-            <p className="text-sm md:text-base lg:text-base xl:text-lg mb-6 md:mb-8 text-white/90 font-light leading-relaxed">
-              {slide.subtitle}
-            </p>
-          </div>
-          <Link href={slide.cta.href}>
-            <Button
-              size="lg"
-              className="text-xs md:text-sm gap-2.5 h-10 md:h-12 px-6 md:px-8 bg-white text-primary hover:bg-white/90 font-display font-semibold uppercase tracking-wider rounded-full w-fit"
-              data-testid="hero-cta"
-            >
-              {slide.cta.label}
-              <ArrowRight size={14} />
-            </Button>
-          </Link>
+    <section className="relative flex flex-col overflow-hidden pt-20" style={{ height: "100svh", minHeight: 560 }} data-testid="hero-carousel">
+      <div className="flex flex-1 overflow-hidden">
+        {/* Left: fixed video panel (desktop only) */}
+        <div className="hidden lg:block lg:w-1/2 relative bg-black overflow-hidden flex-shrink-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          >
+            <source src="/modifie.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
         </div>
 
-        <div className="lg:w-[55%] relative bg-[#5a1020] flex items-center justify-center overflow-hidden">
+        {/* Right: product carousel */}
+        <div
+          className="w-full lg:w-1/2 relative flex items-center justify-center overflow-hidden transition-colors duration-700"
+          style={{ backgroundColor: slide.bgColor }}
+        >
+          {/* Product image */}
           <img
             key={`img-${current}`}
             src={slide.bg}
             alt={slide.title}
-            className="max-w-full max-h-full object-contain animate-fade-in-up p-4"
+            className={cn(
+              "animate-fade-in-up transition-all duration-500",
+              slide.objectFit === "cover"
+                ? "absolute inset-0 w-full h-full object-cover"
+                : "max-w-full max-h-[65%] w-auto object-contain drop-shadow-2xl px-8"
+            )}
           />
+
+          {/* Dark gradient overlay for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
+
+          {/* Text + CTA overlay */}
+          <div key={`text-${current}`} className="absolute bottom-16 left-0 right-0 px-6 md:px-10 animate-fade-in-up z-10">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-white leading-snug mb-3" data-testid="hero-title">
+              {slide.title}
+            </h1>
+            <p className="text-sm md:text-base text-white/85 mb-5 leading-relaxed max-w-lg font-light">
+              {slide.subtitle}
+            </p>
+            <Link href={slide.cta.href}>
+              <Button
+                size="lg"
+                className="text-xs md:text-sm gap-2.5 h-10 md:h-11 px-6 bg-white text-primary hover:bg-white/90 font-display font-semibold uppercase tracking-wider rounded-full w-fit"
+                data-testid="hero-cta"
+              >
+                {slide.cta.label}
+                <ArrowRight size={14} />
+              </Button>
+            </Link>
+          </div>
+
+          {/* Carousel arrows */}
           <button
             onClick={prev}
-            className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-11 md:h-11 rounded-full flex items-center justify-center transition-all bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full flex items-center justify-center transition-all bg-white/15 backdrop-blur-sm text-white border border-white/20 hover:bg-white/30"
             data-testid="carousel-prev"
           >
             <ArrowLeft size={16} strokeWidth={1.5} />
           </button>
           <button
             onClick={next}
-            className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-11 md:h-11 rounded-full flex items-center justify-center transition-all bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full flex items-center justify-center transition-all bg-white/15 backdrop-blur-sm text-white border border-white/20 hover:bg-white/30"
             data-testid="carousel-next"
           >
             <ArrowRight size={16} strokeWidth={1.5} />
@@ -125,48 +168,23 @@ function HeroCarousel() {
         </div>
       </div>
 
-      <div className="w-full">
-        <div className="flex justify-center">
-          <div className="flex bg-[#1a1714]/90 backdrop-blur-md overflow-x-auto w-full lg:w-auto">
-            {slides.map((s, i) => (
-              <button
-                key={s.id}
-                onClick={() => goTo(i)}
-                className={cn(
-                  "flex-1 lg:flex-none px-4 md:px-8 py-3 md:py-4 text-[10px] md:text-xs font-display font-semibold uppercase tracking-[0.12em] transition-all whitespace-nowrap",
-                  current === i
-                    ? "bg-primary text-white"
-                    : "text-white/40 hover:text-white/70 hover:bg-white/5"
-                )}
-                data-testid={`carousel-tab-${i}`}
-              >
-                {s.tab}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function VideoPlayer() {
-  return (
-    <section className="pt-10 pb-4 bg-white">
-      <div className="container mx-auto px-4 md:px-16 lg:px-24">
-        <FadeIn direction="up">
-          <div className="rounded-2xl overflow-hidden shadow-xl bg-black aspect-video" data-testid="hero-video">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full block object-contain"
-            >
-              <source src="/modifie.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </FadeIn>
+      {/* Tab navigation bar */}
+      <div className="flex bg-[#1a1714]/95 backdrop-blur-md overflow-x-auto flex-shrink-0">
+        {slides.map((s, i) => (
+          <button
+            key={s.id}
+            onClick={() => goTo(i)}
+            className={cn(
+              "flex-1 lg:flex-none px-4 md:px-6 py-3 md:py-4 text-[9px] md:text-[10px] font-display font-semibold uppercase tracking-[0.12em] transition-all whitespace-nowrap min-w-0",
+              current === i
+                ? "bg-primary text-white"
+                : "text-white/40 hover:text-white/70 hover:bg-white/5"
+            )}
+            data-testid={`carousel-tab-${i}`}
+          >
+            {s.tab}
+          </button>
+        ))}
       </div>
     </section>
   );
@@ -177,14 +195,12 @@ export default function Home() {
     <main className="flex min-h-screen flex-col">
       <HeroCarousel />
 
-      <VideoPlayer />
-
       <section className="section-padding bg-white">
         <div className="container mx-auto px-6 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-10 md:gap-8 text-center">
             {[
               { value: "+55 ans", label: "D'expertise", sub: "Depuis 1969", icon: Award },
-              { value: "N°1", label: "Du marché", sub: "Leader en Tunisie", icon: Globe2 },
+              { value: "Leader", label: "Du marché", sub: "durant la campagne", icon: Globe2 },
               { value: "1ère", label: "Entreprise", sub: "Certifiée ZRP dans le secteur de transformation de la tomate en Tunisie, en Afrique et dans le Monde Arabe", icon: ShieldCheck },
               { value: "+30", label: "Pays", sub: "D'exportation", icon: Globe2 },
               { value: "100%", label: "Origine", sub: "Tomates tunisiennes", icon: Leaf },
@@ -240,7 +256,7 @@ export default function Home() {
                   Depuis 1969, SICAM s'engage à offrir le meilleur de la nature tunisienne. Notre histoire est celle d'une passion pour la terre et d'un savoir-faire transmis de génération en génération.
                 </p>
                 <p>
-                  Aujourd'hui, nous allons plus loin dans notre engagement pour votre santé et celle de l'environnement avec une démarche révolutionnaire dans l'industrie agroalimentaire tunisienne.
+                  Chaque jour, nous allons plus loin dans notre engagement pour votre santé et celle de l'environnement avec une démarche responsable pour l'industrie agroalimentaire tunisienne.
                 </p>
               </div>
               <ul className="space-y-4 pt-2">

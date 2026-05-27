@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-import logoSicam from '@assets/Asset_2@2x_1772017659057.png';
+import logoSicam from '@assets/Asset_2@2x_1779867553760.png';
 
 const productSubMenu = [
   { label: "DOUBLE CONCENTRÉ DE TOMATE", anchor: "cat-dct" },
@@ -23,7 +23,7 @@ const navLinks = [
   { href: "/notre-histoire", label: "Notre Histoire" },
   { href: "/nos-valeurs", label: "Nos Valeurs" },
   { href: "/nos-produits", label: "Nos Produits", hasMenu: true },
-  { href: "/certifications", label: "Certifications" },
+  { href: "/nos-engagements-rse", label: "Engagements RSE" },
   { href: "/zrp", label: "Programme ZRP" },
 ];
 
@@ -73,6 +73,7 @@ export function Navbar() {
   };
 
   const isProductsActive = location === "/nos-produits" || location.startsWith("/nos-produits/");
+  const isRSEActive = location === "/nos-engagements-rse" || location === "/certifications";
 
   return (
     <>
@@ -91,7 +92,7 @@ export function Navbar() {
               alt="SICAM Logo"
               className={cn(
                 "w-auto object-contain transition-all duration-500",
-                isScrolled ? "h-9 md:h-11" : "h-10 md:h-14"
+                isScrolled ? "h-10 md:h-13" : "h-12 md:h-16"
               )}
             />
           </Link>
@@ -132,13 +133,15 @@ export function Navbar() {
                   );
                 }
 
+                const isActive = link.href === "/nos-engagements-rse" ? isRSEActive : location === link.href;
+
                 return (
                   <li key={link.label}>
                     <Link
                       href={link.href}
                       className={cn(
                         "px-4 py-2 text-[13px] font-display font-semibold uppercase tracking-[0.08em] transition-all duration-300 relative",
-                        location === link.href
+                        isActive
                           ? "text-primary"
                           : "text-foreground/70 hover:text-foreground"
                       )}
@@ -146,7 +149,7 @@ export function Navbar() {
                       {link.label}
                       <span className={cn(
                         "absolute bottom-0 left-4 right-4 h-[2px] bg-primary transition-all duration-300",
-                        location === link.href ? "opacity-100" : "opacity-0"
+                        isActive ? "opacity-100" : "opacity-0"
                       )} />
                     </Link>
                   </li>
@@ -203,7 +206,7 @@ export function Navbar() {
           </div>
 
           {/* Footer bar */}
-          <div className="bg-[#b80410] px-8 py-3 flex justify-center items-center gap-8">
+          <div className="bg-[#8c0f3b] px-8 py-3 flex justify-center items-center gap-8">
             <span className="text-white/50 text-[11px] font-medium">10 catégories — 100 % tunisien</span>
             <Link
               href="/nos-produits"
@@ -242,7 +245,7 @@ export function Navbar() {
         data-testid="mobile-menu"
       >
         <div className="flex items-center justify-between px-6 pt-6 pb-5 border-b border-slate-100/80 shrink-0">
-          <img src={logoSicam} alt="SICAM" className="h-9 w-auto" />
+          <img src={logoSicam} alt="SICAM" className="h-10 w-auto" />
           <button
             className="p-2 text-foreground/50 hover:text-foreground transition-colors"
             onClick={() => setMobileMenuOpen(false)}
@@ -305,7 +308,6 @@ export function Navbar() {
                             data-testid={`mobile-submenu-${item.anchor}`}
                           >
                             <span className="block text-[13px]">{item.label}</span>
-                            <span className="text-[11px] text-slate-400 font-normal">{item.desc}</span>
                           </Link>
                         </li>
                       ))}
@@ -315,13 +317,15 @@ export function Navbar() {
               );
             }
 
+            const isActive = link.href === "/nos-engagements-rse" ? isRSEActive : location === link.href;
+
             return (
               <li key={link.label}>
                 <Link
                   href={link.href}
                   className={cn(
                     "block w-full px-4 py-3.5 text-[15px] font-display font-semibold tracking-wide transition-colors rounded-lg",
-                    location === link.href
+                    isActive
                       ? "text-primary bg-primary/5"
                       : "text-foreground/70 hover:text-foreground hover:bg-slate-50/50"
                   )}

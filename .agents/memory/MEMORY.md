@@ -1,0 +1,6 @@
+- [Brand palette V3](brand-palette-v3.md) — fuchsia #C61653 (339 89% 43%) remplace le rouge; vert #008441, jaune #FFF33E, fond #FFF1E2
+- [Route RSE](rse-route.md) — /nos-engagements-rse est la route principale (Certifications.tsx); /certifications redirige vers elle
+- [Logos V3](logos-v3.md) — logo SICAM = Asset_2@2x_1779867553760.png; logo ZRP = Asset_3@2x_1779867553760.png partout
+- [Hero split-screen](hero-split.md) — Accueil: vidéo fixe gauche (hidden lg) + carousel produits droite; 5 slides; tab bar en bas; VideoPlayer section supprimée
+- [Produits V3](products-v3.md) — DCT 800g supprimé; harissa tube 140g ajouté (id harissa-tube-140); confitures format "Boîte" (pas "Pot en verre")
+- [Timeline NotreHistoire](timeline.md) — inversée 2025→1958; 4 filiales (SICAM AGRI/PLUS, PROCAN, SICAM, SICAM PLANT)

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Switch, Route, useLocation } from "wouter";
+import { Switch, Route, useLocation, Redirect } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -24,7 +24,10 @@ function Router() {
       <Route path="/zrp" component={ZRP} />
       <Route path="/nos-produits/:slug" component={ProductDetail} />
       <Route path="/nos-produits" component={NosProduits} />
-      <Route path="/certifications" component={Certifications} />
+      <Route path="/nos-engagements-rse" component={Certifications} />
+      <Route path="/certifications">
+        {() => <Redirect to="/nos-engagements-rse" />}
+      </Route>
       <Route path="/notre-histoire" component={NotreHistoire} />
       <Route path="/nos-valeurs" component={NosValeurs} />
       <Route component={NotFound} />

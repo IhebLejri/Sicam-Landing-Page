@@ -1,9 +1,9 @@
 import { Link } from "wouter";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Sprout, Factory, Tractor, FlaskConical, Calendar } from "lucide-react";
+import { ArrowRight, Calendar, Building2, Tractor, Factory, Globe2 } from "lucide-react";
 
-import logoZrp from "@assets/Asset_3@2x_1772017659058.png";
+import logoZrp from "@assets/Asset_3@2x_1779867553760.png";
 
 const BASE = "";
 
@@ -27,15 +27,58 @@ function SectionVideo({ src, label }: { src: string; label: string }) {
   );
 }
 
+const filiales = [
+  {
+    id: "agri",
+    icon: Tractor,
+    color: "bg-secondary",
+    colorText: "text-secondary",
+    borderColor: "border-secondary",
+    name: "SICAM AGRI / PLUS",
+    role: "Conseil agricole & Approvisionnement",
+    description: "Approvisionnement de l'entreprise en produits agricoles (tomates, poivrons, fruits). Accompagnement technique des agriculteurs partenaires, sélection des semences et gestion rigoureuse des pratiques culturales pour garantir la qualité dès la source.",
+  },
+  {
+    id: "procan",
+    icon: Factory,
+    color: "bg-primary",
+    colorText: "text-primary",
+    borderColor: "border-primary",
+    name: "PROCAN",
+    role: "Unité de fabrication de boîtes de conserve",
+    description: "Capacité de production de 200 millions de boîtes de conserve par an. Maîtrise totale de l'emballage métallique, de la qualité et des délais — un avantage stratégique unique qui garantit l'autonomie et la réactivité de SICAM sur ses marchés.",
+  },
+  {
+    id: "sicam",
+    icon: Building2,
+    color: "bg-[#C9A84C]",
+    colorText: "text-[#C9A84C]",
+    borderColor: "border-[#C9A84C]",
+    name: "SICAM",
+    role: "Transformation industrielle",
+    description: "Capacité de transformation quotidienne atteignant jusqu'à 12 000 tonnes de produits agricoles. Deux sites ultra-modernes, des équipements à la pointe de la technologie, et un savoir-faire bâti sur plus de 55 ans d'excellence opérationnelle.",
+  },
+  {
+    id: "plant",
+    icon: Globe2,
+    color: "bg-blue-700",
+    colorText: "text-blue-700",
+    borderColor: "border-blue-700",
+    name: "SICAM PLANT",
+    role: "Filiale commerciale — Paris",
+    description: "Filiale commerciale basée à Paris pour renforcer la présence sur le marché européen. Un ancrage stratégique au cœur de l'Europe qui facilite les partenariats avec les grands distributeurs français et européens.",
+  },
+];
+
 const timelineEvents = [
-  { year: "1958", text: "Youssef Bayahi lance la première entreprise, genèse du Groupe." },
-  { year: "1969", text: "Fondation de la société SICAM à Medjez El Bab." },
-  { year: "2008", text: "Lancement de la gamme Tomates Pelées." },
-  { year: "2012", text: "Création de PROCAN (autonomie sur l'emballage métallique)." },
-  { year: "2015", text: "Ouverture Easy Open — innovation packaging." },
+  { year: "2025", text: "Révolution Zéro Résidu de Pesticides — ZRP (Certification CCPB). Première mondiale pour le double concentré de tomate." },
+  { year: "2021", text: "Acquisition de SICAM PLANT (France) — expansion internationale sur le marché européen." },
   { year: "2017", text: "Création de SICAM Agri (partenariat agricole intégré)." },
-  { year: "2021", text: "Acquisition de SICAM PLANT (France) — expansion internationale." },
-  { year: "2025", text: "Révolution Zéro Résidu de Pesticides — ZRP (Certification)." },
+  { year: "2015", text: "Ouverture Easy Open — innovation packaging." },
+  { year: "2012", text: "Création de PROCAN (autonomie sur l'emballage métallique)." },
+  { year: "2008", text: "Lancement de la gamme Tomates Pelées." },
+  { year: "1969", text: "Fondation de la société SICAM à Medjez El Bab." },
+  { year: "1958", text: "Youssef Bayahi lance la première entreprise, genèse du Groupe." },
 ];
 
 export default function NotreHistoire() {
@@ -48,9 +91,6 @@ export default function NotreHistoire() {
         </div>
         <div className="container mx-auto px-6 md:px-8 relative z-10 text-center max-w-4xl">
           <FadeIn>
-            <p className="text-xs font-display font-semibold tracking-[0.2em] text-white/40 uppercase mb-6" data-testid="hero-surtitre">
-              Une famille, une terre, une passion
-            </p>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight" data-testid="histoire-title">
               L'Héritage SICAM : Une passion tunisienne, une excellence mondiale.
             </h1>
@@ -58,55 +98,52 @@ export default function NotreHistoire() {
         </div>
       </section>
 
-      {/* ── La Racine ── */}
-      <section className="py-20 bg-white" data-testid="bloc-racine">
+      {/* ── Notre Groupe — 4 filiales ── */}
+      <section className="py-20 bg-white" data-testid="bloc-filiales">
         <div className="container mx-auto px-6 md:px-8">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <FadeIn>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Sprout size={24} className="text-primary" />
-                </div>
-                <span className="text-sm font-bold tracking-[0.15em] text-primary/60 uppercase">La Racine</span>
-              </div>
-              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-4" data-testid="bloc-racine-title">
-                1969 : Là où tout a commencé
+              <p className="text-[10px] font-display font-bold tracking-[0.2em] text-primary/40 uppercase mb-3">Notre Groupe</p>
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-4">
+                Un groupe intégré, de la graine à l'étagère
               </h2>
+              <div className="w-10 h-0.5 bg-primary mb-10" />
             </FadeIn>
 
-            <SectionVideo src={`${BASE}/sec1.mp4`} label="Vidéo — La Racine de SICAM" />
+            <SectionVideo src={`${BASE}/sec1.mp4`} label="Vidéo — Le Groupe SICAM" />
 
-            <FadeIn delay={0.15}>
-              <div className="space-y-5 text-slate-600">
-                <p>
-                  L'histoire de SICAM est avant tout une histoire de transmission. Elle prend racine dans la vision d'un homme, <strong className="text-foreground">Youssef Bayahi (1920–2007)</strong>, un pionnier qui a cru, dès l'aube de l'indépendance, au potentiel infini de l'agriculture tunisienne.
-                </p>
-                <p>
-                  En 1969, il choisit les terres fertiles de <strong className="text-foreground">Medjez El Bab</strong> pour planter une graine qui allait grandir avec le pays. Son rêve n'était pas seulement de construire une usine, mais de valoriser le travail de nos agriculteurs et d'offrir aux familles tunisiennes le meilleur de nos champs, toute l'année.
-                </p>
-                <p>
-                  Cet esprit de famille, transmis de père en fils, reste aujourd'hui notre boussole. Il guide chaque décision, préservant l'âme d'une entreprise restée fidèle à ses valeurs fondatrices tout en regardant vers l'avenir.
-                </p>
-              </div>
-            </FadeIn>
+            <div className="grid md:grid-cols-2 gap-6 mt-10">
+              {filiales.map((f, i) => (
+                <FadeIn key={f.id} delay={i * 0.1} direction="up">
+                  <div className={cn("bg-white rounded-2xl border-l-4 p-6 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col", f.borderColor)} data-testid={`filiale-${f.id}`}>
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0", f.color)}>
+                        <f.icon size={24} strokeWidth={1.5} />
+                      </div>
+                      <div>
+                        <h3 className={cn("font-bold text-lg", f.colorText)}>{f.name}</h3>
+                        <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{f.role}</p>
+                      </div>
+                    </div>
+                    <p className="text-sm text-slate-600 leading-relaxed">{f.description}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── L'Excellence Industrielle ── */}
+      {/* ── Bloc 2 : Excellence industrielle ── */}
       <section className="py-20 bg-background" data-testid="bloc-excellence">
         <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Factory size={24} className="text-primary" />
-                </div>
-                <span className="text-sm font-bold tracking-[0.15em] text-primary/60 uppercase">L'Excellence Industrielle</span>
-              </div>
+              <p className="text-[10px] font-display font-bold tracking-[0.2em] text-primary/40 uppercase mb-3">L'Excellence Industrielle</p>
               <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-4" data-testid="bloc-excellence-title">
                 Du cœur de la Medjerda au Top 20 Mondial
               </h2>
+              <div className="w-10 h-0.5 bg-primary mb-6" />
             </FadeIn>
 
             <SectionVideo src={`${BASE}/sec2.mp4`} label="Vidéo — L'Excellence Industrielle SICAM" />
@@ -117,27 +154,11 @@ export default function NotreHistoire() {
               </p>
             </FadeIn>
 
-            <FadeIn delay={0.15}>
-              <h3 className="text-lg font-bold text-primary mb-6">Notre force ? La maîtrise totale de la filière.</h3>
-            </FadeIn>
-
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                {
-                  title: "Capacité record",
-                  text: "Nos installations transforment jusqu'à 10 000 tonnes de tomates fraîches par jour en pleine saison.",
-                  stat: "10 000 t/j",
-                },
-                {
-                  title: "Rapidité",
-                  text: "Grâce à notre implantation stratégique, la tomate passe du champ à la boîte en environ 3h seulement.",
-                  stat: "Environ 3h",
-                },
-                {
-                  title: "Présence globale",
-                  text: "De l'Afrique à l'Europe, en passant par l'Amérique, nos produits sont les ambassadeurs du savoir-faire tunisien.",
-                  stat: "30+ pays",
-                },
+                { title: "Capacité record", text: "Nos installations transforment jusqu'à 12 000 tonnes de tomates fraîches par jour en pleine saison.", stat: "12 000 t/j" },
+                { title: "Rapidité", text: "Grâce à notre implantation stratégique, la tomate passe du champ à la boîte en environ 3h seulement.", stat: "Environ 3h" },
+                { title: "Présence globale", text: "De l'Afrique à l'Europe, en passant par l'Amérique, nos produits sont les ambassadeurs du savoir-faire tunisien.", stat: "30+ pays" },
               ].map((item, i) => (
                 <FadeIn key={i} delay={0.1 * (i + 1)} direction="up">
                   <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm h-full flex flex-col" data-testid={`excellence-card-${i}`}>
@@ -152,27 +173,23 @@ export default function NotreHistoire() {
         </div>
       </section>
 
-      {/* ── Le Partenariat Agricole ── */}
+      {/* ── Bloc 3 : Partenariat Agricole ── */}
       <section className="py-20 bg-white" data-testid="bloc-agri">
         <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
-                  <Tractor size={24} className="text-secondary" />
-                </div>
-                <span className="text-sm font-bold tracking-[0.15em] text-secondary/60 uppercase">Le Partenariat Agricole</span>
-              </div>
+              <p className="text-[10px] font-display font-bold tracking-[0.2em] text-secondary/50 uppercase mb-3">Le Partenariat Agricole</p>
               <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-4" data-testid="bloc-agri-title">
                 SICAM Agri : La main dans la main avec la terre
               </h2>
+              <div className="w-10 h-0.5 bg-secondary mb-6" />
             </FadeIn>
 
             <SectionVideo src={`${BASE}/sec3.mp4`} label="Vidéo — Le Partenariat Agricole SICAM" />
 
             <FadeIn delay={0.1}>
               <p className="text-slate-600 mb-4">
-                Chez SICAM, nous sommes d'abord des agriculteurs. En 2016, nous avons structuré notre engagement en créant <strong className="text-foreground">SICAM Agri</strong>.
+                Chez SICAM, nous sommes d'abord des agriculteurs. Nous avons structuré notre engagement en créant <strong className="text-foreground">SICAM Agri</strong>.
               </p>
               <p className="text-slate-600 mb-8">
                 Nous ne nous contentons pas d'acheter des récoltes ; nous construisons l'avenir avec nos <strong className="text-foreground">2 100 agriculteurs partenaires</strong>.
@@ -181,21 +198,9 @@ export default function NotreHistoire() {
 
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                {
-                  stat: "30",
-                  unit: "ingénieurs agronomes",
-                  text: "Accompagnement technique sur le terrain au quotidien.",
-                },
-                {
-                  stat: "12",
-                  unit: "récolteuses mécaniques",
-                  text: "Gestion intelligente de l'eau (goutte-à-goutte), soutien financier et mécanisation.",
-                },
-                {
-                  stat: "6 000+",
-                  unit: "hectares",
-                  text: "De tomates cultivés avec passion et respect des normes éthiques les plus strictes (SMETA, BSCI).",
-                },
+                { stat: "30", unit: "ingénieurs agronomes", text: "Accompagnement technique sur le terrain au quotidien." },
+                { stat: "12", unit: "récolteuses mécaniques", text: "Gestion intelligente de l'eau (goutte-à-goutte), soutien financier et mécanisation." },
+                { stat: "6 000+", unit: "hectares", text: "De tomates cultivés avec passion et respect des normes éthiques les plus strictes (SMETA, BSCI)." },
               ].map((item, i) => (
                 <FadeIn key={i} delay={0.1 * (i + 1)} direction="up">
                   <div className="bg-secondary/5 rounded-2xl border border-secondary/10 p-6 h-full" data-testid={`agri-card-${i}`}>
@@ -212,20 +217,16 @@ export default function NotreHistoire() {
         </div>
       </section>
 
-      {/* ── L'Innovation et le Futur ── */}
+      {/* ── Bloc 4 : Innovation & ZRP ── */}
       <section className="py-20 bg-background" data-testid="bloc-zrp">
         <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-3xl mx-auto">
             <FadeIn>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
-                  <FlaskConical size={24} className="text-secondary" />
-                </div>
-                <span className="text-sm font-bold tracking-[0.15em] text-secondary/60 uppercase">L'Innovation et le Futur</span>
-              </div>
+              <p className="text-[10px] font-display font-bold tracking-[0.2em] text-secondary/50 uppercase mb-3">L'Innovation et le Futur</p>
               <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-4" data-testid="bloc-zrp-title">
                 Pionniers par nature : L'Engagement Zéro Résidu de Pesticides — ZRP
               </h2>
+              <div className="w-10 h-0.5 bg-secondary mb-6" />
             </FadeIn>
 
             <SectionVideo src={`${BASE}/sec4.mp4`} label="Vidéo — L'Innovation et le Futur SICAM" />
@@ -249,10 +250,10 @@ export default function NotreHistoire() {
                 <img src={logoZrp} alt="Logo ZRP" className="w-20 h-20 object-contain flex-shrink-0" />
                 <div className="flex-1">
                   <p className="font-bold text-foreground text-lg mb-1">
-                    100 % Naturel. Sans conservateurs. Sans additifs.
+                    Zéro Résidus de Pesticides
                   </p>
                   <p className="text-sm text-slate-600">
-                    Et désormais, avec la garantie absolue d'une pureté certifiée.
+                    100% Naturel. Sans conservateurs, sans additifs et Zéro Résidus de pesticides.
                   </p>
                 </div>
                 <Link href="/zrp" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary/50 flex-shrink-0" data-testid="link-zrp">
@@ -265,7 +266,7 @@ export default function NotreHistoire() {
         </div>
       </section>
 
-      {/* ── Frise chronologique ── */}
+      {/* ── Frise chronologique (inversée : 2025 → 1958) ── */}
       <section className="py-20 bg-white" data-testid="frise-chronologique">
         <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
