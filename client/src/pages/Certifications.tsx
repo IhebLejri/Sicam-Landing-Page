@@ -79,64 +79,90 @@ const certifications: Certification[] = [
   },
 ];
 
-/* SVG certificate icon — style Mutti fidèle */
+/* SVG certificate icon — style Mutti fidèle, coins arrondis + médaille rosette */
 function CertIcon({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 100 120"
+      viewBox="0 0 100 124"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
-      {/* Document body — rectangle arrondi */}
-      <rect x="8" y="4" width="72" height="88" rx="6" stroke="white" strokeWidth="3.5" />
+      {/* Document body — coins bien arrondis */}
+      <rect x="10" y="4" width="68" height="84" rx="12" stroke="white" strokeWidth="3.5" />
       {/* Coin plié haut-droite */}
-      <polyline points="62,4 80,22 80,4 62,4" stroke="white" strokeWidth="3" strokeLinejoin="round" fill="rgba(255,255,255,0.08)" />
-      {/* Lignes horizontales simulant du texte */}
-      <line x1="22" y1="36" x2="64" y2="36" stroke="white" strokeWidth="3" strokeLinecap="round" />
-      <line x1="22" y1="48" x2="64" y2="48" stroke="white" strokeWidth="3" strokeLinecap="round" />
-      <line x1="22" y1="60" x2="64" y2="60" stroke="white" strokeWidth="3" strokeLinecap="round" />
-      <line x1="22" y1="72" x2="48" y2="72" stroke="white" strokeWidth="3" strokeLinecap="round" />
-      {/* Sceau circulaire — fond rouge fuchsia + bordure blanche */}
-      <circle cx="72" cy="100" r="20" fill="#C61653" />
-      <circle cx="72" cy="100" r="20" stroke="white" strokeWidth="3" />
-      {/* Checkmark dans le sceau */}
-      <polyline points="62,100 69,108 83,90" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <path d="M60 4 L78 22" stroke="white" strokeWidth="3" strokeLinecap="round" />
+      <path d="M60 4 L60 22 L78 22" stroke="white" strokeWidth="2.5" strokeLinejoin="round" fill="rgba(255,255,255,0.05)" />
+      {/* Lignes de texte */}
+      <line x1="22" y1="36" x2="62" y2="36" stroke="white" strokeWidth="3" strokeLinecap="round" />
+      <line x1="22" y1="48" x2="62" y2="48" stroke="white" strokeWidth="3" strokeLinecap="round" />
+      <line x1="22" y1="60" x2="62" y2="60" stroke="white" strokeWidth="3" strokeLinecap="round" />
+      <line x1="22" y1="72" x2="46" y2="72" stroke="white" strokeWidth="3" strokeLinecap="round" />
+
+      {/* Rosette / médaille — bas gauche */}
+      {/* Étoile à 8 branches (ruban) */}
+      <g transform="translate(28, 101)">
+        <circle cx="0" cy="0" r="18" fill="#9B1239" />
+        {/* Rayons de rosette */}
+        {[0,45,90,135,180,225,270,315].map((angle, i) => (
+          <line
+            key={i}
+            x1="0" y1="0"
+            x2={Math.cos((angle * Math.PI) / 180) * 18}
+            y2={Math.sin((angle * Math.PI) / 180) * 18}
+            stroke="#C61653"
+            strokeWidth="9"
+            strokeLinecap="square"
+          />
+        ))}
+        {/* Cercle intérieur rouge */}
+        <circle cx="0" cy="0" r="13" fill="#C61653" />
+        {/* Cercle bordure blanche */}
+        <circle cx="0" cy="0" r="13" stroke="white" strokeWidth="2" />
+        {/* Checkmark blanc */}
+        <polyline points="-6,1 -1,6.5 8,-5" stroke="white" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      </g>
     </svg>
   );
 }
 
 function CertItem({ cert, index }: { cert: Certification; index: number }) {
-  const content = (
-    <div
-      className={cn(
-        "group flex flex-col items-center text-center cursor-pointer",
-        cert.pdf && "hover:opacity-100 opacity-90 transition-opacity"
-      )}
-      data-testid={`cert-card-${cert.id}`}
-    >
-      <CertIcon className="w-28 h-36 md:w-32 md:h-40 mb-5 drop-shadow-xl group-hover:scale-105 transition-transform duration-200" />
-      <p className="text-white font-bold text-[13px] md:text-[14px] uppercase tracking-[0.12em] leading-snug max-w-[160px]">
-        {cert.name}
-      </p>
-      {cert.pdf && (
-        <span className="mt-2 text-white/40 text-[10px] uppercase tracking-widest font-semibold">
-          PDF ↗
-        </span>
-      )}
-    </div>
-  );
-
   return (
     <FadeIn delay={Math.min(index * 0.05, 0.4)} direction="up">
-      {cert.pdf ? (
-        <a href={cert.pdf} target="_blank" rel="noopener noreferrer">
-          {content}
-        </a>
-      ) : (
-        content
-      )}
+      <div
+        className="group flex flex-col items-center text-center"
+        data-testid={`cert-card-${cert.id}`}
+      >
+        {/* Icône — cliquable si PDF */}
+        {cert.pdf ? (
+          <a href={cert.pdf} target="_blank" rel="noopener noreferrer" className="block">
+            <CertIcon className="w-28 h-36 md:w-32 md:h-40 mb-5 drop-shadow-xl group-hover:scale-105 transition-transform duration-200 opacity-90 group-hover:opacity-100" />
+          </a>
+        ) : (
+          <CertIcon className="w-28 h-36 md:w-32 md:h-40 mb-5 drop-shadow-xl opacity-80" />
+        )}
+
+        {/* Titre */}
+        <p className="text-white font-bold text-[13px] md:text-[14px] uppercase tracking-[0.12em] leading-snug max-w-[160px]">
+          {cert.name}
+        </p>
+
+        {/* Ligne soulignée cliquable uniquement si PDF */}
+        {cert.pdf ? (
+          <a
+            href={cert.pdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 text-white/55 text-[11px] font-medium underline underline-offset-2 hover:text-white transition-colors"
+            data-testid={`cert-pdf-link-${cert.id}`}
+          >
+            Voir le certificat
+          </a>
+        ) : (
+          <span className="mt-2 text-white/25 text-[11px]">—</span>
+        )}
+      </div>
     </FadeIn>
   );
 }
