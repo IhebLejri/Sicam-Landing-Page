@@ -76,7 +76,7 @@ const timelineEvents = [
   { year: "2017", text: "Création de SICAM Agri (partenariat agricole intégré)." },
   { year: "2015", text: "Ouverture Easy Open — innovation packaging." },
   { year: "2012", text: "Création de PROCAN (autonomie sur l'emballage métallique)." },
-  { year: "2008", text: "Lancement de la gamme Tomates Pelées." },
+  { year: "2007", text: "Lancement de la gamme Tomates Pelées." },
   { year: "1969", text: "Fondation de la société SICAM à Medjez El Bab." },
   { year: "1958", text: "Youssef Bayahi lance la première entreprise, genèse du Groupe." },
 ];
@@ -234,7 +234,7 @@ export default function NotreHistoire() {
             <FadeIn delay={0.1}>
               <div className="space-y-5 text-slate-600">
                 <p>
-                  L'héritage ne nous empêche pas d'innover, au contraire. Nous avons été les premiers à lancer la <strong className="text-foreground">tomate pelée en 2008</strong>, les premiers sur l'<strong className="text-foreground">ouverture facile en 2012</strong>.
+                  L'héritage ne nous empêche pas d'innover, au contraire. Nous avons été les premiers à lancer la <strong className="text-foreground">tomate pelée en 2007</strong>, les premiers sur l'<strong className="text-foreground">ouverture facile en 2012</strong>.
                 </p>
                 <p>
                   Aujourd'hui, SICAM marque l'histoire mondiale de la tomate en devenant la <strong className="text-foreground">première entreprise au monde</strong> à certifier son Double Concentré et ses Tomates Cubées « Zéro Résidu de Pesticides — ZRP ».
