@@ -228,11 +228,6 @@ export default function Certifications() {
             ))}
           </div>
 
-          <FadeIn delay={0.5}>
-            <p className="text-center text-white/25 text-[11px] mt-16 font-medium">
-              Cliquez sur une certification pour télécharger le document PDF
-            </p>
-          </FadeIn>
         </div>
       </section>
 
