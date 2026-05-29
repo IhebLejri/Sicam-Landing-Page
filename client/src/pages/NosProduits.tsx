@@ -160,12 +160,14 @@ function CategorySection({ config }: { config: CategoryConfig }) {
           config.gradient
         )}
       >
+        {/* Voile pour adoucir le gradient */}
+        <div className="absolute inset-0 bg-white/20 z-0" />
         {/* Image produit nette, centrée */}
-        <div className="flex-1 flex items-center justify-center p-8">
+        <div className="flex-1 flex items-center justify-center p-8 relative z-10">
           <img
             src={config.bgImage}
             alt={config.label}
-            className="w-full max-w-[260px] object-contain drop-shadow-2xl opacity-30"
+            className="w-full max-w-[260px] object-contain drop-shadow-2xl"
           />
         </div>
         <div className="relative z-10 px-10 pb-8">
@@ -242,13 +244,15 @@ function ZRPSection() {
       data-testid="section-zrp"
     >
       <div className="hidden lg:flex relative w-[34%] bg-gradient-to-br from-[#0c4a20] via-[#186030] to-[#1e7a38] overflow-hidden flex-col justify-between">
+        {/* Voile pour adoucir le gradient */}
+        <div className="absolute inset-0 bg-white/20 z-0" />
         {/* Image du premier produit ZRP, nette et centrée */}
-        <div className="flex-1 flex items-center justify-center p-8">
+        <div className="flex-1 flex items-center justify-center p-8 relative z-10">
           {products[0] && (
             <img
               src={products[0].image}
               alt={products[0].name}
-              className="w-full max-w-[220px] object-contain drop-shadow-2xl opacity-30"
+              className="w-full max-w-[220px] object-contain drop-shadow-2xl"
             />
           )}
         </div>
