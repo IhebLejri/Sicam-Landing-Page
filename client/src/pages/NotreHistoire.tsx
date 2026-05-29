@@ -55,7 +55,7 @@ const filiales = [
     colorText: "text-[#C9A84C]",
     borderColor: "border-[#C9A84C]",
     name: "SICAM",
-    role: "Transformation industrielle",
+    role: "Transformation industrielle · jusqu'à 12 000 t/j",
     description: "Capacité de transformation quotidienne atteignant jusqu'à 12 000 tonnes de produits agricoles. Deux sites ultra-modernes, des équipements à la pointe de la technologie, et un savoir-faire bâti sur plus de 55 ans d'excellence opérationnelle.",
   },
   {
