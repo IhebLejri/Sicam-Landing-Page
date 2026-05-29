@@ -112,7 +112,7 @@ function ProductCarousel({
         className="group text-center block px-4"
         data-testid={`name-link-${product.id}`}
       >
-        <p className={cn("text-sm font-bold leading-snug transition-colors max-w-[180px] mx-auto", accentColor === "secondary" ? "text-foreground group-hover:text-secondary" : "text-foreground group-hover:text-primary")}>
+        <p className={cn("text-sm font-bold leading-snug transition-colors whitespace-nowrap mx-auto", accentColor === "secondary" ? "text-foreground group-hover:text-secondary" : "text-foreground group-hover:text-primary")}>
           {product.name}
         </p>
       </Link>
