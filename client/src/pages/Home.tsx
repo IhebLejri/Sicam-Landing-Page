@@ -200,20 +200,20 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-10 md:gap-8 text-center">
             {[
               { value: "+55 ans", label: "D'expertise", sub: "Depuis 1969", icon: Award },
-              { value: "Leader", label: "Du marché", sub: "durant la campagne", icon: Globe2 },
+              { value: "Leader", label: "Du marché", sub: "En Tunisie", icon: Globe2 },
               { value: "1ère", label: "Entreprise", sub: "Certifiée ZRP dans le secteur de transformation de la tomate en Tunisie, en Afrique et dans le Monde Arabe", icon: ShieldCheck },
               { value: "+30", label: "Pays", sub: "D'exportation", icon: Globe2 },
               { value: "100%", label: "Origine", sub: "Tomates tunisiennes", icon: Leaf },
               { value: "600", label: "Molécules", sub: "Analysées", icon: TestTube },
-              { value: "1000", label: "Tests qualité", sub: "Dans nos laboratoires par jour", icon: Microscope },
+              { value: "1 000", label: "Tests qualité", sub: "Dans nos laboratoires par jour durant la campagne", icon: Microscope },
             ].map((stat, i) => (
               <FadeIn key={i} delay={i * 0.08} direction="up" className="flex flex-col items-center">
                 <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center text-primary/70 mb-4">
                   <stat.icon size={28} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-1">{stat.value}</h3>
-                <p className="text-xs font-display font-semibold uppercase tracking-wider text-foreground/60">{stat.label}</p>
-                <p className="text-[11px] text-muted-foreground mt-1 leading-snug">{stat.sub}</p>
+                <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-1">{stat.value}</h3>
+                <p className="text-sm font-display font-semibold uppercase tracking-wider text-foreground/60">{stat.label}</p>
+                <p className="text-xs text-muted-foreground mt-1 leading-snug">{stat.sub}</p>
               </FadeIn>
             ))}
           </div>
