@@ -90,15 +90,15 @@ function CertIcon({ className }: { className?: string }) {
       aria-hidden="true"
     >
       {/* Document body — coins bien arrondis */}
-      <rect x="10" y="4" width="68" height="84" rx="12" stroke="white" strokeWidth="3.5" />
+      <rect x="10" y="4" width="68" height="84" rx="12" stroke="#C61653" strokeWidth="3.5" />
       {/* Coin plié haut-droite */}
-      <path d="M60 4 L78 22" stroke="white" strokeWidth="3" strokeLinecap="round" />
-      <path d="M60 4 L60 22 L78 22" stroke="white" strokeWidth="2.5" strokeLinejoin="round" fill="rgba(255,255,255,0.05)" />
+      <path d="M60 4 L78 22" stroke="#C61653" strokeWidth="3" strokeLinecap="round" />
+      <path d="M60 4 L60 22 L78 22" stroke="#C61653" strokeWidth="2.5" strokeLinejoin="round" fill="rgba(198,22,83,0.06)" />
       {/* Lignes de texte */}
-      <line x1="22" y1="36" x2="62" y2="36" stroke="white" strokeWidth="3" strokeLinecap="round" />
-      <line x1="22" y1="48" x2="62" y2="48" stroke="white" strokeWidth="3" strokeLinecap="round" />
-      <line x1="22" y1="60" x2="62" y2="60" stroke="white" strokeWidth="3" strokeLinecap="round" />
-      <line x1="22" y1="72" x2="46" y2="72" stroke="white" strokeWidth="3" strokeLinecap="round" />
+      <line x1="22" y1="36" x2="62" y2="36" stroke="#C61653" strokeWidth="3" strokeLinecap="round" />
+      <line x1="22" y1="48" x2="62" y2="48" stroke="#C61653" strokeWidth="3" strokeLinecap="round" />
+      <line x1="22" y1="60" x2="62" y2="60" stroke="#C61653" strokeWidth="3" strokeLinecap="round" />
+      <line x1="22" y1="72" x2="46" y2="72" stroke="#C61653" strokeWidth="3" strokeLinecap="round" />
 
       {/* Rosette / médaille — bas gauche */}
       {/* Étoile à 8 branches (ruban) */}
@@ -149,13 +149,13 @@ function CertItem({ cert, index }: { cert: Certification; index: number }) {
             href={cert.pdf}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white font-bold text-[13px] md:text-[14px] uppercase tracking-[0.12em] leading-snug max-w-[160px] underline underline-offset-2 hover:text-white/70 transition-colors"
+            className="text-foreground font-bold text-[13px] md:text-[14px] uppercase tracking-[0.12em] leading-snug max-w-[160px] underline underline-offset-2 decoration-primary/50 hover:text-primary transition-colors"
             data-testid={`cert-pdf-link-${cert.id}`}
           >
             {cert.name}
           </a>
         ) : (
-          <p className="text-white font-bold text-[13px] md:text-[14px] uppercase tracking-[0.12em] leading-snug max-w-[160px]">
+          <p className="text-foreground font-bold text-[13px] md:text-[14px] uppercase tracking-[0.12em] leading-snug max-w-[160px]">
             {cert.name}
           </p>
         )}
@@ -205,12 +205,12 @@ export default function Certifications() {
 
       {/* ── Certifications — style Mutti ── */}
       <section
-        className="relative py-24 bg-[#1a1714]"
+        className="relative py-24 bg-background"
         data-testid="certs-section"
       >
         <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
-            <h2 className="text-center text-[11px] font-display font-bold tracking-[0.2em] text-white/40 uppercase mb-16" data-testid="certs-grid-title">
+            <h2 className="text-center text-[11px] font-display font-bold tracking-[0.2em] text-foreground/40 uppercase mb-16" data-testid="certs-grid-title">
               9 certifications internationales actives — 2025
             </h2>
           </FadeIn>
