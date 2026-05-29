@@ -263,12 +263,12 @@ export default function Certifications() {
                   <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0", audit.color)}>
                     <Users size={22} className="text-white" />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="font-bold text-base text-foreground mb-1">{audit.name}</h3>
                     <p className="text-muted-foreground text-xs mb-3">{audit.subtitle}</p>
                     <p className="text-foreground/70 text-base leading-relaxed">{audit.text}</p>
                   </div>
-                  <div className="border-t border-border pt-3">
+                  <div className="border-t border-border pt-3 mt-auto">
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <Calendar size={12} />
                       <span className="text-[11px]">{audit.history}</span>
