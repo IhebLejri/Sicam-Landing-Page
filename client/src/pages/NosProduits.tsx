@@ -380,26 +380,6 @@ export default function NosProduits() {
         </div>
       </section>
 
-      {/* Sticky sub-navigation */}
-      <nav
-        className="sticky top-[52px] md:top-[60px] z-30 bg-white border-b border-slate-100 shadow-sm"
-        aria-label="Catégories de produits"
-      >
-        <div className="w-full px-4 md:px-6">
-          <div className="flex overflow-x-auto scrollbar-hide" data-testid="cat-nav">
-            {subNavItems.map(item => (
-              <button
-                key={item.anchor}
-                onClick={() => scrollToSection(item.anchor)}
-                className="flex-shrink-0 px-4 md:px-6 py-4 text-[11px] md:text-[12px] font-display font-bold uppercase tracking-[0.12em] text-slate-400 hover:text-primary border-b-2 border-transparent hover:border-primary transition-all whitespace-nowrap"
-                data-testid={`subnav-${item.anchor}`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
 
       {/* Category sections */}
       <div className="flex flex-col gap-6 bg-background py-6">
