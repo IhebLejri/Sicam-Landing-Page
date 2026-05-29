@@ -189,7 +189,7 @@ function CategorySection({ config }: { config: CategoryConfig }) {
 
           <div className="w-8 h-0.5 bg-primary mb-5" />
 
-          <p className="text-sm text-slate-600 leading-relaxed mb-6">
+          <p className="text-base text-slate-600 leading-relaxed mb-6">
             {config.description}
           </p>
 
@@ -273,7 +273,7 @@ function ZRPSection() {
 
           <div className="w-8 h-0.5 bg-secondary mb-5" />
 
-          <p className="text-sm text-slate-600 leading-relaxed mb-6">
+          <p className="text-base text-slate-600 leading-relaxed mb-6">
             SICAM est la <strong className="text-foreground">première entreprise au monde</strong> à certifier ses tomates Zéro Résidu de Pesticides. 1 000 analyses quotidiennes, traçabilité totale du champ à la boîte sur 600 molécules de pesticides.
           </p>
 

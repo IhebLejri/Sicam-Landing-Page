@@ -27,7 +27,7 @@ export default function ZRP() {
               </h1>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="text-base lg:text-lg text-white/90 mb-6 leading-relaxed">
+              <p className="text-lg text-white/90 mb-6 leading-relaxed">
                 Depuis 1969, SICAM cultive l'excellence à la tunisienne. Aujourd'hui, nous franchissons une nouvelle étape : la certification ZRP — Zéro Résidu de Pesticides — pour vous offrir des tomates aussi saines que savoureuses, à chaque boîte.
               </p>
             </FadeIn>
@@ -235,7 +235,7 @@ export default function ZRP() {
                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 h-full">
                   <div className="text-4xl font-serif font-bold text-accent/50 mb-3">{commit.n}</div>
                   <h4 className="text-lg font-bold mb-3">{commit.title}</h4>
-                  <p className="text-white/80 text-sm leading-relaxed">{commit.text}</p>
+                  <p className="text-white/80 text-base leading-relaxed">{commit.text}</p>
                 </div>
               </FadeIn>
             ))}
@@ -256,7 +256,7 @@ export default function ZRP() {
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 items-start">
             <FadeIn delay={0.1} className="w-full min-w-0">
               <div className="space-y-6 w-full min-w-0">
-                <p className="text-base text-slate-600 leading-relaxed">
+                <p className="text-lg text-slate-600 leading-relaxed">
                   La certification ZRP de SICAM est délivrée par <strong className="text-foreground">CCPB — Controllo e Certificazione Prodotti Biologici</strong> — un organisme italien d'inspection et de certification fondé en 1988, reconnu à l'échelle internationale comme référence en matière de certification agroalimentaire et biologique.
                 </p>
 
@@ -270,7 +270,7 @@ export default function ZRP() {
                       "Certifications : BRCGS, IFS, FSSC 22000",
                       "Présent en Tunisie via un réseau de filiales méditerranéennes",
                     ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-slate-600 text-sm">
+                      <li key={i} className="flex items-start gap-3 text-slate-600 text-base">
                         <CheckCircle2 className="text-secondary mt-0.5 flex-shrink-0" size={16} />
                         <span>{item}</span>
                       </li>
@@ -284,7 +284,7 @@ export default function ZRP() {
               <div className="space-y-5 w-full min-w-0">
                 <div className="bg-white rounded-2xl p-5 border border-slate-200 w-full min-w-0">
                   <h4 className="text-base font-bold text-foreground mb-4">Notre certificat</h4>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                  <p className="text-slate-600 text-base leading-relaxed mb-4">
                     Le certificat CCPB n° 02/2025/10, émis le 21 août 2025, couvre l'ensemble des produits phares de la gamme SICAM :
                   </p>
                   <ul className="space-y-2 mb-6">
@@ -294,7 +294,7 @@ export default function ZRP() {
                       "Tomates pelées entières",
                       "Pulpe de tomate",
                     ].map((product, i) => (
-                      <li key={i} className="flex items-center gap-2 text-slate-700 text-sm font-medium">
+                      <li key={i} className="flex items-center gap-2 text-slate-700 text-base font-medium">
                         <ShieldCheck className="text-secondary flex-shrink-0" size={15} />
                         {product}
                       </li>

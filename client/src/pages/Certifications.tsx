@@ -188,7 +188,7 @@ export default function Certifications() {
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight" data-testid="rse-title">
               Nos Engagements RSE
             </h1>
-            <p className="text-base text-white/50 max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="text-lg text-white/50 max-w-3xl mx-auto leading-relaxed font-light">
               Chaque certification est une promesse vérifiée par un organisme indépendant. Qualité, sécurité alimentaire, éthique sociale, conformité environnementale — nos engagements couvrent l'ensemble de notre chaîne de valeur.
             </p>
           </FadeIn>
@@ -236,7 +236,7 @@ export default function Certifications() {
             <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4" data-testid="social-title">
               Audits sociaux
             </h2>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-12 max-w-2xl">
+            <p className="text-muted-foreground text-base leading-relaxed mb-12 max-w-2xl">
               Nos pratiques sociales sont auditées de façon indépendante pour garantir des conditions de travail dignes et conformes aux standards internationaux.
             </p>
           </FadeIn>
@@ -268,7 +268,7 @@ export default function Certifications() {
                   <div>
                     <h3 className="font-bold text-base text-foreground mb-1">{audit.name}</h3>
                     <p className="text-muted-foreground text-xs mb-3">{audit.subtitle}</p>
-                    <p className="text-foreground/70 text-sm leading-relaxed">{audit.text}</p>
+                    <p className="text-foreground/70 text-base leading-relaxed">{audit.text}</p>
                   </div>
                   <div className="border-t border-border pt-3">
                     <div className="flex items-center gap-2 text-muted-foreground">
@@ -293,7 +293,7 @@ export default function Certifications() {
                 <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4">
                   Programme Zéro Résidu de Pesticides — ZRP
                 </h2>
-                <p className="text-foreground/60 text-sm leading-relaxed">
+                <p className="text-foreground/60 text-base leading-relaxed">
                   Au-delà des certifications standards, SICAM a développé le programme ZRP — certifié par l'organisme indépendant CCPB — garantissant zéro résidu détectable de pesticides dans ses tomates.
                 </p>
               </div>

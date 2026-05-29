@@ -131,7 +131,7 @@ export default function NotreHistoire() {
                         <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{f.role}</p>
                       </div>
                     </div>
-                    <p className="text-sm text-slate-600 leading-relaxed">{f.description}</p>
+                    <p className="text-base text-slate-600 leading-relaxed">{f.description}</p>
                   </div>
                 </FadeIn>
               ))}
@@ -170,7 +170,7 @@ export default function NotreHistoire() {
                   <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm h-full flex flex-col" data-testid={`excellence-card-${i}`}>
                     <span className="text-2xl font-serif font-bold text-primary mb-2">{item.stat}</span>
                     <h4 className="font-bold text-foreground mb-2">{item.title}</h4>
-                    <p className="text-sm text-slate-600 leading-relaxed flex-1">{item.text}</p>
+                    <p className="text-base text-slate-600 leading-relaxed flex-1">{item.text}</p>
                   </div>
                 </FadeIn>
               ))}
@@ -214,7 +214,7 @@ export default function NotreHistoire() {
                       <span className="text-3xl font-serif font-bold text-secondary">{item.stat}</span>
                       <span className="text-sm font-semibold text-secondary/70 ml-1.5">{item.unit}</span>
                     </div>
-                    <p className="text-sm text-slate-600 leading-relaxed">{item.text}</p>
+                    <p className="text-base text-slate-600 leading-relaxed">{item.text}</p>
                   </div>
                 </FadeIn>
               ))}
@@ -309,7 +309,7 @@ export default function NotreHistoire() {
                         <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-serif font-bold mb-2">
                           {event.year}
                         </span>
-                        <p className="text-sm text-slate-700 leading-relaxed">{event.text}</p>
+                        <p className="text-base text-slate-700 leading-relaxed">{event.text}</p>
                       </div>
                     </div>
                   </div>

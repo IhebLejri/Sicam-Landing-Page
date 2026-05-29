@@ -135,7 +135,7 @@ function HeroCarousel() {
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-white leading-snug mb-3" data-testid="hero-title">
               {slide.title}
             </h1>
-            <p className="text-sm md:text-base text-white/85 mb-5 leading-relaxed max-w-lg font-light">
+            <p className="text-base md:text-lg text-white/85 mb-5 leading-relaxed max-w-lg font-light">
               {slide.subtitle}
             </p>
             <Link href={slide.cta.href}>
