@@ -110,9 +110,6 @@ export default function NotreHistoire() {
           <div className="max-w-5xl mx-auto">
             <FadeIn>
               <p className="text-[10px] font-display font-bold tracking-[0.2em] text-primary/40 uppercase mb-3">La Racine</p>
-              <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-4">
-                Un groupe intégré, de la graine à l'étagère
-              </h2>
               <div className="w-10 h-0.5 bg-primary mb-8" />
               <div className="space-y-5 text-slate-600 leading-relaxed text-base mb-10">
                 <p>L'histoire de SICAM est avant tout une histoire de transmission, de savoir-faire et d'engagement envers la terre tunisienne. C'est en 1969, au cœur des terres fertiles de Medjez El Bab, qu'est née une ambition simple mais forte : valoriser la richesse agricole de la Tunisie et accompagner le travail des agriculteurs en transformant les récoltes locales en produits de qualité accessibles aux familles tunisiennes tout au long de l'année.</p>
