@@ -328,42 +328,55 @@ export default function NosProduits() {
   return (
     <main className="flex min-h-screen flex-col">
 
-      {/* Hero */}
-      <section className="relative pt-36 pb-20 overflow-hidden">
-        <div className="absolute inset-0" aria-hidden="true">
-          <img src={heroBg} alt="" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-[#1a0a0e]/65" />
-        </div>
-        <div className="w-full max-w-4xl mx-auto px-6 md:px-8 relative z-10 text-center">
-          <FadeIn>
-            <p className="text-[11px] font-display font-semibold tracking-[0.2em] text-white/40 uppercase mb-6">
-              100 % tunisien. Du champ à votre table.
-            </p>
-            <h1
-              className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight"
-              data-testid="products-title"
-            >
-              Nos produits — La générosité tunisienne, mise en boîte depuis 1969
-            </h1>
-            <p className="text-base text-white/60 max-w-3xl mx-auto leading-relaxed font-light">
-              Chaque produit SICAM est le résultat d'un choix : celui de la qualité sur le compromis, de la traçabilité sur l'opacité, du goût authentique sur le standardisé. Des tomates cultivées sous le soleil de Medjez El Bab aux confitures de fruits tunisiens, en passant par notre harissa de caractère — voici notre gamme complète.
-            </p>
-          </FadeIn>
+      {/* Hero — split texte gauche / image droite */}
+      <section className="relative flex overflow-hidden pt-20">
+        <div className="flex flex-col lg:flex-row w-full">
 
-          <FadeIn delay={0.15}>
-            <div className="flex flex-wrap justify-center gap-2 mt-10">
-              {subNavItems.map(item => (
-                <button
-                  key={item.anchor}
-                  onClick={() => scrollToSection(item.anchor)}
-                  className="px-4 py-2 rounded-full border border-white/20 text-white/70 text-xs font-display font-semibold uppercase tracking-[0.1em] hover:bg-white/10 hover:text-white transition-all"
-                  data-testid={`hero-nav-${item.anchor}`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </FadeIn>
+          {/* Panneau gauche — texte sur fond sombre */}
+          <div className="w-full lg:w-1/2 bg-[#1a0a0e] flex flex-col justify-center px-6 md:px-16 lg:px-20 pt-12 pb-10 min-w-0">
+            <FadeIn>
+              <p className="text-[11px] font-display font-semibold tracking-[0.2em] text-white/30 uppercase mb-6">
+                100 % tunisien · Du champ à votre table
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <h1
+                className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-6"
+                data-testid="products-title"
+              >
+                La générosité tunisienne, mise en boîte depuis 1969
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="text-base text-white/60 leading-relaxed mb-8">
+                Tomates, harissa, confitures — chaque produit SICAM est cultivé sous le soleil de Medjez El Bab et transformé dans le respect de la qualité et de la traçabilité.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.3}>
+              <div className="flex flex-wrap gap-2">
+                {subNavItems.map(item => (
+                  <button
+                    key={item.anchor}
+                    onClick={() => scrollToSection(item.anchor)}
+                    className="px-4 py-2 rounded-full border border-white/20 text-white/60 text-xs font-display font-semibold uppercase tracking-[0.1em] hover:bg-white/10 hover:text-white transition-all"
+                    data-testid={`hero-nav-${item.anchor}`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* Panneau droit — image, masqué sur mobile */}
+          <div className="hidden lg:block lg:w-1/2 relative min-h-[580px]">
+            <img
+              src={heroBg}
+              alt="Gamme SICAM"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+
         </div>
       </section>
 
