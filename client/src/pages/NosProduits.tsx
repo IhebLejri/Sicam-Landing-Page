@@ -1,3 +1,4 @@
+import heroBg from "@assets/image_1780056568437.png";
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { FadeIn } from "@/components/ui/fade-in";
@@ -328,10 +329,10 @@ export default function NosProduits() {
     <main className="flex min-h-screen flex-col">
 
       {/* Hero */}
-      <section className="relative pt-36 pb-20 bg-gradient-to-b from-primary to-[#7a0e33] overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl" />
+      <section className="relative pt-36 pb-20 overflow-hidden">
+        <div className="absolute inset-0" aria-hidden="true">
+          <img src={heroBg} alt="" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-[#1a0a0e]/65" />
         </div>
         <div className="w-full max-w-4xl mx-auto px-6 md:px-8 relative z-10 text-center">
           <FadeIn>
