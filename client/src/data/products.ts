@@ -114,7 +114,7 @@ export const categoryConfigs: CategoryConfig[] = [
     label: "Sauce Pizza",
     gradient: "from-[#6e1a0a] via-[#9a2a10] to-[#c03a18]",
     bgImage: sp,
-    subtitle: "Prête à l'emploi — Basilic & Origan",
+    subtitle: "Prête à l'emploi — Basilic et Origan",
     description: "Une sauce prête à l'emploi, parfumée au basilic et à l'origan naturels. La base idéale pour vos pizzas maison, les bruschette, les pâtes ou toute recette méditerranéenne.",
   },
   {
@@ -251,7 +251,7 @@ export const allProducts: Product[] = [
   },
   {
     id: "sp",
-    name: "Sauce Pizza Basilic & Origan",
+    name: "Sauce Pizza Basilic et Origan",
     image: sp,
     category: "sauce-pizza",
     description: "Une sauce prête à l'emploi, parfumée au basilic et à l'origan naturels. La base idéale pour vos pizzas maison, les bruschette, les pâtes ou toute recette méditerranéenne.",
@@ -504,11 +504,11 @@ export const allProducts: Product[] = [
   },
   {
     id: "pack-sp",
-    name: "Pack Sauce Pizza Basilic & Origan 3×400g",
+    name: "Pack Sauce Pizza Basilic et Origan 3×400g",
     image: packSP,
     category: "packs",
     description: "Notre sauce pizza prête à l'emploi au basilic et à l'origan naturels, en pack de 3 boîtes 400g.",
-    shortDesc: "Pack 3×400g, basilic & origan",
+    shortDesc: "Pack 3×400g, basilic et origan",
     tags: ["Pack économique", "Prête à l'emploi"],
     zrp: false,
     formats: "Pack 3 × 400g",
