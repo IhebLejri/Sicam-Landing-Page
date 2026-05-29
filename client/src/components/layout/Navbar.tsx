@@ -86,7 +86,7 @@ export function Navbar() {
         )}
       >
         <div className="w-full max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
-          <Link href="/" className="flex-shrink-0">
+          <Link href="/" className="flex-shrink-0 flex flex-col items-start gap-0.5">
             <img
               src={logoSicam}
               alt="SICAM Logo"
@@ -95,6 +95,9 @@ export function Navbar() {
                 isScrolled ? "h-10 md:h-13" : "h-12 md:h-16"
               )}
             />
+            <span className="text-[9px] font-display font-bold tracking-[0.18em] text-slate-400 uppercase leading-none pl-0.5">
+              Depuis 1969
+            </span>
           </Link>
 
           {/* Desktop nav */}
