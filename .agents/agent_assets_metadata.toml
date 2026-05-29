@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "ovlPJv0kyqypWDpzDuNKL"
+uri = "file://screenshots/nos-produits-hero.jpg"
+type = "image"
+title = "Nos Produits — hero banner (PC)"
