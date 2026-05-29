@@ -45,7 +45,7 @@ export default function ZRP() {
             <img
               src={heroBanner}
               alt="Gamme ZRP SICAM"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-contain"
             />
           </div>
         </div>
