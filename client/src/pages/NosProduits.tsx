@@ -175,7 +175,7 @@ function CategorySection({ config }: { config: CategoryConfig }) {
       </div>
 
       <div className="flex-1 flex flex-col md:flex-row bg-background">
-        <div className="md:w-[45%] p-5 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center md:border-r border-slate-100">
+        <div className="md:w-[45%] p-5 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center md:border-r border-slate-100 bg-background/70">
           <p className="text-[10px] font-display font-bold tracking-[0.2em] text-primary/40 uppercase mb-3">
             {config.subtitle}
           </p>
@@ -224,7 +224,7 @@ function CategorySection({ config }: { config: CategoryConfig }) {
           </div>
         </div>
 
-        <div className="flex-1 bg-[hsl(36,25%,97%)]">
+        <div className="flex-1 bg-[hsl(36,25%,97%)] flex items-center justify-center">
           <ProductCarousel products={products} accentColor="primary" portraitCrop={config.portraitCrop} />
         </div>
       </div>
@@ -259,7 +259,7 @@ function ZRPSection() {
       </div>
 
       <div className="flex-1 flex flex-col md:flex-row bg-background">
-        <div className="md:w-[45%] p-5 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center md:border-r border-slate-100">
+        <div className="md:w-[45%] p-5 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center md:border-r border-slate-100 bg-background/70">
           <div className="flex items-center gap-3 mb-4">
             <img src={logoZrp} alt="ZRP" className="w-10 h-10 object-contain" />
           </div>
@@ -292,7 +292,7 @@ function ZRPSection() {
           </div>
         </div>
 
-        <div className="flex-1 bg-[hsl(150,20%,97%)]">
+        <div className="flex-1 bg-[hsl(150,20%,97%)] flex items-center justify-center">
           <ProductCarousel products={products} accentColor="secondary" portraitCrop />
         </div>
       </div>
