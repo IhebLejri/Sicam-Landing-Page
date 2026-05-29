@@ -165,7 +165,7 @@ function CategorySection({ config }: { config: CategoryConfig }) {
           <img
             src={config.bgImage}
             alt={config.label}
-            className="w-full max-w-[260px] object-contain drop-shadow-2xl"
+            className="w-full max-w-[260px] object-contain drop-shadow-2xl opacity-30"
           />
         </div>
         <div className="relative z-10 px-10 pb-8">
@@ -248,7 +248,7 @@ function ZRPSection() {
             <img
               src={products[0].image}
               alt={products[0].name}
-              className="w-full max-w-[220px] object-contain drop-shadow-2xl"
+              className="w-full max-w-[220px] object-contain drop-shadow-2xl opacity-30"
             />
           )}
         </div>
