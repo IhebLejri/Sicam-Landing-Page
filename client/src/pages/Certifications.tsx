@@ -195,26 +195,20 @@ export default function Certifications() {
         </div>
       </section>
 
+      {/* ── Séparateur décoratif ── */}
+      <div className="relative z-10 flex items-center justify-center -mt-px">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+        <div className="absolute w-8 h-8 rounded-full border border-primary/40 bg-[#1a1714] flex items-center justify-center">
+          <div className="w-2 h-2 rounded-full bg-primary/60" />
+        </div>
+      </div>
+
       {/* ── Certifications — style Mutti ── */}
       <section
-        className="relative py-24 overflow-hidden"
+        className="relative py-24 bg-[#1a1714]"
         data-testid="certs-section"
-        style={{ minHeight: 500 }}
       >
-        {/* Tomato field background — flouté pour lisibilité */}
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?q=80&w=2070&auto=format&fit=crop"
-            alt=""
-            aria-hidden
-            className="w-full h-full object-cover scale-110"
-            style={{ filter: "blur(6px)" }}
-          />
-          {/* Dark overlay like Mutti */}
-          <div className="absolute inset-0 bg-[#1a1714]/70" />
-        </div>
-
-        <div className="relative z-10 container mx-auto px-6 md:px-8">
+        <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
             <h2 className="text-center text-[11px] font-display font-bold tracking-[0.2em] text-white/40 uppercase mb-16" data-testid="certs-grid-title">
               9 certifications internationales actives — 2025
