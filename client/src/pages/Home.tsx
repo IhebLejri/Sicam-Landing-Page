@@ -168,24 +168,6 @@ function HeroCarousel() {
         </div>
       </div>
 
-      {/* Tab navigation bar */}
-      <div className="flex bg-[#1a1714]/95 backdrop-blur-md overflow-x-auto flex-shrink-0">
-        {slides.map((s, i) => (
-          <button
-            key={s.id}
-            onClick={() => goTo(i)}
-            className={cn(
-              "flex-1 lg:flex-none px-4 md:px-6 py-3 md:py-4 text-[9px] md:text-[10px] font-display font-semibold uppercase tracking-[0.12em] transition-all whitespace-nowrap min-w-0",
-              current === i
-                ? "bg-primary text-white"
-                : "text-white/40 hover:text-white/70 hover:bg-white/5"
-            )}
-            data-testid={`carousel-tab-${i}`}
-          >
-            {s.tab}
-          </button>
-        ))}
-      </div>
     </section>
   );
 }
@@ -211,9 +193,9 @@ export default function Home() {
                 <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center text-primary/70 mb-4">
                   <stat.icon size={28} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-1">{stat.value}</h3>
-                <p className="text-sm font-display font-semibold uppercase tracking-wider text-foreground/60">{stat.label}</p>
-                <p className="text-xs text-muted-foreground mt-1 leading-snug">{stat.sub}</p>
+                <h3 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-1 whitespace-nowrap">{stat.value}</h3>
+                <p className="text-xs font-display font-semibold uppercase tracking-wider text-foreground/60">{stat.label}</p>
+                <p className="text-[11px] text-muted-foreground mt-1 leading-snug">{stat.sub}</p>
               </FadeIn>
             ))}
           </div>
