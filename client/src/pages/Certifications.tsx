@@ -226,7 +226,7 @@ export default function Certifications() {
       </section>
 
       {/* ── Audits Sociaux ── */}
-      <section className="py-20 bg-background border-t border-border/40" data-testid="social-audits-section">
+      <section className="py-20 bg-white border-t border-border/40" data-testid="social-audits-section">
         <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
             <div className="flex items-center gap-3 mb-10">
@@ -284,7 +284,7 @@ export default function Certifications() {
       </section>
 
       {/* ── ZRP Link ── */}
-      <section className="py-20 bg-background border-t border-border/40">
+      <section className="py-20 bg-secondary/5 border-t border-secondary/15">
         <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
             <div className="max-w-4xl mx-auto bg-secondary/10 border border-secondary/20 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
