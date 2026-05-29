@@ -149,22 +149,21 @@ function CategorySection({ config }: { config: CategoryConfig }) {
     >
       <div
         className={cn(
-          "hidden lg:flex relative w-[34%] bg-gradient-to-br overflow-hidden flex-col justify-end",
+          "hidden lg:flex relative w-[34%] bg-gradient-to-br overflow-hidden flex-col justify-between",
           config.gradient
         )}
       >
-        <img
-          src={config.bgImage}
-          alt=""
-          aria-hidden
-          className="absolute inset-0 w-full h-full object-contain object-center opacity-[0.32] pointer-events-none select-none"
-        />
-        <div className="relative z-10 p-10 pb-12">
-          <p className="text-[48px] leading-none font-serif font-bold text-white/10 uppercase select-none pointer-events-none">
-            {config.label}
-          </p>
-          <div className="w-8 h-0.5 bg-white/20 mb-3 mt-2" />
-          <p className="text-white/40 text-sm font-medium tracking-wide">{config.subtitle}</p>
+        {/* Image produit nette, centrée */}
+        <div className="flex-1 flex items-center justify-center p-8">
+          <img
+            src={config.bgImage}
+            alt={config.label}
+            className="w-full max-w-[260px] object-contain drop-shadow-2xl"
+          />
+        </div>
+        <div className="relative z-10 px-10 pb-8">
+          <div className="w-8 h-0.5 bg-white/20 mb-3" />
+          <p className="text-white/50 text-sm font-medium tracking-wide">{config.subtitle}</p>
         </div>
       </div>
 
