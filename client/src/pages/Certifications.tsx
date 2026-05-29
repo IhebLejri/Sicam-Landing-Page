@@ -169,39 +169,25 @@ export default function Certifications() {
     <main className="flex min-h-screen flex-col">
 
       {/* ── Hero ── */}
-      <section className="relative pt-36 pb-24 overflow-hidden" style={{ minHeight: 440 }}>
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?q=80&w=2070&auto=format&fit=crop"
-            alt=""
-            aria-hidden
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1a1714]/80 via-[#1a1714]/60 to-[#1a1714]" />
+      <section className="relative flex items-center bg-gradient-to-b from-primary/95 to-primary overflow-hidden" style={{ minHeight: 420, paddingTop: 96, paddingBottom: 80 }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+          <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full -translate-y-1/2 -translate-x-1/2 blur-3xl" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 md:px-8 max-w-4xl text-center">
+        <div className="relative z-10 container mx-auto px-6 md:px-8 max-w-4xl text-center w-full">
           <FadeIn>
-            <p className="text-[11px] font-display font-semibold tracking-[0.2em] text-white/30 uppercase mb-6">
+            <p className="text-[11px] font-display font-semibold tracking-[0.2em] text-white/40 uppercase mb-6">
               Transparence & Exigence
             </p>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight" data-testid="rse-title">
               Nos Engagements RSE
             </h1>
-            <p className="text-lg text-white/50 max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed font-light">
               Chaque certification est une promesse vérifiée par un organisme indépendant. Qualité, sécurité alimentaire, éthique sociale, conformité environnementale — nos engagements couvrent l'ensemble de notre chaîne de valeur.
             </p>
           </FadeIn>
         </div>
       </section>
-
-      {/* ── Séparateur décoratif ── */}
-      <div className="relative z-10 flex items-center justify-center -mt-px">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-        <div className="absolute w-8 h-8 rounded-full border border-primary/40 bg-[#1a1714] flex items-center justify-center">
-          <div className="w-2 h-2 rounded-full bg-primary/60" />
-        </div>
-      </div>
 
       {/* ── Certifications — style Mutti ── */}
       <section

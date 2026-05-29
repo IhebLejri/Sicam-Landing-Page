@@ -91,11 +91,11 @@ export default function NotreHistoire() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* ── Hero ── */}
-      <section className="relative pt-36 pb-24 bg-gradient-to-b from-primary/95 to-primary overflow-hidden">
+      <section className="relative flex items-center bg-gradient-to-b from-primary/95 to-primary overflow-hidden" style={{ minHeight: 420, paddingTop: 96, paddingBottom: 80 }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full -translate-y-1/2 -translate-x-1/2 blur-3xl" />
         </div>
-        <div className="container mx-auto px-6 md:px-8 relative z-10 text-center max-w-4xl">
+        <div className="container mx-auto px-6 md:px-8 relative z-10 text-center max-w-4xl w-full">
           <FadeIn>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight" data-testid="histoire-title">
               L'Héritage SICAM : Une passion tunisienne, une excellence mondiale.
