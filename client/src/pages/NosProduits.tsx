@@ -1,4 +1,4 @@
-import heroBg from "@assets/image_1780056568437.png";
+import heroBg from "@assets/b33147d2-c1c9-4639-9e5a-5abc6d4d0116_1780073067246.jpeg";
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { FadeIn } from "@/components/ui/fade-in";
@@ -340,11 +340,11 @@ export default function NosProduits() {
     <main className="flex min-h-screen flex-col">
 
       {/* Hero — split texte gauche / image droite */}
-      <section className="relative flex overflow-hidden pt-20">
+      <section className="relative flex overflow-hidden">
         <div className="flex flex-col lg:flex-row w-full">
 
           {/* Panneau gauche — texte sur fond sombre */}
-          <div className="w-full lg:w-1/2 bg-[#1a0a0e] flex flex-col justify-center px-6 md:px-16 lg:px-20 pt-12 pb-12 min-w-0">
+          <div className="w-full lg:w-1/2 bg-[#1a0a0e] flex flex-col justify-center px-6 md:px-16 lg:px-20 pt-32 pb-12 min-w-0">
             <FadeIn>
               <p className="text-[11px] font-display font-semibold tracking-[0.2em] text-white/30 uppercase mb-6">
                 100 % tunisien · Du champ à votre table
