@@ -344,7 +344,7 @@ export default function NosProduits() {
         <div className="flex flex-col lg:flex-row w-full">
 
           {/* Panneau gauche — texte sur fond sombre */}
-          <div className="w-full lg:w-1/2 bg-[#1a0a0e] flex flex-col justify-center px-6 md:px-16 lg:px-20 pt-20 pb-20 min-w-0">
+          <div className="w-full lg:w-1/2 bg-[#1a0a0e] flex flex-col justify-center px-6 md:px-16 lg:px-20 pt-12 pb-12 min-w-0">
             <FadeIn>
               <p className="text-[11px] font-display font-semibold tracking-[0.2em] text-white/30 uppercase mb-6">
                 100 % tunisien · Du champ à votre table
@@ -384,7 +384,7 @@ export default function NosProduits() {
             <img
               src={heroBg}
               alt="Gamme SICAM"
-              className="absolute inset-0 w-full h-full object-cover object-[center_25%]"
+              className="absolute inset-0 w-full h-full object-contain object-center"
             />
           </div>
 
