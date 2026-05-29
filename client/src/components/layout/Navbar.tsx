@@ -23,7 +23,7 @@ const navLinks = [
   { href: "/notre-histoire", label: "Notre Histoire" },
   { href: "/nos-valeurs", label: "Nos Valeurs" },
   { href: "/nos-produits", label: "Nos Produits", hasMenu: true },
-  { href: "/nos-engagements-rse", label: "Engagements RSE" },
+  { href: "/nos-engagements-rse", label: "Nos Engagements RSE" },
   { href: "/zrp", label: "Programme ZRP" },
 ];
 
