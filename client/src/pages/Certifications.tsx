@@ -232,7 +232,7 @@ export default function Certifications() {
               <p className="text-[10px] font-display font-semibold tracking-[0.2em] text-foreground/40 uppercase">Responsabilité sociale</p>
             </div>
             <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4" data-testid="social-title">
-              Audits sociaux
+              Audits sociaux <span className="text-primary">2025</span>
             </h2>
             <p className="text-muted-foreground text-base leading-relaxed mb-12 max-w-2xl">
               Nos pratiques sociales sont auditées de façon indépendante pour garantir des conditions de travail dignes et conformes aux standards internationaux.
