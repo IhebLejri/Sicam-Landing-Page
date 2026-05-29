@@ -380,11 +380,11 @@ export default function NosProduits() {
           </div>
 
           {/* Panneau droit — image, masqué sur mobile */}
-          <div className="hidden lg:block lg:w-1/2 relative">
+          <div className="hidden lg:block lg:w-1/2 relative bg-[#f2e8d8]">
             <img
               src={heroBg}
               alt="Gamme SICAM"
-              className="absolute inset-0 w-full h-full object-cover object-bottom"
+              className="absolute inset-0 w-full h-full object-contain object-center"
             />
           </div>
 
