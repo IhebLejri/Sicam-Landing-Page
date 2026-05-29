@@ -61,7 +61,7 @@ const slides = [
     cta: { label: "Découvrir le programme ZRP", href: "/zrp" },
     bg: imgZRP4,
     bgColor: "#0c2d18",
-    objectFit: "cover" as const,
+    objectFit: "contain" as const,
   },
 ];
 
