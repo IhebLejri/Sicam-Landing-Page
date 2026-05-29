@@ -8,6 +8,7 @@ import certIFS from "@assets/Certificat_IFS_Food_V8_SICAM_SA_2025_1773061885566.
 import certFDA from "@assets/Certificate_of_Facility_Registration_-_SOCIETE_INDUSTRIELLE_DE_1773061885566.pdf";
 import certBRCGS from "@assets/SICAM_BRCGS_Certificate_2025_1773061885567.pdf";
 import certVLabelFR from "@assets/V_LABEL_FR_1773061885568.pdf";
+import certZRP from "@assets/Certification_ZRP_1780068144758.pdf";
 
 interface Certification {
   id: string;
@@ -19,6 +20,13 @@ interface Certification {
 
 const certifications: Certification[] = [
   {
+    id: "qse",
+    name: "QSE (ISO 9001/ISO 45001 et ISO 14001)",
+    history: "Obtenu en 2025",
+    markets: "Tous marchés",
+    pdf: certQSE,
+  },
+  {
     id: "ifs",
     name: "IFS FOOD V8",
     history: "Depuis 2019 — Note 97,22%",
@@ -26,42 +34,18 @@ const certifications: Certification[] = [
     pdf: certIFS,
   },
   {
+    id: "zrp",
+    name: "ZRP",
+    history: "Certification CCPB N° 02/2025/10",
+    markets: "Tous marchés",
+    pdf: certZRP,
+  },
+  {
     id: "brcgs",
-    name: "BRCGS FOOD SAFETY V9",
+    name: "BRC FOOD SAFETY V9",
     history: "V8 depuis 2021 · V9 en 2023 · Grade A 2025",
     markets: "Royaume-Uni & marchés anglosaxons",
     pdf: certBRCGS,
-  },
-  {
-    id: "fda",
-    name: "FDA",
-    history: "Depuis 2014",
-    markets: "États-Unis & Canada",
-    pdf: certFDA,
-  },
-  {
-    id: "halal",
-    name: "CERTIFICATION HALAL",
-    history: "Depuis 2015",
-    markets: "Afrique du Nord · Moyen-Orient · Europe",
-  },
-  {
-    id: "ics",
-    name: "ICS",
-    history: "Depuis 2021",
-    markets: "Grandes enseignes européennes",
-  },
-  {
-    id: "smeta",
-    name: "SMETA",
-    history: "Depuis 2024",
-    markets: "Europe du Nord · Royaume-Uni · Amérique du Nord",
-  },
-  {
-    id: "bsci",
-    name: "AMFORI BSCI",
-    history: "Depuis 2021 · Audit 2025",
-    markets: "Enseignes RSE Europe du Nord",
   },
   {
     id: "vlabel",
@@ -71,11 +55,11 @@ const certifications: Certification[] = [
     pdf: certVLabelFR,
   },
   {
-    id: "qse",
-    name: "QSE",
-    history: "Obtenu en 2025",
-    markets: "Tous marchés",
-    pdf: certQSE,
+    id: "fda",
+    name: "FDA",
+    history: "Depuis 2014",
+    markets: "États-Unis & Canada",
+    pdf: certFDA,
   },
 ];
 
@@ -232,7 +216,7 @@ export default function Certifications() {
               <p className="text-[10px] font-display font-semibold tracking-[0.2em] text-foreground/40 uppercase">Responsabilité sociale</p>
             </div>
             <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4" data-testid="social-title">
-              Audits sociaux <span className="text-primary">2025</span>
+              Audits sociaux 2025
             </h2>
             <p className="text-muted-foreground text-base leading-relaxed mb-12 max-w-2xl">
               Nos pratiques sociales sont auditées de façon indépendante pour garantir des conditions de travail dignes et conformes aux standards internationaux.

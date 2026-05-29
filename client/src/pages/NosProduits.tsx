@@ -384,7 +384,7 @@ export default function NosProduits() {
             <img
               src={heroBg}
               alt="Gamme SICAM"
-              className="absolute inset-0 w-full h-full object-cover object-center"
+              className="absolute inset-0 w-full h-full object-cover object-top"
             />
           </div>
 
