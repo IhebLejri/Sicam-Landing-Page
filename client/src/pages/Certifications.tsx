@@ -226,17 +226,17 @@ export default function Certifications() {
       </section>
 
       {/* ── Audits Sociaux ── */}
-      <section className="py-20 bg-[#141110]" data-testid="social-audits-section">
+      <section className="py-20 bg-background border-t border-border/40" data-testid="social-audits-section">
         <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
             <div className="flex items-center gap-3 mb-10">
               <div className="w-8 h-0.5 bg-secondary" />
-              <p className="text-[10px] font-display font-semibold tracking-[0.2em] text-white/30 uppercase">Responsabilité sociale</p>
+              <p className="text-[10px] font-display font-semibold tracking-[0.2em] text-foreground/40 uppercase">Responsabilité sociale</p>
             </div>
-            <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4" data-testid="social-title">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4" data-testid="social-title">
               Audits sociaux
             </h2>
-            <p className="text-white/50 text-sm leading-relaxed mb-12 max-w-2xl">
+            <p className="text-muted-foreground text-sm leading-relaxed mb-12 max-w-2xl">
               Nos pratiques sociales sont auditées de façon indépendante pour garantir des conditions de travail dignes et conformes aux standards internationaux.
             </p>
           </FadeIn>
@@ -261,17 +261,17 @@ export default function Certifications() {
               },
             ].map((audit, i) => (
               <FadeIn key={audit.id} delay={i * 0.1} direction="up">
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-4 h-full" data-testid={`audit-card-${audit.id}`}>
+                <div className="bg-white border border-border rounded-2xl p-6 flex flex-col gap-4 h-full shadow-sm" data-testid={`audit-card-${audit.id}`}>
                   <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0", audit.color)}>
                     <Users size={22} className="text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-base text-white mb-1">{audit.name}</h3>
-                    <p className="text-white/50 text-xs mb-3">{audit.subtitle}</p>
-                    <p className="text-white/70 text-sm leading-relaxed">{audit.text}</p>
+                    <h3 className="font-bold text-base text-foreground mb-1">{audit.name}</h3>
+                    <p className="text-muted-foreground text-xs mb-3">{audit.subtitle}</p>
+                    <p className="text-foreground/70 text-sm leading-relaxed">{audit.text}</p>
                   </div>
-                  <div className="border-t border-white/10 pt-3">
-                    <div className="flex items-center gap-2 text-white/40">
+                  <div className="border-t border-border pt-3">
+                    <div className="flex items-center gap-2 text-muted-foreground">
                       <Calendar size={12} />
                       <span className="text-[11px]">{audit.history}</span>
                     </div>
@@ -284,16 +284,16 @@ export default function Certifications() {
       </section>
 
       {/* ── ZRP Link ── */}
-      <section className="py-20 bg-[#1a1714] border-t border-white/5">
+      <section className="py-20 bg-background border-t border-border/40">
         <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
             <div className="max-w-4xl mx-auto bg-secondary/10 border border-secondary/20 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
               <div className="flex-1">
                 <p className="text-[10px] font-display font-semibold tracking-[0.2em] text-secondary/70 uppercase mb-3">Notre engagement le plus ambitieux</p>
-                <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">
+                <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-4">
                   Programme Zéro Résidu de Pesticides — ZRP
                 </h2>
-                <p className="text-white/60 text-sm leading-relaxed">
+                <p className="text-foreground/60 text-sm leading-relaxed">
                   Au-delà des certifications standards, SICAM a développé le programme ZRP — certifié par l'organisme indépendant CCPB — garantissant zéro résidu détectable de pesticides dans ses tomates.
                 </p>
               </div>
