@@ -17,9 +17,9 @@ export default function ZRP() {
       <section className="relative flex overflow-hidden pt-20">
         <div className="flex flex-col lg:flex-row w-full">
           {/* Left panel — text on solid green */}
-          <div className="w-full lg:w-1/2 bg-secondary flex flex-col justify-start px-6 md:px-16 lg:px-20 pt-8 pb-10 lg:pb-4 min-w-0">
+          <div className="w-full lg:w-1/2 bg-secondary flex flex-col justify-center px-6 md:px-16 lg:px-20 pt-16 pb-14 min-w-0">
             <FadeIn>
-              <img src={logoZrp} alt="ZRP Logo" className="h-14 md:h-16 mb-4 drop-shadow-2xl" data-testid="zrp-logo" />
+              <img src={logoZrp} alt="ZRP Logo" className="h-20 md:h-24 mb-8 drop-shadow-2xl" data-testid="zrp-logo" />
             </FadeIn>
             <FadeIn delay={0.1}>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-6" data-testid="hero-title">
