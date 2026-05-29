@@ -51,23 +51,27 @@ function ProductCarousel({
 
   return (
     <div className={cn("flex-1 flex flex-col items-center justify-center py-6 relative select-none", portraitCrop ? "px-14 md:px-16 lg:px-20" : "px-5 md:px-10")}>
-      <button
-        onClick={prev}
-        className={cn("absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm hover:shadow-md transition-all z-10", accent)}
-        aria-label="Produit précédent"
-        data-testid={`carousel-prev-${products[0]?.category ?? "zrp"}`}
-      >
-        <ChevronLeft size={17} />
-      </button>
+      {products.length > 1 && (
+        <button
+          onClick={prev}
+          className={cn("absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm hover:shadow-md transition-all z-10", accent)}
+          aria-label="Produit précédent"
+          data-testid={`carousel-prev-${products[0]?.category ?? "zrp"}`}
+        >
+          <ChevronLeft size={17} />
+        </button>
+      )}
 
-      <button
-        onClick={next}
-        className={cn("absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm hover:shadow-md transition-all z-10", accent)}
-        aria-label="Produit suivant"
-        data-testid={`carousel-next-${products[0]?.category ?? "zrp"}`}
-      >
-        <ChevronRight size={17} />
-      </button>
+      {products.length > 1 && (
+        <button
+          onClick={next}
+          className={cn("absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm hover:shadow-md transition-all z-10", accent)}
+          aria-label="Produit suivant"
+          data-testid={`carousel-next-${products[0]?.category ?? "zrp"}`}
+        >
+          <ChevronRight size={17} />
+        </button>
+      )}
 
       <Link
         href={`/nos-produits/${product.id}`}
@@ -113,26 +117,29 @@ function ProductCarousel({
         </p>
       </Link>
 
-      <div className="flex gap-1.5 mt-5" role="tablist">
-        {products.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIdx(i)}
-            role="tab"
-            aria-selected={i === idx}
-            className={cn(
-              "h-1.5 rounded-full transition-all duration-300",
-              i === idx ? `w-6 ${dotActive}` : "w-1.5 bg-slate-300 hover:bg-slate-400"
-            )}
-            aria-label={`Produit ${i + 1}`}
-            data-testid={`dot-${i}`}
-          />
-        ))}
-      </div>
-
-      <p className="mt-2 text-[11px] text-slate-400 font-medium tracking-wide">
-        {idx + 1} / {products.length}
-      </p>
+      {products.length > 1 && (
+        <>
+          <div className="flex gap-1.5 mt-5" role="tablist">
+            {products.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIdx(i)}
+                role="tab"
+                aria-selected={i === idx}
+                className={cn(
+                  "h-1.5 rounded-full transition-all duration-300",
+                  i === idx ? `w-6 ${dotActive}` : "w-1.5 bg-slate-300 hover:bg-slate-400"
+                )}
+                aria-label={`Produit ${i + 1}`}
+                data-testid={`dot-${i}`}
+              />
+            ))}
+          </div>
+          <p className="mt-2 text-[11px] text-slate-400 font-medium tracking-wide">
+            {idx + 1} / {products.length}
+          </p>
+        </>
+      )}
     </div>
   );
 }
