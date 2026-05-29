@@ -208,8 +208,8 @@ export default function Certifications() {
 
         <div className="relative z-10 container mx-auto px-6 md:px-8">
           <FadeIn>
-            <h2 className="text-center text-[11px] font-display font-bold tracking-[0.2em] text-white/40 uppercase mb-16" data-testid="certs-grid-title">
-              9 certifications internationales actives — 2025
+            <h2 className="text-center text-2xl md:text-3xl font-serif font-bold text-white mb-14" data-testid="certs-grid-title">
+              Nos certifications actives en 2025
             </h2>
           </FadeIn>
 
