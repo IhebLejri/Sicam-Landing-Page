@@ -41,11 +41,11 @@ export default function ZRP() {
           </div>
 
           {/* Right panel — image, hidden on mobile */}
-          <div className="hidden lg:block lg:w-1/2 relative bg-[#0c2d18] min-h-[600px]">
+          <div className="hidden lg:block lg:w-1/2 relative bg-[#0c2d18]">
             <img
               src={heroBanner}
               alt="Gamme ZRP SICAM"
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
         </div>
