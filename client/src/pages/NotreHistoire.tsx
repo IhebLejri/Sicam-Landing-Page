@@ -71,14 +71,20 @@ const filiales = [
 ];
 
 const timelineEvents = [
-  { year: "2025", text: "Révolution Zéro Résidu de Pesticides — ZRP (Certification CCPB). Première mondiale pour le double concentré de tomate." },
-  { year: "2021", text: "Acquisition de SICAM PLANT (France) — expansion internationale sur le marché européen." },
-  { year: "2017", text: "Création de SICAM Agri (partenariat agricole intégré)." },
-  { year: "2015", text: "Ouverture Easy Open — innovation packaging." },
-  { year: "2012", text: "Création de PROCAN (autonomie sur l'emballage métallique)." },
-  { year: "2007", text: "Lancement de la gamme Tomates Pelées." },
-  { year: "1969", text: "Fondation de la société SICAM à Medjez El Bab." },
-  { year: "1958", text: "Youssef Bayahi lance la première entreprise, genèse du Groupe." },
+  { year: "2025", text: "Révolution Zéro Résidu de Pesticides — ZRP (Certification)." },
+  { year: "2024", text: "Transition au gaz naturel et activation de la station de traitement des eaux STEP." },
+  { year: "2023", text: "Lancement de la nouvelle ligne de production GTP." },
+  { year: "2022", text: "Atteinte de la capacité quotidienne de 10 000 tonnes." },
+  { year: "2021", text: "Acquisition de la filiale PLANT en France." },
+  { year: "2020", text: "Entrée du fonds d'investissement ADP III comme partenaire financier et stratégique." },
+  { year: "2019", text: "Exploitation de l'usine El Baraka pour renforcer la capacité de production." },
+  { year: "2018", text: "Augmentation de la capacité à 5 000 tonnes/jour." },
+  { year: "2017", text: "Création de SICAM Agri pour renforcer le partenariat avec les agriculteurs." },
+  { year: "2016", text: "Augmentation de la capacité de transformation à 3 500 tonnes/jour." },
+  { year: "2015", text: "Inauguration Easy Open." },
+  { year: "2012", text: "Création de la société PROCAN (fabrication de boîtes métalliques)." },
+  { year: "2007", text: "Lancement du produit tomate concentrée." },
+  { year: "1969", text: "Création de la société." },
 ];
 
 export default function NotreHistoire() {
