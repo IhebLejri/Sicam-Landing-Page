@@ -241,19 +241,20 @@ function ZRPSection() {
       className="flex flex-col lg:flex-row min-h-[480px] lg:min-h-[520px] border-b border-slate-100 scroll-mt-16"
       data-testid="section-zrp"
     >
-      <div className="hidden lg:flex relative w-[34%] bg-gradient-to-br from-[#0c4a20] via-[#186030] to-[#1e7a38] overflow-hidden flex-col justify-end">
-        <img
-          src={logoZrp}
-          alt=""
-          aria-hidden
-          className="absolute inset-0 w-full h-full object-contain opacity-[0.08] scale-125 pointer-events-none select-none"
-        />
-        <div className="relative z-10 p-10 pb-12">
-          <p className="text-[52px] leading-tight font-serif font-bold text-white/10 uppercase select-none pointer-events-none">
-            Zéro Résidu
-          </p>
-          <div className="w-8 h-0.5 bg-white/20 mb-3 mt-2" />
-          <p className="text-white/40 text-sm font-medium tracking-wide">Certifié CCPB — Première mondiale</p>
+      <div className="hidden lg:flex relative w-[34%] bg-gradient-to-br from-[#0c4a20] via-[#186030] to-[#1e7a38] overflow-hidden flex-col justify-between">
+        {/* Image du premier produit ZRP, nette et centrée */}
+        <div className="flex-1 flex items-center justify-center p-8">
+          {products[0] && (
+            <img
+              src={products[0].image}
+              alt={products[0].name}
+              className="w-full max-w-[220px] object-contain drop-shadow-2xl"
+            />
+          )}
+        </div>
+        <div className="relative z-10 px-10 pb-8">
+          <div className="w-8 h-0.5 bg-white/20 mb-3" />
+          <p className="text-white/50 text-sm font-medium tracking-wide">Certifié CCPB — Première mondiale</p>
         </div>
       </div>
 
@@ -292,7 +293,7 @@ function ZRPSection() {
         </div>
 
         <div className="flex-1 bg-[hsl(150,20%,97%)]">
-          <ProductCarousel products={products} accentColor="secondary" />
+          <ProductCarousel products={products} accentColor="secondary" portraitCrop />
         </div>
       </div>
     </section>
