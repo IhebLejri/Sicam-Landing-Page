@@ -169,7 +169,7 @@ export default function Certifications() {
     <main className="flex min-h-screen flex-col">
 
       {/* ── Hero ── */}
-      <section className="relative flex items-center bg-gradient-to-b from-primary/95 to-primary overflow-hidden" style={{ minHeight: 420, paddingTop: 96, paddingBottom: 80 }}>
+      <section className="relative flex items-center justify-center bg-gradient-to-b from-primary/95 to-primary overflow-hidden" style={{ minHeight: 520, paddingTop: 112, paddingBottom: 80 }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full -translate-y-1/2 -translate-x-1/2 blur-3xl" />
         </div>
