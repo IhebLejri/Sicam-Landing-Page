@@ -234,18 +234,19 @@ export default function Certifications() {
 
       {/* ── Section 1 — Nos engagements ── */}
       <section className="py-24 bg-white" data-testid="engagements-section">
-        <div className="container mx-auto px-6 md:px-8">
+        <div className="container mx-auto px-6 md:px-8 text-center">
           <FadeIn>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center justify-center gap-3 mb-4">
               <div className="w-8 h-0.5 bg-primary" />
               <p className="text-[10px] font-display font-semibold tracking-[0.2em] text-foreground/40 uppercase">Notre démarche RSE</p>
+              <div className="w-8 h-0.5 bg-primary" />
             </div>
-            <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-14 max-w-2xl">
+            <h2 className="text-2xl md:text-4xl font-serif font-bold text-foreground mb-14">
               Nos engagements
             </h2>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto text-left">
             {engagements.map((eng, i) => (
               <FadeIn key={eng.id} delay={i * 0.08} direction="up">
                 <div
