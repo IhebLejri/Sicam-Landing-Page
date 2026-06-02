@@ -6,3 +6,9 @@ id = "ovlPJv0kyqypWDpzDuNKL"
 uri = "file://screenshots/nos-produits-hero.jpg"
 type = "image"
 title = "Nos Produits — hero banner (PC)"
+
+[[outputs]]
+id = "EUEJSPkvf1AXTx5T3jsqh"
+uri = "file://screenshots/certifications-hero.jpg"
+type = "image"
+title = "Nos Engagements RSE — hero corrigé"

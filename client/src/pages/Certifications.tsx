@@ -207,7 +207,7 @@ export default function Certifications() {
     <main className="flex min-h-screen flex-col">
 
       {/* ── Hero ── */}
-      <section className="relative flex items-center justify-center bg-gradient-to-b from-primary/95 to-primary overflow-hidden" style={{ minHeight: 560, paddingTop: 80, paddingBottom: 0 }}>
+      <section className="relative bg-gradient-to-b from-primary/95 to-primary overflow-hidden pt-36 pb-16">
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full -translate-y-1/2 -translate-x-1/2 blur-3xl" />
         </div>
@@ -301,7 +301,7 @@ export default function Certifications() {
       </section>
 
       {/* ── Section 3 — Chiffres clés ── */}
-      <section className="py-24 bg-[#1a1714]" data-testid="chiffres-section">
+      <section className="py-24 bg-gradient-to-b from-primary/95 to-primary" data-testid="chiffres-section">
         <div className="container mx-auto px-6 md:px-8">
           <FadeIn>
             <p className="text-[10px] font-display font-semibold tracking-[0.2em] text-white/30 uppercase mb-4 text-center">Notre impact en chiffres</p>
