@@ -6,9 +6,9 @@ import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/utils";
 
 import logoZrp from '@assets/Asset_3@2x_1779867553760.png';
-import imgTPC from '@assets/TPC-FR_1773059756213.png';
+import imgTPC from '@assets/TPC_ZRP_1780406363606.png';
 import imgTPE from '@assets/TPE_1773059756214.png';
-import imgTC from '@assets/TC_1773059756212.png';
+import imgTC from '@assets/ZRP_TC_1780406374632.png';
 import imgDCTDramatic from '@assets/WhatsApp_Image_2026-05-25_at_15.42.36_1779867553758.jpeg';
 import imgZRP4 from '@assets/WhatsApp_Image_2026-05-25_at_15.42.37_1779867553759.jpeg';
 
