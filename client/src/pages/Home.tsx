@@ -122,7 +122,7 @@ function HeroCarousel() {
             className={cn(
               "animate-fade-in-up transition-all duration-500",
               slide.objectFit === "cover"
-                ? "absolute inset-0 w-full h-full object-cover"
+                ? "absolute inset-0 w-full h-full object-cover object-right sm:object-center"
                 : "max-w-full max-h-[65%] w-auto object-contain drop-shadow-2xl px-8"
             )}
           />

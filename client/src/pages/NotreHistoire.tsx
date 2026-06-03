@@ -310,7 +310,7 @@ export default function NotreHistoire() {
                     <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-primary border-4 border-white shadow-sm -translate-x-1/2 mt-2 z-10" />
 
                     <div className={cn(
-                      "ml-12 md:ml-0 md:w-[45%]",
+                      "ml-12 flex-1 md:flex-none md:ml-0 md:w-[45%]",
                       i % 2 === 0 ? "md:pr-10 md:text-right" : "md:pl-10 md:text-left"
                     )}>
                       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">

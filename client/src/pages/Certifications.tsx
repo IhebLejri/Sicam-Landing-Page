@@ -311,11 +311,11 @@ export default function Certifications() {
             </h2>
           </FadeIn>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto" style={{ gridAutoRows: "1fr" }}>
             {chiffres.map((c, i) => (
-              <FadeIn key={i} delay={i * 0.07} direction="up">
+              <FadeIn key={i} delay={i * 0.07} direction="up" className="h-full">
                 <div
-                  className="rounded-2xl border border-white/10 bg-white/5 p-7 flex flex-col items-center text-center gap-3"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-7 flex flex-col items-center justify-center text-center gap-3 h-full"
                   data-testid={`chiffre-${i}`}
                 >
                   <span className="text-3xl md:text-4xl font-serif font-bold text-accent leading-none">
