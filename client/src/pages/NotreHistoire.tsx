@@ -98,7 +98,7 @@ export default function NotreHistoire() {
         <div className="container mx-auto px-6 md:px-8 relative z-10 text-center max-w-4xl w-full">
           <FadeIn>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight" data-testid="histoire-title">
-              L'Héritage SICAM :<br />Une passion tunisienne, une excellence mondiale.
+              Une passion tunisienne, une excellence mondiale.
             </h1>
           </FadeIn>
         </div>

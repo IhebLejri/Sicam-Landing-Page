@@ -186,7 +186,7 @@ export default function NosValeurs() {
               <div className="flex flex-col sm:flex-row items-center gap-4 mb-4 text-center sm:text-left">
                 <img src={logoZrp} alt="Logo ZRP" className="w-16 h-16 object-contain flex-shrink-0" />
                 <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground">
-                  Des valeurs qui se voient. Dans nos champs. Dans nos boîtes.
+                  Des valeurs qui se voient. Dans nos champs.<br />Dans nos boîtes.
                 </h2>
               </div>
               <div className="w-16 h-1 bg-secondary rounded-full mb-6 sm:ml-20" />

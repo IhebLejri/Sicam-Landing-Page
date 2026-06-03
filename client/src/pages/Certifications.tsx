@@ -214,14 +214,11 @@ export default function Certifications() {
         <div className="relative z-10 container mx-auto px-6 md:px-8 max-w-6xl text-center w-full">
           <FadeIn>
             <p className="text-[11px] font-display font-semibold tracking-[0.2em] text-white/40 uppercase mb-6">
-              Transparence & Exigence
+              ENGAGEMENTS & CERTIFICATIONS
             </p>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4 leading-tight" data-testid="rse-title">
-              ENGAGEMENTS & CERTIFICATIONS
-            </h1>
-            <p className="text-xl md:text-2xl text-white/80 font-light mb-6">
               Des engagements mesurables. Des standards reconnus.
-            </p>
+            </h1>
             <p className="text-base text-white/60 leading-relaxed font-light mb-3">
               Depuis plus de cinquante ans, SICAM construit son développement autour d'une conviction simple : la performance durable repose sur la responsabilité.
             </p>
