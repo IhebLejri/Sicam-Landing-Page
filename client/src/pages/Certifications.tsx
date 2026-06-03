@@ -211,7 +211,7 @@ export default function Certifications() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full -translate-y-1/2 -translate-x-1/2 blur-3xl" />
         </div>
-        <div className="relative z-10 container mx-auto px-6 md:px-8 max-w-4xl text-center w-full">
+        <div className="relative z-10 container mx-auto px-6 md:px-8 max-w-6xl text-center w-full">
           <FadeIn>
             <p className="text-[11px] font-display font-semibold tracking-[0.2em] text-white/40 uppercase mb-6">
               Transparence & Exigence
@@ -246,7 +246,7 @@ export default function Certifications() {
             </h2>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto text-left">
             {engagements.map((eng, i) => (
               <FadeIn key={eng.id} delay={i * 0.08} direction="up">
                 <div
