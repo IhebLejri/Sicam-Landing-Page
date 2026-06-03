@@ -217,7 +217,7 @@ export default function Certifications() {
               ENGAGEMENTS & CERTIFICATIONS
             </p>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4 leading-tight" data-testid="rse-title">
-              Des engagements mesurables. Des standards reconnus.
+              Des engagements mesurables.<br />Des standards reconnus.
             </h1>
             <p className="text-base text-white/60 leading-relaxed font-light mb-3">
               Depuis plus de cinquante ans, SICAM construit son développement autour d'une conviction simple : la performance durable repose sur la responsabilité.
