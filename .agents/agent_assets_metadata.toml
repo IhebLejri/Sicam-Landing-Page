@@ -24,3 +24,9 @@ id = "PEBOHaRSXiSF0fEbXYixf"
 uri = "file://screenshots/engagements-hero-v2.jpg"
 type = "image"
 title = "Nos Engagements RSE — texte 2 lignes"
+
+[[outputs]]
+id = "1gaNpoZFRfhlhlvMls-OV"
+uri = "file://screenshots/engagements-hero-v3.jpg"
+type = "image"
+title = "Nos Engagements RSE — texte original pleine largeur"

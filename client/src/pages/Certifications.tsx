@@ -222,8 +222,11 @@ export default function Certifications() {
             <p className="text-xl md:text-2xl text-white/80 font-light mb-6">
               Des engagements mesurables. Des standards reconnus.
             </p>
-            <p className="text-base text-white/60 max-w-5xl mx-auto leading-relaxed font-light">
-              Depuis plus de cinquante ans, SICAM engage des investissements continus et des processus rigoureux pour répondre à sa responsabilité envers les consommateurs, les agriculteurs partenaires, les collaborateurs et l'environnement.
+            <p className="text-base text-white/60 leading-relaxed font-light mb-3">
+              Depuis plus de cinquante ans, SICAM construit son développement autour d'une conviction simple : la performance durable repose sur la responsabilité.
+            </p>
+            <p className="text-base text-white/60 leading-relaxed font-light">
+              Responsabilité envers les consommateurs, envers les agriculteurs partenaires, envers les collaborateurs et envers l'environnement qui rend notre activité possible. Cette exigence se traduit par des investissements continus, des processus rigoureux et des certifications internationales reconnues qui attestent de notre engagement au quotidien.
             </p>
           </FadeIn>
         </div>
