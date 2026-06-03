@@ -18,3 +18,9 @@ id = "kvQAC-D8DDoE89hQwOiJN"
 uri = "file://screenshots/engagements-updated.jpg"
 type = "image"
 title = "Nos Engagements RSE — banner élargi"
+
+[[outputs]]
+id = "PEBOHaRSXiSF0fEbXYixf"
+uri = "file://screenshots/engagements-hero-v2.jpg"
+type = "image"
+title = "Nos Engagements RSE — texte 2 lignes"
