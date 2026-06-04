@@ -300,6 +300,21 @@ export default function Certifications() {
               </FadeIn>
             ))}
           </div>
+
+          {/* ── Encart RSE ── */}
+          <FadeIn delay={0.3} direction="up">
+            <div className="max-w-7xl mx-auto mt-10 rounded-2xl border border-secondary/25 bg-secondary/6 p-8 md:p-10">
+              <h3 className="text-base font-bold text-secondary mb-3">Un engagement environnemental durable</h3>
+              <p className="text-sm text-foreground/70 leading-relaxed mb-3 italic">
+                La protection de l'environnement est au cœur de la stratégie de développement durable de SICAM.
+              </p>
+              <p className="text-sm text-foreground/60 leading-relaxed">
+                À travers ses investissements dans la transition énergétique et la gestion responsable des ressources en eau, l'entreprise a consacré{" "}
+                <strong className="font-semibold text-foreground/80">plus de 20 millions de dinars tunisiens</strong>{" "}
+                à son programme environnemental. Ces investissements témoignent de l'engagement de SICAM en faveur du développement durable, de la réduction de son empreinte environnementale et de la préservation des ressources naturelles pour les générations futures.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
