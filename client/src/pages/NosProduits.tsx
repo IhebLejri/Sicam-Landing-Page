@@ -203,7 +203,7 @@ function CategorySection({ config }: { config: CategoryConfig }) {
           <div className="mt-auto pt-5 border-t border-slate-100">
             {firstProduct && (
               <>
-                {products.length > 1 ? (
+                {products.length > 1 && config.key !== "packs" ? (
                   <div className="space-y-2">
                     {(() => {
                       const byName: Record<string, {id: string; formats: string}[]> = {};
