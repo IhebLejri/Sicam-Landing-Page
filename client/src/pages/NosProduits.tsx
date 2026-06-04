@@ -209,9 +209,13 @@ function CategorySection({ config }: { config: CategoryConfig }) {
                   )];
                   return (
                     <>
-                      <p className="text-sm text-slate-500 font-medium mb-3">
-                        {distinctFormats.join(" | ")}
-                      </p>
+                      <div className="flex flex-wrap gap-1.5 mb-3">
+                        {distinctFormats.map(fmt => (
+                          <span key={fmt} className="px-2 py-1 bg-slate-100 text-slate-600 text-[11px] font-medium rounded-full whitespace-nowrap">
+                            {fmt}
+                          </span>
+                        ))}
+                      </div>
                       <div className="flex flex-wrap gap-1.5">
                         {firstProduct.zrp && (
                           <span className="inline-flex items-center gap-1 px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded-full">
