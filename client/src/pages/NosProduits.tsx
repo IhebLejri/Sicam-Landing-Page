@@ -208,7 +208,10 @@ function CategorySection({ config }: { config: CategoryConfig }) {
                     {(() => {
                       const byName: Record<string, {id: string; formats: string}[]> = {};
                       products.forEach(p => {
-                        const baseName = p.name.replace(/\s+(Tube\s+)?\d+g\s*$/i, "").trim();
+                        const baseName = p.name
+                          .replace(/\s+\d+g\s*$/i, "")
+                          .replace(/\s+Tube\s*$/i, " En Tube")
+                          .trim();
                         if (!byName[baseName]) byName[baseName] = [];
                         byName[baseName].push({ id: p.id, formats: p.formats.replace(/^Boîte — /, "").replace(/^Tube — /, "") });
                       });
