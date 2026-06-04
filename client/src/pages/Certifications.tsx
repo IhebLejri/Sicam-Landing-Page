@@ -85,7 +85,13 @@ const engagements = [
     title: "Réduire notre empreinte environnementale",
     intro: "La transition environnementale est intégrée à notre stratégie industrielle.",
     body: "Au cours des dernières années, SICAM a engagé un programme d'investissements majeur visant à réduire l'impact environnemental de ses activités, notamment à travers l'amélioration de l'efficacité énergétique de ses sites de production, la réduction des émissions atmosphériques et le développement de solutions plus respectueuses des ressources naturelles.",
-    body2: "Dans ce cadre, SICAM a investi 4,15 millions de dinars tunisiens dans un projet de conversion énergétique permettant d'abandonner progressivement l'utilisation du fuel lourd au profit du gaz naturel. Cette initiative contribue à la réduction de l'empreinte carbone de l'entreprise et participe à une économie estimée à 40 % de la consommation de fuel lourd du secteur.",
+    body2: [
+      { text: "Dans ce cadre, SICAM a investi " },
+      { text: "4,15 millions de dinars tunisiens", bold: true },
+      { text: " dans un projet de conversion énergétique permettant d'abandonner progressivement l'utilisation du fuel lourd au profit du gaz naturel. Cette initiative contribue à la réduction de l'empreinte carbone de l'entreprise et participe à une économie estimée à " },
+      { text: "40 % de la consommation de fuel lourd du secteur", bold: true },
+      { text: "." },
+    ],
     bodyAfter: "Le raccordement de nos unités de production au réseau de gaz naturel constitue ainsi une étape majeure de cette transformation, avec une réduction significative des émissions de gaz à effet de serre liées à nos opérations industrielles.",
   },
   {
@@ -98,7 +104,11 @@ const engagements = [
     title: "Préserver les ressources en eau",
     intro: "L'eau est une ressource essentielle pour l'agriculture comme pour l'industrie agroalimentaire.",
     body: "Consciente de cette responsabilité, SICAM a investi dans des infrastructures de traitement et de gestion des eaux permettant de réduire l'impact de ses activités sur les écosystèmes locaux.",
-    body2: "Dans le cadre de sa démarche environnementale, SICAM a consacré 16 millions de dinars tunisiens à la mise en place d'infrastructures dédiées à la gestion durable des ressources hydriques, comprenant :",
+    body2: [
+      { text: "Dans le cadre de sa démarche environnementale, SICAM a consacré " },
+      { text: "16 millions de dinars tunisiens", bold: true },
+      { text: " à la mise en place d'infrastructures dédiées à la gestion durable des ressources hydriques, comprenant :" },
+    ],
     bullets: [
       "Une station de dessablage grossier ;",
       "Une station de traitement des eaux de déchargement ;",
@@ -268,7 +278,15 @@ export default function Certifications() {
                     </h3>
                     <p className="text-sm font-semibold text-foreground/70 mb-3 italic">{eng.intro}</p>
                     <p className="text-sm text-foreground/60 leading-relaxed">{eng.body}</p>
-                    {eng.body2 && <p className="text-sm text-foreground/60 leading-relaxed mt-2">{eng.body2}</p>}
+                    {eng.body2 && (
+                      <p className="text-sm text-foreground/60 leading-relaxed mt-2">
+                        {Array.isArray(eng.body2)
+                          ? eng.body2.map((seg: {text: string; bold?: boolean}, i: number) =>
+                              seg.bold ? <strong key={i} className="font-semibold text-foreground/80">{seg.text}</strong> : seg.text
+                            )
+                          : eng.body2}
+                      </p>
+                    )}
                     {eng.bullets && (
                       <ul className="mt-2 space-y-1 pl-4 list-disc text-sm text-foreground/60">
                         {eng.bullets.map((b: string, idx: number) => (
