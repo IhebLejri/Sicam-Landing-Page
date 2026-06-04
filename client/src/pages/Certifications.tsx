@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Users, Calendar, ShieldCheck, Leaf, Droplets, Sprout, Globe2 } from "lucide-react";
+import { ArrowRight, Users, Calendar, ShieldCheck, Leaf, Droplets, Sprout, Globe2, Recycle } from "lucide-react";
 
 import certQSE from "@assets/Certifcat_QSE_1773061885565.pdf";
 import certIFS from "@assets/Certificat_IFS_Food_V8_SICAM_SA_2025_1773061885566.pdf";
@@ -137,6 +137,21 @@ const engagements = [
     title: "Des certifications reconnues à l'échelle internationale",
     intro: "Les certifications constituent une reconnaissance indépendante de nos engagements et de nos pratiques.",
     body: "Elles attestent de la conformité de nos systèmes de management, de nos processus de production et de nos exigences en matière de qualité, de sécurité alimentaire et de traçabilité.",
+  },
+  {
+    id: "rse-durable",
+    icon: Recycle,
+    color: "bg-[#2e6b4f]",
+    colorText: "text-[#2e6b4f]",
+    colorLight: "bg-[#2e6b4f]/8",
+    borderColor: "border-[#2e6b4f]/20",
+    title: "Un engagement environnemental durable",
+    intro: "La protection de l'environnement est au cœur de la stratégie de développement durable de SICAM.",
+    body2: [
+      { text: "À travers ses investissements dans la transition énergétique et la gestion responsable des ressources en eau, l'entreprise a consacré " },
+      { text: "plus de 20 millions de dinars tunisiens", bold: true },
+      { text: " à son programme environnemental. Ces investissements témoignent de l'engagement de SICAM en faveur du développement durable, de la réduction de son empreinte environnementale et de la préservation des ressources naturelles pour les générations futures." },
+    ],
   },
 ];
 
@@ -301,20 +316,6 @@ export default function Certifications() {
             ))}
           </div>
 
-          {/* ── Encart RSE ── */}
-          <FadeIn delay={0.3} direction="up">
-            <div className="max-w-7xl mx-auto mt-10 rounded-2xl border border-secondary/25 bg-secondary/6 p-8 md:p-10">
-              <h3 className="text-base font-bold text-secondary mb-3">Un engagement environnemental durable</h3>
-              <p className="text-sm text-foreground/70 leading-relaxed mb-3 italic">
-                La protection de l'environnement est au cœur de la stratégie de développement durable de SICAM.
-              </p>
-              <p className="text-sm text-foreground/60 leading-relaxed">
-                À travers ses investissements dans la transition énergétique et la gestion responsable des ressources en eau, l'entreprise a consacré{" "}
-                <strong className="font-semibold text-foreground/80">plus de 20 millions de dinars tunisiens</strong>{" "}
-                à son programme environnemental. Ces investissements témoignent de l'engagement de SICAM en faveur du développement durable, de la réduction de son empreinte environnementale et de la préservation des ressources naturelles pour les générations futures.
-              </p>
-            </div>
-          </FadeIn>
         </div>
       </section>
 
