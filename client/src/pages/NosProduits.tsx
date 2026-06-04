@@ -168,11 +168,11 @@ function CategorySection({ config }: { config: CategoryConfig }) {
         {/* Voile pour adoucir le gradient */}
         <div className="absolute inset-0 bg-white/20 z-0" />
         {/* Image produit nette, centrée */}
-        <div className="flex-1 flex items-center justify-center p-8 relative z-10">
+        <div className={cn("flex-1 flex items-center justify-center relative z-10", config.key === "packs" ? "p-3" : "p-8")}>
           <img
             src={config.bgImage}
             alt={config.label}
-            className="w-full max-w-[340px] object-contain drop-shadow-2xl"
+            className={cn("object-contain drop-shadow-2xl", config.key === "packs" ? "w-full" : "w-full max-w-[340px]")}
           />
         </div>
         <div className="relative z-10 px-10 pb-8">
