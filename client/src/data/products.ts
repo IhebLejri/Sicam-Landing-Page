@@ -15,13 +15,13 @@ import harissa70 from "@assets/ETUI-&-TUBE-HARISSA-70g_1773059349699.png";
 import harissa140 from "@assets/ETUI-&-TUBE-HARISSA-140g_1779868415546.png";
 
 import confAbricot470 from "@assets/CON_Abricot_1780561408199.png";
-import confAbricot270 from "@assets/EXTRA-ABRICOT_1780561408198.png";
+import confAbricot270 from "@assets/EXTRA-ABRICOT-nobg_1780561408198.png";
 import confCoing470 from "@assets/Conf_Coing_1780561408200.png";
-import confCoing270 from "@assets/EXTRA-COING_1780561408198.png";
+import confCoing270 from "@assets/EXTRA-COING-nobg_1780561408198.png";
 import confFigue470 from "@assets/CON_Figue_1780561408199.png";
-import confFigue270 from "@assets/EXTRA-FIGUE_1780561408198.png";
+import confFigue270 from "@assets/EXTRA-FIGUE-nobg_1780561408198.png";
 import confFraise470 from "@assets/CONF_Fraise_1780561408197.png";
-import confFraise270 from "@assets/EXTRA-FRAISE_1780561408199.png";
+import confFraise270 from "@assets/EXTRA-FRAISE-nobg_1780561408199.png";
 
 import packTCA from "@assets/PACK_DE_3_TCA_nobg.png";
 import packTCP4 from "@assets/PACK_DE_3_TCP_4PCT_nobg.png";
