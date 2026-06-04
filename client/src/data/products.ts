@@ -152,7 +152,6 @@ export const categoryConfigs: CategoryConfig[] = [
     bgImage: packTPE,
     subtitle: "Format Pack 3 × 400g — Économique & pratique",
     description: "Nos produits phares conditionnés en pack de 3 boîtes 400g. Le format idéal pour les grandes familles, la restauration ou simplement faire des réserves sans jamais manquer de qualité SICAM. Tomates pelées, concassées, en cubes, sauce pizza et pulpe — toute la gamme en pack.",
-    portraitCrop: true,
   },
 ];
 

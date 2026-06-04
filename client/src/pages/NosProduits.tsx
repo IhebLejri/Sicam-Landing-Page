@@ -172,7 +172,7 @@ function CategorySection({ config }: { config: CategoryConfig }) {
           <img
             src={config.bgImage}
             alt={config.label}
-            className="w-full max-w-[260px] object-contain drop-shadow-2xl"
+            className="w-full max-w-[340px] object-contain drop-shadow-2xl"
           />
         </div>
         <div className="relative z-10 px-10 pb-8">
