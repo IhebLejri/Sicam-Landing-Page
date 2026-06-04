@@ -204,23 +204,30 @@ function CategorySection({ config }: { config: CategoryConfig }) {
             {firstProduct && (
               <>
                 {products.length > 1 ? (
-                  <div className="space-y-1.5">
-                    {products.map(p => (
-                      <Link
-                        key={p.id}
-                        href={`/nos-produits/${p.id}`}
-                        className="group flex items-baseline justify-between gap-3"
-                        data-testid={`cat-link-${p.id}`}
-                      >
-                        <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm leading-snug">
-                          {p.name}
-                        </span>
-                        <span className="text-[11px] text-slate-400 font-medium whitespace-nowrap shrink-0">
-                          {p.formats.replace(/^Boîte — /, "").replace(/^Tube — /, "")}
-                        </span>
-                      </Link>
-                    ))}
-                    <div className="flex flex-wrap gap-1.5 pt-2">
+                  <div className="space-y-2">
+                    {(() => {
+                      const byName: Record<string, {id: string; formats: string}[]> = {};
+                      products.forEach(p => {
+                        if (!byName[p.name]) byName[p.name] = [];
+                        byName[p.name].push({ id: p.id, formats: p.formats.replace(/^Boîte — /, "").replace(/^Tube — /, "") });
+                      });
+                      return Object.entries(byName).map(([name, entries]) => (
+                        <Link
+                          key={name}
+                          href={`/nos-produits/${entries[0].id}`}
+                          className="group block"
+                          data-testid={`cat-link-${entries[0].id}`}
+                        >
+                          <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm leading-snug block">
+                            {name}
+                          </span>
+                          <span className="text-[11px] text-slate-400 font-medium">
+                            {entries.map(e => e.formats).join(" | ")}
+                          </span>
+                        </Link>
+                      ));
+                    })()}
+                    <div className="flex flex-wrap gap-1.5 pt-1">
                       {firstProduct.zrp && (
                         <span className="inline-flex items-center gap-1 px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded-full">
                           <ShieldCheck size={10} />
