@@ -112,9 +112,14 @@ function ProductCarousel({
         className="group text-center block px-4"
         data-testid={`name-link-${product.id}`}
       >
-        <p className={cn("text-sm font-bold leading-snug transition-colors whitespace-nowrap mx-auto", accentColor === "secondary" ? "text-foreground group-hover:text-secondary" : "text-foreground group-hover:text-primary")}>
+        <p className={cn("text-sm font-bold leading-snug transition-colors mx-auto", accentColor === "secondary" ? "text-foreground group-hover:text-secondary" : "text-foreground group-hover:text-primary")}>
           {product.name}
         </p>
+        {product.formats && (
+          <p className="text-[11px] text-slate-400 font-medium mt-0.5">
+            {product.formats.replace(/^Boîte — /, "").replace(/^Tube — /, "")}
+          </p>
+        )}
       </Link>
 
       {products.length > 1 && (
@@ -198,29 +203,64 @@ function CategorySection({ config }: { config: CategoryConfig }) {
           <div className="mt-auto pt-5 border-t border-slate-100">
             {firstProduct && (
               <>
-                <Link
-                  href={`/nos-produits/${firstProduct.id}`}
-                  className="group"
-                  data-testid={`cat-link-first-${config.key}`}
-                >
-                  <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-base leading-snug mb-1.5">
-                    {firstProduct.name}
-                  </h3>
-                </Link>
-                <p className="text-xs text-slate-400 font-medium mb-2.5">{firstProduct.formats}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {firstProduct.zrp && (
-                    <span className="inline-flex items-center gap-1 px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded-full">
-                      <ShieldCheck size={10} />
-                      Zéro Résidu de Pesticides — ZRP
-                    </span>
-                  )}
-                  {firstProduct.tags.slice(0, 2).map(tag => (
-                    <span key={tag} className="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-medium rounded-full">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                {products.length > 1 ? (
+                  <div className="space-y-1.5">
+                    {products.map(p => (
+                      <Link
+                        key={p.id}
+                        href={`/nos-produits/${p.id}`}
+                        className="group flex items-baseline justify-between gap-3"
+                        data-testid={`cat-link-${p.id}`}
+                      >
+                        <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm leading-snug">
+                          {p.name}
+                        </span>
+                        <span className="text-[11px] text-slate-400 font-medium whitespace-nowrap shrink-0">
+                          {p.formats.replace(/^Boîte — /, "").replace(/^Tube — /, "")}
+                        </span>
+                      </Link>
+                    ))}
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {firstProduct.zrp && (
+                        <span className="inline-flex items-center gap-1 px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded-full">
+                          <ShieldCheck size={10} />
+                          ZRP
+                        </span>
+                      )}
+                      {firstProduct.tags.slice(0, 2).map(tag => (
+                        <span key={tag} className="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-medium rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <Link
+                      href={`/nos-produits/${firstProduct.id}`}
+                      className="group"
+                      data-testid={`cat-link-first-${config.key}`}
+                    >
+                      <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-base leading-snug mb-1.5">
+                        {firstProduct.name}
+                      </h3>
+                    </Link>
+                    <p className="text-xs text-slate-400 font-medium mb-2.5">{firstProduct.formats}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {firstProduct.zrp && (
+                        <span className="inline-flex items-center gap-1 px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded-full">
+                          <ShieldCheck size={10} />
+                          Zéro Résidu de Pesticides — ZRP
+                        </span>
+                      )}
+                      {firstProduct.tags.slice(0, 2).map(tag => (
+                        <span key={tag} className="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-medium rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </>
+                )}
               </>
             )}
           </div>
