@@ -203,75 +203,31 @@ function CategorySection({ config }: { config: CategoryConfig }) {
           <div className="mt-auto pt-5 border-t border-slate-100">
             {firstProduct && (
               <>
-                {products.length > 1 && config.key !== "packs" ? (
-                  <div className="space-y-2">
-                    {(() => {
-                      const byName: Record<string, {id: string; formats: string}[]> = {};
-                      products.forEach(p => {
-                        const baseName = p.name
-                          .replace(/\s+\d+g\s*$/i, "")
-                          .replace(/\s+Tube\s*$/i, " En Tube")
-                          .trim();
-                        if (!byName[baseName]) byName[baseName] = [];
-                        byName[baseName].push({ id: p.id, formats: p.formats.replace(/^Boîte — /, "").replace(/^Tube — /, "") });
-                      });
-                      return Object.entries(byName).map(([name, entries]) => (
-                        <Link
-                          key={name}
-                          href={`/nos-produits/${entries[0].id}`}
-                          className="group block"
-                          data-testid={`cat-link-${entries[0].id}`}
-                        >
-                          <span className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm leading-snug block">
-                            {name}
+                {(() => {
+                  const distinctFormats = [...new Set(
+                    products.map(p => p.formats.replace(/^Boîte — /, "").replace(/^Tube — /, ""))
+                  )];
+                  return (
+                    <>
+                      <p className="text-sm text-slate-500 font-medium mb-3">
+                        {distinctFormats.join(" | ")}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {firstProduct.zrp && (
+                          <span className="inline-flex items-center gap-1 px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded-full">
+                            <ShieldCheck size={10} />
+                            Zéro Résidu de Pesticides — ZRP
                           </span>
-                          <span className="text-[11px] text-slate-400 font-medium">
-                            {entries.map(e => e.formats).join(" | ")}
+                        )}
+                        {firstProduct.tags.slice(0, 2).map(tag => (
+                          <span key={tag} className="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-medium rounded-full">
+                            {tag}
                           </span>
-                        </Link>
-                      ));
-                    })()}
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      {firstProduct.zrp && (
-                        <span className="inline-flex items-center gap-1 px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded-full">
-                          <ShieldCheck size={10} />
-                          ZRP
-                        </span>
-                      )}
-                      {firstProduct.tags.slice(0, 2).map(tag => (
-                        <span key={tag} className="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-medium rounded-full">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    <Link
-                      href={`/nos-produits/${firstProduct.id}`}
-                      className="group"
-                      data-testid={`cat-link-first-${config.key}`}
-                    >
-                      <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-base leading-snug mb-1.5">
-                        {firstProduct.name}
-                      </h3>
-                    </Link>
-                    <p className="text-xs text-slate-400 font-medium mb-2.5">{firstProduct.formats}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {firstProduct.zrp && (
-                        <span className="inline-flex items-center gap-1 px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded-full">
-                          <ShieldCheck size={10} />
-                          Zéro Résidu de Pesticides — ZRP
-                        </span>
-                      )}
-                      {firstProduct.tags.slice(0, 2).map(tag => (
-                        <span key={tag} className="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] font-medium rounded-full">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </>
-                )}
+                        ))}
+                      </div>
+                    </>
+                  );
+                })()}
               </>
             )}
           </div>
