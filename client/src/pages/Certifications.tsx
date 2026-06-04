@@ -84,7 +84,9 @@ const engagements = [
     borderColor: "border-secondary/20",
     title: "Réduire notre empreinte environnementale",
     intro: "La transition environnementale est intégrée à notre stratégie industrielle.",
-    body: "Au cours des dernières années, SICAM a engagé un programme d'investissements majeur visant à réduire l'impact environnemental de ses activités, notamment à travers l'amélioration de l'efficacité énergétique de ses sites de production, la réduction des émissions atmosphériques et le développement de solutions plus respectueuses des ressources naturelles. Le raccordement de nos unités de production au réseau de gaz naturel constitue une étape majeure de cette transformation, avec une réduction significative des émissions de gaz à effet de serre liées à nos opérations industrielles.",
+    body: "Au cours des dernières années, SICAM a engagé un programme d'investissements majeur visant à réduire l'impact environnemental de ses activités, notamment à travers l'amélioration de l'efficacité énergétique de ses sites de production, la réduction des émissions atmosphériques et le développement de solutions plus respectueuses des ressources naturelles.",
+    body2: "Dans ce cadre, SICAM a investi 4,15 millions de dinars tunisiens dans un projet de conversion énergétique permettant d'abandonner progressivement l'utilisation du fuel lourd au profit du gaz naturel. Cette initiative contribue à la réduction de l'empreinte carbone de l'entreprise et participe à une économie estimée à 40 % de la consommation de fuel lourd du secteur.",
+    bodyAfter: "Le raccordement de nos unités de production au réseau de gaz naturel constitue ainsi une étape majeure de cette transformation, avec une réduction significative des émissions de gaz à effet de serre liées à nos opérations industrielles.",
   },
   {
     id: "eau",
@@ -95,7 +97,14 @@ const engagements = [
     borderColor: "border-blue-700/20",
     title: "Préserver les ressources en eau",
     intro: "L'eau est une ressource essentielle pour l'agriculture comme pour l'industrie agroalimentaire.",
-    body: "Consciente de cette responsabilité, SICAM a investi dans des infrastructures de traitement et de gestion des eaux permettant de réduire l'impact de ses activités sur les écosystèmes locaux. Nos installations dédiées au traitement des effluents industriels participent à la préservation durable des ressources hydriques et à la protection de l'environnement qui nous entoure.",
+    body: "Consciente de cette responsabilité, SICAM a investi dans des infrastructures de traitement et de gestion des eaux permettant de réduire l'impact de ses activités sur les écosystèmes locaux.",
+    body2: "Dans le cadre de sa démarche environnementale, SICAM a consacré 16 millions de dinars tunisiens à la mise en place d'infrastructures dédiées à la gestion durable des ressources hydriques, comprenant :",
+    bullets: [
+      "Une station de dessablage grossier ;",
+      "Une station de traitement des eaux de déchargement ;",
+      "Une station de traitement des effluents avant leur rejet vers l'Oued Medjerda.",
+    ],
+    bodyAfter: "Ces installations permettent d'assurer un traitement efficace des eaux industrielles et participent activement à la préservation durable des ressources hydriques ainsi qu'à la protection de l'environnement qui nous entoure.",
   },
   {
     id: "agriculture",
@@ -259,6 +268,15 @@ export default function Certifications() {
                     </h3>
                     <p className="text-sm font-semibold text-foreground/70 mb-3 italic">{eng.intro}</p>
                     <p className="text-sm text-foreground/60 leading-relaxed">{eng.body}</p>
+                    {eng.body2 && <p className="text-sm text-foreground/60 leading-relaxed mt-2">{eng.body2}</p>}
+                    {eng.bullets && (
+                      <ul className="mt-2 space-y-1 pl-4 list-disc text-sm text-foreground/60">
+                        {eng.bullets.map((b: string, idx: number) => (
+                          <li key={idx} className="leading-relaxed">{b}</li>
+                        ))}
+                      </ul>
+                    )}
+                    {eng.bodyAfter && <p className="text-sm text-foreground/60 leading-relaxed mt-2">{eng.bodyAfter}</p>}
                   </div>
                 </div>
               </FadeIn>
