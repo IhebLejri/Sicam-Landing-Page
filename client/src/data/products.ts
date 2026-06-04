@@ -14,10 +14,14 @@ import harissa760 from "@assets/H-760g_1773059349701.png";
 import harissa70 from "@assets/ETUI-&-TUBE-HARISSA-70g_1773059349699.png";
 import harissa140 from "@assets/ETUI-&-TUBE-HARISSA-140g_1779868415546.png";
 
-import confAbricot from "@assets/CONFITURE-ABRICOT_1773059334071.png";
-import confCoing from "@assets/CONFITURE-COING_1773059334071.png";
-import confFigue from "@assets/CONFITURE-FIGUE_1773059334072.png";
-import confFraise from "@assets/CONFITURE-FRAISE_1773059334072.png";
+import confAbricot470 from "@assets/CON_Abricot_1780561408199.png";
+import confAbricot270 from "@assets/EXTRA-ABRICOT_1780561408198.png";
+import confCoing470 from "@assets/Conf_Coing_1780561408200.png";
+import confCoing270 from "@assets/EXTRA-COING_1780561408198.png";
+import confFigue470 from "@assets/CON_Figue_1780561408199.png";
+import confFigue270 from "@assets/EXTRA-FIGUE_1780561408198.png";
+import confFraise470 from "@assets/CONF_Fraise_1780561408197.png";
+import confFraise270 from "@assets/EXTRA-FRAISE_1780561408199.png";
 
 import packTCA from "@assets/PACK_DE_3_TCA_nobg.png";
 import packTCP4 from "@assets/PACK_DE_3_TCP_4PCT_nobg.png";
@@ -45,7 +49,7 @@ import ficheTCP15 from "@assets/fiche10_1773061001090.png";
 import ficheHarissa from "@assets/fiche11_1773061001090.png";
 import ficheDCT from "@assets/fiche12_1773061001091.png";
 
-export { dct as bgTomates, harissa760 as bgHarissa, confFraise as bgConfitures };
+export { dct as bgTomates, harissa760 as bgHarissa, confFraise470 as bgConfitures };
 
 import logoZrpAsset from "@assets/Asset_3@2x_1779867553760.png";
 export { logoZrpAsset as logoZrp };
@@ -129,7 +133,7 @@ export const categoryConfigs: CategoryConfig[] = [
     key: "confitures",
     label: "Confitures",
     gradient: "from-[#5c2e10] via-[#8c5020] to-[#a86a30]",
-    bgImage: confFraise,
+    bgImage: confFraise470,
     subtitle: "Les fruits du terroir tunisien",
     description: "Des fruits tunisiens sélectionnés avec soin, transformés en confitures généreuses et parfumées. Chaque boîte est une invitation à retrouver le goût authentique du terroir tunisien. 4 saveurs, autant de moments de partage.",
   },
@@ -327,48 +331,92 @@ export const allProducts: Product[] = [
     badges: ["Produit de l'Année — 7 fois"],
   },
   {
-    id: "conf-abricot",
+    id: "conf-abricot-470",
     name: "Confiture d'Abricot",
-    image: confAbricot,
+    image: confAbricot470,
     category: "confitures",
-    description: "Confiture d'abricots tunisiens, préparée avec des fruits sélectionnés pour leur maturité et leur parfum. Texture généreuse, goût ensoleillé qui rappelle les vergers du nord de la Tunisie.",
+    description: "Confiture d'abricots tunisiens, préparée avec des fruits sélectionnés pour leur maturité et leur parfum. Texture généreuse, goût ensoleillé qui rappelle les vergers du nord de la Tunisie. Sans conservateurs, sans colorants.",
     shortDesc: "Abricots tunisiens, saveur ensoleillée",
-    tags: ["Fruits tunisiens"],
+    tags: ["Fruits tunisiens", "Sans conservateurs"],
     zrp: false,
-    formats: "Boîte",
+    formats: "Boîte — 470g net",
   },
   {
-    id: "conf-coing",
+    id: "conf-abricot-270",
+    name: "Confiture d'Abricot",
+    image: confAbricot270,
+    category: "confitures",
+    description: "Confiture d'abricots tunisiens, préparée avec des fruits sélectionnés pour leur maturité et leur parfum. Texture généreuse, goût ensoleillé qui rappelle les vergers du nord de la Tunisie. Sans conservateurs, sans colorants.",
+    shortDesc: "Abricots tunisiens, saveur ensoleillée",
+    tags: ["Fruits tunisiens", "Sans conservateurs"],
+    zrp: false,
+    formats: "Boîte — 270g net",
+  },
+  {
+    id: "conf-coing-470",
     name: "Confiture de Coing",
-    image: confCoing,
+    image: confCoing470,
     category: "confitures",
-    description: "Le coing tunisien sublimé en confiture dorée et parfumée. Saveur douce et subtilement épicée, parfaite pour les petits-déjeuners et les goûters authentiques.",
+    description: "Le coing tunisien sublimé en confiture dorée et parfumée. Saveur douce et subtilement épicée, parfaite pour les petits-déjeuners et les goûters authentiques. Sans conservateurs, sans colorants.",
     shortDesc: "Coing tunisien, saveur dorée",
-    tags: ["Fruits tunisiens"],
+    tags: ["Fruits tunisiens", "Sans conservateurs"],
     zrp: false,
-    formats: "Boîte",
+    formats: "Boîte — 470g net",
   },
   {
-    id: "conf-figue",
+    id: "conf-coing-270",
+    name: "Confiture de Coing",
+    image: confCoing270,
+    category: "confitures",
+    description: "Le coing tunisien sublimé en confiture dorée et parfumée. Saveur douce et subtilement épicée, parfaite pour les petits-déjeuners et les goûters authentiques. Sans conservateurs, sans colorants.",
+    shortDesc: "Coing tunisien, saveur dorée",
+    tags: ["Fruits tunisiens", "Sans conservateurs"],
+    zrp: false,
+    formats: "Boîte — 270g net",
+  },
+  {
+    id: "conf-figue-470",
     name: "Confiture de Figue",
-    image: confFigue,
+    image: confFigue470,
     category: "confitures",
-    description: "Des figues tunisiennes gorgées de soleil, transformées en une confiture onctueuse et savoureuse. Le goût du terroir tunisien dans chaque cuillère.",
+    description: "Des figues tunisiennes gorgées de soleil, transformées en une confiture onctueuse et savoureuse. Le goût du terroir tunisien dans chaque cuillère. Sans conservateurs, sans colorants.",
     shortDesc: "Figues tunisiennes, goût du terroir",
-    tags: ["Fruits tunisiens"],
+    tags: ["Fruits tunisiens", "Sans conservateurs"],
     zrp: false,
-    formats: "Boîte",
+    formats: "Boîte — 470g net",
   },
   {
-    id: "conf-fraise",
-    name: "Confiture de Fraise",
-    image: confFraise,
+    id: "conf-figue-270",
+    name: "Confiture de Figue",
+    image: confFigue270,
     category: "confitures",
-    description: "Des fraises tunisiennes sélectionnées pour leur douceur et leur arôme intense. Confiture classique, généreuse en fruits, pour tous les moments de partage.",
-    shortDesc: "Fraises tunisiennes, généreuse en fruits",
-    tags: ["Fruits tunisiens"],
+    description: "Des figues tunisiennes gorgées de soleil, transformées en une confiture onctueuse et savoureuse. Le goût du terroir tunisien dans chaque cuillère. Sans conservateurs, sans colorants.",
+    shortDesc: "Figues tunisiennes, goût du terroir",
+    tags: ["Fruits tunisiens", "Sans conservateurs"],
     zrp: false,
-    formats: "Boîte",
+    formats: "Boîte — 270g net",
+  },
+  {
+    id: "conf-fraise-470",
+    name: "Confiture de Fraise",
+    image: confFraise470,
+    category: "confitures",
+    description: "Des fraises tunisiennes sélectionnées pour leur douceur et leur arôme intense. Confiture classique, généreuse en fruits, pour tous les moments de partage. Sans conservateurs, sans colorants.",
+    shortDesc: "Fraises tunisiennes, généreuse en fruits",
+    tags: ["Fruits tunisiens", "Sans conservateurs"],
+    zrp: false,
+    formats: "Boîte — 470g net",
+  },
+  {
+    id: "conf-fraise-270",
+    name: "Confiture de Fraise",
+    image: confFraise270,
+    category: "confitures",
+    description: "Des fraises tunisiennes sélectionnées pour leur douceur et leur arôme intense. Confiture classique, généreuse en fruits, pour tous les moments de partage. Sans conservateurs, sans colorants.",
+    shortDesc: "Fraises tunisiennes, généreuse en fruits",
+    tags: ["Fruits tunisiens", "Sans conservateurs"],
+    zrp: false,
+    formats: "Boîte — 270g net",
   },
   {
     id: "champignons-paris",
