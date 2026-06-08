@@ -14,10 +14,6 @@ export function ContestPopup() {
     return () => clearTimeout(t);
   }, []);
 
-  function handleClose() {
-    setOpen(false);
-  }
-
   return (
     <AnimatePresence>
       {open && (
@@ -29,7 +25,7 @@ export function ContestPopup() {
           transition={{ duration: 0.3 }}
           className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-8"
           style={{ background: "rgba(0,0,0,0.75)" }}
-          onClick={handleClose}
+          onClick={() => setOpen(false)}
         >
           <motion.div
             key="contest-card"
@@ -42,7 +38,7 @@ export function ContestPopup() {
           >
             {/* Bouton fermer */}
             <button
-              onClick={handleClose}
+              onClick={() => setOpen(false)}
               className="absolute -top-3 -right-3 z-30 w-9 h-9 rounded-full bg-white shadow-lg flex items-center justify-center text-slate-700 hover:text-primary hover:shadow-xl transition-all"
               aria-label="Fermer"
               data-testid="btn-close-contest"
@@ -50,32 +46,33 @@ export function ContestPopup() {
               <X size={18} />
             </button>
 
-            {/* Conteneur image + zones cliquables */}
-            <div className="relative rounded-2xl overflow-hidden select-none">
+            {/* Image + zones cliquables superposées */}
+            <div className="relative rounded-2xl overflow-hidden">
+              <img
+                src={contestImg}
+                alt="Jeu concours SICAM"
+                className="w-full h-auto block"
+                draggable={false}
+              />
 
-              {/* Image — cliquable → Facebook */}
+              {/* Zone Facebook — icône FB dans l'image ~40% left, ~60% top */}
               <a
                 href={FB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block cursor-pointer"
+                className="absolute z-10 cursor-pointer hover:opacity-20 hover:bg-blue-400 rounded-lg transition-opacity"
+                style={{ left: "39%", top: "58%", width: "7%", height: "13%" }}
+                aria-label="Facebook SICAM"
                 data-testid="link-contest-fb"
-              >
-                <img
-                  src={contestImg}
-                  alt="Jeu concours SICAM"
-                  className="w-full h-auto block hover:brightness-105 transition-all duration-200"
-                  draggable={false}
-                />
-              </a>
+              />
 
-              {/* Zone Instagram par-dessus — icône IG dans l'image ~47% left, ~68% top */}
+              {/* Zone Instagram — icône IG dans l'image ~45% left, ~67% top */}
               <a
                 href={IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute z-20 cursor-pointer rounded-full"
-                style={{ left: "44%", top: "66%", width: "9%", height: "16%" }}
+                className="absolute z-10 cursor-pointer hover:opacity-20 hover:bg-pink-400 rounded-lg transition-opacity"
+                style={{ left: "43%", top: "67%", width: "7%", height: "13%" }}
                 aria-label="Instagram SICAM"
                 data-testid="link-contest-ig"
               />
