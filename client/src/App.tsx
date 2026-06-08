@@ -8,6 +8,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
+import { ContestPopup } from "@/components/ContestPopup";
 import Home from "@/pages/Home";
 import ZRP from "@/pages/ZRP";
 import NosProduits from "@/pages/NosProduits";
@@ -56,6 +57,7 @@ function App() {
           <Footer />
         </div>
         <CookieConsent />
+        <ContestPopup />
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
