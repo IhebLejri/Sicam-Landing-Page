@@ -55,6 +55,10 @@ export function ContestPopup() {
                 draggable={false}
               />
 
+              {/* Masques blancs pour couvrir les icônes de la photo */}
+              <div className="absolute z-10 bg-white rounded-sm" style={{ left: "36.3%", top: "67%", transform: "translate(-50%, -50%)", width: "4.5%", aspectRatio: "1" }} />
+              <div className="absolute z-10 bg-white rounded-sm" style={{ left: "36%", top: "72.5%", transform: "translate(-50%, -50%)", width: "4.5%", aspectRatio: "1" }} />
+
               {/* Icône Facebook — centrée sur l'icône FB de l'image */}
               <a
                 href={FB_URL}
