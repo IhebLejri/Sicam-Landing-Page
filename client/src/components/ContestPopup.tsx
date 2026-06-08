@@ -10,15 +10,11 @@ export function ContestPopup() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const seen = sessionStorage.getItem("sicam_contest_seen");
-    if (!seen) {
-      const t = setTimeout(() => setOpen(true), 600);
-      return () => clearTimeout(t);
-    }
+    const t = setTimeout(() => setOpen(true), 600);
+    return () => clearTimeout(t);
   }, []);
 
   function handleClose() {
-    sessionStorage.setItem("sicam_contest_seen", "1");
     setOpen(false);
   }
 
