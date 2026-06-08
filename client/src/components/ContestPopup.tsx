@@ -62,7 +62,7 @@ export function ContestPopup() {
                 rel="noopener noreferrer"
                 onClick={e => e.stopPropagation()}
                 className="absolute z-20 flex items-center justify-center w-[3%] aspect-square rounded-lg bg-[#1877F2] hover:bg-[#1565d8] shadow-md hover:scale-110 transition-all"
-                style={{ left: "35.8%", top: "67%", transform: "translate(-50%, -50%)" }}
+                style={{ left: "37.2%", top: "67%", transform: "translate(-50%, -50%)" }}
                 aria-label="Facebook SICAM"
                 data-testid="link-contest-fb"
               >
