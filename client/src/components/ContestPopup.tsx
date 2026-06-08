@@ -40,42 +40,43 @@ export function ContestPopup() {
             className="relative w-full max-w-3xl"
             onClick={e => e.stopPropagation()}
           >
+            {/* Bouton fermer */}
             <button
               onClick={handleClose}
-              className="absolute -top-3 -right-3 z-10 w-9 h-9 rounded-full bg-white shadow-lg flex items-center justify-center text-slate-700 hover:text-primary hover:shadow-xl transition-all"
+              className="absolute -top-3 -right-3 z-30 w-9 h-9 rounded-full bg-white shadow-lg flex items-center justify-center text-slate-700 hover:text-primary hover:shadow-xl transition-all"
               aria-label="Fermer"
               data-testid="btn-close-contest"
             >
               <X size={18} />
             </button>
 
-            <div className="relative rounded-2xl overflow-hidden">
-              <img
-                src={contestImg}
-                alt="Jeu concours SICAM — Chajja3, Sannaf w Irbah"
-                className="w-full h-auto block"
-                draggable={false}
-              />
+            {/* Conteneur image + zones cliquables */}
+            <div className="relative rounded-2xl overflow-hidden select-none">
 
-              {/* Zone cliquable Facebook — icône positionnée ~41% left, ~64% top, taille ~9% */}
+              {/* Image — cliquable → Facebook */}
               <a
                 href={FB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute cursor-pointer rounded-full"
-                style={{ left: "39%", top: "60%", width: "8%", height: "14%" }}
-                aria-label="Suivre SICAM sur Facebook"
+                className="block cursor-pointer"
                 data-testid="link-contest-fb"
-              />
+              >
+                <img
+                  src={contestImg}
+                  alt="Jeu concours SICAM"
+                  className="w-full h-auto block hover:brightness-105 transition-all duration-200"
+                  draggable={false}
+                />
+              </a>
 
-              {/* Zone cliquable Instagram — icône positionnée ~47% left, ~70% top */}
+              {/* Zone Instagram par-dessus — icône IG dans l'image ~47% left, ~68% top */}
               <a
                 href={IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute cursor-pointer rounded-full"
-                style={{ left: "44%", top: "70%", width: "8%", height: "14%" }}
-                aria-label="Suivre SICAM sur Instagram"
+                className="absolute z-20 cursor-pointer rounded-full"
+                style={{ left: "44%", top: "66%", width: "9%", height: "16%" }}
+                aria-label="Instagram SICAM"
                 data-testid="link-contest-ig"
               />
             </div>
