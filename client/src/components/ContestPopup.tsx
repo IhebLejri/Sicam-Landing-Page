@@ -80,7 +80,7 @@ export function ContestPopup() {
                 className="absolute z-20 flex items-center justify-center w-[3%] aspect-square rounded-lg shadow-md hover:scale-110 transition-all"
                 style={{
                   left: "36%",
-                  top: "71%",
+                  top: "72.5%",
                   transform: "translate(-50%, -50%)",
                   background: "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)"
                 }}
