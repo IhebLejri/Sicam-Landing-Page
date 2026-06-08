@@ -61,8 +61,8 @@ export function ContestPopup() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={e => e.stopPropagation()}
-                className="absolute z-20 flex items-center justify-center w-[4.5%] aspect-square rounded-full bg-[#1877F2] hover:bg-[#1565d8] shadow-md hover:scale-110 transition-all"
-                style={{ left: "36%", top: "64%", transform: "translate(-50%, -50%)" }}
+                className="absolute z-20 flex items-center justify-center w-[3%] aspect-square rounded-lg bg-[#1877F2] hover:bg-[#1565d8] shadow-md hover:scale-110 transition-all"
+                style={{ left: "36%", top: "63%", transform: "translate(-50%, -50%)" }}
                 aria-label="Facebook SICAM"
                 data-testid="link-contest-fb"
               >
@@ -77,10 +77,10 @@ export function ContestPopup() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={e => e.stopPropagation()}
-                className="absolute z-20 flex items-center justify-center w-[4.5%] aspect-square rounded-full shadow-md hover:scale-110 transition-all"
+                className="absolute z-20 flex items-center justify-center w-[3%] aspect-square rounded-lg shadow-md hover:scale-110 transition-all"
                 style={{
                   left: "36%",
-                  top: "72%",
+                  top: "71%",
                   transform: "translate(-50%, -50%)",
                   background: "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)"
                 }}
